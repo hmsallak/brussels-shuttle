@@ -1,26 +1,16 @@
 import {
-  AfterViewInit,
   Component,
-  ElementRef,
   EventEmitter,
-  inject,
-  Input, NgZone, OnDestroy,
+  Input,
   OnInit,
-  Output, Renderer2,
-  ViewChild
+  Output,
 } from '@angular/core';
 import {TuiInputDateModule, TuiInputModule} from "@taiga-ui/kit";
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {TuiTextfieldControllerModule} from "@taiga-ui/core";
-import {debounceTime, Observable, Observer, switchMap} from "rxjs";
-import {GooglePlacesGateway} from "../../../core/adapters/google-places.gateway";
 import {MatFormField, MatInput} from "@angular/material/input";
-import {Address} from "../../../core/models/address";
-import {tuiIconHeartLarge} from "@taiga-ui/icons";
 import {GooglePlacesDirective} from "../../directives/google-places.directive";
 import {PlaceAddress} from "../../../core/models/PlaceAddress";
-import {matDialogAnimations} from "@angular/material/dialog";
-
 @Component({
   selector: 'app-place-auto-complete',
   standalone: true,

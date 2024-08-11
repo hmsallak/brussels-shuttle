@@ -1,14 +1,14 @@
 import {Passenger} from "./passenger";
 import {VehicleModel} from "./vehicle-model";
-import {PlaceAddress} from "./PlaceAddress";
+import {Trip} from "./Trip";
+import {PaymentMethodEnum} from "./enum/payment-method.enum";
 
 export interface Booking {
   id: number;
   passenger: Passenger;
-  passengerCount: number;
-  bookingStartTime: Date;
-  startAddress: PlaceAddress;
-  endAddress: PlaceAddress;
+  timestamp: Date;
+  trip: Trip;
   vehicleModel: VehicleModel;
-  flightNumber: string;
+  amount: number;
+  paymentMethodType: PaymentMethodEnum;
 }

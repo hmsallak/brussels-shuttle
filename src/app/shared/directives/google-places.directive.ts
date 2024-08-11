@@ -1,5 +1,4 @@
 import {AfterViewInit, Directive, ElementRef, EventEmitter, NgZone, OnDestroy, OnInit, Output} from '@angular/core';
-import {Address} from "../../core/models/address";
 import {PlaceAddress} from "../../core/models/PlaceAddress";
 
 @Directive({

@@ -1,9 +1,10 @@
-<h2 class="text-2xl font-semibold">Choisissez une course</h2>
-@for (vehicleModelPrice of journeyQuote()?.vehicleModelPrices; track journeyQuote){
+@for (vehicleModelPrice of journeyQuote().vehicleModelPrices; track vehicleModelPrice.vehicleModel.id){
   <div class="my-5">
     <app-vehicle-model-price [vehicleModelPrice]="vehicleModelPrice"
                              [vehicleModelIdForm]="vehicleModelIdForm"
-                             [passengerCount]="passengerCount"></app-vehicle-model-price>
+                             [passengerCount]="passengerCount()"
+                             (click)="selectVehicleModelEvent.emit(vehicleModelPrice.vehicleModel)"
+    ></app-vehicle-model-price>
   </div>
 }
 

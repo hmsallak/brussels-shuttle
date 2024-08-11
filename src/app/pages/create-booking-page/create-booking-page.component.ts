@@ -5,10 +5,10 @@ import {TitleComponent} from "../../shared/components/title/title.component";
 @Component({
   selector: 'app-create-booking-page',
   standalone: true,
-    imports: [
-        CreateBookingComponent,
-        TitleComponent
-    ],
+  imports: [
+    CreateBookingComponent,
+    TitleComponent,
+  ],
   templateUrl: './create-booking-page.component.html',
   styleUrl: './create-booking-page.component.css'
 })

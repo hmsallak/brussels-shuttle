@@ -1,43 +1,46 @@
-<section class="lg:flex lg:space-x-10 w-full">
-  <div class="lg:w-[450px]">
-    <app-booking-details [passengerCountForm]="passengerCount"
-                         [startAddressForm]="startAddress"
-                          [endAddressForm]="endAddress"
-                          [startTimeForm]="startTime"
-    ></app-booking-details>
-    @defer (when bookingDetailsFormGroup.valid){
-      <button
-        iconRight="tuiIconSearch"
-        tuiButton
-        type="button"
-        (click)="searchJourneyQuote()"
-        class="tui-space_right-3 tui-space_bottom-3 w-full mt-4 shadow-xl"
-        [disabled]="bookingDetailsFormGroup.invalid">
-        Rechercher
-      </button>
-    }
-  </div>
+<div class="lg:flex lg:space-x-10 w-full">
+  <section class="lg:w-[450px] mb-10">
+    <app-booking-details (bookingDetails)="setBookingDetails($event)">
+    </app-booking-details>
+  </section>
 
-  @if(bookingDetailsFormGroup.valid){
-    @defer (when journeyQuote != null){
-      <div>
-        <app-journey-quote [journeyQuote]="journeyQuote!" [vehicleModelIdForm]="vehicleModelId" [passengerCount]="passengerCount.value"></app-journey-quote>
-      </div>
+  @if(bookingDetails() != null){
+    @defer (when journeyQuote()){
+      <section class="mb-10">
+        <div>
+          <app-banner [title]="'Choisissez une course'"
+                      [isError]="isVehicleModelInvalid()">
+          </app-banner>
+          <app-journey-quote [journeyQuote]="journeyQuote()!"
+                             [passengerCount]="bookingDetails()!.passengerCount"
+                             (selectVehicleModelEvent)="vehicleModel.set($event)">
+          </app-journey-quote>
+        </div>
+        <div class="mb-10">
+          <app-banner [title]="'Information personnel'"
+                      [isError]="isPersonalInformationInvalid()">
+          </app-banner>
+          <app-personal-information-dialog (personalInformation)="personalInformation.set($event)">
+          </app-personal-information-dialog>
+        </div>
+        <app-payment-method-button (paymentMethod)="book($event); bookTouched = true"></app-payment-method-button>
+      </section>
+
     } @loading (minimum 1s){
-      <div class="flex max-w-xl w-full flex-col gap-4">
+      <section class="flex max-w-xl w-full flex-col gap-4">
         <div class="skeleton h-10 w-48"></div>
         <div class="skeleton h-24 w-full"></div>
         <div class="skeleton h-24 w-full"></div>
         <div class="skeleton h-24 w-full"></div>
-      </div>
+        <div class="skeleton h-24 mt-5 w-full"></div>
+        <div class="skeleton h-10 w-56 mt-10"></div>
+      </section>
     }
   }
 
-
-  <div class="grid flex-grow" style="height: 70vh">
-    <app-google-map [startAddress]="placeStartAddress.value"
-                    [endAddress]="placeEndAddress.value">
+  <section class="grid flex-grow" style="height: 70vh">
+    <app-google-map [startAddress]="bookingDetails()?.startAddress?.place"
+                    [endAddress]="bookingDetails()?.endAddress?.place">
     </app-google-map>
-  </div>
-
-</section>
+  </section>
+</div>

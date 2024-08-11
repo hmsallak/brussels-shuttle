@@ -1,6 +1,6 @@
 import {inject, Injectable} from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import {JourneyQuoteRequest} from "../models/journey-quote-request";
+import {JourneyQuoteRequest} from "../models/request/journey-quote-request";
 import {map, Observable} from "rxjs";
 import {JourneyQuote} from "../models/journey-quote";
 import {environment} from "../../../environments/environment";

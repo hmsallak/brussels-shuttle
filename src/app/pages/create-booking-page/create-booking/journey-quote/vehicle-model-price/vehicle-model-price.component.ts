@@ -34,7 +34,9 @@ export class VehicleModelPriceComponent {
   }
 
   select(){
-    this.vehicleModelIdForm.setValue(this.vehicleModelPrice.vehicleModel.id);
+    if (!this.isDisabled) {
+      this.vehicleModelIdForm.setValue(this.vehicleModelPrice.vehicleModel.id);
+    }
   }
 
   get isSelected(): boolean {

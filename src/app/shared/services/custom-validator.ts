@@ -18,7 +18,6 @@ export function dateMinTomorrowValidator(): ValidatorFn {
 
     return null;
   };
-
 }
 
 export function timeValidator(): ValidatorFn {

@@ -1,14 +1,13 @@
 <section class="card bg-gray-50 shadow-xl pt-2 pb-10">
   <div class="card-actions justify-end pb-1 px-2">
-      <button class="btn btn-sm" (click)="clean()" [disabled]="!isTouched()">Effacer</button>
-
+      <button class="btn btn-sm" (click)="clean()" [disabled]="!bookingDetailsFormGroup.touched">Effacer</button>
   </div>
   <div class="card-body py-0">
     <div class="space-y-3">
       <h2 class="text-xl font-semibold">Quand souhaitez vous partir ?</h2>
 
       <tui-input-date
-        [formControl]="startTimeDate"
+        [formControl]="startTimeDateForm"
         class="b-form"
         [tuiTextfieldCleaner]="true">
         Choisissez une date de départ
@@ -19,7 +18,7 @@
         />
       </tui-input-date>
       <tui-input-time
-        [formControl]="startTimeTime">
+        [formControl]="startTimeTimeForm">
         Heure de départ
       </tui-input-time>
     </div>
