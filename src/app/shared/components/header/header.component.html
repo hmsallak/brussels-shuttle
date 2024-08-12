@@ -1,13 +1,14 @@
-<div class="navbar">
-  <div class="navbar-start">
+<div class="navbar" [ngClass]="{'text-white':isHover()}">
+
+  <div class="navbar-start " >
 
   <!--    Minimal View    -->
     <div class="dropdown">
       <div tabindex="0" role="button">
         <img [src]="'assets/images/bs_logo_horizontal.svg'" class="btn btn-ghost text-xl lg:hidden" height="auto" width="230">
       </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-        <li><a routerLink="/">Page principale</a></li>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
+        <li ><a routerLink="/">Page principale</a></li>
         <li><a routerLink="/create-booking">Réserver une course</a></li>
         <li>
           <a>{{ 'header.navbar.menu.services.title' | translate }}</a>
@@ -26,12 +27,12 @@
   </div>
 
   <!--    Maximum View    -->
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1 text-lg">
-      <li class="z-[1]">
+  <div class="navbar-center hidden lg:flex ">
+    <ul class="menu menu-horizontal px-1 text-lg ">
+      <li class="">
         <details>
           <summary>{{ 'header.navbar.menu.services.title' | translate }}</summary>
-          <ul class="w-64">
+          <ul class="w-64 text-black">
             <li><a>Taxi Aéorport</a></li>
             <li><a>Nos Offres</a></li>
           </ul>
@@ -42,7 +43,7 @@
     </ul>
   </div>
 
-  <div class="navbar-end">
+  <div class="navbar-end ">
     <ul class="menu menu-horizontal px-1 text-lg">
       <li>
         <a>Contact</a>
@@ -54,7 +55,7 @@
           <fa-icon [icon]="faChevronDown" class="text-xs"></fa-icon>
           </a>
         </li>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-black">
           @for(lang of languages; track lang) {
             <li><a (click)="changeLanguage(lang)">{{ 'language.'+lang | translate }}</a></li>
           }

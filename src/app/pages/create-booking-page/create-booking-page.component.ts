@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {CreateBookingComponent} from "./create-booking/create-booking.component";
 import {TitleComponent} from "../../shared/components/title/title.component";
+import {LayoutComponent} from "../../shared/components/layout/layout.component";
 
 @Component({
   selector: 'app-create-booking-page',
@@ -8,6 +9,7 @@ import {TitleComponent} from "../../shared/components/title/title.component";
   imports: [
     CreateBookingComponent,
     TitleComponent,
+    LayoutComponent,
   ],
   templateUrl: './create-booking-page.component.html',
   styleUrl: './create-booking-page.component.css'
