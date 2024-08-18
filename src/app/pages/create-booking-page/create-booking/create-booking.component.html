@@ -3,7 +3,6 @@
     <app-booking-details (bookingDetails)="setBookingDetails($event)">
     </app-booking-details>
   </section>
-
   @if(bookingDetails() != null){
     @defer (when journeyQuote()){
       <section class="mb-10">
@@ -20,8 +19,8 @@
           <app-banner [title]="'Information personnel'"
                       [isError]="isPersonalInformationInvalid()">
           </app-banner>
-          <app-personal-information-dialog (personalInformation)="personalInformation.set($event)">
-          </app-personal-information-dialog>
+<!--          <app-personal-information-dialog (personalInformation)="personalInformation.set($event)">-->
+<!--          </app-personal-information-dialog>-->
         </div>
         <app-payment-method-button (paymentMethod)="book($event); bookTouched = true"></app-payment-method-button>
       </section>

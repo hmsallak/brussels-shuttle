@@ -1,38 +1,29 @@
 import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {
-  TuiDataListWrapperModule,
-  TuiInputDateModule,
-  TuiInputDateTimeModule,
-  TuiInputTimeModule,
-  TuiSelectModule
-} from "@taiga-ui/kit";
-import {TuiButtonModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
-import {GoogleMap} from "@angular/google-maps";
+
+import {dateMinTomorrowValidator, timeValidator} from "../../../../shared/services/custom-validator";
+import {BookingDetails} from "../../../../core/models/booking-details";
+import {ActivatedRoute, Router} from "@angular/router";
+import {TuiDay, TuiTime} from "@taiga-ui/cdk";
+import {TuiDataListWrapperModule, TuiInputDateModule, TuiInputTimeModule, TuiSelectModule} from "@taiga-ui/kit";
+import {TuiTextfieldControllerModule} from "@taiga-ui/core";
 import {
   PlaceAutocompleteComponent
 } from "../../../../shared/components/place-auto-complete/place-auto-complete.component";
-import {dateMinTomorrowValidator, timeValidator} from "../../../../shared/services/custom-validator";
-import {BookingDetails} from "../../../../core/models/booking-details";
-import {JsonPipe} from "@angular/common";
-import {ActivatedRoute, Router} from "@angular/router";
-import {TuiDay, TuiTime} from "@taiga-ui/cdk";
+
 
 @Component({
   selector: 'app-booking-details',
   standalone: true,
   imports: [
-    TuiInputDateTimeModule,
-    ReactiveFormsModule,
-    TuiTextfieldControllerModule,
-    GoogleMap,
-    PlaceAutocompleteComponent,
-    TuiInputTimeModule,
-    TuiInputDateModule,
     TuiSelectModule,
+    TuiTextfieldControllerModule,
+    ReactiveFormsModule,
+    PlaceAutocompleteComponent,
     TuiDataListWrapperModule,
-    TuiButtonModule,
-    JsonPipe
+    TuiInputDateModule,
+    TuiInputTimeModule
+
   ],
   templateUrl: './booking-details.component.html',
   styleUrl: './booking-details.component.css'

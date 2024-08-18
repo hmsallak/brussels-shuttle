@@ -1,7 +1,7 @@
 import {Component, input, Input} from '@angular/core';
-import {faCircleExclamation} from "@fortawesome/free-solid-svg-icons/faCircleExclamation";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {NgClass} from "@angular/common";
+import {faCircleExclamation} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-banner',

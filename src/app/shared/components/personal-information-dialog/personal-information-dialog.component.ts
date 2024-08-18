@@ -1,23 +1,22 @@
-import {ChangeDetectorRef, Component, EventEmitter, inject, Output} from '@angular/core';
+import {Component, EventEmitter, inject, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {TuiButtonModule, TuiDialogModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
-import {faCashRegister, faChevronRight, faMoneyBill, faUser} from "@fortawesome/free-solid-svg-icons";
-import {TuiInputModule, TuiInputPhoneInternationalModule} from "@taiga-ui/kit";
+import {faChevronRight, faUser} from "@fortawesome/free-solid-svg-icons";
 import {TuiCountryIsoCode} from '@taiga-ui/i18n';
 import {Passenger} from "../../../core/models/passenger";
+import {FaIconComponent} from "@fortawesome/angular-fontawesome";
+import {TuiButtonModule, TuiDialogModule} from "@taiga-ui/core";
+import {TuiInputModule, TuiInputPhoneInternationalModule} from "@taiga-ui/kit";
 
 @Component({
   selector: 'app-personal-information-dialog',
   standalone: true,
   imports: [
     FaIconComponent,
-    ReactiveFormsModule,
-    TuiButtonModule,
     TuiDialogModule,
+    ReactiveFormsModule,
     TuiInputModule,
     TuiInputPhoneInternationalModule,
-    TuiTextfieldControllerModule
+    TuiButtonModule
   ],
   templateUrl: './personal-information-dialog.component.html',
   styleUrl: './personal-information-dialog.component.css'
@@ -35,16 +34,9 @@ export class PersonalInformationDialogComponent {
     phone: new FormControl('99999999', [Validators.required, Validators.minLength(3)]),
   });
 
-  readonly countries: readonly TuiCountryIsoCode[] = [
-    TuiCountryIsoCode.BE,
-    TuiCountryIsoCode.FR,
-    TuiCountryIsoCode.NL,
-    TuiCountryIsoCode.LU,
-    TuiCountryIsoCode.ES,
-    TuiCountryIsoCode.DE,
-  ];
+  readonly countries: readonly TuiCountryIsoCode[] = [TuiCountryIsoCode.BE, TuiCountryIsoCode.FR, TuiCountryIsoCode.NL, TuiCountryIsoCode.LU, TuiCountryIsoCode.ES, TuiCountryIsoCode.DE];
   open = false;
-  countryIsoCode = TuiCountryIsoCode.BE;
+  countryIsoCode : TuiCountryIsoCode  = TuiCountryIsoCode.BE;
 
   @Output()
   public personalInformation = new EventEmitter<Passenger>();
@@ -66,7 +58,7 @@ export class PersonalInformationDialogComponent {
   }
 
   openModal() {
-    this.open = true;
+   this.open = true;
   }
 
   save() {

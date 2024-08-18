@@ -3,6 +3,7 @@ import {HomePageComponent} from "./pages/home-page/home-page.component";
 import {CreateBookingPageComponent} from "./pages/create-booking-page/create-booking-page.component";
 import {SuccessPageComponent} from "./pages/success-page/success-page.component";
 import {CancelPageComponent} from "./pages/cancel-page/cancel-page.component";
+import {ContactPageComponent} from "./pages/contact-page/contact-page.component";
 
 export const routes: Routes = [
   {
@@ -20,5 +21,13 @@ export const routes: Routes = [
   {
     path: 'cancel',
     component: CancelPageComponent
+  },
+  {
+    path: 'contact',
+    component: ContactPageComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];

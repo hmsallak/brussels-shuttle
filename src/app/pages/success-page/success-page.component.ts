@@ -1,11 +1,10 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PaymentGateway} from "../../core/ports/payment.gateway";
-import {AsyncPipe, JsonPipe} from "@angular/common";
+import {AsyncPipe} from "@angular/common";
 import {catchError, map, of} from "rxjs";
 import {OrderConfirmComponent} from "./order-confirm/order-confirm.component";
 import {AnimationOptions, LottieComponent} from "ngx-lottie";
-import {NgxPrintDirective} from "ngx-print";
 import {BookingGateway} from "../../core/ports/booking.gateway";
 
 @Component({
@@ -13,10 +12,8 @@ import {BookingGateway} from "../../core/ports/booking.gateway";
   standalone: true,
   imports: [
     AsyncPipe,
-    JsonPipe,
     OrderConfirmComponent,
-    LottieComponent,
-    NgxPrintDirective
+    LottieComponent
   ],
   templateUrl: './success-page.component.html',
   styleUrl: './success-page.component.css'

@@ -24,6 +24,10 @@ export class StripeService{
     ).subscribe();
   }
 
+  private initStripe() {
+
+  }
+
   getSessionById(sessionId: string) {
   }
 }

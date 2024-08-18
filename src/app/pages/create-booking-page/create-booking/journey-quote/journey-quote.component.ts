@@ -1,6 +1,5 @@
-import {Component, EventEmitter, input, Input, Output, signal, WritableSignal} from '@angular/core';
+import {Component, EventEmitter, input, Output} from '@angular/core';
 import {JourneyQuote} from "../../../../core/models/journey-quote";
-import {JsonPipe} from "@angular/common";
 import {VehicleModelPriceComponent} from "./vehicle-model-price/vehicle-model-price.component";
 import {FormControl, Validators} from "@angular/forms";
 import {VehicleModel} from "../../../../core/models/vehicle-model";
@@ -9,7 +8,6 @@ import {VehicleModel} from "../../../../core/models/vehicle-model";
   selector: 'app-journey-quote',
   standalone: true,
   imports: [
-    JsonPipe,
     VehicleModelPriceComponent
   ],
   templateUrl: './journey-quote.component.html',

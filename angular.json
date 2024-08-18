@@ -13,6 +13,15 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@taiga-ui/cdk",
+              "@taiga-ui/core",
+              "@taiga-ui/icons",
+              "@taiga-ui/kit",
+              "@taiga-ui/styles",
+              "@taiga-ui/i18n",
+              "lottie-web"
+            ],
             "outputPath": "dist/brussels-shuttle-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
@@ -36,7 +45,21 @@
             "scripts": []
           },
           "configurations": {
+            "localhost": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.localhost.ts"
+                }
+              ]
+            },
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -67,6 +90,9 @@
             },
             "development": {
               "buildTarget": "brussels-shuttle-frontend:build:development"
+            },
+            "localhost": {
+              "browserTarget": "brussels-shuttle-frontend:build:localhost"
             }
           },
           "defaultConfiguration": "development"

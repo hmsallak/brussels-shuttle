@@ -5,12 +5,14 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import {TuiInputDateModule, TuiInputModule} from "@taiga-ui/kit";
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {TuiTextfieldControllerModule} from "@taiga-ui/core";
-import {MatFormField, MatInput} from "@angular/material/input";
-import {GooglePlacesDirective} from "../../directives/google-places.directive";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {PlaceAddress} from "../../../core/models/PlaceAddress";
+import {TuiInputModule} from "@taiga-ui/kit";
+import {TuiTextfieldControllerModule} from "@taiga-ui/core";
+import {GooglePlacesDirective} from "../../directives/google-places.directive";
+
+
+
 @Component({
   selector: 'app-place-auto-complete',
   standalone: true,
@@ -18,11 +20,8 @@ import {PlaceAddress} from "../../../core/models/PlaceAddress";
     TuiInputModule,
     TuiTextfieldControllerModule,
     ReactiveFormsModule,
-    FormsModule,
-    MatInput,
-    MatFormField,
-    TuiInputDateModule,
     GooglePlacesDirective
+
   ],
   templateUrl: './place-auto-complete.component.html',
   styleUrl: './place-auto-complete.component.css'

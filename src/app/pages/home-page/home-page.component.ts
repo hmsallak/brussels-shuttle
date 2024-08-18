@@ -1,16 +1,10 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {faArrowRight} from "@fortawesome/free-solid-svg-icons/faArrowRight";
 import {
   faCheckCircle,
-  faCircle,
-  faMapLocationDot,
-  faPhoneVolume,
-  faPlaneDeparture
+  faCircle
 } from "@fortawesome/free-solid-svg-icons";
-import {faTaxi} from "@fortawesome/free-solid-svg-icons/faTaxi";
 import {NoticesComponent} from "./notices/notices.component";
-import {faMailForward} from "@fortawesome/free-solid-svg-icons/faMailForward";
 import {ReservationApproachComponent} from "./reservation-approach/reservation-approach.component";
 import {TitleComponent} from "../../shared/components/title/title.component";
 import {PositionEnum} from "../../core/models/enum/position.enum";
@@ -37,16 +31,11 @@ import {CarsComponent} from "./cars/cars.component";
     CarsComponent
   ],
   templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.css'
+  styleUrl: './home-page.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomePageComponent {
 
-  protected readonly faArrowRight = faArrowRight;
-  protected readonly faPhoneVolume = faPhoneVolume;
-  protected readonly faMapLocationDot = faMapLocationDot;
-  protected readonly faPlaneDeparture = faPlaneDeparture;
-  protected readonly faTaxi = faTaxi;
-  protected readonly faMailForward = faMailForward;
   protected readonly PositionEnum = PositionEnum;
   protected readonly faCircle = faCircle;
   protected readonly faCheckCircle = faCheckCircle;

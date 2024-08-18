@@ -1,4 +1,4 @@
-<app-layout [isHover]="false">
+<app-layout>
   <section class="mx-4 md:mx-10 lg:mx-24 2xl:mx-44 mt-2 mb-10">
     <div class="mb-16 pt-4 max-w-xl md:mx-auto lg:max-w-2xl">
       <app-title shortTitle="Réservation Maintenant"
@@ -6,7 +6,21 @@
                  description="Commandez votre course en taxi à Bruxelles pour vos déplacements vers toutes les destinations (Aéroports, gares et longues distances).">
       </app-title>
     </div>
-
     <app-create-booking></app-create-booking>
   </section>
 </app-layout>
+
+<ngx-spinner>
+  <div class="w-96">
+    <div class="flex justify-center items-center h-screen">
+      <div class="relative inline-flex">
+        <div class="w-8 h-8 bg-white rounded-full"></div>
+        <div class="w-8 h-8 bg-white rounded-full absolute top-0 left-0 animate-ping"></div>
+        <div class="w-8 h-8 bg-white rounded-full absolute top-0 left-0 animate-pulse"></div>
+      </div>
+      <div class="text-white text-lg mx-auto text-center" >
+        En cours de réservation...
+      </div>
+    </div>
+  </div>
+</ngx-spinner>

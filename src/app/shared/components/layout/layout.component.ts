@@ -18,6 +18,6 @@ import {NgClass} from "@angular/common";
 })
 export class LayoutComponent {
 
-  isHover= input(false)
+  absoluteHeader= input(false)
 
 }

@@ -1,4 +1,4 @@
-<div class="navbar" [ngClass]="{'text-white':isHover()}">
+<div class="navbar" [ngClass]="{'text-white':absolute()}">
 
   <div class="navbar-start " >
 
@@ -46,7 +46,7 @@
   <div class="navbar-end ">
     <ul class="menu menu-horizontal px-1 text-lg">
       <li>
-        <a>Contact</a>
+        <a routerLink="/contact">Contact</a>
       </li>
       <div class="dropdown dropdown-bottom dropdown-end">
         <li tabindex="0">

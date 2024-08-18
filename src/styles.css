@@ -3,7 +3,6 @@
 @import '@taiga-ui/core/styles/taiga-ui-local.less';
 @import '@taiga-ui/core/styles/taiga-ui-fonts.less';
 @import "@fortawesome/fontawesome-svg-core/styles.css";
-
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
 @tailwind base;
 @tailwind components;

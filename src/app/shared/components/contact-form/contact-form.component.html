@@ -1,0 +1,55 @@
+<section>
+  <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+    <form class="space-y-8">
+      <label class="block text-sm text-gray-800">
+        Votre email
+        <tui-input  [tuiTextfieldCleaner]="true"
+                    [tuiTextfieldLabelOutside]="true"
+                    [formControl]="emailFormControl">
+          <input tuiTextfield
+                 class="bg-transparent py-4 pl-4 appearance-none outline-0 w-full"/>
+        </tui-input>
+      </label>
+
+      <label class="block text-sm text-gray-800">
+        Nom
+        <tui-input  [tuiTextfieldCleaner]="true"
+                    [tuiTextfieldLabelOutside]="true"
+                    [formControl]="nameFormControl">
+          <input tuiTextfield
+                 class="bg-transparent py-4 pl-4 appearance-none outline-0 w-full"/>
+        </tui-input>
+      </label>
+
+      <label class="block text-sm text-gray-800">
+        Votre message
+        <tui-textarea  [formControl]="messageFormControl"
+                       [tuiTextfieldLabelOutside]="true">
+          écrivez un message
+        </tui-textarea>
+      </label>
+
+      <label
+        tuiLabel
+        class="tui-form__field-checkbox">
+        <input
+          [formControl]="acceptedTermsFormControl"
+          tuiCheckbox
+          type="checkbox"/>
+        J'accepte que les données que j'ai fournies soient collectées et stockées.
+      </label>
+
+      <div class="tui-form__buttons">
+        <button
+          (click)="onSubmit()"
+          size="l"
+          tuiButton
+          [disabled]="!isFormValid"
+          type="submit"
+          class="tui-form__button">
+          Envoyer
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

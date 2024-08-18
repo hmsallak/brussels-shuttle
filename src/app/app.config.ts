@@ -1,12 +1,15 @@
-import { provideAnimations } from "@angular/platform-browser/animations";
-import {TUI_DIALOGS_CLOSE, TuiDialogModule, TuiRootModule} from "@taiga-ui/core";
-import {ApplicationConfig, importProvidersFrom, inject, InjectionToken, LOCALE_ID} from '@angular/core';
+import {provideAnimations} from "@angular/platform-browser/animations";
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  LOCALE_ID
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
-import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {BookingGateway} from "./core/ports/booking.gateway";
 import {JourneyQuoteGateway} from "./core/ports/journey-quote.gateway";
@@ -26,6 +29,8 @@ import {registerLocaleData} from "@angular/common";
 import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
 import {environment} from "../environments/environment";
+import {TuiDialogModule, TuiRootModule} from "@taiga-ui/core";
+
 registerLocaleData(localeFr, 'fr');
 registerLocaleData(localeEn, 'en');
 
@@ -47,6 +52,7 @@ export function getBrowserLanguage(): string {
   // Vous pouvez éventuellement mapper des codes de langue plus spécifiques ici
   return language.split('-')[0]; // Prend la partie principale du code langue (ex: 'en' pour 'en-US')
 }
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
