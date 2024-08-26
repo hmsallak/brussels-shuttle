@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: brussels-shuttle-frontend
+    build: .
+    image: brussels-shuttle-frontend:latest
+    ports:
+      - "80:80"
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
