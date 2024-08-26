@@ -3,7 +3,7 @@ import {BookingDetailsComponent} from "./booking-details/booking-details.compone
 import {GoogleMapComponent} from "../../../shared/components/google-map/google-map.component";
 import {JourneyQuoteGateway} from "../../../core/ports/journey-quote.gateway";
 import {JourneyQuoteRequest} from "../../../core/models/request/journey-quote-request";
-import {catchError, map, of} from "rxjs";
+import {catchError, map, of, switchMap, tap, throwError} from "rxjs";
 import {JourneyQuote} from "../../../core/models/journey-quote";
 import {JourneyQuoteComponent} from "./journey-quote/journey-quote.component";
 import {BookingDetails} from "../../../core/models/booking-details";
@@ -21,9 +21,11 @@ import {Passenger} from "../../../core/models/passenger";
 import {BookingGateway} from "../../../core/ports/booking.gateway";
 import {BookingRequest} from "../../../core/models/request/booking-request";
 import {BannerComponent} from "../../../shared/components/banner/banner.component";
-import { Router } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {NgxSpinnerService} from "ngx-spinner";
 import {formatLocalDate} from "../../../shared/utils/date.utils";
+import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
+import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: 'app-create-booking',
@@ -34,7 +36,9 @@ import {formatLocalDate} from "../../../shared/utils/date.utils";
     JourneyQuoteComponent,
     PersonalInformationDialogComponent,
     PaymentMethodButtonComponent,
-    GoogleMapComponent
+    GoogleMapComponent,
+    RouterLink,
+    FaIconComponent
 
   ],
   templateUrl: './create-booking.component.html',
@@ -117,22 +121,30 @@ export class CreateBookingComponent {
         this.router.navigate(['/success'], { queryParams: { session: response.sessionToken } })
       }),
       catchError(error => {
-        console.log(error)
+        this.spinner.hide();
         return of(error);
       })
     ).subscribe();
   }
 
-  private bookWithStripe(request: BookingRequest){
+  private bookWithStripe(request: BookingRequest) {
     this.spinner.show();
     this.bookingGateway.createBooking(request).pipe(
-      map(response => {
-        this.spinner.hide();
-        this.stripeService.startPaymentCheckout(response.sessionToken);
-      }),
+      switchMap(response =>
+        this.stripeService.startPaymentCheckout(response.sessionToken).pipe(
+          tap(() => this.spinner.hide()),
+          catchError(error => {
+            this.spinner.hide();
+            return throwError(() => error);
+          })
+        )
+      ),
       catchError(error => {
+        this.spinner.hide();
         return of(error);
       })
-    ).subscribe()
+    ).subscribe();
   }
+
+  protected readonly faChevronRight = faChevronRight;
 }

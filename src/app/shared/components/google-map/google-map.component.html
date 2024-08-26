@@ -2,6 +2,7 @@
             [options]="{ mapTypeControl: false, streetViewControl: false }"
             [center]="center" [zoom]="11">
   @if(directionResult()){
-    <map-directions-renderer [directions]="directionResult()!"></map-directions-renderer>
+    <map-directions-renderer [directions]="directionResult()!">
+    </map-directions-renderer>
   }
 </google-map>

@@ -1,5 +1,11 @@
 import {Component, inject, Input, signal, WritableSignal} from '@angular/core';
-import {GoogleMap, MapDirectionsRenderer, MapDirectionsResponse, MapDirectionsService} from "@angular/google-maps";
+import {
+  GoogleMap, MapAdvancedMarker,
+  MapDirectionsRenderer,
+  MapDirectionsResponse,
+  MapDirectionsService,
+  MapMarker
+} from "@angular/google-maps";
 import {map, switchMap} from "rxjs";
 import {PlaceAddress} from "../../../core/models/PlaceAddress";
 import {JsonPipe} from "@angular/common";
@@ -10,7 +16,8 @@ import {JsonPipe} from "@angular/common";
   imports: [
     GoogleMap,
     MapDirectionsRenderer,
-    JsonPipe
+    JsonPipe,
+    MapMarker
   ],
   templateUrl: './google-map.component.html',
   styleUrl: './google-map.component.css'
@@ -18,22 +25,24 @@ import {JsonPipe} from "@angular/common";
 export class GoogleMapComponent {
 
   directionsService = inject(MapDirectionsService)
-
   private _startAddress: google.maps.LatLngLiteral | undefined;
   private _endAddress: google.maps.LatLngLiteral | undefined;
   private _directionResult: WritableSignal<google.maps.DirectionsResult | undefined> = signal(undefined);
+
+  constructor() {
+  }
 
   @Input() center: google.maps.LatLngLiteral = {lat: 50.8503, lng: 4.3517};
 
   @Input()
   set startAddress(value: PlaceAddress | undefined) {
-    this._startAddress = value ? {lat: value.latitude, lng: value.longitude} : undefined;
+    this._startAddress = value ? {lat: value.location.latitude, lng: value.location.longitude} : undefined;
     this.setDirectionResult()
   }
 
   @Input()
   set endAddress(value: PlaceAddress | undefined) {
-      this._endAddress = value ? {lat: value.latitude, lng: value.longitude} : undefined;
+      this._endAddress = value ? {lat: value.location.latitude, lng: value.location.longitude} : undefined;
       this.setDirectionResult()
   }
 

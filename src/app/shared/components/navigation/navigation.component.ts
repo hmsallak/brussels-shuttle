@@ -5,22 +5,23 @@ import { faLanguage, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 import {LanguageEnum} from "../../../core/models/enum/language.enum";
 import {NgClass, NgOptimizedImage} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-navigation',
   standalone: true,
   imports: [
     TranslateModule,
     FaIconComponent,
     NgOptimizedImage,
     RouterLink,
-    NgClass
+    NgClass,
+    RouterLinkActive
   ],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  templateUrl: './navigation.component.html',
+  styleUrl: './navigation.component.css'
 })
-export class HeaderComponent {
+export class NavigationComponent {
   absolute= input(false)
 
   languages = [LanguageEnum.FRENCH, LanguageEnum.ENGLISH, LanguageEnum.DUTCH];

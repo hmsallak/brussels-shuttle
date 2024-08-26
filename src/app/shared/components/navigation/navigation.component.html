@@ -9,9 +9,9 @@
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
         <li ><a routerLink="/">Page principale</a></li>
-        <li><a routerLink="/create-booking">Réserver une course</a></li>
+        <li><a routerLink="/booking/request">Réserver une course</a></li>
         <li>
-          <a>{{ 'header.navbar.menu.services.title' | translate }}</a>
+          <a>{{ 'navigation.navbar.menu.services.title' | translate }}</a>
           <ul class="p-2">
             <li><a>Taxi Aéorport</a></li>
             <li><a>Nos offres</a></li>
@@ -31,14 +31,14 @@
     <ul class="menu menu-horizontal px-1 text-lg ">
       <li class="">
         <details>
-          <summary>{{ 'header.navbar.menu.services.title' | translate }}</summary>
+          <summary>{{ 'navigation.navbar.menu.services.title' | translate }}</summary>
           <ul class="w-64 text-black">
             <li><a>Taxi Aéorport</a></li>
             <li><a>Nos Offres</a></li>
           </ul>
         </details>
       </li>
-      <li><a routerLink="/create-booking">Réserver une course</a></li>
+      <li><a routerLink="/booking/request" routerLinkActive="bg-cyan-400 text-white">Réserver une course</a></li>
       <li><a>FAQ</a></li>
     </ul>
   </div>

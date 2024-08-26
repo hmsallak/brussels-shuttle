@@ -1,7 +1,11 @@
-<div class="lg:flex lg:space-x-10 w-full">
+<main class="lg:flex lg:space-x-10 w-full">
   <section class="lg:w-[450px] mb-10">
     <app-booking-details (bookingDetails)="setBookingDetails($event)">
     </app-booking-details>
+    <div  class="bg-gray-50 rounded-2xl py-4 w-full mt-8 text-center text-base font-semibold shadow-md">
+      <a routerLink="/term-of-use">Voir les conditions générales <fa-icon [icon]="faChevronRight" class="mx-5 text-sm my-auto"></fa-icon>
+      </a>
+    </div>
   </section>
   @if(bookingDetails() != null){
     @defer (when journeyQuote()){
@@ -19,8 +23,8 @@
           <app-banner [title]="'Information personnel'"
                       [isError]="isPersonalInformationInvalid()">
           </app-banner>
-<!--          <app-personal-information-dialog (personalInformation)="personalInformation.set($event)">-->
-<!--          </app-personal-information-dialog>-->
+          <app-personal-information-dialog (personalInformation)="personalInformation.set($event)">
+          </app-personal-information-dialog>
         </div>
         <app-payment-method-button (paymentMethod)="book($event); bookTouched = true"></app-payment-method-button>
       </section>
@@ -37,9 +41,9 @@
     }
   }
 
-  <section class="grid flex-grow" style="height: 70vh">
+  <section class="grid flex-grow" style="height: 85vh">
     <app-google-map [startAddress]="bookingDetails()?.startAddress?.place"
                     [endAddress]="bookingDetails()?.endAddress?.place">
     </app-google-map>
   </section>
-</div>
+</main>

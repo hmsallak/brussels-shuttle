@@ -4,6 +4,7 @@ import {CreateBookingPageComponent} from "./pages/create-booking-page/create-boo
 import {SuccessPageComponent} from "./pages/success-page/success-page.component";
 import {CancelPageComponent} from "./pages/cancel-page/cancel-page.component";
 import {ContactPageComponent} from "./pages/contact-page/contact-page.component";
+import {TermOfUsePageComponent} from "./pages/term-of-use-page/term-of-use-page.component";
 
 export const routes: Routes = [
   {
@@ -11,7 +12,7 @@ export const routes: Routes = [
     component: HomePageComponent
   },
   {
-    path: 'create-booking',
+    path: 'booking/request',
     component: CreateBookingPageComponent
   },
   {
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'contact',
     component: ContactPageComponent
+  },
+  {
+    path: 'term-of-use',
+    component: TermOfUsePageComponent
   },
   {
     path: '**',

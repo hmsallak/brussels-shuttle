@@ -1,6 +1,6 @@
 import {Component, input} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
-import {HeaderComponent} from "../header/header.component";
+import {NavigationComponent} from "../navigation/navigation.component";
 import {FooterComponent} from "../footer/footer.component";
 import {NgClass} from "@angular/common";
 
@@ -9,7 +9,7 @@ import {NgClass} from "@angular/common";
   standalone: true,
   imports: [
     RouterOutlet,
-    HeaderComponent,
+    NavigationComponent,
     FooterComponent,
     NgClass
   ],

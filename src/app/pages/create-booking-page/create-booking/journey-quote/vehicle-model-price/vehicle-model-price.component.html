@@ -1,5 +1,5 @@
-<div class="flex items-center justify-between max-w-2xl px-8 py-4 mx-auto rounded-xl"
-     [ngClass]="{'bg-cyan-500 text-white': isSelected, 'text-gray-700': !isSelected, 'bg-gray-200 ': isDisabled, 'cursor-pointer shadow-md transition-shadow duration-300 hover:shadow-lg hover:shadow-gray-400': !isDisabled}"
+<div class="sm:flex items-center justify-between max-w-2xl px-8 py-4 mx-auto rounded-xl"
+     [ngClass]="{'bg-cyan-500 text-white': isSelected, 'text-gray-700': !isSelected, 'bg-gray-200 ': isDisabled, 'cursor-pointer shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300': !isDisabled}"
      (click)="select()">
   <div class="flex items-center">
     <img class="w-32" [src]="vehicleModelPrice.vehicleModel.imageUrl" alt="car {{vehicleModelPrice.vehicleModel.type}}">
@@ -13,14 +13,14 @@
     </div>
   </div>
 
-  <div>
-    <div class="px-2 text-xs  w-24 text-center rounded-full sm:px-4 sm:py-1"
+  <div class="mt-4 sm:mt-0">
+    <div class="px-2 text-xs w-24 text-center rounded-full sm:px-4 py-1 mx-auto sm:mx-0"
          [ngClass]="{'bg-cyan-700 ': isSelected, 'bg-gray-100 text-gray-700': !isSelected}">
       <fa-icon [icon]="faUser" class="text-xs"></fa-icon> {{ vehicleModelPrice.vehicleModel.passengerCapacity }}
       <fa-icon [icon]="faSuitcase" class="ml-2 text-xs"></fa-icon> {{ vehicleModelPrice.vehicleModel.luggageCapacity }}
-
     </div>
-    <h2 class="text-2xl font-semibold sm:text-4xl">
+
+    <h2 class="text-4xl font-semibold text-center">
       {{vehicleModelPrice.price}} €
     </h2>
 

@@ -12,7 +12,7 @@ export class StripeService{
   stripeGateway = inject(StripeGateway);
 
   startPaymentCheckout(sessionToken: string) {
-    this.stripeGateway.createCheckoutSession(sessionToken).pipe(
+    return this.stripeGateway.createCheckoutSession(sessionToken).pipe(
       map(checkoutSession => {
         this.stripeService.redirectToCheckout({ sessionId: checkoutSession.sessionId }).subscribe( value => {
         });
@@ -21,13 +21,6 @@ export class StripeService{
         console.error('Error:', error);
         return of(error);
       })
-    ).subscribe();
-  }
-
-  private initStripe() {
-
-  }
-
-  getSessionById(sessionId: string) {
+    );
   }
 }

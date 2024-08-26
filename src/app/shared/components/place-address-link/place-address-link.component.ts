@@ -24,7 +24,7 @@ export class PlaceAddressLinkComponent {
 
   googleMapsUrl = computed(() => {
     const address = this.placeAddress();
-    return `https://www.google.com/maps?q=${address.latitude},${address.longitude}`;
+    return `https://www.google.com/maps?q=${address.location.latitude},${address.location.longitude}`;
   });
 
 }

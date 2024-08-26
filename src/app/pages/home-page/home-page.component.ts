@@ -9,7 +9,7 @@ import {ReservationApproachComponent} from "./reservation-approach/reservation-a
 import {TitleComponent} from "../../shared/components/title/title.component";
 import {PositionEnum} from "../../core/models/enum/position.enum";
 import {BookingDetailsComponent} from "../create-booking-page/create-booking/booking-details/booking-details.component";
-import {HeaderComponent} from "../../shared/components/header/header.component";
+import {NavigationComponent} from "../../shared/components/navigation/navigation.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
 import {FeaturesComponent} from "./features/features.component";
@@ -24,7 +24,7 @@ import {CarsComponent} from "./cars/cars.component";
     ReservationApproachComponent,
     TitleComponent,
     BookingDetailsComponent,
-    HeaderComponent,
+    NavigationComponent,
     LayoutComponent,
     RouterLink,
     FeaturesComponent,
