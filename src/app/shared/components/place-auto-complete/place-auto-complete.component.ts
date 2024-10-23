@@ -1,15 +1,18 @@
 import {
   Component,
-  EventEmitter,
+  EventEmitter, inject,
   Input,
   OnInit,
   Output,
 } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {PlaceAddress} from "../../../core/models/PlaceAddress";
-import {TuiInputModule} from "@taiga-ui/kit";
-import {TuiTextfieldControllerModule} from "@taiga-ui/core";
+import {TUI_VALIDATION_ERRORS, TuiFieldErrorPipeModule, TuiInputModule} from "@taiga-ui/kit";
+import {TuiErrorModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
 import {GooglePlacesDirective} from "../../directives/google-places.directive";
+import {LocationService} from "../../services/location.service";
+import {FaIconComponent} from "@fortawesome/angular-fontawesome";
+import {AsyncPipe} from "@angular/common";
 
 
 
@@ -18,15 +21,28 @@ import {GooglePlacesDirective} from "../../directives/google-places.directive";
   standalone: true,
   imports: [
     TuiInputModule,
+    FormsModule,
     TuiTextfieldControllerModule,
     ReactiveFormsModule,
-    GooglePlacesDirective
-
+    GooglePlacesDirective,
+    FaIconComponent,
+    TuiErrorModule,
+    TuiFieldErrorPipeModule,
+    AsyncPipe,
   ],
   templateUrl: './place-auto-complete.component.html',
-  styleUrl: './place-auto-complete.component.css'
+  styleUrl: './place-auto-complete.component.css',
+  providers: [
+    {
+      provide: TUI_VALIDATION_ERRORS,
+      useValue: {
+        required: 'Veuillez sélectionner une adresse',
+      },
+    },
+  ],
 })
 export class PlaceAutocompleteComponent implements OnInit {
+  private locationService = inject(LocationService);
 
   @Input() addressForm: FormGroup = new FormGroup({});
   @Input() label = 'Destination';
@@ -34,14 +50,17 @@ export class PlaceAutocompleteComponent implements OnInit {
 
   @Output() placeChanged = new EventEmitter<PlaceAddress>();
 
-  constructor() {}
-
   ngOnInit() {
     this.inputAddress.valueChanges.subscribe((value: string) => {
-      if (!value) {
-        this.placeAddress.setValue(undefined);
+        if (value != this.placeAddress.value?.name) {
+          this.placeAddress.setValue(null);
+        }
       }
-    });
+    )
+  }
+
+  get isPLaceSelected(): boolean {
+    return this.placeAddress.value
   }
 
   get placeAddress(): FormControl {
@@ -52,9 +71,19 @@ export class PlaceAutocompleteComponent implements OnInit {
     return this.addressForm.get('address') as FormControl;
   }
 
+  getLocation() {
+    this.locationService.getCurrentPlaceAddress().subscribe(place => {
+      this.inputAddress.setValue(place?.name);
+      this.placeAddress.setValue(place);
+    });
+  }
+
   onPlaceChanged($event: PlaceAddress) {
     this.placeAddress.setValue($event);
     this.placeChanged.emit($event);
   }
 
+  onBlur(){
+    this.placeAddress.markAsTouched();
+  }
 }

@@ -8,7 +8,7 @@ import {TuiButtonModule, TuiDialogModule} from "@taiga-ui/core";
 import {TuiInputModule, TuiInputPhoneInternationalModule} from "@taiga-ui/kit";
 
 @Component({
-  selector: 'app-personal-information-dialog',
+  selector: 'app-personal-information',
   standalone: true,
   imports: [
     FaIconComponent,
@@ -18,28 +18,44 @@ import {TuiInputModule, TuiInputPhoneInternationalModule} from "@taiga-ui/kit";
     TuiInputPhoneInternationalModule,
     TuiButtonModule
   ],
-  templateUrl: './personal-information-dialog.component.html',
-  styleUrl: './personal-information-dialog.component.css'
+  templateUrl: './personal-information.component.html',
+  styleUrl: './personal-information.component.css'
 })
-export class PersonalInformationDialogComponent {
+export class PersonalInformationComponent {
   private _formBuilder= inject(FormBuilder);
 
   protected readonly faChevronRight = faChevronRight;
   protected readonly faUser = faUser;
 
   private _personalInformationFormGroup = this._formBuilder.group({
-    firstName: new FormControl('Yassin', [Validators.required, Validators.minLength(3)]),
-    lastName: new FormControl('Aberkan', [Validators.required, Validators.minLength(3)]),
-    mail: new FormControl('yassabk@test.be', [Validators.required, Validators.email]),
-    phone: new FormControl('99999999', [Validators.required, Validators.minLength(3)]),
+    firstName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    lastName: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    mail: new FormControl(null, [Validators.required, Validators.email]),
+    phone: new FormControl(null, [Validators.required, Validators.minLength(3)]),
   });
 
   readonly countries: readonly TuiCountryIsoCode[] = [TuiCountryIsoCode.BE, TuiCountryIsoCode.FR, TuiCountryIsoCode.NL, TuiCountryIsoCode.LU, TuiCountryIsoCode.ES, TuiCountryIsoCode.DE];
-  open = false;
   countryIsoCode : TuiCountryIsoCode  = TuiCountryIsoCode.BE;
 
   @Output()
   public personalInformation = new EventEmitter<Passenger>();
+
+  constructor() {
+    this._personalInformationFormGroup.valueChanges.subscribe(value => {
+      if(this._personalInformationFormGroup.invalid) {
+        this.personalInformationFormGroup.markAllAsTouched();
+        this.personalInformation.emit(undefined);
+      } else{
+        const passenger: Passenger = {
+          firstName: this.firstNameForm.value,
+          lastName: this.lastNameForm.value,
+          email: this.mailForm.value,
+          phoneNumber: this.phoneForm.value,
+        }
+        this.personalInformation.emit(passenger);
+      }
+    });
+  }
 
   get personalInformationFormGroup(): FormGroup {
     return this._personalInformationFormGroup;
@@ -55,24 +71,5 @@ export class PersonalInformationDialogComponent {
   }
   get phoneForm(): FormControl {
     return this._personalInformationFormGroup.get('phone') as FormControl;
-  }
-
-  openModal() {
-   this.open = true;
-  }
-
-  save() {
-    if(this._personalInformationFormGroup.invalid) {
-      this.personalInformationFormGroup.markAllAsTouched();
-      return;
-    }
-    const passenger: Passenger = {
-      firstName: this.firstNameForm.value,
-      lastName: this.lastNameForm.value,
-      email: this.mailForm.value,
-      phoneNumber: this.phoneForm.value,
-    }
-    this.personalInformation.emit(passenger);
-    this.open = false;
   }
 }

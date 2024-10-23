@@ -1,0 +1,29 @@
+<section class="wizard">
+  <div class="flex justify-between">
+    <div class="my-auto">
+      @if (activeStepIdx > 0){
+        <button (click)="prevStep()" >
+          <fa-icon [icon]="faChevronLeft" class="text-lg mr-3"></fa-icon>
+        </button>
+      }
+      <span class="text-xl md:text-2xl">
+          {{currentStepLabel}}
+      </span>
+    </div>
+    <div>
+      @if (!isLastStep){
+        <button
+          (click)="nextStep()"
+          size="l"
+          tuiButton
+          [disabled]="!canNextStep"
+          type="submit"
+          class="tui-form__button">
+          Suivant
+        </button>
+      }
+    </div>
+  </div>
+  <hr class="my-3 h-0.5 border-t-0 bg-gray-100" />
+  <ng-content></ng-content>
+</section>

@@ -17,3 +17,10 @@ export function formatLocalDate(date: Date): string {
 
   return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
+
+export function getTomorrowDate(){
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0,0,0,0);
+  return tomorrow;
+}

@@ -8,7 +8,7 @@ import {NoticesComponent} from "./notices/notices.component";
 import {ReservationApproachComponent} from "./reservation-approach/reservation-approach.component";
 import {TitleComponent} from "../../shared/components/title/title.component";
 import {PositionEnum} from "../../core/models/enum/position.enum";
-import {BookingDetailsComponent} from "../create-booking-page/create-booking/booking-details/booking-details.component";
+import {BookingFormComponent} from "../../shared/components/booking-from/booking-form.component";
 import {NavigationComponent} from "../../shared/components/navigation/navigation.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
@@ -23,7 +23,7 @@ import {CarsComponent} from "./cars/cars.component";
     NoticesComponent,
     ReservationApproachComponent,
     TitleComponent,
-    BookingDetailsComponent,
+    BookingFormComponent,
     NavigationComponent,
     LayoutComponent,
     RouterLink,

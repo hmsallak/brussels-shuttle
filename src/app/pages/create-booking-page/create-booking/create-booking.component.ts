@@ -1,20 +1,12 @@
-import {Component, inject, signal} from '@angular/core';
-import {BookingDetailsComponent} from "./booking-details/booking-details.component";
+import {Component, computed, effect, inject, QueryList, Signal, signal} from '@angular/core';
 import {GoogleMapComponent} from "../../../shared/components/google-map/google-map.component";
-import {JourneyQuoteGateway} from "../../../core/ports/journey-quote.gateway";
-import {JourneyQuoteRequest} from "../../../core/models/request/journey-quote-request";
 import {catchError, map, of, switchMap, tap, throwError} from "rxjs";
 import {JourneyQuote} from "../../../core/models/journey-quote";
-import {JourneyQuoteComponent} from "./journey-quote/journey-quote.component";
+import {JourneyQuoteComponent} from "../../../shared/components/journey-quote/journey-quote.component";
 import {BookingDetails} from "../../../core/models/booking-details";
 import {VehicleModel} from "../../../core/models/vehicle-model";
-import {
-  PersonalInformationDialogComponent
-} from "../../../shared/components/personal-information-dialog/personal-information-dialog.component";
-import {PlaceAddress} from "../../../core/models/PlaceAddress";
-import {
-  PaymentMethodButtonComponent
-} from "../../../shared/components/payment-method-button/payment-method-button.component";
+import {PersonalInformationComponent} from "../../../shared/components/personal-information/personal-information.component";
+import {PaymentMethodButtonComponent} from "../../../shared/components/payment-method-button/payment-method-button.component";
 import {PaymentMethodEnum} from "../../../core/models/enum/payment-method.enum";
 import {StripeService} from "../../../shared/services/stripe.service";
 import {Passenger} from "../../../core/models/passenger";
@@ -24,28 +16,45 @@ import {BannerComponent} from "../../../shared/components/banner/banner.componen
 import {Router, RouterLink} from '@angular/router';
 import {NgxSpinnerService} from "ngx-spinner";
 import {formatLocalDate} from "../../../shared/utils/date.utils";
-import {faChevronRight} from "@fortawesome/free-solid-svg-icons";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
+import {BookingFormComponent} from "../../../shared/components/booking-from/booking-form.component";
+import {BookingResumeComponent} from "./booking-final-step/booking-resume/booking-resume.component";
+import {SearchJourneyQuoteComponent} from "./search-journey-quote/search-journey-quote.component";
+import {StepComponent} from "../../../shared/components/stepper/step/step.component";
+import {StepperComponent} from "../../../shared/components/stepper/stepper.component";
+import {CurrencyPipe, JsonPipe, NgIf} from "@angular/common";
+import {BookingBuilder} from "../../../core/models/booking-builder";
+import {TuiButtonModule, TuiLabelModule} from "@taiga-ui/core";
+import {BookingFinalStepComponent} from "./booking-final-step/booking-final-step.component";
 
 @Component({
   selector: 'app-create-booking',
   standalone: true,
   imports: [
-    BookingDetailsComponent,
+    BookingFormComponent,
     BannerComponent,
     JourneyQuoteComponent,
-    PersonalInformationDialogComponent,
     PaymentMethodButtonComponent,
     GoogleMapComponent,
     RouterLink,
-    FaIconComponent
+    FaIconComponent,
+    BookingResumeComponent,
+    SearchJourneyQuoteComponent,
+    StepComponent,
+    NgIf,
+    CurrencyPipe,
+    TuiButtonModule,
+    TuiLabelModule,
+    PersonalInformationComponent,
+    JsonPipe,
+    BookingFinalStepComponent,
+    StepperComponent,
 
   ],
   templateUrl: './create-booking.component.html',
   styleUrl: './create-booking.component.css'
 })
 export class CreateBookingComponent {
-  private journeyQuoteGateway = inject(JourneyQuoteGateway);
   private bookingGateway = inject(BookingGateway);
   private stripeService = inject(StripeService);
   private spinner= inject(NgxSpinnerService);
@@ -55,46 +64,44 @@ export class CreateBookingComponent {
   bookingDetails = signal<BookingDetails | null>(null);
   journeyQuote = signal<JourneyQuote | null>(null);
   personalInformation = signal<Passenger | null>(null);
+  paymentMethod = signal<PaymentMethodEnum | null>(null);
 
-  bookTouched = false;
+  currentBooking: Signal<BookingBuilder> = computed(() => {
+    return  {
+      startTime: this.bookingDetails()?.startTime,
+      journeyQuote: this.journeyQuote() ?? undefined,
+      passengerCount: this.bookingDetails()?.passengerCount,
+      vehicleModel: this.vehicleModel() ?? undefined,
+      paymentMethodType: this.paymentMethod() ?? undefined,
+    }
+  });
 
-  isBookInvalid() {
-    return !this.journeyQuote() || !this.bookingDetails() || !this.vehicleModel() || !this.personalInformation();
-  }
+  isBookingDetailsCompleted = computed(() => {
+    return !!this.bookingDetails();
+  });
 
-  isVehicleModelInvalid(){
-    return !this.vehicleModel() && this.bookTouched;
-  }
+  isVehicleModelCompleted = computed(() => {
+    return !!(this.vehicleModel() && this.journeyQuote());
+  });
 
-  isPersonalInformationInvalid(){
-    return !this.personalInformation() && this.bookTouched;
-  }
+  isFinalStepCompleted = computed(() => {
+    return !!(this.personalInformation() && this.paymentMethod());
+  });
 
-  setBookingDetails(bookingDetails: BookingDetails) {
-    this.bookingDetails.set(bookingDetails)
-    if (this.bookingDetails()){
-      this.searchJourneyQuote(this.bookingDetails()!.startAddress.place, this.bookingDetails()!.endAddress.place);
-    } else {
+  setupBookingStateWatcher = effect(() => {
+    if (!this.isBookingDetailsCompleted()) {
       this.vehicleModel.set(null);
       this.journeyQuote.set(null);
+      this.paymentMethod.set(null);
     }
-  }
+  }, { allowSignalWrites: true });
 
-  searchJourneyQuote(startAddress: PlaceAddress, endAddress: PlaceAddress, startTime?: Date) {
-    const request: JourneyQuoteRequest = {
-      startAddress: startAddress,
-      endAddress:  endAddress,
-      startTime: startTime ?? null
-    }
-    this.journeyQuoteGateway.computeJourneyQuotesForAllModels(request).pipe(
-      map(journeyQuote => {
-        this.journeyQuote.set(journeyQuote)
-      })
-    ).subscribe();
-  }
+  totalPrice = computed(() => {
+    return this.journeyQuote()?.vehicleModelPrices.find(vmp => vmp.vehicleModel.id === this.vehicleModel()?.id)?.price;
+  });
 
-  book(paymentMethod: PaymentMethodEnum) {
-    if (this.isBookInvalid()) {
+  book() {
+    if(!this.isBookingDetailsCompleted && !this.isVehicleModelCompleted && !this.isFinalStepCompleted()){
       return;
     }
 
@@ -102,13 +109,13 @@ export class CreateBookingComponent {
       journeyQuoteId: this.journeyQuote()!.id,
       passenger: this.personalInformation()!,
       passengerCount: this.bookingDetails()!.passengerCount,
-      paymentMethodType: paymentMethod,
+      paymentMethodType: this.paymentMethod()!,
       startTime: formatLocalDate(this.bookingDetails()!.startTime),
       vehicleModelId: this.vehicleModel()!.id
     }
-    if (paymentMethod === PaymentMethodEnum.Cash){
+    if (this.paymentMethod() === PaymentMethodEnum.Cash){
       this.bookWithCash(request);
-    } else if (paymentMethod === PaymentMethodEnum.Stripe){
+    } else if (this.paymentMethod() === PaymentMethodEnum.Stripe){
       this.bookWithStripe(request);
     }
   }
@@ -145,6 +152,4 @@ export class CreateBookingComponent {
       })
     ).subscribe();
   }
-
-  protected readonly faChevronRight = faChevronRight;
 }

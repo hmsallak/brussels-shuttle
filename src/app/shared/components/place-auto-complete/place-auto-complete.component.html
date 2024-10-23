@@ -1,9 +1,22 @@
-<tui-input  [tuiTextfieldCleaner]="true"
-            [formControl]="inputAddress"
-            tuiTextfieldIcon="{{icon}}">
-  {{ label }}
-  <input tuiTextfield
-         class="bg-transparent py-4 pl-4 appearance-none outline-0 w-full"
-         appGooglePlaces
-         (placeChanged)="onPlaceChanged($event)" />
-</tui-input>
+<div class="flex justify-end ">
+  <button class="text-xs my-auto underline text-gray-500 hover:text-gray-800" (click)="getLocation()">Votre position</button>
+</div>
+
+<div>
+  <tui-input  [tuiTextfieldCleaner]="isPLaceSelected"
+              [formControl]="inputAddress"
+              tuiTextfieldIcon="{{icon}}">
+    {{ label }}
+    <input tuiTextfield
+           class="bg-transparent py-4 pl-4 appearance-none outline-0 w-full"
+           appGooglePlaces
+           (blur)="onBlur()"
+           (placeChanged)="onPlaceChanged($event); "
+          />
+  </tui-input>
+  <tui-error
+    [formControl]="placeAddress"
+    [error]="[] | tuiFieldError | async"/>
+</div>
+
+

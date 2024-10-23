@@ -69,5 +69,8 @@ export class GoogleMapComponent {
         this._directionResult.set(result.result);
       })
     ).subscribe();
+
+
+
   }
 }

@@ -1,13 +1,16 @@
-<div class="sm:flex w-full sm:min-w-64 justify-center sm:justify-end">
+<div class="sm:flex w-full justify-center sm:justify-end">
   <button type="submit"
-          (click)="paymentMethod.emit(PaymentMethod.Cash)"
-          class="text-gray-900 bg-gray-100 hover:bg-gray-200 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-base px-5 py-3 text-center inline-flex items-center w-full dark:focus:ring-gray-500 mr-2 mb-2 transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
+          (click)="selectPaymentMethod(PaymentMethod.Cash)"
+          [ngClass]="{'text-white bg-cyan-600': paymentMethodSelect == PaymentMethod.Cash, 'text-gray-900 bg-gray-100 hover:bg-gray-200': paymentMethodSelect != PaymentMethod.Cash,}"
+          class=" focus:ring-4 focus:ring-gray-100 font-medium  rounded-lg text-base px-5 py-3 text-center inline-flex items-center w-full mr-2 mb-2 transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
     <fa-icon [icon]="faMoneyBill" class="text-lg mr-5 "></fa-icon>
     Payer en cash
   </button>
   <button type="button"
-          (click)="paymentMethod.emit(PaymentMethod.Stripe)"
-          class="hover:text-white shadow-2xl hover:bg-[#2557D6]/90 focus:ring-4 focus:ring-[#2557D6]/50 font-medium text-base rounded-lg px-5 py-3 text-center inline-flex w-full sm:min-w-45 items-center mr-2 mb-2 transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
+          (click)="selectPaymentMethod(PaymentMethod.Stripe)"
+          [ngClass]="{'text-white bg-cyan-600': paymentMethodSelect == PaymentMethod.Stripe, 'text-gray-900 bg-gray-100 hover:bg-gray-200': paymentMethodSelect != PaymentMethod.Stripe,}"
+
+          class="shadow-2xl focus:ring-4 font-medium text-base rounded-lg px-5 py-3 text-center inline-flex w-full sm:min-w-45 items-center mr-2 mb-2 transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
     <img src="assets/images/payment-mastercard.png" class="h-3 mr-2">
     <img src="assets/images/payment-visa.png" class="h-3 mr-2">
     <img src="assets/images/payment-bancontact.png" class="h-3 mr-2">

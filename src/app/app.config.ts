@@ -7,7 +7,6 @@ import {
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
@@ -29,7 +28,7 @@ import {registerLocaleData} from "@angular/common";
 import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
 import {environment} from "../environments/environment";
-import {TuiDialogModule, TuiRootModule} from "@taiga-ui/core";
+import {TuiRootModule} from "@taiga-ui/core";
 
 registerLocaleData(localeFr, 'fr');
 registerLocaleData(localeEn, 'en');
@@ -57,12 +56,10 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
     provideRouter(routes),
-    provideClientHydration(),
     provideHttpClient(withInterceptorsFromDi()),
     provideNgxStripe(environment.STRIPE_PUBLIC_KEY),
     importProvidersFrom([
         TuiRootModule,
-        TuiDialogModule,
         TranslateModule.forRoot(provideTranslation())
       ]
     ),
@@ -75,9 +72,6 @@ export const appConfig: ApplicationConfig = {
     { provide: StripeGateway, useFactory: () => new HttpStripeGateway() },
     { provide: PaymentGateway, useFactory: () => new HttpPaymentGateway() },
     { provide: VehicleModelGateway, useFactory: () => new HttpVehicleModelGateway() },
-    {
-      provide: LOCALE_ID,
-      useFactory: getBrowserLanguage,
-    },
+    { provide: LOCALE_ID, useFactory: getBrowserLanguage },
   ]
 };

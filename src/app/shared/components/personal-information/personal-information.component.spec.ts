@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PersonalInformationDialogComponent } from './personal-information-dialog.component';
+import { PersonalInformationDialogComponent } from './personal-information.component';
 
 describe('PersonalInformationDialogComponent', () => {
   let component: PersonalInformationDialogComponent;

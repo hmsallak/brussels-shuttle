@@ -1,0 +1,41 @@
+<section class="grid grid-cols-4 gap-12">
+
+  <div class="col-span-4 lg:col-span-2 order-first lg:order-last">
+    <app-booking-resume [bookingResume]="currentBooking()"></app-booking-resume>
+  </div>
+
+  <div class="col-span-4 lg:col-span-2">
+    <app-banner [title]="'Information personnel'"></app-banner>
+    <div class="my-5">
+      <app-personal-information (personalInformation)="personalInformation.set($event)">
+      </app-personal-information>
+    </div>
+
+    <app-banner [title]="'Avec quelle moyen de paiement souhaitez-vous payer ?'"></app-banner>
+    <div class="my-5">
+      <app-payment-method-button (paymentMethod)="paymentMethod.set($event)"></app-payment-method-button>
+    </div>
+    <div class="my-5">
+      <div class="flex justify-between">
+        <h2 class="text-xl font-semibold">Total</h2>
+        <span class="text-lg font-semibold">{{ totalPrice() ?? 33 | currency:CurrencyEnum.EUR}}</span>
+      </div>
+      <label class="cursor-pointer label mt-4 mb-2">
+        <a routerLink="/term-of-use" target="_blank" class="hover:underline">Voir les conditions générales </a>
+        <input type="checkbox" checked="checked" [(ngModel)]="termsAndConditions" class="checkbox checkbox-accent" />
+      </label>
+      <div class="flex justify-end">
+        <button
+          (click)="bookEvent()"
+          [disabled]="!isBookingValid()"
+          size="l"
+          tuiButton
+          type="submit"
+          class="tui-form__button ">
+          {{paymentMethod() == PaymentMethodEnum.Cash ? "Réserver" : "Réserver et Payer"}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+</section>

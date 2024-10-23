@@ -1,19 +1,27 @@
-import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, inject, Input, output, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 
-import {dateMinTomorrowValidator, timeValidator} from "../../../../shared/services/custom-validator";
-import {BookingDetails} from "../../../../core/models/booking-details";
+import {dateMinValidator, timeValidator} from "../../services/custom-validator";
+import {BookingDetails} from "../../../core/models/booking-details";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TuiDay, TuiTime} from "@taiga-ui/cdk";
-import {TuiDataListWrapperModule, TuiInputDateModule, TuiInputTimeModule, TuiSelectModule} from "@taiga-ui/kit";
-import {TuiTextfieldControllerModule} from "@taiga-ui/core";
+import {
+  TUI_VALIDATION_ERRORS,
+  tuiCreateTimePeriods,
+  TuiDataListWrapperModule, TuiFieldErrorPipeModule,
+  TuiInputDateModule,
+  TuiInputTimeModule,
+  TuiSelectModule
+} from "@taiga-ui/kit";
+import {TuiErrorModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
 import {
   PlaceAutocompleteComponent
-} from "../../../../shared/components/place-auto-complete/place-auto-complete.component";
+} from "../place-auto-complete/place-auto-complete.component";
+import {AsyncPipe} from "@angular/common";
 
 
 @Component({
-  selector: 'app-booking-details',
+  selector: 'app-booking-from',
   standalone: true,
   imports: [
     TuiSelectModule,
@@ -22,18 +30,28 @@ import {
     PlaceAutocompleteComponent,
     TuiDataListWrapperModule,
     TuiInputDateModule,
-    TuiInputTimeModule
-
+    TuiInputTimeModule,
+    AsyncPipe,
+    TuiErrorModule,
+    TuiFieldErrorPipeModule
   ],
-  templateUrl: './booking-details.component.html',
-  styleUrl: './booking-details.component.css'
+  templateUrl: './booking-form.component.html',
+  styleUrl: './booking-form.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+    {
+      provide: TUI_VALIDATION_ERRORS,
+      useValue: {
+        required: 'Champ requis',
+        invalidMinDate: 'La date doit être supérieure à la date du jour',
+      },
+    },
+  ],
 })
-export class BookingDetailsComponent {
+export class BookingFormComponent {
   private _formBuilder= inject(FormBuilder);
   private router = inject(Router);
   private activatedRoute = inject(ActivatedRoute);
-
-  @Output() bookingDetails = new EventEmitter<BookingDetails>();
 
   startAddressParam = this.activatedRoute.snapshot.queryParams['startAddress'];
   endAddressParam = this.activatedRoute.snapshot.queryParams['endAddress'];
@@ -41,26 +59,30 @@ export class BookingDetailsComponent {
 
   private _bookingDetailsFormGroup = this._formBuilder.group({
     startTime: new FormGroup({
-      date: new FormControl(this.getDateFormBasedParam(), [Validators.required, dateMinTomorrowValidator()]),
+      date: new FormControl(this.getDateFormBasedParam(), [Validators.required, dateMinValidator()]),
       time: new FormControl(this.getTimeFormBasedParam(), [Validators.required, timeValidator()]),
     }),
     startAddress: new FormGroup({
-      address: new FormControl(this.startAddressParam, [Validators.required, Validators.minLength(3)]),
+      address: new FormControl(this.startAddressParam, [Validators.required]),
       place: new FormControl(null, [Validators.required]),
     }),
     endAddress: new FormGroup({
-      address: new FormControl(this.endAddressParam, [Validators.required, Validators.minLength(3)]),
+      address: new FormControl(this.endAddressParam, [Validators.required]),
       place: new FormControl(null, [Validators.required]),
     }),
     passengerCount: new FormControl(1,  [Validators.required, Validators.min(1), Validators.max(9)])
   });
+
+  bookingDetails = output<BookingDetails | null>();
+  protected readonly itemsPeriod = tuiCreateTimePeriods( 0, 24, [0, 15, 30, 45]);
+
 
   constructor() {
     this._bookingDetailsFormGroup.statusChanges.subscribe(status => {
       if (this._bookingDetailsFormGroup.valid){
         this.sendBookingDetails();
       } else {
-        this.bookingDetails.emit();
+        this.bookingDetails.emit(null)
       }
     });
   }
@@ -101,7 +123,7 @@ export class BookingDetailsComponent {
     this.startAddressForm.reset();
     this.endAddressForm.reset();
     this.passengerCountForm.reset(1);
-    this.bookingDetails.emit();
+    this.bookingDetails.emit(null);
   }
 
   private getDateFormBasedParam(){

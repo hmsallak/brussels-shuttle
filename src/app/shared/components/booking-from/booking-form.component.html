@@ -1,6 +1,6 @@
 <section class="card bg-gray-50 shadow-xl pt-2 pb-10">
   <div class="card-actions justify-end pb-1 px-2">
-      <button class="btn btn-sm" (click)="clean()" [disabled]="!bookingDetailsFormGroup.touched">Effacer</button>
+      <button class="btn btn-sm" (click)="clean()" [disabled]="bookingDetailsFormGroup.untouched">Effacer</button>
   </div>
   <div class="card-body py-0">
     <div class="space-y-3">
@@ -8,35 +8,37 @@
 
       <tui-input-date
         [formControl]="startTimeDateForm"
-        class="b-form"
         [tuiTextfieldCleaner]="true">
         Choisissez une date de départ
-        <input
-          class="w-1/2"
-          placeholder="10.10.2024"
-          tuiTextfield
-        />
       </tui-input-date>
+      <tui-error
+        [formControl]="startTimeDateForm"
+        [error]="[] | tuiFieldError | async"/>
+
       <tui-input-time
+        [strict]="true"
+        [items]="itemsPeriod"
         [formControl]="startTimeTimeForm">
         Heure de départ
       </tui-input-time>
+      <tui-error
+        [formControl]="startTimeTimeForm"
+        [error]="[] | tuiFieldError | async"/>
     </div>
 
-    <div class="space-y-3 mt-4">
+    <div class="space-y-1 mt-4">
       <h2 class="text-xl font-semibold">Réservez une course</h2>
-
-      <div>
         <app-place-auto-complete label="Lieu de prise en charge"
                                  icon="tuiIconDiscLarge"
                                  [addressForm]="startAddressForm">
         </app-place-auto-complete>
-      </div>
-      <div>
         <app-place-auto-complete label="Destination"
                                  icon="tuiIconMapPinLarge"
-                                 [addressForm]="endAddressForm"></app-place-auto-complete>
-      </div>
+                                 [addressForm]="endAddressForm">
+        </app-place-auto-complete>
+    </div>
+
+    <div class="mt-2">
       <tui-select [formControl]="passengerCountForm"
                   tuiTextfieldIconLeft="tuiIconUserLarge"
                   tuiTextfieldSize="m">

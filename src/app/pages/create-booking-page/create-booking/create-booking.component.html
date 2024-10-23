@@ -1,49 +1,39 @@
-<main class="lg:flex lg:space-x-10 w-full">
-  <section class="lg:w-[450px] mb-10">
-    <app-booking-details (bookingDetails)="setBookingDetails($event)">
-    </app-booking-details>
-    <div  class="bg-gray-50 rounded-2xl py-4 w-full mt-8 text-center text-base font-semibold shadow-md">
-      <a routerLink="/term-of-use">Voir les conditions générales <fa-icon [icon]="faChevronRight" class="mx-5 text-sm my-auto"></fa-icon>
-      </a>
-    </div>
-  </section>
-  @if(bookingDetails() != null){
-    @defer (when journeyQuote()){
-      <section class="mb-10">
-        <div>
-          <app-banner [title]="'Choisissez une course'"
-                      [isError]="isVehicleModelInvalid()">
-          </app-banner>
-          <app-journey-quote [journeyQuote]="journeyQuote()!"
-                             [passengerCount]="bookingDetails()!.passengerCount"
-                             (selectVehicleModelEvent)="vehicleModel.set($event)">
-          </app-journey-quote>
-        </div>
-        <div class="mb-10">
-          <app-banner [title]="'Information personnel'"
-                      [isError]="isPersonalInformationInvalid()">
-          </app-banner>
-          <app-personal-information-dialog (personalInformation)="personalInformation.set($event)">
-          </app-personal-information-dialog>
-        </div>
-        <app-payment-method-button (paymentMethod)="book($event); bookTouched = true"></app-payment-method-button>
-      </section>
+<app-stepper>
+  <!--  First step-->
+  <app-step [label]="'Plannifier Votre Trajet'" [isStepComplete]="isBookingDetailsCompleted()">
+    <app-search-journey-quote [(bookingDetails)]="bookingDetails"
+                              (journeyQuote)="journeyQuote.set($event)">
+    </app-search-journey-quote>
+  </app-step>
 
-    } @loading (minimum 1s){
-      <section class="flex max-w-xl w-full flex-col gap-4">
-        <div class="skeleton h-10 w-48"></div>
+  <!--  Second step-->
+  <app-step [label]="'De quel véhicule avez-vous besoin ?'" [isStepComplete]="isVehicleModelCompleted()">
+    @if (!!journeyQuote()){
+        <section class="mb-10 col-span-full lg:col-span-5">
+          <div>
+            <app-journey-quote [journeyQuote]="journeyQuote()!"
+                               [passengerCount]="currentBooking().passengerCount ?? 0"
+                               (selectVehicleModelEvent)="vehicleModel.set($event)">
+            </app-journey-quote>
+          </div>
+        </section>
+    } @else {
+      <section class=" w-full flex flex-col gap-4">
         <div class="skeleton h-24 w-full"></div>
         <div class="skeleton h-24 w-full"></div>
         <div class="skeleton h-24 w-full"></div>
         <div class="skeleton h-24 mt-5 w-full"></div>
-        <div class="skeleton h-10 w-56 mt-10"></div>
       </section>
     }
-  }
+  </app-step>
 
-  <section class="grid flex-grow" style="height: 85vh">
-    <app-google-map [startAddress]="bookingDetails()?.startAddress?.place"
-                    [endAddress]="bookingDetails()?.endAddress?.place">
-    </app-google-map>
-  </section>
-</main>
+  <!--  Final step-->
+  <app-step [label]="'Revoir votre réservation'">
+    <app-booking-final-step [(paymentMethod)]="paymentMethod"
+                            [(personalInformation)]="personalInformation"
+                            [totalPrice]="totalPrice()"
+                            [currentBooking]="currentBooking()"
+                            (book)="book()">
+    </app-booking-final-step>
+  </app-step>
+</app-stepper>

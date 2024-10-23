@@ -1,0 +1,10 @@
+<main class="grid lg:grid-cols-8 gap-10">
+  <section class="col-span-full lg:col-span-3 w-full mb-10">
+    <app-booking-from (bookingDetails)="bookingDetails.set($event)"></app-booking-from>
+  </section>
+  <section class="col-span-5" style="height: 80vh">
+    <app-google-map [startAddress]="bookingDetails()?.startAddress?.place"
+                    [endAddress]="bookingDetails()?.endAddress?.place">
+    </app-google-map>
+  </section>
+</main>

@@ -1,0 +1,27 @@
+<section class="card bg-gray-50 shadow-xl py-10">
+  <div class="card-body py-0">
+    <div class="grid grid-cols-1 divide-y md:text-lg">
+      <div class="flex justify-between py-2">
+        <span class="font-normal text-gray-500">Nombre de passager</span>
+        <span class="text-black">{{bookingResume().passengerCount ?? 0}}</span>
+      </div>
+      <div class="flex justify-between py-2">
+        <span class="font-normal text-gray-500">Prévu le</span>
+        <span class="text-black ">{{bookingResume().startTime | date:'short'}}</span>
+      </div>
+
+      @if (bookingResume().journeyQuote?.startAddress){
+        <div class="justify-between py-2">
+          <div class="font-normal text-gray-500 ">Lieu de départ</div>
+          <app-place-address-link [placeAddress]="bookingResume().journeyQuote!.startAddress"></app-place-address-link>
+        </div>
+      }
+      @if (bookingResume().journeyQuote?.endAddress){
+        <div class="justify-between py-2">
+          <div class="font-normal text-gray-500">Destination</div>
+          <app-place-address-link [placeAddress]="bookingResume().journeyQuote!.endAddress"></app-place-address-link>
+        </div>
+      }
+    </div>
+  </div>
+</section>

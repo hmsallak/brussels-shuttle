@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {VehicleModelPrice} from "../../../../../core/models/journey-quote";
+import {VehicleModelPrice} from "../../../../core/models/journey-quote";
 import {faChevronDown, faLuggageCart, faSuitcase, faUser} from "@fortawesome/free-solid-svg-icons";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {FormControl} from "@angular/forms";

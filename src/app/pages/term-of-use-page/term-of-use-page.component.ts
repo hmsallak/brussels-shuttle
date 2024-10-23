@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
-import {BookingDetailsComponent} from "../create-booking-page/create-booking/booking-details/booking-details.component";
+import {BookingFormComponent} from "../../shared/components/booking-from/booking-form.component";
 import {RouterLink} from "@angular/router";
 import {TitleComponent} from "../../shared/components/title/title.component";
 
@@ -9,7 +9,7 @@ import {TitleComponent} from "../../shared/components/title/title.component";
   standalone: true,
   imports: [
     LayoutComponent,
-    BookingDetailsComponent,
+    BookingFormComponent,
     RouterLink,
     TitleComponent
   ],
