@@ -1,10 +1,9 @@
 import {VehicleModel} from "./vehicle-model";
 import {PaymentMethodEnum} from "./enum/payment-method.enum";
-import {JourneyQuote} from "./journey-quote";
+import {Quote} from "./quote";
 
 export interface BookingBuilder {
-  startTime?: Date;
-  journeyQuote?: JourneyQuote;
+  quote?: Quote;
   passengerCount?: number;
   vehicleModel?: VehicleModel;
   paymentMethodType?: PaymentMethodEnum;

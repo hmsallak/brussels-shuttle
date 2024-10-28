@@ -1,0 +1,15 @@
+<div class="w-auto flex justify-between" [ngClass]="enableStyle() ? 'bg-gray-50 rounded-full py-2 px-4' : ''">
+  <span class="font-bold inline-block">
+      {{ tripName() }}
+  </span>
+  <div>
+    <span class="font-bold inline-block">
+      <fa-icon [icon]="faRoute" class="text-sm text-gray-400 mx-2"></fa-icon>
+      <span class="inline-block">{{trip().routeMetrics.tripDistance | km}}</span>
+    </span>
+    <span class="font-bold inline-block tooltip tooltip-secondary" data-tip="ceci est une estimation">
+      <fa-icon [icon]="faClock" class="text-sm text-gray-400 mx-2"></fa-icon>
+      <span>{{trip().routeMetrics.tripDuration | minutesPipe}}</span>
+  </span>
+  </div>
+</div>

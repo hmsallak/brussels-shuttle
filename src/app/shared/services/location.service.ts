@@ -1,6 +1,6 @@
 import {ElementRef, inject, Injectable, NgZone} from "@angular/core";
 import {catchError, map, Observable, of, switchMap} from "rxjs";
-import {Location, PlaceAddress} from "../../core/models/PlaceAddress";
+import {Location, PlaceAddress} from "../../core/models/place-address";
 import {extractPlaceAddress} from "./google-places.service";
 
 @Injectable({

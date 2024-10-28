@@ -3,8 +3,8 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {map, Observable} from "rxjs";
 import {VehicleModel} from "../models/vehicle-model";
 import {environment} from "../../../environments/environment";
-import {PaymentIntentResponse} from "../models/request/payment-intent-response";
-import {CheckoutSessionResponse} from "../models/request/checkout-session-response";
+import {PaymentIntentResponse} from "../models/api/payment-intent-response";
+import {CheckoutSessionResponse} from "../models/api/checkout-session-response";
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import {Component, computed, input} from '@angular/core';
-import {PlaceAddress} from "../../../core/models/PlaceAddress";
+import {PlaceAddress} from "../../../core/models/place-address";
 
 @Component({
   selector: 'app-place-address-link',
@@ -11,16 +11,6 @@ import {PlaceAddress} from "../../../core/models/PlaceAddress";
 export class PlaceAddressLinkComponent {
 
   placeAddress = input.required<PlaceAddress>();
-
-  placeAddressString = computed(() => {
-    if (this.placeAddress().name == this.placeAddress().locality) {
-      return this.placeAddress().name + ', ' + this.placeAddress().country;
-    }
-    if (!this.placeAddress().postalCode) {
-      return this.placeAddress().name + ', ' + this.placeAddress().locality + ' ' + this.placeAddress().country;
-    }
-    return this.placeAddress().name + ', ' + this.placeAddress().postalCode + ', ' + this.placeAddress().locality + ' ' + this.placeAddress().country;
-  });
 
   googleMapsUrl = computed(() => {
     const address = this.placeAddress();

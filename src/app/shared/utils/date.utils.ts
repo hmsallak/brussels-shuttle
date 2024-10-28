@@ -1,3 +1,5 @@
+import {TuiDay, TuiTime} from "@taiga-ui/cdk";
+
 /**
  * Convertit une instance de Date en une chaîne de caractères au format 'yyyy-MM-dd\'T\'HH:mm:ss'
  * @param date - L'objet Date à convertir
@@ -23,4 +25,13 @@ export function getTomorrowDate(){
   tomorrow.setDate(tomorrow.getDate() + 1);
   tomorrow.setHours(0,0,0,0);
   return tomorrow;
+}
+
+export function getDateTimeFromTui(tuiDay: TuiDay, tuiTime: TuiTime): Date {
+  const year = tuiDay['year'];
+  const month = tuiDay['month'];
+  const day = tuiDay['day'];
+  const hours = tuiTime['hours'];
+  const minutes = tuiTime['minutes'];
+  return new Date(year, month, day, hours, minutes);
 }

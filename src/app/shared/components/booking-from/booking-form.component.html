@@ -1,15 +1,14 @@
 <section class="card bg-gray-50 shadow-xl pt-2 pb-10">
-  <div class="card-actions justify-end pb-1 px-2">
-      <button class="btn btn-sm" (click)="clean()" [disabled]="bookingDetailsFormGroup.untouched">Effacer</button>
+  <div class="card-actions justify-end pb-1 px-2 absolute right-0">
+      <button class="btn btn-sm" (click)="clean()" [disabled]="bookingDetailsFormGroup.untouched">{{ 'booking-form.clear' | translate }}</button>
   </div>
-  <div class="card-body py-0">
+  <div class="card-body pt-3">
     <div class="space-y-3">
-      <h2 class="text-xl font-semibold">Quand souhaitez vous partir ?</h2>
-
+      <h2 class="text-lg font-semibold">{{ 'booking-form.departure-question' | translate }}</h2>
       <tui-input-date
         [formControl]="startTimeDateForm"
         [tuiTextfieldCleaner]="true">
-        Choisissez une date de départ
+        {{ 'booking-form.choose-date' | translate }}
       </tui-input-date>
       <tui-error
         [formControl]="startTimeDateForm"
@@ -19,20 +18,61 @@
         [strict]="true"
         [items]="itemsPeriod"
         [formControl]="startTimeTimeForm">
-        Heure de départ
+        {{ 'booking-form.departure-time' | translate }}
       </tui-input-time>
       <tui-error
         [formControl]="startTimeTimeForm"
         [error]="[] | tuiFieldError | async"/>
+
+      <tui-select
+        class="w-1/2"
+        tuiTextfieldSize="s"
+        [formControl]="wayForm"
+        [valueContent]="'way.'+wayForm.value | translate">
+        <input tuiTextfield/>
+        <tui-data-list-wrapper
+          *tuiDataList
+          [items]="wayItems"
+          [itemContent]="wayItemContent"
+        ></tui-data-list-wrapper>
+      </tui-select>
+      <ng-template #wayItemContent let-item>
+        {{ 'way.' + item | translate }}
+      </ng-template>
+
+      <div *ngIf="wayForm.value == WayEnum.RETURN">
+          <div class="space-y-3">
+            <tui-input-date [@tuiHeightCollapse]="getAnimation(300)"
+              [formControl]="returnStartTimeDateForm"
+                            [min]="startTimeDateForm.value"
+              [tuiTextfieldCleaner]="true">
+              {{ 'booking-form.choose-return-date' | translate }}
+            </tui-input-date>
+            <tui-error
+              [formControl]="returnStartTimeDateForm"
+              [error]="[] | tuiFieldError | async"/>
+
+            <tui-input-time [@tuiHeightCollapse]="getAnimation(300)"
+              [strict]="true"
+              [items]="itemsPeriod"
+              [formControl]="returnStartTimeTimeForm">
+              {{ 'booking-form.return-time' | translate }}
+            </tui-input-time>
+            <tui-error
+              [formControl]="returnStartTimeTimeForm"
+              [error]="[] | tuiFieldError | async"/>
+          </div>
+
+      </div>
     </div>
 
-    <div class="space-y-1 mt-4">
-      <h2 class="text-xl font-semibold">Réservez une course</h2>
-        <app-place-auto-complete label="Lieu de prise en charge"
+    <div class="space-y-1 mt-2">
+      <h2 class="text-lg font-semibold">{{ 'booking-form.book-a-ride' | translate }}</h2>
+        <app-place-auto-complete label="{{ 'booking-form.pickup-location' | translate }}"
                                  icon="tuiIconDiscLarge"
                                  [addressForm]="startAddressForm">
         </app-place-auto-complete>
-        <app-place-auto-complete label="Destination"
+        <app-place-auto-complete label="{{ 'booking-form.destination' | translate }}"
                                  icon="tuiIconMapPinLarge"
                                  [addressForm]="endAddressForm">
         </app-place-auto-complete>
@@ -42,9 +82,8 @@
       <tui-select [formControl]="passengerCountForm"
                   tuiTextfieldIconLeft="tuiIconUserLarge"
                   tuiTextfieldSize="m">
-        Nombre de passagers
+        {{ 'booking-form.passenger-count' | translate }}
         <input
-          placeholder="Choose your hero"
           tuiTextfield
         />
         <tui-data-list-wrapper

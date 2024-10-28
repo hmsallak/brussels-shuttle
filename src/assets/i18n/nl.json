@@ -19,5 +19,9 @@
     "fr": "Français",
     "en": "Anglais",
     "nl": "Néerlandais"
+  },
+  "way": {
+    "oneWay": "Aller simple",
+    "return": "Aller retour"
   }
 }

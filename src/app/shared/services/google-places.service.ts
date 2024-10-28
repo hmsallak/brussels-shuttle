@@ -1,4 +1,4 @@
-import {PlaceAddress} from "../../core/models/PlaceAddress";
+import {PlaceAddress} from "../../core/models/place-address";
 import {postcss} from "tailwindcss";
 
 export function extractPlaceAddress(place: google.maps.places.PlaceResult): PlaceAddress {

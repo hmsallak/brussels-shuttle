@@ -1,5 +1,5 @@
 import {Component, EventEmitter, input, Output} from '@angular/core';
-import {JourneyQuote} from "../../../core/models/journey-quote";
+import {Quote} from "../../../core/models/quote";
 import {VehicleModelPriceComponent} from "./vehicle-model-price/vehicle-model-price.component";
 import {FormControl, Validators} from "@angular/forms";
 import {VehicleModel} from "../../../core/models/vehicle-model";
@@ -15,7 +15,7 @@ import {VehicleModel} from "../../../core/models/vehicle-model";
 })
 export class JourneyQuoteComponent {
   passengerCount = input<number>(1);
-  journeyQuote = input.required<JourneyQuote>();
+  journeyQuote = input.required<Quote>();
   vehicleModelIdForm: FormControl =new FormControl(null, [Validators.required]);
   @Output() selectVehicleModelEvent: EventEmitter<VehicleModel> = new EventEmitter<VehicleModel>();
 }

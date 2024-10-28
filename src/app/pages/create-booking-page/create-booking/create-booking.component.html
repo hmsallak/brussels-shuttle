@@ -1,17 +1,17 @@
 <app-stepper>
   <!--  First step-->
   <app-step [label]="'Plannifier Votre Trajet'" [isStepComplete]="isBookingDetailsCompleted()">
-    <app-search-journey-quote [(bookingDetails)]="bookingDetails"
-                              (journeyQuote)="journeyQuote.set($event)">
-    </app-search-journey-quote>
+    <app-create-quote [(bookingDetails)]="bookingDetails"
+                      (quoteEvent)="quote.set($event)">
+    </app-create-quote>
   </app-step>
 
   <!--  Second step-->
   <app-step [label]="'De quel véhicule avez-vous besoin ?'" [isStepComplete]="isVehicleModelCompleted()">
-    @if (!!journeyQuote()){
+    @if (!!quote()){
         <section class="mb-10 col-span-full lg:col-span-5">
           <div>
-            <app-journey-quote [journeyQuote]="journeyQuote()!"
+            <app-journey-quote [journeyQuote]="quote()!"
                                [passengerCount]="currentBooking().passengerCount ?? 0"
                                (selectVehicleModelEvent)="vehicleModel.set($event)">
             </app-journey-quote>

@@ -15,9 +15,33 @@
       }
     }
   },
+  "booking-form": {
+    "clear": "Effacer",
+    "departure-question": "Quand souhaitez-vous partir ?",
+    "choose-date": "Choisissez une date",
+    "choose-return-date": "Choisissez une date de retour",
+    "departure-time": "Heure de départ",
+    "return-time": "Heure de retour",
+    "book-a-ride": "Réservez une course",
+    "pickup-location": "Lieu de prise en charge",
+    "destination": "Destination",
+    "passenger-count": "Nombre de passagers",
+    "select-passenger": "Choisissez le nombre de passagers"
+  },
+  "stepper": {
+    "step": "Étape",
+    "next": "Suivant",
+    "back": "Retour",
+    "confirm": "Confirmer",
+    "cancel": "Annuler"
+  },
   "language": {
     "fr": "Français",
     "en": "Anglais",
     "nl": "Néerlandais"
+  },
+  "way": {
+    "oneWay": "Aller simple",
+    "return": "Aller retour"
   }
 }

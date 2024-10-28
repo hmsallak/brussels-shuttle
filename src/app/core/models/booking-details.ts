@@ -1,14 +1,6 @@
-import {PlaceAddress} from "./PlaceAddress";
+import {TripRequest} from "./api/request/trip-request";
 
 export interface BookingDetails {
-  startTime: Date;
-  startAddress: {
-    address: string;
-    place: PlaceAddress;
-  };
-  endAddress: {
-    address: string;
-    place: PlaceAddress;
-  };
+  trips: Array<TripRequest>;
   passengerCount: number;
 }

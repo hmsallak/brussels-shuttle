@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BookingSearchComponent } from './search-journey-quote.component';
+import { BookingSearchComponent } from './create-quote.component';
 
 describe('BookingSearchComponent', () => {
   let component: BookingSearchComponent;

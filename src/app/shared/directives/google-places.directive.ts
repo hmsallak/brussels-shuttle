@@ -1,5 +1,5 @@
 import {Directive, ElementRef, EventEmitter, NgZone, OnInit, Output} from '@angular/core';
-import {PlaceAddress} from "../../core/models/PlaceAddress";
+import {PlaceAddress} from "../../core/models/place-address";
 import {extractPlaceAddress} from "../services/google-places.service";
 
 @Directive({

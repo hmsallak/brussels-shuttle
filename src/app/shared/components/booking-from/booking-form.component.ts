@@ -4,7 +4,7 @@ import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} fr
 import {dateMinValidator, timeValidator} from "../../services/custom-validator";
 import {BookingDetails} from "../../../core/models/booking-details";
 import {ActivatedRoute, Router} from "@angular/router";
-import {TuiDay, TuiTime} from "@taiga-ui/cdk";
+import {TuiDay, tuiPure, TuiTime} from "@taiga-ui/cdk";
 import {
   TUI_VALIDATION_ERRORS,
   tuiCreateTimePeriods,
@@ -13,11 +13,22 @@ import {
   TuiInputTimeModule,
   TuiSelectModule
 } from "@taiga-ui/kit";
-import {TuiErrorModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
+import {
+  TuiDurationOptions,
+  TuiErrorModule,
+  tuiHeightCollapse,
+  TuiHintModule,
+  TuiTextfieldControllerModule
+} from "@taiga-ui/core";
 import {
   PlaceAutocompleteComponent
 } from "../place-auto-complete/place-auto-complete.component";
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, NgIf} from "@angular/common";
+import {WayEnum} from "../../../core/models/enum/way.enum";
+import {TranslateModule} from "@ngx-translate/core";
+import {TripRequest} from "../../../core/models/api/request/trip-request";
+import {TripEnum} from "../../../core/models/enum/trip.enum";
+import {formatLocalDate, getDateTimeFromTui} from "../../utils/date.utils";
 
 
 @Component({
@@ -33,12 +44,15 @@ import {AsyncPipe} from "@angular/common";
     TuiInputTimeModule,
     AsyncPipe,
     TuiErrorModule,
-    TuiFieldErrorPipeModule
+    TuiFieldErrorPipeModule,
+    TranslateModule,
+    TuiHintModule,
+    NgIf
   ],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
+  providers: [
     {
       provide: TUI_VALIDATION_ERRORS,
       useValue: {
@@ -47,35 +61,38 @@ import {AsyncPipe} from "@angular/common";
       },
     },
   ],
+  animations: [tuiHeightCollapse],
+
 })
 export class BookingFormComponent {
   private _formBuilder= inject(FormBuilder);
-  private router = inject(Router);
-  private activatedRoute = inject(ActivatedRoute);
-
-  startAddressParam = this.activatedRoute.snapshot.queryParams['startAddress'];
-  endAddressParam = this.activatedRoute.snapshot.queryParams['endAddress'];
-  dataTimeParam = this.activatedRoute.snapshot.queryParams['dateTime'];
 
   private _bookingDetailsFormGroup = this._formBuilder.group({
     startTime: new FormGroup({
-      date: new FormControl(this.getDateFormBasedParam(), [Validators.required, dateMinValidator()]),
-      time: new FormControl(this.getTimeFormBasedParam(), [Validators.required, timeValidator()]),
+      date: new FormControl(null, [Validators.required, dateMinValidator()]),
+      time: new FormControl(null, [Validators.required, timeValidator()]),
     }),
+    way: new FormControl(WayEnum.ONE_WAY, [Validators.required]),
     startAddress: new FormGroup({
-      address: new FormControl(this.startAddressParam, [Validators.required]),
+      address: new FormControl(null, [Validators.required]),
       place: new FormControl(null, [Validators.required]),
     }),
     endAddress: new FormGroup({
-      address: new FormControl(this.endAddressParam, [Validators.required]),
+      address: new FormControl(null, [Validators.required]),
       place: new FormControl(null, [Validators.required]),
     }),
-    passengerCount: new FormControl(1,  [Validators.required, Validators.min(1), Validators.max(9)])
+    passengerCount: new FormControl(1,  [Validators.required, Validators.min(1), Validators.max(9)]),
+    returnStartTime: new FormGroup({
+      date: new FormControl(null),
+      time: new FormControl(null),
+    }),
   });
 
   bookingDetails = output<BookingDetails | null>();
+  private _passengerCountItems: number[] = Array.from({length: 9}, (_, i) => i + 1);
   protected readonly itemsPeriod = tuiCreateTimePeriods( 0, 24, [0, 15, 30, 45]);
-
+  protected readonly wayItems = Object.values(WayEnum);
+  protected readonly WayEnum = WayEnum;
 
   constructor() {
     this._bookingDetailsFormGroup.statusChanges.subscribe(status => {
@@ -87,18 +104,16 @@ export class BookingFormComponent {
     });
   }
 
-  private _passengerCountItems: number[] = Array.from({length: 9}, (_, i) => i + 1);
-
   get passengerCountItems(): number[] {
     return this._passengerCountItems;
   }
 
   get startTimeDateForm(): FormControl {
-    return this._bookingDetailsFormGroup.get('startTime.date') as FormControl;
+    return this._bookingDetailsFormGroup.get('startTime.date') as FormControl<TuiDay | null>;
   }
 
   get startTimeTimeForm(): FormControl {
-    return this._bookingDetailsFormGroup.get('startTime.time') as FormControl;
+    return this._bookingDetailsFormGroup.get('startTime.time') as FormControl<TuiTime | null>;
   }
 
   get startAddressForm(): FormGroup {
@@ -110,11 +125,28 @@ export class BookingFormComponent {
   }
 
   get passengerCountForm(): FormControl {
-    return this._bookingDetailsFormGroup.get('passengerCount') as FormControl;
+    return this._bookingDetailsFormGroup.get('passengerCount') as FormControl<number>;
+  }
+
+  get wayForm(): FormControl {
+    return this._bookingDetailsFormGroup.get('way') as FormControl<WayEnum>;
+  }
+
+  get returnStartTimeDateForm(): FormControl {
+    return this._bookingDetailsFormGroup.get('returnStartTime.date') as FormControl<TuiDay | null>;
+  }
+
+  get returnStartTimeTimeForm(): FormControl {
+    return this._bookingDetailsFormGroup.get('returnStartTime.time') as FormControl<TuiTime | null>;
   }
 
   get bookingDetailsFormGroup() {
     return this._bookingDetailsFormGroup;
+  }
+
+  @tuiPure
+  protected getAnimation(duration: number): TuiDurationOptions {
+    return {value: '', params: {duration}};
   }
 
   clean(){
@@ -126,54 +158,31 @@ export class BookingFormComponent {
     this.bookingDetails.emit(null);
   }
 
-  private getDateFormBasedParam(){
-    if(this.dataTimeParam){
-      const date = new Date(this.dataTimeParam);
-      return new TuiDay(date.getFullYear(), date.getMonth(), date.getDate());
+  private getTripRequests(): Array<TripRequest> {
+    const trips: Array<TripRequest> = [];
+    trips.push({
+      startAddress: this.startAddressForm.get('place')?.value,
+      endAddress: this.endAddressForm.get('place')?.value,
+      startTime: formatLocalDate(getDateTimeFromTui(this.startTimeDateForm.value, this.startTimeTimeForm.value)),
+      type: TripEnum.Departure
+    });
+    if (this.wayForm.value === WayEnum.RETURN) {
+      trips.push({
+        startAddress: this.endAddressForm.get('place')?.value,
+        endAddress: this.startAddressForm.get('place')?.value,
+        startTime: formatLocalDate(getDateTimeFromTui(this.returnStartTimeDateForm.value, this.returnStartTimeTimeForm.value)),
+        type: TripEnum.Return
+      });
     }
-    return null;
-  }
-
-  getTimeFormBasedParam(){
-    if(this.dataTimeParam){
-      const date = new Date(this.dataTimeParam);
-      return new TuiTime(date.getHours(), date.getMinutes());
-    }
-    return null;
-  }
-
-  private getDateTime(): Date {
-    const year = this.startTimeDateForm.value['year'];
-    const month = this.startTimeDateForm.value['month'];
-    const day = this.startTimeDateForm.value['day'];
-    const hours = this.startTimeTimeForm.value['hours'];
-    const minutes = this.startTimeTimeForm.value['minutes'];
-    return new Date(year, month, day, hours, minutes);
+    return trips;
   }
 
   sendBookingDetails() {
     const bookingDetails: BookingDetails = {
-      startTime: this.getDateTime(),
-      startAddress: {
-        address: this.startAddressForm.get('address')?.value,
-        place: this.startAddressForm.get('place')?.value
-      },
-      endAddress: {
-        address: this.endAddressForm.get('address')?.value,
-        place: this.endAddressForm.get('place')?.value
-      },
+      trips: this.getTripRequests(),
       passengerCount: this.passengerCountForm.value
     };
-
-    this.router.navigate(
-      [],
-      {
-        relativeTo: this.activatedRoute,
-        queryParams: { startAddress: bookingDetails.startAddress.place.name, endAddress: bookingDetails.endAddress.place.name, dateTime: bookingDetails.startTime.toISOString()},
-        queryParamsHandling: 'merge'
-      }
-    );
-
     this.bookingDetails.emit(bookingDetails);
   }
+
 }

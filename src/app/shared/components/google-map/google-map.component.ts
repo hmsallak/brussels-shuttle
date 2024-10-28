@@ -7,7 +7,7 @@ import {
   MapMarker
 } from "@angular/google-maps";
 import {map, switchMap} from "rxjs";
-import {PlaceAddress} from "../../../core/models/PlaceAddress";
+import {PlaceAddress} from "../../../core/models/place-address";
 import {JsonPipe} from "@angular/common";
 
 @Component({

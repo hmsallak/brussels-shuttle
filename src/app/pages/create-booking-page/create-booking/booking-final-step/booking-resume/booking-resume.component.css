@@ -1,0 +1,25 @@
+.vehicle-bg {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+.location-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.location-item {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.line {
+  width: 2px;
+  background-color: #d1d5db; /* Couleur grise */
+  position: absolute;
+  height: 50px;
+  top: 24px;
+  left: 12px; /* Ajustez la position en fonction de l'alignement des icônes */
+  z-index: -1;
+}

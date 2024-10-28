@@ -11,10 +11,10 @@ import { HttpClient, provideHttpClient, withInterceptorsFromDi } from "@angular/
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {BookingGateway} from "./core/ports/booking.gateway";
-import {JourneyQuoteGateway} from "./core/ports/journey-quote.gateway";
+import {QuoteGateway} from "./core/ports/quote.gateway";
 import {VehicleModelGateway} from "./core/ports/vehicle-model.gateway";
 import {HttpVehicleModelGateway} from "./core/adapters/http-vehicle-model.gateway";
-import {HttpJourneyQuoteGateway} from "./core/adapters/http-journey-quote.gateway";
+import {HttpQuoteGateway} from "./core/adapters/http-quote.gateway";
 import {HttpBookingGateway} from "./core/adapters/http-booking.gateway";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideNgxStripe} from "ngx-stripe";
@@ -68,7 +68,7 @@ export const appConfig: ApplicationConfig = {
     }),
     provideAnimationsAsync(),
     { provide: BookingGateway, useFactory: () => new HttpBookingGateway() },
-    { provide: JourneyQuoteGateway, useFactory: () => new HttpJourneyQuoteGateway() },
+    { provide: QuoteGateway, useFactory: () => new HttpQuoteGateway() },
     { provide: StripeGateway, useFactory: () => new HttpStripeGateway() },
     { provide: PaymentGateway, useFactory: () => new HttpPaymentGateway() },
     { provide: VehicleModelGateway, useFactory: () => new HttpVehicleModelGateway() },

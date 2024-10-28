@@ -6,7 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {PlaceAddress} from "../../../core/models/PlaceAddress";
+import {PlaceAddress} from "../../../core/models/place-address";
 import {TUI_VALIDATION_ERRORS, TuiFieldErrorPipeModule, TuiInputModule} from "@taiga-ui/kit";
 import {TuiErrorModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
 import {GooglePlacesDirective} from "../../directives/google-places.directive";
@@ -84,6 +84,8 @@ export class PlaceAutocompleteComponent implements OnInit {
   }
 
   onBlur(){
-    this.placeAddress.markAsTouched();
+    setTimeout(() => {
+      this.placeAddress.markAsTouched();
+    }, 300);
   }
 }

@@ -1,27 +1,56 @@
-<section class="card bg-gray-50 shadow-xl py-10">
-  <div class="card-body py-0">
-    <div class="grid grid-cols-1 divide-y md:text-lg">
-      <div class="flex justify-between py-2">
-        <span class="font-normal text-gray-500">Nombre de passager</span>
-        <span class="text-black">{{bookingResume().passengerCount ?? 0}}</span>
-      </div>
-      <div class="flex justify-between py-2">
-        <span class="font-normal text-gray-500">Prévu le</span>
-        <span class="text-black ">{{bookingResume().startTime | date:'short'}}</span>
+<section class="card bg-gray-100 shadow-xl py-0 px-0">
+  <div class="card-body px-6 pt-6 pb-10">
+    <div class="grid grid-cols-1 divide-y space-y-4 md:text-lg">
+
+      @if (bookingResume().vehicleModel){
+        <div class="mb-2 flex justify-start space-x-3">
+          <div class="w-32 h-24 vehicle-bg rounded-xl flex items-center justify-center overflow-hidden ">
+            <img src="{{bookingResume()!.vehicleModel!.imageUrl}}" alt="vehicle image" class="w-28 h-12 object-cover">
+          </div>
+          <div>
+            <h5 class=" text-lg font-bold">
+              Modèle {{bookingResume()!.vehicleModel!.name}}
+            </h5>
+            <span class="text-sm text-gray-500">
+              véhicule {{bookingResume()!.vehicleModel!.type}}
+            </span>
+            <h5 class="text-base mt-3">
+              {{bookingResume()!.passengerCount}} passagers
+            </h5>
+          </div>
+
+        </div>
+      }
+
+      <div>
+        @for (trip of trips(); track trip.id){
+          <div class="my-2">
+            <app-route-info [trip]="trip" [enableStyle]="false"></app-route-info>
+          </div>
+          <div class="flex justify-start">
+            <div class="divider divider-horizontal pt-4 pb-6 ml-1 mr-2"></div>
+            <div>
+              <div>
+                <fa-icon [icon]="faLocationPin" class="text-gray-700 mr-2"></fa-icon>
+                <app-place-address-link [placeAddress]="trip.startAddress"></app-place-address-link>
+                <div class="flex justify-start space-x-1 text-gray-500 text-xs sm:text-sm ml-6">
+                  <span class="font-normal whitespace-nowrap">prévu le</span>
+                  <span>{{trip.startTime | date:'short'}}</span>
+                </div>
+              </div>
+              <div class="mt-2">
+                <fa-icon [icon]="faLocationDot" class="text-gray-700 mr-2"></fa-icon>
+                <app-place-address-link [placeAddress]="trip.endAddress"></app-place-address-link>
+                <div class="flex justify-start space-x-1 text-gray-500 text-xs sm:text-sm ml-6">
+                  <span class="font-normal whitespace-nowrap">estimé le</span>
+                  <span>{{estimateEndDate(trip)| date:'short'}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
       </div>
 
-      @if (bookingResume().journeyQuote?.startAddress){
-        <div class="justify-between py-2">
-          <div class="font-normal text-gray-500 ">Lieu de départ</div>
-          <app-place-address-link [placeAddress]="bookingResume().journeyQuote!.startAddress"></app-place-address-link>
-        </div>
-      }
-      @if (bookingResume().journeyQuote?.endAddress){
-        <div class="justify-between py-2">
-          <div class="font-normal text-gray-500">Destination</div>
-          <app-place-address-link [placeAddress]="bookingResume().journeyQuote!.endAddress"></app-place-address-link>
-        </div>
-      }
     </div>
   </div>
 </section>

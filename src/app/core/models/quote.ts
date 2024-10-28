@@ -1,13 +1,11 @@
 import {VehicleModel} from "./vehicle-model";
 import {Address} from "node:cluster";
-import {PlaceAddress} from "./PlaceAddress";
+import {PlaceAddress} from "./place-address";
+import {Trip} from "./trip";
 
-export interface JourneyQuote {
+export interface Quote {
   id: number;
-  startAddress: PlaceAddress;
-  endAddress: PlaceAddress;
-  distanceInKilometers: number;
-  durationInSeconds: number;
+  trips: Array<Trip>;
   expirationTime: Date;
   vehicleModelPrices: VehicleModelPrice[];
 }
