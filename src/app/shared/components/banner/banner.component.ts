@@ -15,6 +15,7 @@ import {faCircleExclamation} from "@fortawesome/free-solid-svg-icons";
 })
 export class BannerComponent {
   @Input() title: string = '';
+  isMandatory = input<boolean>(false);
   isError = input<boolean>(false);
   protected readonly faCircleExclamation = faCircleExclamation;
 }

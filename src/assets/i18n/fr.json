@@ -15,6 +15,62 @@
       }
     }
   },
+  "destinations": {
+    "short-title": "Nos Destinations",
+    "title": "Voyagez confortablement vers les aéroports et villes depuis Bruxelles",
+    "description": "Découvrez notre sélection de destinations desservies par nos taxis pour des trajets pratiques et confortables au départ ou à destination de Bruxelles et ses environs.",
+    "items": [
+      {
+        "name": "Aéroport Zaventem",
+        "city": "Bruxelles",
+        "imageUri": "assets/images/zaventem.webp",
+        "title": "Réservez votre taxi vers l’aéroport de Zaventem, simple et rapide",
+        "description": "Partez l’esprit tranquille depuis Zaventem, un terminal moderne et pratique. Profitez d’un service taxi dédié pour un trajet sans encombre. Notre objectif : rendre votre voyage aussi agréable que possible."
+      },
+      {
+        "name": "Aéroport de Charleroi",
+        "city": "Bruxelles-Sud",
+        "imageUri": "assets/images/charleroi.webp",
+        "title": "Voyagez sereinement vers l’aéroport de Charleroi en taxi",
+        "description": "Lancez-vous vers de nouveaux horizons depuis l’aéroport de Charleroi. Notre service taxi vous garantit confort et ponctualité pour votre transfert. Réservez dès aujourd’hui pour un départ en toute tranquillité."
+      },
+      {
+        "name": "Aéroport Lille",
+        "city": "Lesquin",
+        "imageUri": "assets/images/lille.webp",
+        "title": "Des trajets optimisés pour vos déplacements vers Lille",
+        "description": "Nos taxis vous transportent dans Lille et ses environs rapidement. Idéal pour vos rendez-vous ou trajets vers les gares. Profitez d’un service fiable et d’une expérience agréable."
+      },
+      {
+        "name": "Aéroport d’Orly",
+        "city": "Paris",
+        "imageUri": "assets/images/orly.webp",
+        "title": "L’aéroport d’Orly accessible en toute facilité",
+        "description": "Orly est le choix parfait pour rejoindre Paris rapidement. Ses terminaux modernes proposent une variété de services. Optez pour la facilité d’accès avec notre service de taxi."
+      },
+      {
+        "name": "Aéroport de Charles de Gaulle",
+        "city": "Paris",
+        "imageUri": "assets/images/cdg.webp",
+        "title": "Rejoignez facilement l’aéroport de Paris Charles de Gaulle",
+        "description": "Découvrez un aéroport moderne et bien desservi pour vos vols internationaux. Grâce à notre service taxi, arrivez en toute simplicité. Nous assurons votre confort jusqu’au terminal."
+      },
+      {
+        "name": "Aéroport de Schiphol",
+        "city": "Amsterdam",
+        "imageUri": "assets/images/amsterdam.webp",
+        "title": "Rendez-vous à l’aéroport Schiphol en toute sérénité",
+        "description": "Schiphol est votre passerelle vers le monde, situé au cœur des Pays-Bas. Bénéficiez d’un trajet simple et ponctuel en taxi. Nous facilitons votre départ pour un voyage sans souci."
+      },
+      {
+        "name": "Aéroport de Eindhoven",
+        "city": "Pays-Bas",
+        "imageUri": "assets/images/eindhoven.webp",
+        "title": "Transferts simplifiés vers l’aéroport d’Eindhoven",
+        "description": "Arrivez à Eindhoven, centre technologique des Pays-Bas, en toute quiétude. Nos chauffeurs vous y conduisent efficacement pour éviter tout stress. Profitez de notre service de taxi professionnel."
+      }
+    ]
+  },
   "booking-form": {
     "clear": "Effacer",
     "departure-question": "Quand souhaitez-vous partir ?",

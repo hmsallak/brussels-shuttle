@@ -1,6 +1,7 @@
  <app-layout [absoluteHeader]="true">
   <section class="relative ">
-    <img src="assets/images/schuman.webp" class="absolute inset-0 object-cover w-full h-full mx-auto " alt="" />
+    <img rel="preload" src="assets/images/schuman.webp" loading="lazy" class="absolute inset-0 object-cover w-full h-full mx-auto " alt="" />
+
     <div class="absolute inset-0 bg-black opacity-60"></div>
 
     <div class="relative bg-opacity-75">
@@ -39,7 +40,7 @@
               </a>
             </div>
           </div>
-          <div class="w-full max-w-xl xl:px-8 xl:w-5/12">
+          <div class="w-full max-w-xl xl:px-8 xl:w-5/12 opacity-95">
             <app-booking-from routerLink="booking/request"></app-booking-from>
           </div>
         </div>
@@ -48,38 +49,25 @@
 
   </section>
 
-   <!--    Features Section    -->
-  <section class="px-10 md:px-32 2xl:px-64 py-12">
-    <app-features></app-features>
-  </section>
 
-  <!--    Services Section    -->
-  <section class="bg-gray-50 relative">
-    <img src="assets/images/map.png" class="absolute inset-0 object-cover w-full h-full mx-auto " alt="" />
-    <div class="py-12 relative mx-auto w-10/12">
-      <div class="bg-gray-50 p-10 rounded-2xl max-w-96 sm:max-w-[600px] shadow-2xl">
-        <p class="text-2xl sm:text-4xl font-bold text-gray-900 sm:leading-[3.25rem] ">Votre service de transfert fiable à Bruxelles</p>
-        <p class="text-lg font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white mt-5">
-          Professionnel <fa-icon [icon]="faCircle" class="text-sm text-gray-400 mx-2"></fa-icon> Ponctuel <fa-icon [icon]="faCircle" class="text-sm text-gray-400 mx-2"></fa-icon> Abordable
-        </p>
+ <!--    Features Section    -->
+ <section class="px-10 md:px-32 2xl:px-64 py-12">
+   <app-features></app-features>
+ </section>
 
-      </div>
-    </div>
-  </section>
 
-   <section class="">
-     <div class="flex flex-col lg:flex-row lg:items-stretch lg:max-h-[900px] lg:min-h-[900px]">
-       <div class="flex items-center justify-center w-full lg:order-2 lg:w-7/12">
-         <div class="h-full px-4 pt-24 pb-16 sm:px-6 lg:px-24 2xl:px-32 lg:pt-40 lg:pb-14">
-           <div class="flex flex-col justify-between flex-1 h-full">
+   <section class="bg-gray-50">
+     <div class="flex flex-col lg:flex-row lg:items-stretch lg:max-h-[7500px] lg:min-h-[750px]">
+       <div class="flex items-center justify-center w-full lg:order-1 lg:w-7/12">
+         <div class="h-full px-4 pt-24 pb-16 sm:px-6 lg:px-24 2xl:px-32 2xl:ml-56 lg:pb-14">
+           <div class="flex flex-col justify-start flex-1 h-full">
              <div>
-               <h1 class="text-4xl font-bold text-black sm:text-6xl xl:text-5xl">Disponible à tout moment</h1>
-               <p class="mt-6 text-base text-black sm:text-lg">
+               <h1 class="text-4xl font-bold text-gray-900">Disponible à tout moment</h1>
+               <p class="mt-6 text-base font-normal leading-7 text-gray-600 ">
                  Nous travaillons avec des chauffeurs expérimentés pour garantir un service de qualité et une sécurité à toute épreuve.
                  Notre service de transport vous permet de vous déplacer facilement vers et depuis les aéroports de votre choix.<br>
                  Réservez votre transfert en ligne dès maintenant et profitez d'une réservation simple et pratique.</p>
-               <a href="#" class="flex flex-row items-center justify-center gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 mt-10">Réserver maintenant
-
+               <a href="#" class="flex flex-row items-center justify-start gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 mt-10">Réserver maintenant
                  <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                    <path d="M9.00378 5.99561L15.004 11.9959L9.00024 17.9996" stroke="#1195a6" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" class="my-path"></path>
                  </svg>
@@ -92,63 +80,61 @@
          </div>
        </div>
 
-       <div class="relative w-full overflow-hidden lg:w-5/12 lg:order-1">
-         <div class="lg:absolute lg:bottom-0 lg:left-0">
-           <img class="w-full" src="https://cdn.rareblocks.xyz/collection/celebration/images/hero/4/phone-mockup.png" alt="" />
+       <div class="relative w-full overflow-hidden lg:w-4/12 lg:order-2">
+         <div class="lg:absolute lg:bottom-0 lg:right-0">
+           <img class="w-[37rem]" src="assets/images/mockup-phone.png" alt="" />
          </div>
        </div>
      </div>
    </section>
-   <!-- Approach -->
-<!--   <section class="text-gray-600 body-font">-->
-<!--     <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">-->
-<!--       <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">-->
-<!--         <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-0">-->
-<!--           <div class="mb-10 lg:mb-16 flex justify-center items-center flex-col gap-x-0 gap-y-6 lg:gap-y-0 lg:flex-row lg:justify-between max-md:max-w-lg max-md:mx-auto">-->
-<!--             <div class="relative w-full text-center lg:text-left lg:w-2/4">-->
-<!--               <div class="text-4xl font-bold text-gray-900 leading-[3.25rem] lg:mb-6 mx-auto max-w-max lg:max-w-md lg:mx-0">Disponible à tout moment</div>-->
-<!--             </div>-->
-<!--             <div class="relative w-full text-center  lg:text-left lg:w-2/4">-->
-<!--               <p class="text-lg font-normal text-gray-500 mb-5"> Réservez votre transfert en ligne dès maintenant et profitez d'une réservation simple et pratique.</p>-->
-<!--               <a routerLink="booking/api" class="flex flex-row items-center justify-center gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 ">Réserver maintenant-->
 
-<!--                 <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                   <path d="M9.00378 5.99561L15.004 11.9959L9.00024 17.9996" stroke="#1195a6" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" class="my-path"></path>-->
-<!--                 </svg>-->
-<!--               </a>-->
-<!--             </div>-->
-<!--           </div>-->
-<!--         </div>-->
-<!--         <app-reservation-approach></app-reservation-approach>-->
-<!--       </div>-->
-<!--       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 hidden xl:block">-->
-<!--           &lt;!&ndash; Devices &ndash;&gt;-->
-<!--           <div class="mx-auto ">-->
-<!--             &lt;!&ndash; Mobile Device &ndash;&gt;-->
-<!--             <figure class="bottom-0 start-0 z-[2] max-w-full w-72 h-auto ms-20 lg:block">-->
-<!--               <div class="p-1.5 bg-gray-700 shadow-[0_2.75rem_5.5rem_-3.5rem_rgb(0_0_0_/_20%),_0_2rem_4rem_-2rem_rgb(0_0_0_/_30%),_inset_0_-0.1875rem_0.3125rem_0_rgb(0_0_0_/_20%)] rounded-3xl">-->
-<!--                 <img class="max-w-full rounded-[1.25rem] h-auto" src="/assets/images/phone_mockup.webp" alt="Image Description">-->
-<!--               </div>-->
-<!--             </figure>-->
-<!--           </div>-->
-<!--       </div>-->
-<!--     </div>-->
-<!--   </section>-->
+   <section class="mt-24">
+     <div class="pt-4 max-w-xl md:mx-auto lg:max-w-4xl px-8 md:px-0">
+       <app-title title="Découvrez nos destinations depuis Bruxelles">
+       </app-title>
+     </div>
+
+     <div class="lg:max-w-7xl mx-auto py-20">
+       <div class="grid grid-cols-3 gap-16">
+           <div class="col-span-3 lg:col-span-1 px-5 md:px-0">
+             <app-destination [name]="'Aéroport Zaventem'" [city]="'Bruxelles'"
+                              [imageUri]="'assets/images/zaventem.webp'"
+                              [title]="'Réservez votre taxi vers l’aéroport de Zaventem, simple et rapide'"
+                              [description]="'Partez l’esprit tranquille depuis Zaventem, un terminal moderne et pratique. Profitez d’un service taxi dédié pour un trajet sans encombre. Notre objectif : rendre votre voyage aussi agréable que possible.'">
+             </app-destination>
+           </div>
+           <div class="col-span-3 lg:col-span-1 px-5 md:px-0">
+             <app-destination [name]="'Aéroport de Charleroi'" [city]="'Bruxelles-Sud'"
+                              [imageUri]="'assets/images/charleroi.webp'"
+                              [title]="'Voyagez sereinement vers l’aéroport de Charleroi en taxi'"
+                              [description]="'Lancez-vous vers de nouveaux horizons depuis l’aéroport de Charleroi. Notre service taxi vous garantit confort et ponctualité pour votre transfert. Réservez dès aujourd’hui pour un départ en toute tranquillité.'">
+             </app-destination>
+           </div>
+           <div class="col-span-3 lg:col-span-1 px-5 md:px-0">
+             <app-destination [name]="'Aéroport Lille'" [city]="'Lesquin'"
+                              [imageUri]="'assets/images/lille.webp'"
+                              [title]="'Des trajets optimisés pour vos déplacements vers Lille'"
+                              [description]="'Nos taxis vous transportent dans Lille et ses environs rapidement. Idéal pour vos rendez-vous ou trajets vers les gares. Profitez d’un service fiable et d’une expérience agréable.'">
+             </app-destination>
+           </div>
+       </div>
+       <div class="mt-16 flex justify-center ">
+         <a routerLink="services/destinations" title="" role="button"
+            class="inline-flex items-center px-3 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-full border sm:px-6 hover:bg-gray-200">
+          Plus de destinations
+         </a>
+       </div>
+
+
+     </div>
 
 
 
+   </section>
 
-  <!--    Notices Section    -->
-  <section class="pt-10 bg-gray-50">
-    <!-- Title -->
-    <div class="max-w-xl md:mx-auto sm:text-center lg:max-w-4xl  px-4 md:px-0">
-      <app-title [position]="PositionEnum.Center"
-                 shortTitle="Vos avis"
-                 title="Ce que nos clients disent de nous"
-                 description="Nous mettons l'accent sur la satisfaction de nos clients afin que votre voyage se déroule en toute sécurité et dans le respect de normes de conduite strictes.">
-      </app-title>
-    </div>
-    <app-notices></app-notices>
+
+  <section class="relative">
+    <app-testimonial></app-testimonial>
   </section>
 
-</app-layout>
+ </app-layout>

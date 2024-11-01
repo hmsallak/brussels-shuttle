@@ -4,11 +4,11 @@ import {
   importProvidersFrom,
   LOCALE_ID
 } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {provideRouter, withInMemoryScrolling} from '@angular/router';
 
 import { routes } from './app.routes';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {BookingGateway} from "./core/ports/booking.gateway";
 import {QuoteGateway} from "./core/ports/quote.gateway";
@@ -48,14 +48,17 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 export function getBrowserLanguage(): string {
   const language = window.navigator.language || 'fr';
-  // Vous pouvez éventuellement mapper des codes de langue plus spécifiques ici
-  return language.split('-')[0]; // Prend la partie principale du code langue (ex: 'en' pour 'en-US')
+  return language.split('-')[0];
 }
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
-    provideRouter(routes),
+    provideRouter(routes,
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled',
+      }),
+    ),
     provideHttpClient(withInterceptorsFromDi()),
     provideNgxStripe(environment.STRIPE_PUBLIC_KEY),
     importProvidersFrom([

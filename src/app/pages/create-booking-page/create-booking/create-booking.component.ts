@@ -1,4 +1,4 @@
-import {Component, computed, effect, inject, Signal, signal} from '@angular/core';
+import {Component, computed, effect, inject, model, Signal, signal} from '@angular/core';
 import {GoogleMapComponent} from "../../../shared/components/google-map/google-map.component";
 import {Quote} from "../../../core/models/quote";
 import {JourneyQuoteComponent} from "../../../shared/components/journey-quote/journey-quote.component";
@@ -14,7 +14,7 @@ import {Router, RouterLink} from '@angular/router';
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {BookingFormComponent} from "../../../shared/components/booking-from/booking-form.component";
 import {BookingResumeComponent} from "./booking-final-step/booking-resume/booking-resume.component";
-import {CreateQuoteComponent} from "./create-quote/create-quote.component";
+import {CreateQuoteComponent} from "./create-quote-step/create-quote.component";
 import {StepComponent} from "../../../shared/components/stepper/step/step.component";
 import {StepperComponent} from "../../../shared/components/stepper/stepper.component";
 import {CurrencyPipe, JsonPipe, NgIf} from "@angular/common";
@@ -22,6 +22,7 @@ import {BookingBuilder} from "../../../core/models/booking-builder";
 import {TuiButtonModule, TuiLabelModule} from "@taiga-ui/core";
 import {BookingFinalStepComponent} from "./booking-final-step/booking-final-step.component";
 import {BookingService} from "../../../shared/services/booking.service";
+import {BillingAddress} from "../../../core/models/billing-address";
 
 @Component({
   selector: 'app-create-booking',
@@ -57,6 +58,7 @@ export class CreateBookingComponent {
   bookingDetails = signal<BookingDetails | null>(null);
   quote = signal<Quote | null>(null);
   personalInformation = signal<Passenger | null>(null);
+  billingAddress = signal<BillingAddress | null>(null);
   paymentMethod = signal<PaymentMethodEnum | null>(null);
 
   currentBooking: Signal<BookingBuilder> = computed(() => {
@@ -103,6 +105,7 @@ export class CreateBookingComponent {
       passengerCount: this.bookingDetails()!.passengerCount,
       paymentMethodType: this.paymentMethod()!,
       vehicleModelId: this.vehicleModel()!.id,
+      billingAddress: this.billingAddress() ?? undefined,
     }
 
     this.bookingService.createBooking(request);

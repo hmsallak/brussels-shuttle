@@ -1,0 +1,67 @@
+<div class="grid grid-cols-6 gap-4">
+
+  <div class="col-span-3">
+    <tui-input [formControl]="identifierForm">
+      Identifiant
+      <input
+        placeholder="Entrez votre identifiant"
+        tuiTextfield
+      />
+    </tui-input>
+  </div>
+  <div class="col-span-3">
+    <tui-input [formControl]="registeredNameForm">
+      Nom de la société
+      <input
+        placeholder="Entrez votre société"
+        tuiTextfield
+      />
+    </tui-input>
+  </div>
+
+  <div class="col-span-6">
+    <tui-input [formControl]="streetForm">
+      Adresse
+      <input
+        placeholder="Entrez votre adresse"
+        tuiTextfield
+      />
+    </tui-input>
+    <tui-error
+      [formControl]="streetForm"
+      [error]="[] | tuiFieldError | async"/>
+  </div>
+  <div class="col-span-2">
+    <tui-input [formControl]="localityForm">
+      Ville
+      <input
+        tuiTextfield
+      />
+    </tui-input>
+    <tui-error
+      [formControl]="localityForm"
+      [error]="[] | tuiFieldError | async"/>
+  </div>
+  <div class="col-span-2">
+    <tui-input [formControl]="postalCodeForm">
+      Code postal
+      <input
+        tuiTextfield
+      />
+    </tui-input>
+    <tui-error
+      [formControl]="postalCodeForm"
+      [error]="[] | tuiFieldError | async"/>
+  </div>
+  <div class="col-span-2">
+    <tui-input [formControl]="countryForm">
+      Pays
+      <input
+        tuiTextfield
+      />
+    </tui-input>
+    <tui-error
+      [formControl]="countryForm"
+      [error]="[] | tuiFieldError | async"/>
+  </div>
+</div>

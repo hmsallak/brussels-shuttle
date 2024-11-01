@@ -1,9 +1,9 @@
 <app-stepper>
   <!--  First step-->
   <app-step [label]="'Plannifier Votre Trajet'" [isStepComplete]="isBookingDetailsCompleted()">
-    <app-create-quote [(bookingDetails)]="bookingDetails"
+    <app-create-quote-step [(bookingDetails)]="bookingDetails"
                       (quoteEvent)="quote.set($event)">
-    </app-create-quote>
+    </app-create-quote-step>
   </app-step>
 
   <!--  Second step-->
@@ -31,6 +31,7 @@
   <app-step [label]="'Revoir votre réservation'">
     <app-booking-final-step [(paymentMethod)]="paymentMethod"
                             [(personalInformation)]="personalInformation"
+                            [(billingAddress)]="billingAddress"
                             [totalPrice]="totalPrice()"
                             [currentBooking]="currentBooking()"
                             (book)="book()">

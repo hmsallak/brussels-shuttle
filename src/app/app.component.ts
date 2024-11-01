@@ -6,7 +6,6 @@ import defaultLanguage from "./../assets/i18n/fr.json";
 import {LanguageEnum} from "./core/models/enum/language.enum";
 import { StripeElementsDirective, StripePaymentElementComponent} from "ngx-stripe";
 import {TuiRootModule} from "@taiga-ui/core";
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -19,6 +18,7 @@ export class AppComponent {
   availableLanguages = [LanguageEnum.FRENCH, LanguageEnum.ENGLISH, LanguageEnum.DUTCH];
 
   constructor(private translateService: TranslateService) {
+
     translateService.setTranslation(LanguageEnum.FRENCH, defaultLanguage);
     translateService.setDefaultLang(LanguageEnum.FRENCH);
 

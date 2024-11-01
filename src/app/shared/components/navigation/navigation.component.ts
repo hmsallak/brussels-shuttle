@@ -1,7 +1,7 @@
 import {Component, inject, input} from '@angular/core';
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import { faLanguage, faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import {faLanguage, faChevronDown, faGlobe} from '@fortawesome/free-solid-svg-icons';
 
 import {LanguageEnum} from "../../../core/models/enum/language.enum";
 import {NgClass, NgOptimizedImage} from "@angular/common";
@@ -36,4 +36,6 @@ export class NavigationComponent {
     this.translateService.use(lang);
     this.translateService.setDefaultLang(lang);
   }
+
+  protected readonly faGlobe = faGlobe;
 }

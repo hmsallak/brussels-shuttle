@@ -1,0 +1,84 @@
+<link rel="preload" href="assets/images/zaventem.webp" as="image">
+<link rel="preload" href="assets/images/charleroi.webp" as="image">
+<link rel="preload" href="assets/images/lille.webp" as="image">
+<link rel="preload" href="assets/images/orly.webp" as="image">
+<link rel="preload" href="assets/images/cdg.webp" as="image">
+<link rel="preload" href="assets/images/amsterdam.webp" as="image">
+<app-layout>
+  <section>
+    <div class="mb-12 pt-4 max-w-xl md:mx-auto lg:max-w-4xl px-8 md:px-0">
+      <app-title [shortTitle]="'destinations.short-title' | translate"
+                 [title]="'destinations.title' | translate"
+                 [description]="'destinations.description' | translate">
+      </app-title>
+    </div>
+    <div class="bg-gray-50">
+      <div class="lg:max-w-7xl mx-auto py-20">
+        <div class="grid grid-cols-3 gap-16">
+          @defer {
+
+            <div class="col-span-3 md:col-span-1">
+              <app-destination [name]="'Aéroport Zaventem'" [city]="'Bruxelles'"
+                               [imageUri]="'assets/images/zaventem.webp'"
+                               [title]="'Réservez votre taxi vers l’aéroport de Zaventem, simple et rapide'"
+                               [description]="'Partez l’esprit tranquille depuis Zaventem, un terminal moderne et pratique. Profitez d’un service taxi dédié pour un trajet sans encombre. Notre objectif : rendre votre voyage aussi agréable que possible.'">
+              </app-destination>
+            </div>
+            <div class="col-span-3 md:col-span-1">
+              <app-destination [name]="'Aéroport de Charleroi'" [city]="'Bruxelles-Sud'"
+                               [imageUri]="'assets/images/charleroi.webp'"
+                               [title]="'Voyagez sereinement vers l’aéroport de Charleroi en taxi'"
+                               [description]="'Lancez-vous vers de nouveaux horizons depuis l’aéroport de Charleroi. Notre service taxi vous garantit confort et ponctualité pour votre transfert. Réservez dès aujourd’hui pour un départ en toute tranquillité.'">
+              </app-destination>
+            </div>
+            <div class="col-span-3 md:col-span-1">
+              <app-destination [name]="'Aéroport Lille'" [city]="'Lesquin'"
+                               [imageUri]="'assets/images/lille.webp'"
+                               [title]="'Des trajets optimisés pour vos déplacements vers Lille'"
+                               [description]="'Nos taxis vous transportent dans Lille et ses environs rapidement. Idéal pour vos rendez-vous ou trajets vers les gares. Profitez d’un service fiable et d’une expérience agréable.'">
+              </app-destination>
+            </div>
+            <div class="col-span-3 md:col-span-1">
+              <app-destination [name]="'Aéroport d’Orly'" [city]="'Paris'"
+                               [imageUri]="'assets/images/orly.webp'"
+                               [title]="'L’aéroport d’Orly accessible en toute facilité'"
+                               [description]="'Orly est le choix parfait pour rejoindre Paris rapidement. Ses terminaux modernes proposent une variété de services. Optez pour la facilité d’accès avec notre service de taxi.'">
+              </app-destination>
+            </div>
+            <div class="col-span-3 md:col-span-1">
+              <app-destination [name]="'Aéroport de Charles de Gaulle'" [city]="'Paris'"
+                               [imageUri]="'assets/images/cdg.webp'"
+                               [title]="'Rejoignez facilement l’aéroport de Paris Charles de Gaulle'"
+                               [description]="'Découvrez un aéroport moderne et bien desservi pour vos vols internationaux. Grâce à notre service taxi, arrivez en toute simplicité. Nous assurons votre confort jusqu’au terminal.'">
+              </app-destination>
+            </div>
+            <div class="col-span-3 md:col-span-1">
+              <app-destination [name]="'Aéroport de Schiphol'" [city]="'Amsterdam'"
+                               [imageUri]="'assets/images/amsterdam.webp'"
+                               [title]="'Rendez-vous à l’aéroport Schiphol en toute sérénité'"
+                               [description]="'Schiphol est votre passerelle vers le monde, situé au cœur des Pays-Bas. Bénéficiez d’un trajet simple et ponctuel en taxi. Nous facilitons votre départ pour un voyage sans souci.'">
+              </app-destination>
+            </div>
+            <div class="col-span-3 md:col-span-1">
+              <app-destination [name]="'Aéroport de Eindhoven'"  [city]="'Pays-Bas'"
+                               [imageUri]="'assets/images/eindhoven.webp'"
+                               [title]="'Transferts simplifiés vers l’aéroport d’Eindhoven'"
+                               [description]="'Arrivez à Eindhoven, centre technologique des Pays-Bas, en toute quiétude. Nos chauffeurs vous y conduisent efficacement pour éviter tout stress. Profitez de notre service de taxi professionnel.'">
+              </app-destination>
+            </div>
+          } @loading (minimum 1s) {
+            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
+            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
+            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
+            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
+            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
+            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
+          }
+        </div>
+      </div>
+    </div>
+
+
+
+  </section>
+</app-layout>

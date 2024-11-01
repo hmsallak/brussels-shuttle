@@ -9,15 +9,10 @@
       </div>
       <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
         <li ><a routerLink="/">Page principale</a></li>
-        <li><a routerLink="/booking/request">Réserver une course</a></li>
-        <li>
-          <a>{{ 'navigation.navbar.menu.services.title' | translate }}</a>
-          <ul class="p-2">
-            <li><a>Taxi Aéorport</a></li>
-            <li><a>Nos offres</a></li>
-          </ul>
-        </li>
-        <li><a>FAQ</a></li>
+        <li><a routerLink="/booking/request" routerLinkActive="bg-cyan-400 text-white">Réserver une course</a></li>
+        <li><a routerLink="/services/destinations" routerLinkActive="bg-cyan-400 text-white">Destinations</a></li>
+
+        <li><a routerLink="/faq" routerLinkActive="bg-cyan-400 text-white">FAQ</a></li>
       </ul>
     </div>
 
@@ -29,29 +24,23 @@
   <!--    Maximum View    -->
   <div class="navbar-center hidden lg:flex ">
     <ul class="menu menu-horizontal px-1 text-lg ">
-      <li class="">
-        <details>
-          <summary>{{ 'navigation.navbar.menu.services.title' | translate }}</summary>
-          <ul class="w-64 text-black">
-            <li><a>Taxi Aéorport</a></li>
-            <li><a>Nos Offres</a></li>
-          </ul>
-        </details>
-      </li>
+
+      <li><a routerLink="/services/destinations" routerLinkActive="bg-cyan-400 text-white">Destinations</a></li>
+
       <li><a routerLink="/booking/request" routerLinkActive="bg-cyan-400 text-white">Réserver une course</a></li>
-      <li><a>FAQ</a></li>
+      <li><a routerLink="/faq" routerLinkActive="bg-cyan-400 text-white">FAQ</a></li>
     </ul>
   </div>
 
   <div class="navbar-end ">
     <ul class="menu menu-horizontal px-1 text-lg">
       <li>
-        <a routerLink="/contact">Contact</a>
+        <a routerLink="/contact" routerLinkActive="bg-cyan-400 text-white">Contact</a>
       </li>
       <div class="dropdown dropdown-bottom dropdown-end">
         <li tabindex="0">
           <a>
-          <fa-icon [icon]="faLanguage" class=""></fa-icon>
+          <fa-icon [icon]="faGlobe" class=""></fa-icon>
           <fa-icon [icon]="faChevronDown" class="text-xs"></fa-icon>
           </a>
         </li>

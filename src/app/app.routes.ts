@@ -5,15 +5,17 @@ import {SuccessPageComponent} from "./pages/success-page/success-page.component"
 import {CancelPageComponent} from "./pages/cancel-page/cancel-page.component";
 import {ContactPageComponent} from "./pages/contact-page/contact-page.component";
 import {TermOfUsePageComponent} from "./pages/term-of-use-page/term-of-use-page.component";
+import {FaqPageComponent} from "./pages/faq-page/faq-page.component";
+import {DestinationPageComponent} from "./pages/services/destination-page/destination-page.component";
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: HomePageComponent,
   },
   {
     path: 'booking/request',
-    component: CreateBookingPageComponent
+    component: CreateBookingPageComponent,
   },
   {
     path: 'success',
@@ -30,6 +32,14 @@ export const routes: Routes = [
   {
     path: 'term-of-use',
     component: TermOfUsePageComponent
+  },
+  {
+    path: 'services/destinations',
+    component: DestinationPageComponent
+  },
+  {
+    path: 'faq',
+    component: FaqPageComponent
   },
   {
     path: '**',

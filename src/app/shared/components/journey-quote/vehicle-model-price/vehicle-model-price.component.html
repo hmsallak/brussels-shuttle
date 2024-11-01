@@ -1,28 +1,31 @@
-<div class="sm:flex items-center justify-between w-full px-8 py-4 rounded-xl"
-     [ngClass]="{'bg-cyan-500 text-white': isSelected, 'text-gray-700': !isSelected, 'bg-gray-200 ': isDisabled, 'cursor-pointer shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300': !isDisabled}"
-     (click)="select()">
-  <div class="flex items-center">
-    <img class="w-32" [src]="vehicleModelPrice.vehicleModel.imageUrl" alt="car {{vehicleModelPrice.vehicleModel.type}}">
-    <div class="flex flex-col mx-5 space-y-1">
-      <h2 class="text-lg font-semibold  sm:text-2xl px-0 mx-0">
-        {{ vehicleModelPrice.vehicleModel.name }}
-      </h2>
-      <div   [ngClass]="{'text-gray-100': isSelected, 'text-gray-500': !isSelected}">
-        grande description du véhicule ici ...
-      </div>
+<div class="rounded-3xl p-6 flex flex-col md:flex-row md:items-center gap-5" (click)="select()"
+     [ngClass]="{'bg-cyan-500 text-white': isSelected, 'text-gray-700 bg-gray-50': !isSelected, 'bg-gray-200 ': isDisabled, 'cursor-pointer shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300': !isDisabled}">
+  <div class="img-box ">
+    <div class="w-full md:w-44 h-24 md:vehicle-bg rounded-2xl flex items-center justify-center overflow-hidden ">
+      <img [src]="vehicleModelPrice().vehicleModel.imageUrl" alt="vehicle image" class="w-36">
     </div>
   </div>
+  <div class="grid grid-cols-1 md:grid-cols-4 w-full gap-3 md:gap-8">
+    <div class="md:col-span-3">
+      <h2 class="text-2xl font-semibold mb-2">{{ vehicleModelPrice().vehicleModel.name }}</h2>
+      <span class="px-2 text-xs w-24 text-center rounded-full sm:px-4 py-1 mx-auto sm:mx-0"
+            [ngClass]="{'bg-cyan-700 ': isSelected, 'bg-gray-100 text-gray-700': !isSelected}"
+      >
+            <fa-icon [icon]="faUser" class="text-xs"></fa-icon> {{ vehicleModelPrice().vehicleModel.passengerCapacity }}
+            <fa-icon [icon]="faSuitcase" class="ml-2 text-xs"></fa-icon> {{ vehicleModelPrice().vehicleModel.luggageCapacity }}
+          </span>
+      <p class="font-normal text-lg mt-2"
+         [ngClass]="{'text-gray-100': isSelected, 'text-gray-500': !isSelected}">
+        grande description du véhicule ici ...
+      </p>
 
-  <div class="mt-4 sm:mt-0">
-    <div class="px-2 text-xs w-24 text-center rounded-full sm:px-4 py-1 mx-auto sm:mx-0"
-         [ngClass]="{'bg-cyan-700 ': isSelected, 'bg-gray-100 text-gray-700': !isSelected}">
-      <fa-icon [icon]="faUser" class="text-xs"></fa-icon> {{ vehicleModelPrice.vehicleModel.passengerCapacity }}
-      <fa-icon [icon]="faSuitcase" class="ml-2 text-xs"></fa-icon> {{ vehicleModelPrice.vehicleModel.luggageCapacity }}
     </div>
-
-    <h2 class="text-4xl font-semibold text-center">
-      {{vehicleModelPrice.price}} €
-    </h2>
-
+    <div class="flex items-center justify-end gap-8">
+      <div>
+        <h2 class="text-4xl font-semibold text-center">
+          {{vehicleModelPrice().price}} €
+        </h2>
+      </div>
+    </div>
   </div>
 </div>

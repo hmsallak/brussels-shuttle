@@ -1,10 +1,9 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, inject, Input, output, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 
 import {dateMinValidator, timeValidator} from "../../services/custom-validator";
 import {BookingDetails} from "../../../core/models/booking-details";
-import {ActivatedRoute, Router} from "@angular/router";
-import {TuiDay, tuiPure, TuiTime} from "@taiga-ui/cdk";
+import {TuiDay, TuiTime} from "@taiga-ui/cdk";
 import {
   TUI_VALIDATION_ERRORS,
   tuiCreateTimePeriods,
@@ -14,9 +13,7 @@ import {
   TuiSelectModule
 } from "@taiga-ui/kit";
 import {
-  TuiDurationOptions,
   TuiErrorModule,
-  tuiHeightCollapse,
   TuiHintModule,
   TuiTextfieldControllerModule
 } from "@taiga-ui/core";
@@ -29,6 +26,8 @@ import {TranslateModule} from "@ngx-translate/core";
 import {TripRequest} from "../../../core/models/api/request/trip-request";
 import {TripEnum} from "../../../core/models/enum/trip.enum";
 import {formatLocalDate, getDateTimeFromTui} from "../../utils/date.utils";
+import {BannerComponent} from "../banner/banner.component";
+import {BillingAddressComponent} from "../billing-address/billing-address.component";
 
 
 @Component({
@@ -47,7 +46,10 @@ import {formatLocalDate, getDateTimeFromTui} from "../../utils/date.utils";
     TuiFieldErrorPipeModule,
     TranslateModule,
     TuiHintModule,
-    NgIf
+    NgIf,
+    BannerComponent,
+    BillingAddressComponent,
+    FormsModule
   ],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.css',
@@ -61,8 +63,6 @@ import {formatLocalDate, getDateTimeFromTui} from "../../utils/date.utils";
       },
     },
   ],
-  animations: [tuiHeightCollapse],
-
 })
 export class BookingFormComponent {
   private _formBuilder= inject(FormBuilder);
@@ -144,9 +144,8 @@ export class BookingFormComponent {
     return this._bookingDetailsFormGroup;
   }
 
-  @tuiPure
-  protected getAnimation(duration: number): TuiDurationOptions {
-    return {value: '', params: {duration}};
+  get isReturnWayValid(): boolean {
+    return this.wayForm.value === WayEnum.RETURN && this.returnStartTimeDateForm.value && this.returnStartTimeTimeForm.value;
   }
 
   clean(){
@@ -166,7 +165,7 @@ export class BookingFormComponent {
       startTime: formatLocalDate(getDateTimeFromTui(this.startTimeDateForm.value, this.startTimeTimeForm.value)),
       type: TripEnum.Departure
     });
-    if (this.wayForm.value === WayEnum.RETURN) {
+    if (this.isReturnWayValid) {
       trips.push({
         startAddress: this.endAddressForm.get('place')?.value,
         endAddress: this.startAddressForm.get('place')?.value,

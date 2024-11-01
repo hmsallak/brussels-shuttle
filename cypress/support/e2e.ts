@@ -15,3 +15,13 @@
 
 // When a command from ./commands is ready to use, import with `import './commands'` syntax
 // import './commands';
+
+beforeEach(() => {
+  // Charger la fixture dans l'interception
+  cy.fixture('quote').then((responseBody) => {
+    cy.intercept('POST', '**/api/public/quote', {
+      statusCode: 200,
+      body: responseBody,
+    }).as('postQuote');
+  });
+});

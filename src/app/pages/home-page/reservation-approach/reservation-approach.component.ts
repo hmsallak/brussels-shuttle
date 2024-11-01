@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {TitleComponent} from "../../../shared/components/title/title.component";
 
 @Component({
@@ -8,7 +8,8 @@ import {TitleComponent} from "../../../shared/components/title/title.component";
     TitleComponent
   ],
   templateUrl: './reservation-approach.component.html',
-  styleUrl: './reservation-approach.component.css'
+  styleUrl: './reservation-approach.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReservationApproachComponent {
 

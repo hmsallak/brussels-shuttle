@@ -1,0 +1,45 @@
+{"id":1,
+  "trips":
+  [
+    {
+      "id":5,
+      "startTime":"2024-12-23T10:00:00",
+      "driver":null,
+      "vehicle":null,
+      "startAddress":
+      {"street":" ",
+        "locality":"Overijse",
+        "postalCode":"3090",
+        "province":"Région Flamande",
+        "country":"Belgique","id":5,
+        "name":"Overijse, Belgique",
+        "placeReference":"ChIJu6xloRvcw0cR7ie6ebgsCzI",
+        "location":{"latitude":50.770559,"longitude":4.540793}
+      },"endAddress":{"street":" ","locality":"Anvers","postalCode":"","province":"Région Flamande","country":"Belgique","id":6,"name":"Anvers, Belgique","placeReference":"ChIJfYjDv472w0cRuIqogoRErz4","location":{"latitude":51.2199302,"longitude":4.414990299999999}},
+      "routeMetrics":{
+        "tripDistance":64.835,
+        "tripDuration":59,
+        "additionalDriverDistance":21.48,
+        "additionalDriverDuration":2024,
+        "totalDistance":86.315,"totalDuration":2083
+      },
+      "type":"DEPARTURE","status":"PENDING"}
+  ],
+  "timestamp":"2024-10-28T17:55:43.5337331+01:00",
+  "status":"VALID",
+  "vehicleModelPrices":[
+    {
+      "vehicleModel":
+      {"id":1,"name":"Eco","type":"SEDAN","passengerCapacity":4,"luggageCapacity":4,"imageUrl":"https://i.postimg.cc/h49QP1CV/Eco.png"},
+      "price":138
+    },
+    {"vehicleModel":{"id":2,"name":"Business","type":"SEDAN","passengerCapacity":3,"luggageCapacity":3,"imageUrl":"https://i.postimg.cc/gjqxSGwg/Business.png"},
+      "price":164
+    },
+    {"vehicleModel":{"id":3,"name":"Van","type":"VAN","passengerCapacity":7,"luggageCapacity":6,"imageUrl":"https://i.postimg.cc/prt9Jmd9/Van.png"},
+      "price":164
+    },{"vehicleModel":{"id":4,"name":"Mini Bus","type":"MINIBUS","passengerCapacity":8,"luggageCapacity":8,"imageUrl":"https://i.postimg.cc/prt9Jmd9/Van.png"},
+      "price":190
+    }
+  ]
+}

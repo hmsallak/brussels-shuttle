@@ -4,7 +4,6 @@ import {
   faCheckCircle,
   faCircle
 } from "@fortawesome/free-solid-svg-icons";
-import {NoticesComponent} from "./notices/notices.component";
 import {ReservationApproachComponent} from "./reservation-approach/reservation-approach.component";
 import {TitleComponent} from "../../shared/components/title/title.component";
 import {PositionEnum} from "../../core/models/enum/position.enum";
@@ -13,14 +12,16 @@ import {NavigationComponent} from "../../shared/components/navigation/navigation
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
 import {FeaturesComponent} from "./features/features.component";
-import {CarsComponent} from "./cars/cars.component";
+import {fadeInUpAnimation} from "angular-animations";
+import {TestimonialComponent} from "./testimonial/testimonial.component";
+import {ContactFormComponent} from "../../shared/components/contact-form/contact-form.component";
+import {DestinationComponent} from "../services/destination-page/destination/destination.component";
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
   imports: [
     FaIconComponent,
-    NoticesComponent,
     ReservationApproachComponent,
     TitleComponent,
     BookingFormComponent,
@@ -28,11 +29,16 @@ import {CarsComponent} from "./cars/cars.component";
     LayoutComponent,
     RouterLink,
     FeaturesComponent,
-    CarsComponent
+    TestimonialComponent,
+    ContactFormComponent,
+    DestinationComponent
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    fadeInUpAnimation({duration: 500}),
+  ],
 })
 export class HomePageComponent {
 

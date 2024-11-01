@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 
 @Component({
@@ -8,7 +8,8 @@ import {FaIconComponent} from "@fortawesome/angular-fontawesome";
     FaIconComponent
   ],
   templateUrl: './features.component.html',
-  styleUrl: './features.component.css'
+  styleUrl: './features.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeaturesComponent {
 }

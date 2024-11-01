@@ -26,7 +26,7 @@ import {MinutesPipe} from "../../../../shared/pipe/minutes.pipe";
 import {TripEnum} from "../../../../core/models/enum/trip.enum";
 
 @Component({
-  selector: 'app-create-quote',
+  selector: 'app-create-quote-step',
   standalone: true,
   imports: [
     BookingFormComponent,
