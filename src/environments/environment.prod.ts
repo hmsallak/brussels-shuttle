@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
   baseUrl: 'http://localhost:8080/api',
-  STRIPE_PUBLIC_KEY: 'pk_test_51ONH3hFsUUbiztDu6wSJonZHTyfxN6cUaVj3yriv8LE9WjjUeh2Ts8XtG1gR6LqIPYus4gV4zdd23yM0QcI4lGOo00RDbMJZNx'
+  STRIPE_PUBLIC_KEY: 'pk_test_51QCiu7GCKWP9kq3ldkIe3rB2DadmLjamtTancvpih6sdHFlVK58bPzBmFXqxIUUEJCInurg6rCRqy2UbKUsVJhOi003CQSfy7e'
 };
