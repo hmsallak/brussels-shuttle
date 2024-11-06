@@ -29,6 +29,8 @@ import localeFr from '@angular/common/locales/fr';
 import localeEn from '@angular/common/locales/en';
 import {environment} from "../environments/environment";
 import {TuiRootModule} from "@taiga-ui/core";
+import {EmailGateway} from "./core/ports/email.gateway";
+import {HttpEmailGateway} from "./core/adapters/http-email.gateway";
 
 registerLocaleData(localeFr, 'fr');
 registerLocaleData(localeEn, 'en');
@@ -75,6 +77,7 @@ export const appConfig: ApplicationConfig = {
     { provide: StripeGateway, useFactory: () => new HttpStripeGateway() },
     { provide: PaymentGateway, useFactory: () => new HttpPaymentGateway() },
     { provide: VehicleModelGateway, useFactory: () => new HttpVehicleModelGateway() },
+    { provide: EmailGateway, useFactory: () => new HttpEmailGateway() },
     { provide: LOCALE_ID, useFactory: getBrowserLanguage },
   ]
 };

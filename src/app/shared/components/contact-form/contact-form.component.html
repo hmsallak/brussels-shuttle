@@ -1,6 +1,6 @@
 <section>
   <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-    <form class="space-y-8">
+    <div class="space-y-8">
       <label class="block text-sm text-gray-800">
         Votre email
         <tui-input  [tuiTextfieldCleaner]="true"
@@ -50,6 +50,15 @@
           Envoyer
         </button>
       </div>
-    </form>
+    </div>
   </div>
 </section>
+@if(success){
+  <div class="toast toast-right mr-20" (click)="success = false" [@fadeInOnEnter] [@fadeOutOnLeave]>
+    <div class="alert alert-success">
+      <span class="text-white">Message envoyé avec succès</span>
+    </div>
+  </div>
+}
+
+
