@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {
   faCheckCircle,
@@ -7,7 +7,6 @@ import {
 import {ReservationApproachComponent} from "./reservation-approach/reservation-approach.component";
 import {TitleComponent} from "../../shared/components/title/title.component";
 import {PositionEnum} from "../../core/models/enum/position.enum";
-import {BookingFormComponent} from "../../shared/components/booking-from/booking-form.component";
 import {NavigationComponent} from "../../shared/components/navigation/navigation.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
@@ -16,6 +15,11 @@ import {fadeInUpAnimation} from "angular-animations";
 import {TestimonialComponent} from "./testimonial/testimonial.component";
 import {ContactFormComponent} from "../../shared/components/contact-form/contact-form.component";
 import {DestinationComponent} from "../services/destination-page/destination/destination.component";
+import {BookingFormComponent} from "../../shared/components/booking-from/booking-form.component";
+import {TuiInputDateModule} from "@taiga-ui/kit";
+import {TuiTextfieldControllerModule} from "@taiga-ui/core";
+import {NgOptimizedImage, ViewportScroller} from "@angular/common";
+import {scrollToSection} from "../../shared/utils/element.utils";
 
 @Component({
   selector: 'app-home-page',
@@ -31,7 +35,10 @@ import {DestinationComponent} from "../services/destination-page/destination/des
     FeaturesComponent,
     TestimonialComponent,
     ContactFormComponent,
-    DestinationComponent
+    DestinationComponent,
+    TuiInputDateModule,
+    TuiTextfieldControllerModule,
+    NgOptimizedImage
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -41,8 +48,8 @@ import {DestinationComponent} from "../services/destination-page/destination/des
   ],
 })
 export class HomePageComponent {
-
   protected readonly PositionEnum = PositionEnum;
   protected readonly faCircle = faCircle;
   protected readonly faCheckCircle = faCheckCircle;
+  protected readonly scrollToSection = scrollToSection;
 }

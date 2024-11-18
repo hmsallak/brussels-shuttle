@@ -2,31 +2,40 @@
   <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
     <div class="space-y-8">
       <label class="block text-sm text-gray-800">
-        Votre email
+        {{ 'contact-form.email.label' | translate }}
         <tui-input  [tuiTextfieldCleaner]="true"
                     [tuiTextfieldLabelOutside]="true"
                     [formControl]="emailFormControl">
           <input tuiTextfield
                  class="bg-transparent py-4 pl-4 appearance-none outline-0 w-full"/>
         </tui-input>
+        <tui-error
+          [formControl]="emailFormControl"
+          [error]="[] | tuiFieldError | async"/>
       </label>
 
       <label class="block text-sm text-gray-800">
-        Nom
+        {{ 'contact-form.name.label' | translate }}
         <tui-input  [tuiTextfieldCleaner]="true"
                     [tuiTextfieldLabelOutside]="true"
                     [formControl]="nameFormControl">
           <input tuiTextfield
                  class="bg-transparent py-4 pl-4 appearance-none outline-0 w-full"/>
         </tui-input>
+        <tui-error
+          [formControl]="nameFormControl"
+          [error]="[] | tuiFieldError | async"/>
       </label>
 
       <label class="block text-sm text-gray-800">
-        Votre message
+        {{ 'contact-form.message.label' | translate }}
         <tui-textarea  [formControl]="messageFormControl"
                        [tuiTextfieldLabelOutside]="true">
-          écrivez un message
+          {{ 'contact-form.message.placeholder' | translate }}
         </tui-textarea>
+        <tui-error
+          [formControl]="messageFormControl"
+          [error]="[] | tuiFieldError | async"/>
       </label>
 
       <label
@@ -36,7 +45,7 @@
           [formControl]="acceptedTermsFormControl"
           tuiCheckbox
           type="checkbox"/>
-        J'accepte que les données que j'ai fournies soient collectées et stockées.
+        {{ 'contact-form.terms.text' | translate }}
       </label>
 
       <div class="tui-form__buttons">
@@ -47,7 +56,7 @@
           [disabled]="!isFormValid"
           type="submit"
           class="tui-form__button">
-          Envoyer
+          {{ 'contact-form.submit' | translate }}
         </button>
       </div>
     </div>
@@ -56,7 +65,9 @@
 @if(success){
   <div class="toast toast-right mr-20" (click)="success = false" [@fadeInOnEnter] [@fadeOutOnLeave]>
     <div class="alert alert-success">
-      <span class="text-white">Message envoyé avec succès</span>
+      <span class="text-white">
+        {{ 'contact-form.success' | translate }}
+      </span>
     </div>
   </div>
 }

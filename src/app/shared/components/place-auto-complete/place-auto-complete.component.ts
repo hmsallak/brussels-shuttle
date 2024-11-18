@@ -13,6 +13,7 @@ import {GooglePlacesDirective} from "../../directives/google-places.directive";
 import {LocationService} from "../../services/location.service";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {AsyncPipe} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 
@@ -29,6 +30,7 @@ import {AsyncPipe} from "@angular/common";
     TuiErrorModule,
     TuiFieldErrorPipeModule,
     AsyncPipe,
+    TranslateModule,
   ],
   templateUrl: './place-auto-complete.component.html',
   styleUrl: './place-auto-complete.component.css',

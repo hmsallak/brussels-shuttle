@@ -13,7 +13,7 @@ import {TuiRootModule} from "@taiga-ui/core";
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent{
   title = 'brussels-shuttle-frontend';
   availableLanguages = [LanguageEnum.FRENCH, LanguageEnum.ENGLISH, LanguageEnum.DUTCH];
 

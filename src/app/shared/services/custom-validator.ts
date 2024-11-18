@@ -1,8 +1,26 @@
-import {AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
+import {AbstractControl, FormGroup, ValidationErrors, ValidatorFn} from '@angular/forms';
 import {TuiDay, TuiValidationError} from "@taiga-ui/cdk";
-import {getTomorrowDate} from "../utils/date.utils";
+import {getDateTimeFromTui, getTodayDate, getTomorrowDate} from "../utils/date.utils";
 
 
+export function timeMinDifferenceValidator(numberHour: number): ValidatorFn {
+  return (group: AbstractControl): ValidationErrors | null => {
+    if (!(group instanceof FormGroup)) return null;
+
+    const dateControl = group.get('date');
+    const timeControl = group.get('time');
+
+    if (!dateControl || !timeControl || !dateControl.value || !timeControl.value) {
+      return null; // Pas de validation si les champs sont vides
+    }
+
+    const selectedDate = getDateTimeFromTui(dateControl.value, timeControl.value);
+    const currentTime = new Date();
+    const timeDifference = (selectedDate.getTime() - currentTime.getTime()) / (1000 * 60 * 60); // Différence en heures
+
+    return timeDifference >= numberHour ? null : { timeTooClose: true };
+  };
+}
 
 export function dateMinValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
@@ -10,8 +28,8 @@ export function dateMinValidator(): ValidatorFn {
     if (!value) return null;
     const dateDay: TuiDay = value;
     const date = new Date(dateDay.year, dateDay.month, dateDay.day);
-    const tomorrow = getTomorrowDate();
-    if(date < tomorrow) {
+    const today = getTodayDate();
+    if(date < today) {
       return { invalidMinDate: true };
     }
     return null;

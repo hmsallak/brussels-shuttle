@@ -1,41 +1,24 @@
-<div class="navbar" [ngClass]="{'text-white':absolute()}">
+<div class="navbar mt-2" [ngClass]="{'text-white':absolute()}">
 
-  <div class="navbar-start " >
-
-  <!--    Minimal View    -->
-    <div class="dropdown">
-      <div tabindex="0" role="button">
-        <img [src]="'assets/images/bs_logo_horizontal.svg'" class="btn btn-ghost text-xl lg:hidden" height="auto" width="230">
-      </div>
-      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
-        <li ><a routerLink="/">Page principale</a></li>
-        <li><a routerLink="/booking/request" routerLinkActive="bg-cyan-400 text-white">Réserver une course</a></li>
-        <li><a routerLink="/services/destinations" routerLinkActive="bg-cyan-400 text-white">Destinations</a></li>
-
-        <li><a routerLink="/faq" routerLinkActive="bg-cyan-400 text-white">FAQ</a></li>
-      </ul>
-    </div>
-
-    <a class="btn btn-ghost text-xl hidden lg:block" routerLink="/">
-      <img [src]="'assets/images/bs_logo_horizontal.svg'" class="" height="auto" width="230">
+  <section class="navbar-start">
+    <!--    Icon-->
+    <a class="cursor-pointer" routerLink="/">
+      <img ngSrc="assets/images/bs_logo_horizontal.svg" height="104.1876" width="521" class="min-w-10 w-72 max-h-16" alt="icon brussels shuttle">
     </a>
-  </div>
+  </section>
 
   <!--    Maximum View    -->
-  <div class="navbar-center hidden lg:flex ">
+  <section class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1 text-lg ">
-
-      <li><a routerLink="/services/destinations" routerLinkActive="bg-cyan-400 text-white">Destinations</a></li>
-
-      <li><a routerLink="/booking/request" routerLinkActive="bg-cyan-400 text-white">Réserver une course</a></li>
-      <li><a routerLink="/faq" routerLinkActive="bg-cyan-400 text-white">FAQ</a></li>
+      <li><a routerLink="/services/destinations" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>
+      <li><a routerLink="/booking/request" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
+      <li><a routerLink="/faq" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.faq'| translate }}</a></li>
     </ul>
-  </div>
-
-  <div class="navbar-end ">
+  </section>
+  <section class="navbar-end hidden lg:flex ">
     <ul class="menu menu-horizontal px-1 text-lg">
-      <li>
-        <a routerLink="/contact" routerLinkActive="bg-cyan-400 text-white">Contact</a>
+      <li class="mt-1 md:mt-0">
+        <a routerLink="/contact" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.contact'| translate }}</a>
       </li>
       <div class="dropdown dropdown-bottom dropdown-end">
         <li tabindex="0">
@@ -51,6 +34,25 @@
         </ul>
       </div>
     </ul>
-  </div>
+  </section>
+
+  <section class="navbar-end lg:hidden flex justify-end dropdown dropdown-bottom ">
+    <button class="btn transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300" [ngClass]="{'btn-link':absolute()}">
+      <fa-icon [icon]="faBars" class="" [ngClass]="{'text-white text-2xl':absolute()}"></fa-icon>
+    </button>
+
+    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 py-5 shadow-2xl bg-base-100 rounded-box w-80 text-black text-base  z-50">
+      <li><a routerLink="/booking/request" class="text-lg" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>
+      <li><a routerLink="/services/destinations" class="text-lg" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
+      <li><a routerLink="/faq" class="text-lg" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.faq'| translate }}</a></li>
+      <li><a routerLink="/contact" class="text-lg" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.contact'| translate }}</a></li>
+      <div class="divider my-0"></div>
+      <ul tabindex="0" class="flex justify-around space-x-2">
+        @for(lang of languages; track lang) {
+          <li><a (click)="changeLanguage(lang)">{{ 'language.'+lang | translate }}</a></li>
+        }
+      </ul>
+    </ul>
+  </section>
 </div>
 

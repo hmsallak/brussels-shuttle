@@ -1,10 +1,26 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
-import {TuiInputModule, TuiPushModule, TuiPushService, TuiTextareaModule} from "@taiga-ui/kit";
-import {TuiAlertService, TuiButtonModule, TuiLabelModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
+import {
+  TUI_VALIDATION_ERRORS,
+  TuiFieldErrorPipeModule,
+  TuiInputModule,
+  TuiPushModule,
+  TuiPushService,
+  TuiTextareaModule
+} from "@taiga-ui/kit";
+import {
+  TuiAlertService,
+  TuiButtonModule,
+  TuiErrorModule,
+  TuiLabelModule,
+  TuiTextfieldControllerModule
+} from "@taiga-ui/core";
 import {EmailGateway} from "../../../core/ports/email.gateway";
 import {QuestionMail} from "../../../core/models/question-mail";
 import {fadeInOnEnterAnimation, fadeOutOnLeaveAnimation} from "angular-animations";
+import {VALIDATION_ERRORS} from "../../utils/error.utils";
+import {AsyncPipe} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 
 
@@ -18,13 +34,20 @@ import {fadeInOnEnterAnimation, fadeOutOnLeaveAnimation} from "angular-animation
     TuiTextareaModule,
     TuiLabelModule,
     TuiButtonModule,
-    TuiPushModule
+    TuiPushModule,
+    AsyncPipe,
+    TuiErrorModule,
+    TuiFieldErrorPipeModule,
+    TranslateModule
 
   ],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
+  providers: [
+    { provide: TUI_VALIDATION_ERRORS, useValue: VALIDATION_ERRORS }
+  ],
+    animations: [
     fadeInOnEnterAnimation(),
     fadeOutOnLeaveAnimation()
   ]
@@ -32,14 +55,11 @@ import {fadeInOnEnterAnimation, fadeOutOnLeaveAnimation} from "angular-animation
 export class ContactFormComponent {
   private _formBuilder= inject(FormBuilder);
   private emailGateway = inject(EmailGateway);
-  private tuiAlertService = inject(TuiAlertService);
-  private tuiPushService = inject(TuiPushService);
-
 
   private _contactFormGroup = this._formBuilder.group({
-    name: new FormControl('a', [Validators.required]),
-    email: new FormControl('yassabk@hotmail.com', [Validators.required, Validators.email]),
-    message: new FormControl('a', [Validators.required]),
+    name: new FormControl('', [Validators.required , Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    message: new FormControl('', [Validators.required]),
     acceptedTerms: new FormControl(false, [Validators.requiredTrue])
   });
 

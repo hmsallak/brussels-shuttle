@@ -1,5 +1,5 @@
-<div class="rounded-3xl p-6 flex flex-col md:flex-row md:items-center gap-5" (click)="select()"
-     [ngClass]="{'bg-cyan-500 text-white': isSelected, 'text-gray-700 bg-gray-50': !isSelected, 'bg-gray-200 ': isDisabled, 'cursor-pointer shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300': !isDisabled}">
+<div class="rounded-3xl p-6 flex flex-col md:flex-row md:items-center gap-5 opacity-40" (click)="select()"
+     [ngClass]="{'bg-cyan-500 text-white': isSelected(), 'text-gray-700 bg-gray-50': !isSelected(), 'bg-gray-200 opacity-40': isDisabled, 'cursor-pointer shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300': !isDisabled}">
   <div class="img-box ">
     <div class="w-full md:w-44 h-24 md:vehicle-bg rounded-2xl flex items-center justify-center overflow-hidden ">
       <img [src]="vehicleModelPrice().vehicleModel.imageUrl" alt="vehicle image" class="w-36">
@@ -9,14 +9,13 @@
     <div class="md:col-span-3">
       <h2 class="text-2xl font-semibold mb-2">{{ vehicleModelPrice().vehicleModel.name }}</h2>
       <span class="px-2 text-xs w-24 text-center rounded-full sm:px-4 py-1 mx-auto sm:mx-0"
-            [ngClass]="{'bg-cyan-700 ': isSelected, 'bg-gray-100 text-gray-700': !isSelected}"
-      >
+            [ngClass]="{'bg-cyan-700 ': isSelected(), 'bg-gray-100 text-gray-700': !isSelected()}">
             <fa-icon [icon]="faUser" class="text-xs"></fa-icon> {{ vehicleModelPrice().vehicleModel.passengerCapacity }}
             <fa-icon [icon]="faSuitcase" class="ml-2 text-xs"></fa-icon> {{ vehicleModelPrice().vehicleModel.luggageCapacity }}
           </span>
       <p class="font-normal text-lg mt-2"
-         [ngClass]="{'text-gray-100': isSelected, 'text-gray-500': !isSelected}">
-        grande description du véhicule ici ...
+         [ngClass]="{'text-gray-100': isSelected(), 'text-gray-500': !isSelected()}">
+        {{'vehicle-model.'+(vehicleModelPrice().vehicleModel.name | lowercase)+'.description' | translate}}
       </p>
 
     </div>

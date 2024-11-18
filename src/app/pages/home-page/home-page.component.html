@@ -1,6 +1,21 @@
  <app-layout [absoluteHeader]="true">
   <section class="relative ">
-    <img rel="preload" src="assets/images/schuman.webp" loading="lazy" class="absolute inset-0 object-cover w-full h-full mx-auto " alt="" />
+    <picture>
+      <!-- image for phone-->
+      <source srcset="assets/images/brussels-shuttle-bg-phone.webp" media="(max-width: 768px)" type="image/webp" />
+
+      <!-- image for laptop -->
+      <source srcset="assets/images/schuman.webp" media="(min-width: 769px)" type="image/webp" />
+
+      <img
+        ngSrc="assets/images/schuman.webp"
+        loading="lazy"
+        width="1920"
+        height="880"
+        class="absolute inset-0 object-cover w-full h-full mx-auto"
+        alt="Schuman"
+      />
+    </picture>
 
     <div class="absolute inset-0 bg-black opacity-60"></div>
 
@@ -33,7 +48,7 @@
                 Réservez Maintenant
               </a>
 
-              <a href="#" title="" role="button"
+              <a title="" role="button" (click)="scrollToSection('detailsSection')"
                  class="inline-flex items-center px-2 py-3 font-bold text-base leading-7 text-white transition-all duration-200 rounded-md sm:px-4
                             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-gray-700hover:bg-gray-700">
                 En savoir plus
@@ -46,7 +61,6 @@
         </div>
       </div>
     </div>
-
   </section>
 
 
@@ -56,7 +70,7 @@
  </section>
 
 
-   <section class="bg-gray-50">
+   <section class="bg-gray-50" id="detailsSection">
      <div class="flex flex-col lg:flex-row lg:items-stretch lg:max-h-[7500px] lg:min-h-[750px]">
        <div class="flex items-center justify-center w-full lg:order-1 lg:w-7/12">
          <div class="h-full px-4 pt-24 pb-16 sm:px-6 lg:px-24 2xl:px-32 2xl:ml-56 lg:pb-14">
@@ -67,7 +81,7 @@
                  Nous travaillons avec des chauffeurs expérimentés pour garantir un service de qualité et une sécurité à toute épreuve.
                  Notre service de transport vous permet de vous déplacer facilement vers et depuis les aéroports de votre choix.<br>
                  Réservez votre transfert en ligne dès maintenant et profitez d'une réservation simple et pratique.</p>
-               <a href="#" class="flex flex-row items-center justify-start gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 mt-10">Réserver maintenant
+               <a routerLink="booking/request" class="flex flex-row items-center justify-start gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 mt-10">Réserver maintenant
                  <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                    <path d="M9.00378 5.99561L15.004 11.9959L9.00024 17.9996" stroke="#1195a6" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" class="my-path"></path>
                  </svg>

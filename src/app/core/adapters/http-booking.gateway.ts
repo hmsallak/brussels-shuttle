@@ -15,10 +15,10 @@ export class HttpBookingGateway{
   private readonly BOOKING_URL = '/public/booking';
 
   createBooking(bookingRequest: BookingRequest): Observable<BookingResponse> {
-    return this.http.post<BookingResponse>(environment.baseUrl + this.BOOKING_URL, bookingRequest).pipe(
-      map(booking => ({
-        ...booking,
-      }))
+    return this.http.post<any>(environment.baseUrl + this.BOOKING_URL, bookingRequest).pipe(
+      map(response => {
+        return response;
+      })
     );
   }
 

@@ -1,5 +1,5 @@
 export enum TripEnum{
-  Departure = 'DEPARTURE',
-  Return = 'RETURN',
+  DEPARTURE = 'DEPARTURE',
+  RETURN = 'RETURN',
   StopOver = 'STOP_OVER'
 }

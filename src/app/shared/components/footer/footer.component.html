@@ -1,20 +1,20 @@
 <footer class="footer p-10 bg-gray-900 text-white">
   <aside>
     <img src="assets/images/bs_logo_only.png" class="w-24">
-    <p>Brussels Shuttle.<br>Une technologie fiable depuis 2024</p>
+    <p>Brussels Shuttle</p>
   </aside>
   <nav>
-    <h6 class="footer-title">nos services</h6>
-    <a class="link link-hover">Réservation</a>
-    <a class="link link-hover">Déstinations</a>
+    <h6 class="footer-title">{{ 'footer.services'| translate }}</h6>
+    <a class="link link-hover" routerLink="/booking/request">{{ 'navigation.booking'| translate }}</a>
+    <a class="link link-hover" routerLink="/services/destinations">{{ 'navigation.destinations'| translate }}</a>
   </nav>
   <nav>
-    <h6 class="footer-title">à propos de nous</h6>
-    <a class="link link-hover">FAQ</a>
-    <a class="link link-hover">Contact</a>
+    <h6 class="footer-title">{{ 'footer.aboutus'| translate }}</h6>
+    <a class="link link-hover" routerLink="/faq">{{ 'navigation.faq'| translate }}</a>
+    <a class="link link-hover" routerLink="/contact">{{ 'navigation.contact'| translate }}</a>
   </nav>
   <nav>
-    <h6 class="footer-title">Légale</h6>
-    <a class="link link-hover">Condition générale</a>
+    <h6 class="footer-title">{{ 'footer.legal'| translate }}</h6>
+    <a class="link link-hover" routerLink="/term-of-use">{{ 'navigation.conditions'| translate }}</a>
   </nav>
 </footer>

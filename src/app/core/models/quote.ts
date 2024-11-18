@@ -6,6 +6,7 @@ import {Trip} from "./trip";
 export interface Quote {
   id: number;
   trips: Array<Trip>;
+  passengerCount: number;
   expirationTime: Date;
   vehicleModelPrices: VehicleModelPrice[];
 }

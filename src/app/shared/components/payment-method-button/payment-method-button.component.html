@@ -4,7 +4,7 @@
           [ngClass]="{'text-white bg-cyan-600': paymentMethodSelect == PaymentMethod.Cash, 'text-gray-900 bg-gray-100 hover:bg-gray-200': paymentMethodSelect != PaymentMethod.Cash,}"
           class=" focus:ring-4 focus:ring-gray-100 font-medium  rounded-lg text-base px-5 py-3 text-center inline-flex items-center w-full mr-2 mb-2 transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
     <fa-icon [icon]="faMoneyBill" class="text-lg mr-5 "></fa-icon>
-    Payer en cash
+    {{ 'payment-method.cashButton' | translate}}
   </button>
   <button type="button"
           (click)="selectPaymentMethod(PaymentMethod.Stripe)"
@@ -14,6 +14,6 @@
     <img src="assets/images/payment-mastercard.png" class="h-3 mr-2">
     <img src="assets/images/payment-visa.png" class="h-3 mr-2">
     <img src="assets/images/payment-bancontact.png" class="h-3 mr-2">
-    Payer en ligne
+    {{ 'payment-method.stripeButton' | translate}}
   </button>
 </div>

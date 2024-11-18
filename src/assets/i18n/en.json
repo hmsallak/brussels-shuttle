@@ -1,27 +1,277 @@
 {
-  "header": {
-    "navbar": {
-      "title": "Brussels Shuttle",
-      "menu": {
-        "services": {
-          "title": "Services",
-          "items": {
-            "taxi": "Taxi Aéorport"
-          }
-        },
-        "book": "Réservation",
-        "faq": "FAQ",
-        "contact": "Contact"
+  "navigation": {
+    "destinations": "Destinations",
+    "booking": "Réserver une course",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "conditions": "Conditions générales"
+  },
+  "payment-method": {
+    "STRIPE": "carte",
+    "CASH": "espèces",
+    "stripeButton": "Payer en ligne",
+    "cashButton": "Payer en espèces"
+  },
+  "steps": {
+    "quote": "Plannifier Votre Trajet",
+    "vehicle": "De quel véhicule avez-vous besoin ?",
+    "booking": "Revoir votre réservation",
+    "final-step": {
+      "total": "Total",
+      "accept": "J'accepte les conditions générales",
+      "mandatory": "obligatoire",
+      "passenger": "passager(s)",
+      "planned": "prévu le",
+      "estimated": "estimé le",
+      "paymentTitle": "Avec quelle moyen de paiement souhaitez-vous payer ?",
+      "passengerTitle": "Information personnel",
+      "billingTitle": "Adresse de facuration",
+      "vehicle": "véhicule",
+      "model": "Modèle",
+      "book": "Réserver",
+      "bookAndPay": "Réserver et payer"
+    }
+  },
+  "destinations": {
+    "short-title": "Nos Destinations",
+    "title": "Voyagez confortablement vers les aéroports et villes depuis Bruxelles",
+    "description": "Découvrez notre sélection de destinations desservies par nos taxis pour des trajets pratiques et confortables au départ ou à destination de Bruxelles et ses environs.",
+    "items": [
+      {
+        "name": "Aéroport Zaventem",
+        "city": "Bruxelles",
+        "imageUri": "assets/images/zaventem.webp",
+        "title": "Réservez votre taxi vers l’aéroport de Zaventem, simple et rapide",
+        "description": "Partez l’esprit tranquille depuis Zaventem, un terminal moderne et pratique. Profitez d’un service taxi dédié pour un trajet sans encombre. Notre objectif : rendre votre voyage aussi agréable que possible."
+      },
+      {
+        "name": "Aéroport de Charleroi",
+        "city": "Bruxelles-Sud",
+        "imageUri": "assets/images/charleroi.webp",
+        "title": "Voyagez sereinement vers l’aéroport de Charleroi en taxi",
+        "description": "Lancez-vous vers de nouveaux horizons depuis l’aéroport de Charleroi. Notre service taxi vous garantit confort et ponctualité pour votre transfert. Réservez dès aujourd’hui pour un départ en toute tranquillité."
+      },
+      {
+        "name": "Aéroport Lille",
+        "city": "Lesquin",
+        "imageUri": "assets/images/lille.webp",
+        "title": "Des trajets optimisés pour vos déplacements vers Lille",
+        "description": "Nos taxis vous transportent dans Lille et ses environs rapidement. Idéal pour vos rendez-vous ou trajets vers les gares. Profitez d’un service fiable et d’une expérience agréable."
+      },
+      {
+        "name": "Aéroport d’Orly",
+        "city": "Paris",
+        "imageUri": "assets/images/orly.webp",
+        "title": "L’aéroport d’Orly accessible en toute facilité",
+        "description": "Orly est le choix parfait pour rejoindre Paris rapidement. Ses terminaux modernes proposent une variété de services. Optez pour la facilité d’accès avec notre service de taxi."
+      },
+      {
+        "name": "Aéroport de Charles de Gaulle",
+        "city": "Paris",
+        "imageUri": "assets/images/cdg.webp",
+        "title": "Rejoignez facilement l’aéroport de Paris Charles de Gaulle",
+        "description": "Découvrez un aéroport moderne et bien desservi pour vos vols internationaux. Grâce à notre service taxi, arrivez en toute simplicité. Nous assurons votre confort jusqu’au terminal."
+      },
+      {
+        "name": "Aéroport de Schiphol",
+        "city": "Amsterdam",
+        "imageUri": "assets/images/amsterdam.webp",
+        "title": "Rendez-vous à l’aéroport Schiphol en toute sérénité",
+        "description": "Schiphol est votre passerelle vers le monde, situé au cœur des Pays-Bas. Bénéficiez d’un trajet simple et ponctuel en taxi. Nous facilitons votre départ pour un voyage sans souci."
+      },
+      {
+        "name": "Aéroport de Eindhoven",
+        "city": "Pays-Bas",
+        "imageUri": "assets/images/eindhoven.webp",
+        "title": "Transferts simplifiés vers l’aéroport d’Eindhoven",
+        "description": "Arrivez à Eindhoven, centre technologique des Pays-Bas, en toute quiétude. Nos chauffeurs vous y conduisent efficacement pour éviter tout stress. Profitez de notre service de taxi professionnel."
+      }
+    ]
+  },
+  "booking-form": {
+    "clear": "Effacer",
+    "departure-question": "Quand souhaitez-vous partir ?",
+    "choose-date": "Choisissez une date",
+    "choose-return-date": "Choisissez une date de retour",
+    "departure-time": "Heure de départ",
+    "return-time": "Heure de retour",
+    "book-a-ride": "Réservez une course",
+    "pickup-location": "Lieu de prise en charge",
+    "destination": "Destination",
+    "passenger-count": "Nombre de passagers",
+    "select-passenger": "Choisissez le nombre de passagers",
+    "estimate": "Estimation",
+    "estimate-tip": "ceci est une estimation",
+    "position": "Votre postion"
+  },
+  "passenger-form": {
+    "first-name": {
+      "label": "Prénom",
+      "placeholder": "Entrez votre prénom"
+    },
+    "last-name": {
+      "label": "Nom",
+      "placeholder": "Entrez votre nom"
+    },
+    "email": {
+      "label": "Email",
+      "placeholder": "Entrez votre mail"
+    },
+    "phone": {
+      "label": "Votre numéro de téléphone"
+    }
+  },
+  "billing-form": {
+    "identifier": {
+      "label": "Identifiant",
+      "placeholder": "Entrez votre identifiant"
+    },
+    "registered-name": {
+      "label": "Nom de la société",
+      "placeholder": "Entrez votre société"
+    },
+    "street": {
+      "label": "Adresse",
+      "placeholder": "Entrez votre adresse"
+    },
+    "locality": {
+      "label": "Ville",
+      "placeholder": "Entrez votre ville"
+    },
+    "postal-code": {
+      "label": "Code postal",
+      "placeholder": "Entrez votre code postal"
+    },
+    "country": {
+      "label": "Pays",
+      "placeholder": "Entrez votre pays"
+    }
+  },
+  "contact-form": {
+    "email": {
+      "label": "Votre email",
+      "placeholder": "Entrez votre email"
+    },
+    "name": {
+      "label": "Nom",
+      "placeholder": "Entrez votre nom"
+    },
+    "message": {
+      "label": "Votre message",
+      "placeholder": "Écrivez un message"
+    },
+    "terms": {
+      "text": "J'accepte que les données que j'ai fournies soient collectées et stockées."
+    },
+    "submit": "Envoyer",
+    "success": "Message envoyé avec succès"
+  },
+  "stepper": {
+    "step": "Étape",
+    "next": "Suivant",
+    "back": "Retour",
+    "confirm": "Confirmer",
+    "cancel": "Annuler"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "Anglais",
+    "nl": "Néerlandais"
+  },
+  "way": {
+    "oneWay": "Aller simple",
+    "return": "Aller retour"
+  },
+  "vehicle-model": {
+    "eco": {
+      "description": "Voyagez confortablement à petit prix, idéal pour les petits groupes ou les trajets en solo."
+    },
+    "business": {
+      "description": "Profitez d'un confort et d'une élégance optimale pour vos déplacements professionnels."
+    },
+    "van": {
+      "description": "Un véhicule spacieux parfait pour les familles nombreuses ou les groupes de voyageurs."
+    },
+    "mini bus": {
+      "description": "Idéal pour les grands groupes, offrant un maximum d'espace et de confort pour vos trajets."
+    }
+  },
+  "footer": {
+    "legal": "égale",
+    "aboutus": "À propos de nous",
+    "services": "nos ervices"
+  },
+  "destination-page": {
+    "title": "Voyagez confortablement vers les aéroports et villes depuis Bruxelles",
+    "subtitle": "Découvrez notre sélection de destinations desservies par nos taxis pour des trajets pratiques et confortables au départ ou à destination de Bruxelles et ses environs.",
+    "destinations": {
+      "zaventem": {
+        "title": "Aéroport Zaventem",
+        "city": "Bruxelles",
+        "description": "Réservez votre taxi vers l’aéroport de Zaventem, un terminal moderne et pratique. Notre service garantit un confort pour vos trajets sans encombre. Déplacez-vous avec notre voyage adapté sur mesure.",
+        "cta": "Réserver depuis Aéroport Zaventem"
+      },
+      "charleroi": {
+        "title": "Aéroport de Charleroi",
+        "city": "Bruxelles-Sud",
+        "description": "Voyagez sereinement vers l’aéroport de Charleroi en taxi. Lancez-vous vers de nouveaux horizons depuis l’aéroport de Charleroi. Notre service vous garantit confort et ponctualité pour votre trajet. Réservez votre taxi maintenant.",
+        "cta": "Réserver depuis Aéroport de Charleroi"
+      },
+      "lille": {
+        "title": "Aéroport Lille",
+        "city": "Lesquin",
+        "description": "Des trajets optimisés pour vos déplacements vers Lille. Nos taxis vous transportent dans les environs rapidement et en toute sérénité. Réservez vos trajets vers Lille dès à présent, au départ de Bruxelles.",
+        "cta": "Réserver depuis Aéroport Lille"
+      },
+      "orly": {
+        "title": "Aéroport d’Orly",
+        "city": "Paris",
+
+        "description": "L’aéroport d’Orly accessible en toute facilité. Orly est le choix parfait pour rejoindre Paris rapidement. Ses terminaux modernes proposent un service de qualité. Optez pour la facilité d’accès avec notre service de taxi.",
+        "cta": "Réserver depuis Aéroport d’Orly"
+      },
+      "charles_de_gaulle": {
+        "title": "Aéroport de Charles de Gaulle",
+        "city": "Paris",
+        "description": "Rejoignez facilement l’aéroport de Paris Charles de Gaulle. Découvrez un aéroport moderne et bien desservi pour vos vols internationaux. Grâce à notre service taxi, arrivez en toute simplicité. Nous assurons votre confort jusqu’au terminal.",
+        "cta": "Réserver depuis Aéroport de Charles de Gaulle"
+      },
+      "schiphol": {
+        "title": "Aéroport de Schiphol",
+        "city": "Amsterdam",
+        "description": "Rendez-vous à l’aéroport Schiphol en toute sérénité. Schiphol est votre passerelle vers le monde, situé au cœur des Pays-Bas. Bénéficiez d’un trajet simple et confortable en taxi. Nos chauffeurs sont prêts pour un voyage sans souci.",
+        "cta": "Réserver depuis Aéroport de Schiphol"
+      },
+      "eindhoven": {
+        "title": "Aéroport de Eindhoven",
+        "city": "Pays-Bas",
+        "description": "Transferts simplifiés vers l’aéroport d’Eindhoven. Arrivez à Eindhoven, centre technologique des Pays-Bas, en toute quiétude. Nos chauffeurs vous conduiront efficacement pour tous vos trajets. Profitez d’un service sûr et professionnel.",
+        "cta": "Réserver depuis Aéroport de Eindhoven"
       }
     }
   },
-  "language": {
-    "fr": "French",
-    "en": "English",
-    "nl": "Dutch"
+  "faq-page": {
+    "question1": "Combien de baguages puis-je emporter ?",
+    "answer1": "Nous avons des véhicules qui prennent jusqu’à 8 baguages et plus.",
+    "question2": "Mon voyage est annulé, comment procéder au remboursement ?",
+    "answer2": "Il vous suffit de nous contacter et nous procéderons à votre remboursement.",
+    "question3": "Quels sont vos moyens de paiement ?",
+    "answer3": "Plusieurs moyens de paiement sont à votre disposition : Apple Pay, Google Pay, Bancontact, MasterCard, Visa, et en espèces (à remettre le jour de la réservation).",
+    "question4": "Puis-je changer la date de mon transfert ?",
+    "answer4": "Oui, contactez-nous 24h à l’avance pour changer la date.",
+    "app-title": {
+      "shortTitle": "Vous avez une question sur nos services ?",
+      "title": "FAQ",
+      "description": "Retrouvez une liste de questions les plus souvent posées par nos clients."
+    }
   },
-  "way": {
-    "oneWay": "One way",
-    "return": "Return"
+  "contact-page": {
+    "shortTitle": "Vous avez une question ?",
+    "title": "Contactez-nous",
+    "description": "Besoin d'aide pour réserver votre transfert ? N'hésitez pas à nous contacter ! Notre équipe est à votre disposition 24h/24 et 7j/7 pour répondre à toutes vos questions et vous aider à planifier votre voyage en toute sérénité.",
+    "contact": "Contact",
+    "address": "Notre Adresse",
+    "mail": "Mail",
+    "addressDescription": "À proximité immédiate de votre aéroport"
   }
 }

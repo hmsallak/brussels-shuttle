@@ -18,7 +18,7 @@
 
 beforeEach(() => {
   // Charger la fixture dans l'interception
-  cy.fixture('quote').then((responseBody) => {
+  cy.fixture('vehicle-step').then((responseBody) => {
     cy.intercept('POST', '**/api/public/quote', {
       statusCode: 200,
       body: responseBody,

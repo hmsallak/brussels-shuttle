@@ -1,9 +1,9 @@
 <app-layout>
   <section>
     <div class="mb-16 pt-4 max-w-xl md:mx-auto lg:max-w-4xl px-8 md:px-0">
-      <app-title shortTitle="Vous avez une question ?"
-                 title="Contactez-nous"
-                 description="Besoin d'aide pour réserver votre transfert ? N'hésitez pas à nous contacter ! Notre équipe est à votre disposition 24h/24 et 7j/7 pour répondre à toutes vos questions et vous aider à planifier votre voyage en toute sérénité.">
+      <app-title [shortTitle]="'contact-page.shortTitle' | translate"
+                 [title]="'contact-page.title' | translate"
+                 [description]="'contact-page.description' | translate">
       </app-title>
     </div>
     <div class="px-16 md:px-28 xl:px-48">
@@ -15,7 +15,7 @@
               <path d="M6.02427 10.2591L13.7368 17.9716C15.4072 19.642 18.1154 19.642 19.7858 17.9716C20.4539 17.3035 20.4539 16.2202 19.7858 15.552L17.6434 13.4096C17.1562 12.9224 16.3663 12.9224 15.8791 13.4096C15.3919 13.8968 14.602 13.8968 14.1148 13.4096L10.2334 9.52819C9.74619 9.041 9.74619 8.25109 10.2334 7.7639C10.7206 7.2767 10.7206 6.4868 10.2334 5.9996L8.44388 4.2101C7.77573 3.54195 6.69243 3.54194 6.02428 4.2101C4.35389 5.88049 4.35389 8.58872 6.02427 10.2591Z" stroke="#19aabe" stroke-width="1.1" class="my-path"></path>
             </svg>
           </div>
-          <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white text-center">Contact</h4>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white text-center">{{'contact-page.contact' | translate}}</h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white text-center">
             (+32)471 01 01 13    </p>
         </a>
@@ -27,7 +27,7 @@
               <path d="M3.54883 6.73307L7.76733 9.36198C9.82587 10.6448 10.8551 11.2863 11.9998 11.2861C13.1445 11.2859 14.1736 10.6441 16.2317 9.36063L20.461 6.72314" stroke="#19aabe" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" class="my-path"></path>
             </svg>
           </div>
-          <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white text-center">Mail</h4>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white text-center">{{'contact-page.mail' | translate}}</h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white text-center">
             brussels-shuttle&#64;hotmail.com </p>
         </a>
@@ -39,9 +39,10 @@
               <path d="M14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.89543 10.8954 8 12 8C13.1046 8 14 8.89543 14 10Z" stroke="#19aabe" stroke-width="1.1" class="my-path"></path>
             </svg>
           </div>
-          <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white text-center">Notre Adresse</h4>
+          <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white text-center">{{'contact-page.address' | translate}}</h4>
           <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white text-center">
-            À proximité immédiate de votre aéroport</p>
+            {{'contact-page.addressDescription' | translate}}
+          </p>
         </a>
       </a>
     </div>

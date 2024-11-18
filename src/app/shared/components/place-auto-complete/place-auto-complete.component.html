@@ -1,7 +1,8 @@
 <div class="flex justify-end ">
-  <button class="text-xs my-auto underline text-gray-500 hover:text-gray-800" (click)="getLocation()">Votre position</button>
+  <button class="text-xs my-auto underline text-gray-500 hover:text-gray-800" (click)="getLocation()">
+    {{'booking-form.position' | translate}}
+  </button>
 </div>
-
 <div>
   <tui-input  [tuiTextfieldCleaner]="isPLaceSelected"
               [formControl]="inputAddress"

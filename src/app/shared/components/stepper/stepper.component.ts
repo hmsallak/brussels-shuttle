@@ -1,9 +1,21 @@
-import {AfterContentInit, Component, ContentChildren, Input, QueryList} from '@angular/core';
+import {
+  AfterContentInit,
+  Component, computed,
+  ContentChildren,
+  effect,
+  ElementRef,
+  Input,
+  QueryList,
+  ViewChild
+} from '@angular/core';
 import {StepComponent} from "./step/step.component";
 import {NgTemplateOutlet} from "@angular/common";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons/faChevronLeft";
-import {TuiButtonModule} from "@taiga-ui/core";
+import {TuiButtonComponent, TuiButtonModule} from "@taiga-ui/core";
+import {scrollToSection, scrollToTop} from "../../utils/element.utils";
+import {toObservable} from "@angular/core/rxjs-interop";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-stepper',
@@ -11,7 +23,8 @@ import {TuiButtonModule} from "@taiga-ui/core";
   imports: [
     NgTemplateOutlet,
     FaIconComponent,
-    TuiButtonModule
+    TuiButtonModule,
+    TranslateModule
   ],
   templateUrl: './stepper.component.html',
   styleUrl: './stepper.component.css'
@@ -23,7 +36,9 @@ export class StepperComponent implements AfterContentInit  {
   customNavigation: boolean = false;
 
   ngAfterContentInit(): void {
-    this.setActiveStep(0);
+    const stepsArray = this.steps.toArray();
+    const firstIncompleteStepIndex = stepsArray.findIndex(step => !step.isStepComplete());
+    this.setActiveStep(firstIncompleteStepIndex !== -1 ? firstIncompleteStepIndex : stepsArray.length - 1);
   }
 
   activeStepIdx: number = 0;
@@ -41,24 +56,36 @@ export class StepperComponent implements AfterContentInit  {
     return currentStep.isStepComplete() && this.activeStepIdx < this.steps.length - 1;
   }
 
+  scrollEffect = computed(() =>{
+    this.steps.toArray().forEach(step => {
+      if (step.isStepComplete()) {
+        scrollToSection('nextStepButton');
+      }
+    })
+  });
+
+
   public nextStep() {
     if (this.canNextStep) {
+      scrollToTop();
       this.setActiveStep(this.activeStepIdx + 1);
     }
   }
 
   public prevStep() {
     if (this.activeStepIdx > 0) {
+      scrollToTop();
       this.setActiveStep(this.activeStepIdx - 1);
     }
   }
 
   private setActiveStep(index: number) {
     this.steps.toArray().forEach((step, i) => {
-      step.isActive = i === index;
+      step.isActive.set(i === index);
     });
     this.activeStepIdx = index;
   }
-
   protected readonly faChevronLeft = faChevronLeft;
+  protected readonly scrollToSection = scrollToSection;
+  protected readonly scrollToTop = scrollToTop;
 }

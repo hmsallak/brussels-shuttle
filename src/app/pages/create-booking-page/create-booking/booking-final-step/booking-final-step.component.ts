@@ -1,4 +1,4 @@
-import {Component, computed, EventEmitter, input, Input, model, output, Output, signal, Signal} from '@angular/core';
+import {Component, computed, input, model, output, signal} from '@angular/core';
 import {PaymentMethodEnum} from "../../../../core/models/enum/payment-method.enum";
 import {BookingBuilder} from "../../../../core/models/booking-builder";
 import {Passenger} from "../../../../core/models/passenger";
@@ -10,45 +10,43 @@ import {
   PaymentMethodButtonComponent
 } from "../../../../shared/components/payment-method-button/payment-method-button.component";
 import {
-  PersonalInformationComponent
-} from "../../../../shared/components/personal-information/personal-information.component";
+  PassengerComponent
+} from "../../../../shared/components/personal-information/passenger.component";
 import {RouterLink} from "@angular/router";
-import {TuiButtonModule, TuiDurationOptions, tuiHeightCollapse} from "@taiga-ui/core";
+import {TuiButtonModule} from "@taiga-ui/core";
 import {FormsModule} from "@angular/forms";
 import {BillingAddress} from "../../../../core/models/billing-address";
 import {BillingAddressComponent} from "../../../../shared/components/billing-address/billing-address.component";
 import {TUI_VALIDATION_ERRORS} from "@taiga-ui/kit";
 import {tuiPure} from "@taiga-ui/cdk";
+import {VALIDATION_ERRORS} from "../../../../shared/utils/error.utils";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-booking-final-step',
   standalone: true,
   imports: [
-    BannerComponent,
     BookingResumeComponent,
-    CurrencyPipe,
+    BannerComponent,
+    PassengerComponent,
+    BillingAddressComponent,
     PaymentMethodButtonComponent,
-    PersonalInformationComponent,
+    CurrencyPipe,
+    FormsModule,
     RouterLink,
     TuiButtonModule,
-    FormsModule,
-    BillingAddressComponent
+    TranslateModule
+
   ],
   templateUrl: './booking-final-step.component.html',
   styleUrl: './booking-final-step.component.css',
   providers: [
-    {
-      provide: TUI_VALIDATION_ERRORS,
-      useValue: {
-        required: 'Champ requis',
-        minLength: 'Champ invalide',
-      },
-    },
+    { provide: TUI_VALIDATION_ERRORS, useValue: VALIDATION_ERRORS }
   ],
 })
 export class BookingFinalStepComponent {
   currentBooking = input.required<BookingBuilder>();
-  personalInformation = model<Passenger | null>(null);
+  passenger = model<Passenger | null>(null);
   billingAddress = model<BillingAddress | null>(null);
   totalPrice = input<number>();
   paymentMethod = model<PaymentMethodEnum | null>(null);
@@ -60,7 +58,7 @@ export class BookingFinalStepComponent {
 
 
   isBookingValid = computed(() => {
-    return !!(this.personalInformation() && this.paymentMethod()  && this.termsAndConditions());
+    return !!(this.passenger() && this.paymentMethod()  && this.termsAndConditions());
   });
 
   bookEvent() {

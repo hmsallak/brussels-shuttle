@@ -1,7 +1,8 @@
-import {Component, input, Input, signal, Signal} from '@angular/core';
+import {Component, effect, input, Input, model, signal, Signal} from '@angular/core';
 import {
   fadeInUpOnEnterAnimation,
 } from "angular-animations";
+import {scrollToSection} from "../../../utils/element.utils";
 
 @Component({
   selector: 'app-step',
@@ -14,7 +15,7 @@ import {
   ],
 })
 export class StepComponent {
-  isActive: boolean = false;
+  isActive = model(false);
 
   @Input() label: string = '';
   isStepComplete = input(true);

@@ -12,4 +12,14 @@ import {FaIconComponent} from "@fortawesome/angular-fontawesome";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeaturesComponent {
+
+  scrollToSection(id: string) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
 }

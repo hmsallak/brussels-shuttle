@@ -1,38 +1,38 @@
 <app-layout>
   <section>
     <div class="mb-12 pt-4 max-w-xl md:mx-auto lg:max-w-4xl px-8 md:px-0">
-      <app-title shortTitle="Vous avez une question sur nos services ?"
-                 title="FAQ"
-                 description="Retrouvez une liste de questions les plus souvent posées par nos clients.">
+      <app-title [shortTitle]="'faq-page.app-title.shortTitle' | translate"
+                 [title]="'faq-page.app-title.title' | translate"
+                 [description]="'faq-page.app-title.description' | translate">
       </app-title>
     </div>
     <div class="px-8 md:px-28 xl:max-w-7xl mx-auto space-y-4">
       <div class="collapse collapse-plus bg-gray-50">
         <input type="radio" name="my-accordion-3" />
-        <div class="collapse-title text-xl font-medium">Combien de baguages puis-je emporter ?</div>
+        <div class="collapse-title text-xl font-medium">{{ 'faq-page.question1' | translate }}</div>
         <div class="collapse-content">
-          <p>Nous avons des véhicules qui prennent jusqu’à 8 baguages et plus.</p>
+          <p>{{ 'faq-page.answer1' | translate }}</p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-gray-50">
         <input type="radio" name="my-accordion-3" checked="checked"/>
-        <div class="collapse-title text-xl font-medium">Mon voyage est annulé, comment procéder au remboursement ?</div>
+        <div class="collapse-title text-xl font-medium">{{ 'faq-page.question2' | translate }}</div>
         <div class="collapse-content">
-          <p>Il vous suffit de nous contacter et nous procéderons à votre remboursement.</p>
+          <p>{{ 'faq-page.answer2' | translate }}</p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-gray-50">
         <input type="radio" name="my-accordion-3" />
-        <div class="collapse-title text-xl font-medium">Quels sont vos moyen de paiement ?</div>
+        <div class="collapse-title text-xl font-medium">{{ 'faq-page.question3' | translate }}</div>
         <div class="collapse-content">
-          <p>Plusieurs moyens de paiement sont à votre disposition : Apple Pay, Google Pay, Bancontact, MasterCard, Visa, et en espèces (à remettre le jour de la réservation).</p>
+          <p>{{ 'faq-page.answer3' | translate }}</p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-gray-50">
         <input type="radio" name="my-accordion-3" />
-        <div class="collapse-title text-xl font-medium">Puis-je changer la date de mon transfert ?</div>
+        <div class="collapse-title text-xl font-medium">{{ 'faq-page.question4' | translate }}</div>
         <div class="collapse-content">
-          <p>Oui, contactez nous 24h à l’avance pour changer la date.</p>
+          <p>{{ 'faq-page.answer4' | translate }}</p>
         </div>
       </div>
     </div>

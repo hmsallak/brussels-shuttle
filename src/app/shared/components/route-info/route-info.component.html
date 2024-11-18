@@ -1,13 +1,13 @@
-<div class="w-auto flex justify-between" [ngClass]="enableStyle() ? 'bg-gray-50 rounded-full py-2 px-4' : ''">
-  <span class="font-bold inline-block">
+<div class="w-fit flex justify-between" [ngClass]="enableStyle() ? 'bg-gray-50 rounded-full py-2 px-4' : ''">
+  <div class="font-bold">
       {{ tripName() }}
-  </span>
+  </div>
   <div>
-    <span class="font-bold inline-block">
+    <span class="font-bold">
       <fa-icon [icon]="faRoute" class="text-sm text-gray-400 mx-2"></fa-icon>
       <span class="inline-block">{{trip().routeMetrics.tripDistance | km}}</span>
     </span>
-    <span class="font-bold inline-block tooltip tooltip-secondary" data-tip="ceci est une estimation">
+    <span class="font-bold inline-block tooltip tooltip-secondary" data-tip="estimation">
       <fa-icon [icon]="faClock" class="text-sm text-gray-400 mx-2"></fa-icon>
       <span>{{trip().routeMetrics.tripDuration | minutesPipe}}</span>
   </span>

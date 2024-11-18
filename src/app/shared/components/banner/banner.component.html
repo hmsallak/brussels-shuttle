@@ -4,6 +4,6 @@
   }
   <h2 class="text-xl font-semibold" [ngClass]="{'text-red-600' : isError()}">{{title}}</h2>
   @if (isMandatory()){
-    <span class="text-xs font-thin my-auto ml-1">(obligatoire)</span>
+    <span class="text-xs font-thin my-auto ml-1">({{ 'steps.final-step.mandatory' | translate }})</span>
   }
 </div>

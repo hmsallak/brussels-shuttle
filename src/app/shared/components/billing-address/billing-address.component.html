@@ -2,18 +2,18 @@
 
   <div class="col-span-3">
     <tui-input [formControl]="identifierForm">
-      Identifiant
+      {{ 'billing-form.identifier.label' | translate }}
       <input
-        placeholder="Entrez votre identifiant"
+        [placeholder]="'billing-form.identifier.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
   </div>
   <div class="col-span-3">
     <tui-input [formControl]="registeredNameForm">
-      Nom de la société
+      {{ 'billing-form.registered-name.label' | translate }}
       <input
-        placeholder="Entrez votre société"
+        [placeholder]="'billing-form.registered-name.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
@@ -21,47 +21,53 @@
 
   <div class="col-span-6">
     <tui-input [formControl]="streetForm">
-      Adresse
+      {{ 'billing-form.street.label' | translate }}
       <input
-        placeholder="Entrez votre adresse"
+        [placeholder]="'billing-form.street.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
     <tui-error
       [formControl]="streetForm"
-      [error]="[] | tuiFieldError | async"/>
+      [error]="[] | tuiFieldError | async"></tui-error>
   </div>
+
   <div class="col-span-2">
     <tui-input [formControl]="localityForm">
-      Ville
+      {{ 'billing-form.locality.label' | translate }}
       <input
+        [placeholder]="'billing-form.locality.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
     <tui-error
       [formControl]="localityForm"
-      [error]="[] | tuiFieldError | async"/>
+      [error]="[] | tuiFieldError | async"></tui-error>
   </div>
+
   <div class="col-span-2">
     <tui-input [formControl]="postalCodeForm">
-      Code postal
+      {{ 'billing-form.postal-code.label' | translate }}
       <input
+        [placeholder]="'billing-form.postal-code.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
     <tui-error
       [formControl]="postalCodeForm"
-      [error]="[] | tuiFieldError | async"/>
+      [error]="[] | tuiFieldError | async"></tui-error>
   </div>
+
   <div class="col-span-2">
     <tui-input [formControl]="countryForm">
-      Pays
+      {{ 'billing-form.country.label' | translate }}
       <input
+        [placeholder]="'billing-form.country.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
     <tui-error
       [formControl]="countryForm"
-      [error]="[] | tuiFieldError | async"/>
+      [error]="[] | tuiFieldError | async"></tui-error>
   </div>
 </div>

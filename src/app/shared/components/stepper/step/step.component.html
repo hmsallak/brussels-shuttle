@@ -1,8 +1,5 @@
-@if(isActive){
-  @defer (when isActive){
-    <div  [@fadeInUpOnEnter]>
-      <ng-content ></ng-content>
-    </div>
-  }
+@if(isActive()){
+  <div [@fadeInUpOnEnter]>
+    <ng-content></ng-content>
+  </div>
 }
-

@@ -20,9 +20,32 @@ export function formatLocalDate(date: Date): string {
   return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`;
 }
 
+export function parseLocalDate(dateString: string): Date {
+  if (!dateString) {
+    throw new Error('Date string must not be null or undefined');
+  }
+
+  const [datePart, timePart] = dateString.split('T');
+  if (!datePart || !timePart) {
+    throw new Error('Date string must be in the format yyyy-MM-dd\'T\'HH:mm:ss');
+  }
+
+  const [year, month, day] = datePart.split('-').map(Number);
+  const [hours, minutes, seconds] = timePart.split(':').map(Number);
+
+  // Les mois dans le constructeur de Date vont de 0 (janvier) à 11 (décembre), donc on soustrait 1 du mois.
+  return new Date(year, month - 1, day, hours, minutes, seconds);
+}
+
 export function getTomorrowDate(){
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
+  tomorrow.setHours(0,0,0,0);
+  return tomorrow;
+}
+
+export function getTodayDate(){
+  const tomorrow = new Date();
   tomorrow.setHours(0,0,0,0);
   return tomorrow;
 }
@@ -34,4 +57,11 @@ export function getDateTimeFromTui(tuiDay: TuiDay, tuiTime: TuiTime): Date {
   const hours = tuiTime['hours'];
   const minutes = tuiTime['minutes'];
   return new Date(year, month, day, hours, minutes);
+}
+
+export function getDateFromTui(tuiDay: TuiDay): Date {
+  const year = tuiDay['year'];
+  const month = tuiDay['month'];
+  const day = tuiDay['day'];
+  return new Date(year, month, day);
 }

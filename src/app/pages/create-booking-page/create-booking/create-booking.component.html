@@ -1,20 +1,25 @@
 <app-stepper>
   <!--  First step-->
-  <app-step [label]="'Plannifier Votre Trajet'" [isStepComplete]="isBookingDetailsCompleted()">
-    <app-create-quote-step [(bookingDetails)]="bookingDetails"
-                      (quoteEvent)="quote.set($event)">
-    </app-create-quote-step>
+  <app-step [label]="'steps.quote' | translate" [isStepComplete]="isQuoteRequestCompleted()"  >
+    <div #quoteRequestSection></div>
+    @defer (on viewport(quoteRequestSection)) {
+      <div class="mx-3 md:mx-0">
+        <app-create-quote-step [exisingQuote]="exisingQuote"
+                               (quoteChange)="quote.set($event); vehicleModel.set(undefined)">
+        </app-create-quote-step>
+      </div>
+    }
   </app-step>
 
   <!--  Second step-->
-  <app-step [label]="'De quel véhicule avez-vous besoin ?'" [isStepComplete]="isVehicleModelCompleted()">
+  <app-step [label]="'steps.vehicle' | translate" [isStepComplete]="isVehicleModelCompleted()">
     @if (!!quote()){
-        <section class="mb-10 col-span-full lg:col-span-5">
+        <section class="mb-10 col-span-full lg:col-span-5 mx-3 md:mx-0">
           <div>
-            <app-journey-quote [journeyQuote]="quote()!"
-                               [passengerCount]="currentBooking().passengerCount ?? 0"
-                               (selectVehicleModelEvent)="vehicleModel.set($event)">
-            </app-journey-quote>
+            <app-vehicle-step [quote]="quote()!"
+                       [passengerCount]="currentBooking().passengerCount ?? 0"
+                       [(vehicleModel)]="vehicleModel">
+            </app-vehicle-step>
           </div>
         </section>
     } @else {
@@ -28,13 +33,19 @@
   </app-step>
 
   <!--  Final step-->
-  <app-step [label]="'Revoir votre réservation'">
-    <app-booking-final-step [(paymentMethod)]="paymentMethod"
-                            [(personalInformation)]="personalInformation"
-                            [(billingAddress)]="billingAddress"
-                            [totalPrice]="totalPrice()"
-                            [currentBooking]="currentBooking()"
-                            (book)="book()">
-    </app-booking-final-step>
+  <app-step [label]="'steps.booking' | translate">
+    <div #bookingSection></div>
+    @defer (on viewport(bookingSection)) {
+      <div class="mx-3 md:mx-0">
+        <app-booking-final-step [(paymentMethod)]="paymentMethod"
+                                [(passenger)]="passenger"
+                                [(billingAddress)]="billingAddress"
+                                [totalPrice]="totalPrice()"
+                                [currentBooking]="currentBooking()"
+                                (book)="book()">
+        </app-booking-final-step>
+      </div>
+
+    }
   </app-step>
 </app-stepper>

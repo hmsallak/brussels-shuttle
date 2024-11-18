@@ -2,20 +2,20 @@
   <div class="card-body px-6 pt-6 pb-10">
     <div class="grid grid-cols-1 divide-y space-y-4 md:text-lg">
 
-      @if (bookingResume().vehicleModel){
+      @if (!!bookingResume().vehicleModel){
         <div class="mb-2 flex justify-start space-x-3">
           <div class="w-32 h-24 vehicle-bg rounded-xl flex items-center justify-center overflow-hidden ">
-            <img src="{{bookingResume()!.vehicleModel!.imageUrl}}" alt="vehicle image" class="w-28 h-12 object-cover">
+            <img src="{{bookingResume().vehicleModel?.imageUrl}}" alt="vehicle image" class="w-28 h-12 object-cover">
           </div>
           <div>
             <h5 class=" text-lg font-bold">
-              Modèle {{bookingResume()!.vehicleModel!.name}}
+              {{ 'steps.final-step.model' | translate }} {{bookingResume().vehicleModel?.name}}
             </h5>
             <span class="text-sm text-gray-500">
-              véhicule {{bookingResume()!.vehicleModel!.type}}
+              {{ 'steps.final-step.vehicle' | translate }} {{bookingResume().vehicleModel?.type}}
             </span>
             <h5 class="text-base mt-3">
-              {{bookingResume()!.passengerCount}} passagers
+              {{bookingResume().passengerCount}} {{ 'steps.final-step.passenger' | translate }}
             </h5>
           </div>
 
@@ -34,7 +34,7 @@
                 <fa-icon [icon]="faLocationPin" class="text-gray-700 mr-2"></fa-icon>
                 <app-place-address-link [placeAddress]="trip.startAddress"></app-place-address-link>
                 <div class="flex justify-start space-x-1 text-gray-500 text-xs sm:text-sm ml-6">
-                  <span class="font-normal whitespace-nowrap">prévu le</span>
+                  <span class="font-normal whitespace-nowrap">{{ 'steps.final-step.planned' | translate }}</span>
                   <span>{{trip.startTime | date:'short'}}</span>
                 </div>
               </div>
@@ -42,7 +42,7 @@
                 <fa-icon [icon]="faLocationDot" class="text-gray-700 mr-2"></fa-icon>
                 <app-place-address-link [placeAddress]="trip.endAddress"></app-place-address-link>
                 <div class="flex justify-start space-x-1 text-gray-500 text-xs sm:text-sm ml-6">
-                  <span class="font-normal whitespace-nowrap">estimé le</span>
+                  <span class="font-normal whitespace-nowrap">{{ 'steps.final-step.estimated' | translate }}</span>
                   <span>{{estimateEndDate(trip)| date:'short'}}</span>
                 </div>
               </div>

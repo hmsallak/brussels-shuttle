@@ -7,6 +7,7 @@ import {RouteInfoComponent} from "../../../../../shared/components/route-info/ro
 import {faCar, faCarSide, faLocationDot, faLocationPin, faRoute} from "@fortawesome/free-solid-svg-icons";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {Trip} from "../../../../../core/models/trip";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-booking-resume',
@@ -15,7 +16,8 @@ import {Trip} from "../../../../../core/models/trip";
     DatePipe,
     PlaceAddressLinkComponent,
     RouteInfoComponent,
-    FaIconComponent
+    FaIconComponent,
+    TranslateModule
   ],
   templateUrl: './booking-resume.component.html',
   styleUrl: './booking-resume.component.css',

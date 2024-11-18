@@ -59,6 +59,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes,
       withInMemoryScrolling({
         scrollPositionRestoration: 'enabled',
+        anchorScrolling: 'enabled'
       }),
     ),
     provideHttpClient(withInterceptorsFromDi()),
@@ -68,9 +69,7 @@ export const appConfig: ApplicationConfig = {
         TranslateModule.forRoot(provideTranslation())
       ]
     ),
-    provideLottieOptions({
-      player: () => player,
-    }),
+    provideLottieOptions({player: () => player}),
     provideAnimationsAsync(),
     { provide: BookingGateway, useFactory: () => new HttpBookingGateway() },
     { provide: QuoteGateway, useFactory: () => new HttpQuoteGateway() },

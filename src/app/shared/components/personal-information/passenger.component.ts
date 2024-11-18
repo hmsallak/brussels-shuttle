@@ -1,4 +1,4 @@
-import {Component, EventEmitter, inject, Output} from '@angular/core';
+import {Component, EventEmitter, inject, output, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {TuiCountryIsoCode} from '@taiga-ui/i18n';
 import {Passenger} from "../../../core/models/passenger";
@@ -10,10 +10,12 @@ import {
   TuiInputModule,
   TuiInputPhoneInternationalModule
 } from "@taiga-ui/kit";
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, JsonPipe} from "@angular/common";
+import {VALIDATION_ERRORS} from "../../utils/error.utils";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
-  selector: 'app-personal-information',
+  selector: 'app-passenger',
   standalone: true,
   imports: [
     FaIconComponent,
@@ -24,27 +26,25 @@ import {AsyncPipe} from "@angular/common";
     TuiButtonModule,
     AsyncPipe,
     TuiErrorModule,
-    TuiFieldErrorPipeModule
+    TuiFieldErrorPipeModule,
+    JsonPipe,
+    TranslateModule
   ],
-  templateUrl: './personal-information.component.html',
-  styleUrl: './personal-information.component.css',
+  templateUrl: './passenger.component.html',
+  styleUrl: './passenger.component.css',
   providers: [
     {
       provide: TUI_VALIDATION_ERRORS,
-      useValue: {
-        required: 'Champ requis',
-        minLength: 'Champ invalide',
-        email: 'Mail invalide',
-      },
+      useValue: VALIDATION_ERRORS,
     },
   ],
 })
-export class PersonalInformationComponent {
+export class PassengerComponent {
   private _formBuilder= inject(FormBuilder);
 
   private _personalInformationFormGroup = this._formBuilder.group({
-    firstName: new FormControl(null, [Validators.required, Validators.minLength(2)]),
-    lastName: new FormControl(null, [Validators.required, Validators.minLength(2)]),
+    firstName: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]),
+    lastName: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]),
     mail: new FormControl(null, [Validators.required, Validators.email]),
     phone: new FormControl(null, [Validators.required, Validators.minLength(3)]),
   });
@@ -52,13 +52,12 @@ export class PersonalInformationComponent {
   readonly countries: readonly TuiCountryIsoCode[] = [TuiCountryIsoCode.BE, TuiCountryIsoCode.FR, TuiCountryIsoCode.NL, TuiCountryIsoCode.LU, TuiCountryIsoCode.ES, TuiCountryIsoCode.DE];
   countryIsoCode : TuiCountryIsoCode  = TuiCountryIsoCode.BE;
 
-  @Output()
-  public personalInformation = new EventEmitter<Passenger>();
+  passengerEvent = output<Passenger | null>();
 
   constructor() {
     this._personalInformationFormGroup.valueChanges.subscribe(value => {
       if(this._personalInformationFormGroup.invalid) {
-        this.personalInformation.emit(undefined);
+        this.passengerEvent.emit(null);
       } else{
         const passenger: Passenger = {
           firstName: this.firstNameForm.value,
@@ -66,7 +65,7 @@ export class PersonalInformationComponent {
           email: this.mailForm.value,
           phoneNumber: this.phoneForm.value,
         }
-        this.personalInformation.emit(passenger);
+        this.passengerEvent.emit(passenger);
       }
     });
   }

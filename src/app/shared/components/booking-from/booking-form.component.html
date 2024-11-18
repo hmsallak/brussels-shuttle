@@ -1,6 +1,9 @@
 <section class="card bg-gray-50 shadow-xl pt-2 pb-10">
   <div class="card-actions justify-end pb-1 px-2 absolute right-0">
-    <button id="clearButton" class="btn btn-sm" (click)="clean()" [disabled]="bookingDetailsFormGroup.untouched">{{ 'booking-form.clear' | translate }}</button>
+    <button id="clearButton" class="btn btn-sm" (click)="clear()"
+            [disabled]="bookingDetailsFormGroup.untouched">
+      {{ 'booking-form.clear' | translate }}
+    </button>
   </div>
   <div class="card-body pt-3">
     <div class="space-y-3">
@@ -8,6 +11,7 @@
       <tui-input-date
         id="departureDate"
         [formControl]="startTimeDateForm"
+        [min]="minDate"
         [tuiTextfieldCleaner]="true">
         {{ 'booking-form.choose-date' | translate }}
       </tui-input-date>
@@ -26,6 +30,11 @@
       <tui-error
         id="departureTimeError"
         [formControl]="startTimeTimeForm"
+        [error]="[] | tuiFieldError | async"/>
+
+      <tui-error
+        id="departureDateTimeError"
+        [formGroup]="startDateTimeForm"
         [error]="[] | tuiFieldError | async"/>
 
       <tui-select
@@ -70,6 +79,11 @@
             <tui-error
               id="returnTimeError"
               [formControl]="returnStartTimeTimeForm"
+              [error]="[] | tuiFieldError | async"/>
+
+            <tui-error
+              id="returnDateTimeError"
+              [formGroup]="returnStartDateTimeForm"
               [error]="[] | tuiFieldError | async"/>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import {Directive, ElementRef, EventEmitter, NgZone, OnInit, Output} from '@angular/core';
+import {AfterViewInit, Directive, ElementRef, EventEmitter, NgZone, OnInit, Output} from '@angular/core';
 import {PlaceAddress} from "../../core/models/place-address";
 import {extractPlaceAddress} from "../services/google-places.service";
 
@@ -6,13 +6,13 @@ import {extractPlaceAddress} from "../services/google-places.service";
   selector: '[appGooglePlaces]',
   standalone: true
 })
-export class GooglePlacesDirective implements OnInit {
+export class GooglePlacesDirective implements AfterViewInit {
   @Output() placeChanged = new EventEmitter<PlaceAddress>();
-  private autocomplete: google.maps.places.Autocomplete | undefined;
-
+  private autocomplete:any;
   constructor(private el: ElementRef, private ngZone: NgZone) {}
 
-  ngOnInit() {
+  async ngAfterViewInit() {
+    await google.maps.importLibrary("places");
     this.autocomplete = new google.maps.places.Autocomplete(this.el.nativeElement, {
       componentRestrictions: { country: ['BE', 'FR', 'NL', 'LU', 'DE'] }
     });

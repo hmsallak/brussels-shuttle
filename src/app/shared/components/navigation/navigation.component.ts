@@ -1,11 +1,13 @@
-import {Component, inject, input} from '@angular/core';
+import {Component, inject, input, signal} from '@angular/core';
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {faLanguage, faChevronDown, faGlobe} from '@fortawesome/free-solid-svg-icons';
+import {faLanguage, faChevronDown, faGlobe, faBars} from '@fortawesome/free-solid-svg-icons';
 
 import {LanguageEnum} from "../../../core/models/enum/language.enum";
 import {NgClass, NgOptimizedImage} from "@angular/common";
 import {RouterLink, RouterLinkActive} from "@angular/router";
+import {TuiActiveZoneModule} from "@taiga-ui/cdk";
+import {TuiSidebarModule} from "@taiga-ui/addon-mobile";
 
 @Component({
   selector: 'app-navigation',
@@ -16,13 +18,16 @@ import {RouterLink, RouterLinkActive} from "@angular/router";
     NgOptimizedImage,
     RouterLink,
     NgClass,
-    RouterLinkActive
+    RouterLinkActive,
+    TuiSidebarModule,
+    TuiActiveZoneModule
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
   absolute= input(false)
+  open = signal(false)
 
   languages = [LanguageEnum.FRENCH, LanguageEnum.ENGLISH, LanguageEnum.DUTCH];
 
@@ -38,4 +43,5 @@ export class NavigationComponent {
   }
 
   protected readonly faGlobe = faGlobe;
+  protected readonly faBars = faBars;
 }

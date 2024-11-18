@@ -1,77 +1,57 @@
-import {Component, computed, effect, inject, model, Signal, signal} from '@angular/core';
-import {GoogleMapComponent} from "../../../shared/components/google-map/google-map.component";
+import {Component, computed, effect, inject, input, model, OnInit, Signal, signal} from '@angular/core';
 import {Quote} from "../../../core/models/quote";
-import {JourneyQuoteComponent} from "../../../shared/components/journey-quote/journey-quote.component";
-import {BookingDetails} from "../../../core/models/booking-details";
+import {VehicleStepComponent} from "./vehicle-step/vehicle-step.component";
 import {VehicleModel} from "../../../core/models/vehicle-model";
-import {PersonalInformationComponent} from "../../../shared/components/personal-information/personal-information.component";
-import {PaymentMethodButtonComponent} from "../../../shared/components/payment-method-button/payment-method-button.component";
 import {PaymentMethodEnum} from "../../../core/models/enum/payment-method.enum";
 import {Passenger} from "../../../core/models/passenger";
 import {BookingRequest} from "../../../core/models/api/request/booking-request";
-import {BannerComponent} from "../../../shared/components/banner/banner.component";
-import {Router, RouterLink} from '@angular/router';
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {BookingFormComponent} from "../../../shared/components/booking-from/booking-form.component";
-import {BookingResumeComponent} from "./booking-final-step/booking-resume/booking-resume.component";
+import {ActivatedRoute, Router, RouterLink} from '@angular/router';
 import {CreateQuoteComponent} from "./create-quote-step/create-quote.component";
 import {StepComponent} from "../../../shared/components/stepper/step/step.component";
 import {StepperComponent} from "../../../shared/components/stepper/stepper.component";
-import {CurrencyPipe, JsonPipe, NgIf} from "@angular/common";
 import {BookingBuilder} from "../../../core/models/booking-builder";
-import {TuiButtonModule, TuiLabelModule} from "@taiga-ui/core";
 import {BookingFinalStepComponent} from "./booking-final-step/booking-final-step.component";
 import {BookingService} from "../../../shared/services/booking.service";
 import {BillingAddress} from "../../../core/models/billing-address";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-create-booking',
   standalone: true,
   imports: [
-    BookingFormComponent,
-    BannerComponent,
-    JourneyQuoteComponent,
-    PaymentMethodButtonComponent,
-    GoogleMapComponent,
-    RouterLink,
-    FaIconComponent,
-    BookingResumeComponent,
     StepComponent,
-    NgIf,
-    CurrencyPipe,
-    TuiButtonModule,
-    TuiLabelModule,
-    PersonalInformationComponent,
-    JsonPipe,
-    BookingFinalStepComponent,
-    StepperComponent,
+    VehicleStepComponent,
     CreateQuoteComponent,
-
+    StepperComponent,
+    BookingFinalStepComponent,
+    TranslateModule
   ],
   templateUrl: './create-booking.component.html',
   styleUrl: './create-booking.component.css'
 })
-export class CreateBookingComponent {
+export class CreateBookingComponent implements OnInit {
   private bookingService = inject(BookingService);
+  private router = inject(Router);
 
-  vehicleModel = signal<VehicleModel | null>(null);
-  bookingDetails = signal<BookingDetails | null>(null);
-  quote = signal<Quote | null>(null);
-  personalInformation = signal<Passenger | null>(null);
+  vehicleModel = model<VehicleModel>();
+  quote = model<Quote>();
+  passenger = signal<Passenger | null>(null);
   billingAddress = signal<BillingAddress | null>(null);
   paymentMethod = signal<PaymentMethodEnum | null>(null);
+
+  protected exisingQuote?: Quote;
 
   currentBooking: Signal<BookingBuilder> = computed(() => {
     return  {
       quote: this.quote() ?? undefined,
-      passengerCount: this.bookingDetails()?.passengerCount,
+      passengerCount: this.quote()?.passengerCount,
       vehicleModel: this.vehicleModel() ?? undefined,
       paymentMethodType: this.paymentMethod() ?? undefined,
     }
   });
 
-  isBookingDetailsCompleted = computed(() => {
-    return !!this.bookingDetails();
+  isQuoteRequestCompleted = computed(() => {
+    return !!this.quote();
   });
 
   isVehicleModelCompleted = computed(() => {
@@ -79,37 +59,63 @@ export class CreateBookingComponent {
   });
 
   isFinalStepCompleted = computed(() => {
-    return !!(this.personalInformation() && this.paymentMethod());
+    return !!(this.passenger() && this.paymentMethod());
   });
-
-  setupBookingStateWatcher = effect(() => {
-    if (!this.isBookingDetailsCompleted()) {
-      this.vehicleModel.set(null);
-      this.quote.set(null);
-      this.paymentMethod.set(null);
-    }
-  }, { allowSignalWrites: true });
 
   totalPrice = computed(() => {
     return this.quote()?.vehicleModelPrices.find(vmp => vmp.vehicleModel.id === this.vehicleModel()?.id)?.price;
   });
 
+  quoteEffect = effect(() => {
+    this.updateParam();
+    if (!this.quote()) {
+      this.vehicleModel.set(undefined);
+      this.quote.set(undefined);
+      this.paymentMethod.set(null);
+    }
+  }, { allowSignalWrites: true });
+
+  vehicleModelEffect = effect(() => {
+    this.updateParam();
+    if (!this.vehicleModel()) {
+      this.vehicleModel.set(undefined);
+      this.paymentMethod.set(null);
+    }
+  }, { allowSignalWrites: true });
+
+  ngOnInit(): void {
+    this.exisingQuote = this.quote();
+  }
+
   book() {
-    if(!this.isBookingDetailsCompleted && !this.isVehicleModelCompleted && !this.isFinalStepCompleted()){
+    if(!this.isQuoteRequestCompleted && !this.isVehicleModelCompleted && !this.isFinalStepCompleted()){
       return;
     }
 
     const request: BookingRequest = {
       quoteId: this.quote()!.id,
-      passenger: this.personalInformation()!,
-      passengerCount: this.bookingDetails()!.passengerCount,
+      passenger: this.passenger()!,
+      passengerCount: this.quote()!.passengerCount,
       paymentMethodType: this.paymentMethod()!,
       vehicleModelId: this.vehicleModel()!.id,
       billingAddress: this.billingAddress() ?? undefined,
     }
 
     this.bookingService.createBooking(request);
+  }
 
+  private updateParam(){
+    const scrollPosition = window.scrollY;
+    this.router.navigate([], {
+      queryParams: {
+        vehicleModel: this.vehicleModel()?.id,
+        quote: this.quote()?.id
+      },
+      queryParamsHandling: 'merge',
+    })
+    setTimeout(() => {
+      window.scrollTo(0, scrollPosition);
+    }, 1);
   }
 
 

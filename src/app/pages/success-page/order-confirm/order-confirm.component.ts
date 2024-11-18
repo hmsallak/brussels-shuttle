@@ -41,22 +41,6 @@ export class OrderConfirmComponent {
   passengerName = computed(() => this.booking()?.passenger.firstName + ' ' + this.booking()?.passenger.lastName);
   bookingDate = computed(() => new Date(this.booking()?.timestamp));
 
-  bookingBuilder: Signal<BookingBuilder> = computed(() => {
-    const quote: Quote = {
-      expirationTime: new Date(),
-      id: 0,
-      trips: this.booking()?.trips,
-      vehicleModelPrices: []
-
-    }
-    return  {
-      quote: quote,
-      passengerCount: this.booking()?.passengerCount,
-      vehicleModel: this.booking().vehicleModel ?? undefined,
-      paymentMethodType: this.booking().paymentMethodType ?? undefined,
-    }
-  });
-
   @ViewChild('printableSection') printableSection!: ElementRef;
   protected readonly faCheckCircle = faCheckCircle;
   protected readonly CurrencyEnum = CurrencyEnum;

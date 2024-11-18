@@ -30,12 +30,12 @@ export const routes: Routes = [
     component: ContactPageComponent
   },
   {
-    path: 'term-of-use',
-    component: TermOfUsePageComponent
-  },
-  {
     path: 'services/destinations',
     component: DestinationPageComponent
+  },
+  {
+    path: 'term-of-use',
+    component: TermOfUsePageComponent
   },
   {
     path: 'faq',

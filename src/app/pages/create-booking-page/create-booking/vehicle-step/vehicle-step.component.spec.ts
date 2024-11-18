@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JounreyQuoteComponent } from './journey-quote.component';
+import { JounreyQuoteComponent } from './vehicle-step.component';
 
 describe('JounreyQuoteComponent', () => {
   let component: JounreyQuoteComponent;

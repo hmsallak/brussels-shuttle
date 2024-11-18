@@ -6,6 +6,7 @@ import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {KmPipe} from "../../pipe/km.pipe";
 import {MinutesPipe} from "../../pipe/minutes.pipe";
 import {NgClass} from "@angular/common";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-route-info',
@@ -14,7 +15,8 @@ import {NgClass} from "@angular/common";
     FaIconComponent,
     KmPipe,
     MinutesPipe,
-    NgClass
+    NgClass,
+    TranslateModule
   ],
   templateUrl: './route-info.component.html',
   styleUrl: './route-info.component.css'

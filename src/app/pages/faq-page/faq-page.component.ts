@@ -3,6 +3,7 @@ import {ContactFormComponent} from "../../shared/components/contact-form/contact
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
 import {TitleComponent} from "../../shared/components/title/title.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-faq-page',
@@ -12,7 +13,8 @@ import {TitleComponent} from "../../shared/components/title/title.component";
     ContactFormComponent,
     LayoutComponent,
     RouterLink,
-    TitleComponent
+    TitleComponent,
+    TranslateModule
   ],
   styleUrl: './faq-page.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

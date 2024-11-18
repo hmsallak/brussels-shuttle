@@ -2,41 +2,41 @@
 
   <div>
     <tui-input [formControl]="firstNameForm">
-      Prénom
+      {{ 'passenger-form.first-name.label' | translate }}
       <input
-        placeholder="Entrez votre prénom"
+        [placeholder]="'passenger-form.first-name.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
     <tui-error
       [formControl]="firstNameForm"
-      [error]="[] | tuiFieldError | async"/>
+      [error]="[] | tuiFieldError | async"></tui-error>
   </div>
 
   <div>
     <tui-input [formControl]="lastNameForm">
-      Nom
+      {{ 'passenger-form.last-name.label' | translate }}
       <input
-        placeholder="Entrez votre nom"
+        [placeholder]="'passenger-form.last-name.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
     <tui-error
       [formControl]="lastNameForm"
-      [error]="[] | tuiFieldError | async"/>
+      [error]="[] | tuiFieldError | async"></tui-error>
   </div>
 
   <div class="col-span-2">
     <tui-input [formControl]="mailForm">
-      Email
+      {{ 'passenger-form.email.label' | translate }}
       <input
-        placeholder="Entrez votre mail"
+        [placeholder]="'passenger-form.email.placeholder' | translate"
         tuiTextfield
       />
     </tui-input>
     <tui-error
       [formControl]="mailForm"
-      [error]="[] | tuiFieldError | async"/>
+      [error]="[] | tuiFieldError | async"></tui-error>
   </div>
 
   <div class="col-span-2">
@@ -44,14 +44,11 @@
       [formControl]="phoneForm"
       [countries]="countries"
       [(countryIsoCode)]="countryIsoCode"
-    >Votre numéro de téléphone</tui-input-phone-international>
+    >
+      {{ 'passenger-form.phone.label' | translate }}
+    </tui-input-phone-international>
     <tui-error
       [formControl]="phoneForm"
-      [error]="[] | tuiFieldError | async"/>
+      [error]="[] | tuiFieldError | async"></tui-error>
   </div>
-
-
 </div>
-
-
-

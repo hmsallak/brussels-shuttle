@@ -1,37 +1,41 @@
-import {Component, computed, input, Input} from '@angular/core';
-import {VehicleModelPrice} from "../../../../core/models/quote";
+import {Component, computed, inject, input, Input, model} from '@angular/core';
+import {VehicleModelPrice} from "../../../../../core/models/quote";
 import {faChevronDown, faLuggageCart, faSuitcase, faUser} from "@fortawesome/free-solid-svg-icons";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {FormControl} from "@angular/forms";
-import {NgClass} from "@angular/common";
+import {LowerCasePipe, NgClass} from "@angular/common";
+import {VehicleModel} from "../../../../../core/models/vehicle-model";
+import {TranslateModule} from "@ngx-translate/core";
+import {Router} from "@angular/router";
+import {scrollToSection} from "../../../../../shared/utils/element.utils";
 
 @Component({
   selector: 'app-vehicle-model-price',
   standalone: true,
   imports: [
     FaIconComponent,
-    NgClass
+    NgClass,
+    TranslateModule,
+    LowerCasePipe
   ],
   templateUrl: './vehicle-model-price.component.html',
   styleUrl: './vehicle-model-price.component.css'
 })
 export class VehicleModelPriceComponent {
   vehicleModelPrice = input.required<VehicleModelPrice>();
+  selectedVehicleModel = model<VehicleModel | null>()
 
   @Input() passengerCount: number = 1;
 
-  @Input()
-  vehicleModelIdForm: FormControl = new FormControl();
-
   select(){
     if (!this.isDisabled) {
-      this.vehicleModelIdForm.setValue(this.vehicleModelPrice().vehicleModel.id);
+      this.selectedVehicleModel.set(this.vehicleModelPrice().vehicleModel);
     }
   }
 
-  get isSelected(){
-    return this.vehicleModelPrice().vehicleModel.id === this.vehicleModelIdForm.value;
-  }
+   isSelected= computed(() =>
+     this.vehicleModelPrice().vehicleModel.id === this.selectedVehicleModel()?.id
+   );
 
   get isDisabled(){
     return this.vehicleModelPrice().vehicleModel.passengerCapacity < this.passengerCount;
@@ -39,4 +43,5 @@ export class VehicleModelPriceComponent {
 
   protected readonly faUser = faUser;
   protected readonly faSuitcase = faSuitcase;
+  protected readonly scrollToSection = scrollToSection;
 }
