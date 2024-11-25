@@ -14,6 +14,7 @@ import {Quote} from "../../../core/models/quote";
 import {
   BookingResumeComponent
 } from "../../create-booking-page/create-booking/booking-final-step/booking-resume/booking-resume.component";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-order-confirm',
@@ -28,7 +29,8 @@ import {
     FaIconComponent,
     PlaceAddressLinkComponent,
     RouterLink,
-    BookingResumeComponent
+    BookingResumeComponent,
+    TranslateModule
   ],
   templateUrl: './order-confirm.component.html',
   styleUrl: './order-confirm.component.css'

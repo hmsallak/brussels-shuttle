@@ -1,5 +1,7 @@
  <app-layout [absoluteHeader]="true">
-  <section class="relative ">
+
+   <!--    Landing Section    -->
+   <section class="relative ">
     <picture>
       <!-- image for phone-->
       <source srcset="assets/images/brussels-shuttle-bg-phone.webp" media="(max-width: 768px)" type="image/webp" />
@@ -9,9 +11,8 @@
 
       <img
         ngSrc="assets/images/schuman.webp"
-        loading="lazy"
-        width="1920"
-        height="880"
+        fill
+        priority
         class="absolute inset-0 object-cover w-full h-full mx-auto"
         alt="Schuman"
       />
@@ -28,30 +29,28 @@
 
       </svg>
 
-      <div class="relative px-4 py-32  mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div class="flex flex-col items-center justify-between xl:flex-row">
-          <div class="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
-            <h1 class="text-4xl font-bold text-white xl:text-6xl leading-[3.25rem]  xl:leading-none">
-              <p class="">
-                Votre prochaine destination<br>
-                <span class="text-sky-400">Vous attend</span>
+      <div class="relative px-4 py-28 md:py-32 xl:py-40  mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <div class="flex flex-col justify-between items-center xl:items-stretch xl:flex-row">
+          <div class="w-full max-w-xl mb-24 lg:mt-14 xl:mb-0 xl:pr-16 xl:w-7/12">
+            <h1 class="space-y-6 md:space-y-10 xl:space-y-4">
+              <p>
+                <span class="text-5xl font-bold text-white md:text-7xl leading-[3rem]" [innerHTML]="'home-page.landing.title1' | translate"></span>
+                <span class="text-sky-400 pl-2 text-xl font-bold md:text-3xl " [innerHTML]="'home-page.landing.title2' | translate | lowercase"></span>
               </p>
             </h1>
-            <p class="mt-8 text-base font-normal leading-7 text-gray-200 lg:max-w-md xl:pr-0 lg:pr-16">
-              Profitez de nos transferts aéroport 24H/7J à partir de 50 €. Réservez dès maintenant votre transfert vers et depuis Brussels Airport (BRU).
+            <p class="mt-8 text-base font-normal leading-7 text-gray-200 lg:max-w-md xl:pr-0 lg:pr-16"
+               [innerHTML]="'home-page.landing.description' | translate">
             </p>
 
             <div class="flex items-center justify-center mt-8 space-x-5 xl:mt-16 lg:justify-start">
               <a routerLink="booking/request" title="" role="button"
-                class="inline-flex items-center justify-center px-3 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-md sm:px-6
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white hover:bg-gray-200">
-                Réservez Maintenant
+                class="inline-flex items-center justify-center px-3 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-md sm:px-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white hover:bg-gray-200">
+                {{ 'home-page.landing.cta' | translate }}
               </a>
 
               <a title="" role="button" (click)="scrollToSection('detailsSection')"
-                 class="inline-flex items-center px-2 py-3 font-bold text-base leading-7 text-white transition-all duration-200 rounded-md sm:px-4
-                            focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-gray-700hover:bg-gray-700">
-                En savoir plus
+                 class="inline-flex items-center px-2 py-3 font-bold text-base leading-7 text-white transition-all duration-200 rounded-md sm:px-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-gray-700hover:bg-gray-700">
+                {{ 'home-page.landing.cta2' | translate }}
               </a>
             </div>
           </div>
@@ -76,20 +75,20 @@
          <div class="h-full px-4 pt-24 pb-16 sm:px-6 lg:px-24 2xl:px-32 2xl:ml-56 lg:pb-14">
            <div class="flex flex-col justify-start flex-1 h-full">
              <div>
-               <h1 class="text-4xl font-bold text-gray-900">Disponible à tout moment</h1>
+               <h1 class="text-4xl font-bold text-gray-900">
+                 {{ 'home-page.steps.title' | translate }}
+               </h1>
                <p class="mt-6 text-base font-normal leading-7 text-gray-600 ">
-                 Nous travaillons avec des chauffeurs expérimentés pour garantir un service de qualité et une sécurité à toute épreuve.
-                 Notre service de transport vous permet de vous déplacer facilement vers et depuis les aéroports de votre choix.<br>
-                 Réservez votre transfert en ligne dès maintenant et profitez d'une réservation simple et pratique.</p>
-               <a routerLink="booking/request" class="flex flex-row items-center justify-start gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 mt-10">Réserver maintenant
+                 {{ 'home-page.steps.description' | translate }}
+               </p>
+               <a routerLink="booking/request" class="flex flex-row items-center justify-start gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 mt-10">
+                 {{ 'home-page.steps.cta' | translate }}
                  <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                    <path d="M9.00378 5.99561L15.004 11.9959L9.00024 17.9996" stroke="#1195a6" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" class="my-path"></path>
                  </svg>
                </a>
              </div>
-
              <app-reservation-approach></app-reservation-approach>
-
            </div>
          </div>
        </div>
@@ -104,46 +103,30 @@
 
    <section class="mt-24">
      <div class="pt-4 max-w-xl md:mx-auto lg:max-w-4xl px-8 md:px-0">
-       <app-title title="Découvrez nos destinations depuis Bruxelles">
+       <app-title [title]="'home-page.destinations.title' | translate">
        </app-title>
      </div>
 
      <div class="lg:max-w-7xl mx-auto py-20">
        <div class="grid grid-cols-3 gap-16">
+         @for(destination of destinationsItems(); track $index){
            <div class="col-span-3 lg:col-span-1 px-5 md:px-0">
-             <app-destination [name]="'Aéroport Zaventem'" [city]="'Bruxelles'"
-                              [imageUri]="'assets/images/zaventem.webp'"
-                              [title]="'Réservez votre taxi vers l’aéroport de Zaventem, simple et rapide'"
-                              [description]="'Partez l’esprit tranquille depuis Zaventem, un terminal moderne et pratique. Profitez d’un service taxi dédié pour un trajet sans encombre. Notre objectif : rendre votre voyage aussi agréable que possible.'">
+             <app-destination [name]="destination['name']"
+                              [cta]="destination['cta']"
+                              [imageUri]="destination['imageUri']"
+                              [title]="destination['title']"
+                              [description]="destination['description']">
              </app-destination>
            </div>
-           <div class="col-span-3 lg:col-span-1 px-5 md:px-0">
-             <app-destination [name]="'Aéroport de Charleroi'" [city]="'Bruxelles-Sud'"
-                              [imageUri]="'assets/images/charleroi.webp'"
-                              [title]="'Voyagez sereinement vers l’aéroport de Charleroi en taxi'"
-                              [description]="'Lancez-vous vers de nouveaux horizons depuis l’aéroport de Charleroi. Notre service taxi vous garantit confort et ponctualité pour votre transfert. Réservez dès aujourd’hui pour un départ en toute tranquillité.'">
-             </app-destination>
-           </div>
-           <div class="col-span-3 lg:col-span-1 px-5 md:px-0">
-             <app-destination [name]="'Aéroport Lille'" [city]="'Lesquin'"
-                              [imageUri]="'assets/images/lille.webp'"
-                              [title]="'Des trajets optimisés pour vos déplacements vers Lille'"
-                              [description]="'Nos taxis vous transportent dans Lille et ses environs rapidement. Idéal pour vos rendez-vous ou trajets vers les gares. Profitez d’un service fiable et d’une expérience agréable.'">
-             </app-destination>
-           </div>
+         }
        </div>
        <div class="mt-16 flex justify-center ">
          <a routerLink="services/destinations" title="" role="button"
             class="inline-flex items-center px-3 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-full border sm:px-6 hover:bg-gray-200">
-          Plus de destinations
+           {{ 'home-page.destinations.cta' | translate }}
          </a>
        </div>
-
-
      </div>
-
-
-
    </section>
 
 

@@ -6,6 +6,7 @@ import {BillingAddress} from "./billing-address";
 
 export interface Booking {
   id: number;
+  reference: string;
   passenger: Passenger;
   passengerCount: number;
   billingAddress?: BillingAddress;

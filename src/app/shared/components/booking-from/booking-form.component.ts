@@ -13,7 +13,7 @@ import {
   TuiInputTimeModule,
   TuiSelectModule
 } from "@taiga-ui/kit";
-import {TuiErrorModule, TuiHintModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
+import {TuiDropdownModule, TuiErrorModule, TuiHintModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
 import {PlaceAutocompleteComponent} from "../place-auto-complete/place-auto-complete.component";
 import {AsyncPipe, JsonPipe, NgIf} from "@angular/common";
 import {WayEnum} from "../../../core/models/enum/way.enum";
@@ -22,7 +22,7 @@ import {TripRequest} from "../../../core/models/api/request/trip-request";
 import {TripEnum} from "../../../core/models/enum/trip.enum";
 import {formatLocalDate, getDateTimeFromTui, parseLocalDate} from "../../utils/date.utils";
 import {BannerComponent} from "../banner/banner.component";
-import {BillingAddressComponent} from "../billing-address/billing-address.component";
+import {BillingAddressComponent} from "../../../pages/create-booking-page/create-booking/booking-final-step/billing-address/billing-address.component";
 import {VALIDATION_ERRORS} from "../../utils/error.utils";
 import {Quote} from "../../../core/models/quote";
 import {QuoteRequest} from "../../../core/models/api/request/quote-request";
@@ -48,7 +48,8 @@ import {QuoteRequest} from "../../../core/models/api/request/quote-request";
     BannerComponent,
     BillingAddressComponent,
     FormsModule,
-    JsonPipe
+    JsonPipe,
+    TuiDropdownModule
   ],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.css',

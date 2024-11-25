@@ -14,7 +14,7 @@ import {RouterLink} from "@angular/router";
 export class DestinationComponent {
 
   name = input()
-  city = input()
+  cta = input()
   title = input()
   imageUri = input()
   description = input()

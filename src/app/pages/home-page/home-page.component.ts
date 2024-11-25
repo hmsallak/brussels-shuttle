@@ -1,12 +1,7 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {
-  faCheckCircle,
-  faCircle
-} from "@fortawesome/free-solid-svg-icons";
 import {ReservationApproachComponent} from "./reservation-approach/reservation-approach.component";
 import {TitleComponent} from "../../shared/components/title/title.component";
-import {PositionEnum} from "../../core/models/enum/position.enum";
 import {NavigationComponent} from "../../shared/components/navigation/navigation.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
@@ -18,8 +13,11 @@ import {DestinationComponent} from "../services/destination-page/destination/des
 import {BookingFormComponent} from "../../shared/components/booking-from/booking-form.component";
 import {TuiInputDateModule} from "@taiga-ui/kit";
 import {TuiTextfieldControllerModule} from "@taiga-ui/core";
-import {NgOptimizedImage, ViewportScroller} from "@angular/common";
+import {LowerCasePipe, NgOptimizedImage, ViewportScroller} from "@angular/common";
 import {scrollToSection} from "../../shared/utils/element.utils";
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {toSignal} from "@angular/core/rxjs-interop";
+import {startWith, switchMap} from "rxjs";
 
 @Component({
   selector: 'app-home-page',
@@ -38,7 +36,9 @@ import {scrollToSection} from "../../shared/utils/element.utils";
     DestinationComponent,
     TuiInputDateModule,
     TuiTextfieldControllerModule,
-    NgOptimizedImage
+    NgOptimizedImage,
+    TranslateModule,
+    LowerCasePipe
   ],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.css',
@@ -48,8 +48,11 @@ import {scrollToSection} from "../../shared/utils/element.utils";
   ],
 })
 export class HomePageComponent {
-  protected readonly PositionEnum = PositionEnum;
-  protected readonly faCircle = faCircle;
-  protected readonly faCheckCircle = faCheckCircle;
+  private translateService = inject(TranslateService);
+
+  destinationsItems = toSignal(this.translateService.onLangChange.pipe(
+    startWith({ lang: this.translateService.currentLang }),
+    switchMap(() =>this.translateService.get('home-page.destinations.items')))
+  );
   protected readonly scrollToSection = scrollToSection;
 }

@@ -1,0 +1,10 @@
+@if (notification){
+  <div class="toast toast-end" [@fadeIn] [@fadeOut]>
+    <div class="alert text-white"
+         [ngClass]="{'alert-success': notification.type == NotificationEnum.SUCCESS,
+                     'alert-error': notification.type == NotificationEnum.ERROR,
+                     'alert-info': notification.type == NotificationEnum.INFO}"  >
+      <span>{{ notification.message | translate }}</span>
+    </div>
+  </div>
+}

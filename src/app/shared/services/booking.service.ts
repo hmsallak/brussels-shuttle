@@ -5,7 +5,9 @@ import {NgxSpinnerService} from "ngx-spinner";
 import {Router} from "@angular/router";
 import {BookingRequest} from "../../core/models/api/request/booking-request";
 import {PaymentMethodEnum} from "../../core/models/enum/payment-method.enum";
-import {catchError, map, of, switchMap, tap, throwError} from "rxjs";
+import {catchError, finalize, map, of, switchMap, tap, throwError} from "rxjs";
+import {NotificationService} from "./notification.service";
+import {ErrorResponse} from "../../core/models/api/response/error-response";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +15,8 @@ import {catchError, map, of, switchMap, tap, throwError} from "rxjs";
 export class BookingService{
   private bookingGateway = inject(BookingGateway);
   private stripeService = inject(StripeService);
+  private notificationService = inject(NotificationService);
+
   private spinner= inject(NgxSpinnerService);
   private router = inject(Router);
 
@@ -27,14 +31,11 @@ export class BookingService{
   private bookWithCash(request: BookingRequest){
     this.spinner.show();
     this.bookingGateway.createBooking(request).pipe(
+      finalize(() => this.spinner.hide()),
       map(response => {
-        this.spinner.hide();
         this.router.navigate(['/success'], { queryParams: { session: response.sessionToken } })
       }),
-      catchError(error => {
-        this.spinner.hide();
-        return of(error);
-      })
+      catchError(error => this.handleBookingError(error))
     ).subscribe();
   }
 
@@ -42,19 +43,19 @@ export class BookingService{
     this.spinner.show();
     this.bookingGateway.createBooking(request).pipe(
       switchMap(response =>
-        this.stripeService.startPaymentCheckout(response.sessionToken).pipe(
-          tap(() => this.spinner.hide()),
-          catchError(error => {
-            this.spinner.hide();
-            return throwError(() => error);
-          })
-        )
+        this.stripeService.startPaymentCheckout(response.sessionToken).pipe()
       ),
-      catchError(error => {
-        this.spinner.hide();
-        return of(error);
-      })
+      finalize(() => this.spinner.hide()),
+      catchError(error => this.handleBookingError(error))
     ).subscribe();
   }
 
+  private handleBookingError(error: ErrorResponse) {
+    if (error.status === 404) {
+      this.notificationService.showError('error.bookingExpired');
+    } else {
+      this.notificationService.showError('error.bookingNotFound');
+    }
+    return throwError(() => error);
+  }
 }

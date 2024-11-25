@@ -16,71 +16,17 @@
       <div class="lg:max-w-7xl mx-auto py-20">
         <div class="grid grid-cols-3 gap-16 mx-3 md:mx-0">
           @defer {
-
-            <div class="col-span-3 md:col-span-1">
-              <app-destination
-                [name]="'destination-page.destinations.zaventem.title' | translate"
-                [city]="'Bruxelles'"
-                [imageUri]="'assets/images/zaventem.webp'"
-                [title]="'destination-page.destinations.zaventem.title' | translate"
-                [description]="'destination-page.destinations.zaventem.description' | translate">
-              </app-destination>
-            </div>
-            <div class="col-span-3 md:col-span-1">
-              <app-destination
-                [name]="'destination-page.destinations.charleroi.title' | translate"
-                [city]="'Bruxelles-Sud'"
-                [imageUri]="'assets/images/charleroi.webp'"
-                [title]="'destination-page.destinations.charleroi.title' | translate"
-                [description]="'destination-page.destinations.charleroi.description' | translate">
-              </app-destination>
-            </div>
-            <div class="col-span-3 md:col-span-1">
-              <app-destination
-                [name]="'destination-page.destinations.lille.title' | translate"
-                [city]="'Lesquin'"
-                [imageUri]="'assets/images/lille.webp'"
-                [title]="'destination-page.destinations.lille.title' | translate"
-                [description]="'destination-page.destinations.lille.description' | translate">
-              </app-destination>
-            </div>
-            <div class="col-span-3 md:col-span-1">
-              <app-destination
-                [name]="'destination-page.destinations.orly.title' | translate"
-                [city]="'Paris'"
-                [imageUri]="'assets/images/orly.webp'"
-                [title]="'destination-page.destinations.orly.title' | translate"
-                [description]="'destination-page.destinations.orly.description' | translate">
-              </app-destination>
-            </div>
-            <div class="col-span-3 md:col-span-1">
-              <app-destination
-                [name]="'destination-page.destinations.charles_de_gaulle.title' | translate"
-                [city]="'Paris'"
-                [imageUri]="'assets/images/cdg.webp'"
-                [title]="'destination-page.destinations.charles_de_gaulle.title' | translate"
-                [description]="'destination-page.destinations.charles_de_gaulle.description' | translate">
-              </app-destination>
-            </div>
-            <div class="col-span-3 md:col-span-1">
-              <app-destination
-                [name]="'destination-page.destinations.schiphol.title' | translate"
-                [city]="'Amsterdam'"
-                [imageUri]="'assets/images/amsterdam.webp'"
-                [title]="'destination-page.destinations.schiphol.title' | translate"
-                [description]="'destination-page.destinations.schiphol.description' | translate">
-              </app-destination>
-            </div>
-            <div class="col-span-3 md:col-span-1">
-              <app-destination
-                [name]="'destination-page.destinations.eindhoven.title' | translate"
-                [city]="'Pays-Bas'"
-                [imageUri]="'assets/images/eindhoven.webp'"
-                [title]="'destination-page.destinations.eindhoven.title' | translate"
-                [description]="'destination-page.destinations.eindhoven.description' | translate">
-              </app-destination>
-            </div>
-
+            @for(destiation of destinationsItems(); track $index){
+              <div class="col-span-3 md:col-span-1">
+                <app-destination
+                  [name]="destiation['name']"
+                  [cta]="destiation['cta']"
+                  [imageUri]="destiation['imageUri']"
+                  [title]="destiation['title']"
+                  [description]="destiation['description']">
+                </app-destination>
+              </div>
+            }
           } @loading (minimum 1s) {
             <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
             <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>

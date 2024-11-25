@@ -11,12 +11,12 @@ import {
 } from "../../../../shared/components/payment-method-button/payment-method-button.component";
 import {
   PassengerComponent
-} from "../../../../shared/components/personal-information/passenger.component";
+} from "./personal-information/passenger.component";
 import {RouterLink} from "@angular/router";
 import {TuiButtonModule} from "@taiga-ui/core";
 import {FormsModule} from "@angular/forms";
 import {BillingAddress} from "../../../../core/models/billing-address";
-import {BillingAddressComponent} from "../../../../shared/components/billing-address/billing-address.component";
+import {BillingAddressComponent} from "./billing-address/billing-address.component";
 import {TUI_VALIDATION_ERRORS} from "@taiga-ui/kit";
 import {tuiPure} from "@taiga-ui/cdk";
 import {VALIDATION_ERRORS} from "../../../../shared/utils/error.utils";

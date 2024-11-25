@@ -21,6 +21,7 @@ import {fadeInOnEnterAnimation, fadeOutOnLeaveAnimation} from "angular-animation
 import {VALIDATION_ERRORS} from "../../utils/error.utils";
 import {AsyncPipe} from "@angular/common";
 import {TranslateModule} from "@ngx-translate/core";
+import {NotificationService} from "../../services/notification.service";
 
 
 
@@ -55,6 +56,7 @@ import {TranslateModule} from "@ngx-translate/core";
 export class ContactFormComponent {
   private _formBuilder= inject(FormBuilder);
   private emailGateway = inject(EmailGateway);
+  private notificationService= inject(NotificationService);
 
   private _contactFormGroup = this._formBuilder.group({
     name: new FormControl('', [Validators.required , Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]),
@@ -63,14 +65,6 @@ export class ContactFormComponent {
     acceptedTerms: new FormControl(false, [Validators.requiredTrue])
   });
 
-  success = false;
-
-  showSuccess() {
-    this.success = true;
-    setTimeout(() => {
-      this.success = false;
-    }, 400);
-  }
 
   get nameFormControl() {
     return this._contactFormGroup.get('name') as FormControl;
@@ -107,7 +101,7 @@ export class ContactFormComponent {
     }
     this.emailGateway.sendQuestionEmail(mail).subscribe( value => {
       this._contactFormGroup.reset();
-      this.showSuccess();
+      this.notificationService.showSuccess('Votre message a bien été envoyé');
     });
   }
 }

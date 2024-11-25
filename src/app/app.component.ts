@@ -6,10 +6,11 @@ import defaultLanguage from "./../assets/i18n/fr.json";
 import {LanguageEnum} from "./core/models/enum/language.enum";
 import { StripeElementsDirective, StripePaymentElementComponent} from "ngx-stripe";
 import {TuiRootModule} from "@taiga-ui/core";
+import {NotificationComponent} from "./shared/components/notification/notification.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, LayoutComponent, StripeElementsDirective, StripePaymentElementComponent, TuiRootModule],
+  imports: [RouterOutlet, LayoutComponent, StripeElementsDirective, StripePaymentElementComponent, TuiRootModule, NotificationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

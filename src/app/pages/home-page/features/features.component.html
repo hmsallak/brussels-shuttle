@@ -1,12 +1,16 @@
 <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
   <div class="mb-10 lg:mb-16 flex justify-center items-center flex-col gap-x-0 gap-y-6 lg:gap-y-0 lg:flex-row lg:justify-between max-md:max-w-lg max-md:mx-auto">
     <div class="relative w-full text-center lg:text-left lg:w-2/4">
-      <h2 class="text-4xl font-bold text-gray-900 leading-[3.25rem] lg:mb-6 mx-auto max-w-max lg:max-w-md lg:mx-0">Réserver votre transfert au meilleur prix</h2>
+      <h2 class="text-4xl font-bold text-gray-900 leading-[3.25rem] lg:mb-6 mx-auto max-w-max lg:max-w-md lg:mx-0">
+        {{ 'home-page.features.title' | translate }}
+      </h2>
     </div>
     <div class="relative w-full text-center  lg:text-left lg:w-2/4">
-      <p class="text-lg font-normal text-gray-500 mb-5">Réservez dès maintenant votre transfert depuis et vers l'aéroport de votre choix, en toute sérénité avec notre service de transfert fiable et professionnel.</p>
-      <a  (click)="scrollToSection('detailsSection')" class="flex flex-row items-center justify-center gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 ">En savoir plus
-
+      <p class="text-lg font-normal text-gray-500 mb-5">
+        {{ 'home-page.features.description' | translate }}
+      </p>
+      <a (click)="scrollToSection('detailsSection')" class="flex flex-row items-center justify-center gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 ">
+        {{ 'home-page.features.cta' | translate }}
         <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9.00378 5.99561L15.004 11.9959L9.00024 17.9996" stroke="#1195a6" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" class="my-path"></path>
         </svg>
@@ -20,11 +24,14 @@
           <path d="M6.02427 10.2591L13.7368 17.9716C15.4072 19.642 18.1154 19.642 19.7858 17.9716C20.4539 17.3035 20.4539 16.2202 19.7858 15.552L17.6434 13.4096C17.1562 12.9224 16.3663 12.9224 15.8791 13.4096C15.3919 13.8968 14.602 13.8968 14.1148 13.4096L10.2334 9.52819C9.74619 9.041 9.74619 8.25109 10.2334 7.7639C10.7206 7.2767 10.7206 6.4868 10.2334 5.9996L8.44388 4.2101C7.77573 3.54195 6.69243 3.54194 6.02428 4.2101C4.35389 5.88049 4.35389 8.58872 6.02427 10.2591Z" stroke="#1195a6" stroke-width="1.1" class="my-path"></path>
         </svg>
       </div>
-      <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">24/7</h4>
+      <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+        {{ 'home-page.features.items.hour.title' | translate }}
+      </h4>
       <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-        Réservez votre transfert privé dès aujourd'hui et profitez d'un trajet confortable et sûr à partir de 50€ !      </p>
+        {{ 'home-page.features.items.hour.description' | translate }}
+      </p>
     </div>
-    <div class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-cyan-500">
+    <div class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-cyan-500 cursor-pointer">
       <div class="bg-white rounded-full flex justify-center items-center mb-5 w-14 h-14 ">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M3 7.88304C3 6.49159 3 5.79587 3.37752 5.2721C3.75503 4.74832 4.41505 4.52832 5.73509 4.0883L9 3V19L8.26491 19.245C5.86241 20.0459 4.66116 20.4463 3.83058 19.8476C3 19.249 3 17.9828 3 15.4503V7.88304Z" stroke="#1195a6" stroke-width="1.1" stroke-linejoin="round" class="my-path"></path>
@@ -32,9 +39,11 @@
           <path d="M15 5.00018L15.7351 4.75515C18.1376 3.95431 19.3388 3.5539 20.1694 4.15255C21 4.75119 21 6.01742 21 8.54988V16.1171C21 17.5086 21 18.2043 20.6225 18.7281C20.245 19.2519 19.5849 19.4719 18.2649 19.9119L15 21.0002V5.00018Z" stroke="#1195a6" stroke-width="1.1" stroke-linejoin="round" class="my-path"></path>
         </svg>
       </div>
-      <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">Flexibilité</h4>
+      <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+        {{ 'home-page.features.items.flex.title' | translate }}
+      </h4>
       <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-        Nos transferts se font également en France, Allemagne, Suisse, et Pays-Bas
+        {{ 'home-page.features.items.flex.description' | translate }}
       </p>
     </div>
     <div class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-cyan-500">
@@ -44,9 +53,11 @@
         </svg>
 
       </div>
-      <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">Ponctualité</h4>
+      <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">
+        {{ 'home-page.features.items.punctuality.title' | translate }}
+      </h4>
       <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-        Nous venons toujours chercher nos clients à l\’heure, 24 heures sur 24, 7 jours sur 7.
+        {{ 'home-page.features.items.punctuality.description' | translate }}
       </p>
     </div>
     <div class="group relative w-full bg-gray-100 rounded-2xl p-4 transition-all duration-500 max-md:max-w-md max-md:mx-auto md:w-2/5 md:h-64 xl:p-7 xl:w-1/4 hover:bg-cyan-500">
@@ -57,9 +68,11 @@
         </svg>
 
       </div>
-      <h4 class="text-xl font-semibold text-gray-900 mb-3 capitalize transition-all duration-500 group-hover:text-white">Transfert</h4>
+      <h4 class="text-xl font-semibold text-gray-900 mb-3 transition-all duration-500 group-hover:text-white">
+        {{ 'home-page.features.items.expert.title' | translate }}
+      </h4>
       <p class="text-sm font-normal text-gray-500 transition-all duration-500 leading-5 group-hover:text-white">
-        Brussels Shuttle est spécialisé dans le service de transfert d’aéroport disponible 24/24.
+        {{ 'home-page.features.items.expert.description' | translate }}
       </p>
     </div>
   </div>

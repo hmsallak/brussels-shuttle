@@ -11,6 +11,7 @@
       <tui-input-date
         id="departureDate"
         [formControl]="startTimeDateForm"
+        [tuiDropdownOpen]="true"
         [min]="minDate"
         [tuiTextfieldCleaner]="true">
         {{ 'booking-form.choose-date' | translate }}

@@ -15,5 +15,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: "Manrope", sans-serif; }
 :root {
-  --tui-primary: #4cafaf;
+  --tui-primary: #03AAF0;
+}
+hr.solid {
+  border-top: 1px solid #bbb;
 }

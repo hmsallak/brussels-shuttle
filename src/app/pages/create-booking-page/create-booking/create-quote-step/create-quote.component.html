@@ -31,8 +31,6 @@
         <app-google-map [origin]="departure()?.startAddress?.location"
                         [destination]="departure()?.endAddress?.location">
         </app-google-map>
-      } @placeholder (minimum 1s){
-        <div class="skeleton h-full w-full"></div>
       }
     </div>
   </section>

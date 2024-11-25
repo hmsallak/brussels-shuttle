@@ -11,33 +11,56 @@
         <input type="radio" name="my-accordion-3" />
         <div class="collapse-title text-xl font-medium">{{ 'faq-page.question1' | translate }}</div>
         <div class="collapse-content">
-          <p>{{ 'faq-page.answer1' | translate }}</p>
+          <p [innerHTML]="'faq-page.answer1' | translate"></p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-gray-50">
-        <input type="radio" name="my-accordion-3" checked="checked"/>
+        <input type="radio" name="my-accordion-3"/>
         <div class="collapse-title text-xl font-medium">{{ 'faq-page.question2' | translate }}</div>
         <div class="collapse-content">
-          <p>{{ 'faq-page.answer2' | translate }}</p>
+          <p [innerHTML]="'faq-page.answer2' | translate"></p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-gray-50">
         <input type="radio" name="my-accordion-3" />
         <div class="collapse-title text-xl font-medium">{{ 'faq-page.question3' | translate }}</div>
         <div class="collapse-content">
-          <p>{{ 'faq-page.answer3' | translate }}</p>
+          <p [innerHTML]="'faq-page.answer3' | translate"></p>
         </div>
       </div>
       <div class="collapse collapse-plus bg-gray-50">
         <input type="radio" name="my-accordion-3" />
         <div class="collapse-title text-xl font-medium">{{ 'faq-page.question4' | translate }}</div>
         <div class="collapse-content">
-          <p>{{ 'faq-page.answer4' | translate }}</p>
+          <p [innerHTML]="'faq-page.answer4' | translate"></p>
+        </div>
+      </div>
+      <div class="collapse collapse-plus bg-gray-50">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">{{ 'faq-page.question5' | translate }}</div>
+        <div class="collapse-content">
+          <p [innerHTML]="'faq-page.answer5' | translate"></p>
+        </div>
+      </div>
+      <div class="collapse collapse-plus bg-gray-50">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">{{ 'faq-page.question6' | translate }}</div>
+        <div class="collapse-content">
+          <p [innerHTML]="'faq-page.answer6' | translate"></p>
+        </div>
+      </div>
+      <div class="collapse collapse-plus bg-gray-50">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-medium">{{ 'faq-page.question7' | translate }}</div>
+        <div class="collapse-content">
+          <p [innerHTML]="'faq-page.answer7' | translate"></p>
         </div>
       </div>
     </div>
 
     <div class="bg-gray-50 mt-10">
+      <p class="text-lg text-center pt-8 xl:max-w-7xl mx-auto " [innerHTML]="'faq-page.description' | translate"></p>
+
       <app-contact-form></app-contact-form>
     </div>
   </section>

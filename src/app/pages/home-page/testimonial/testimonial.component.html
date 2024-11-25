@@ -4,9 +4,11 @@
 </div>
 <div class="xl:px-20 px-8 py-20 2xl:mx-auto 2xl:container relative z-40">
   <h1 class="text-4xl  sm:text-6xl xl:text-4xl leading-[3.25rem] font-bold xl:block text-gray-900 hidden">
-    Ce que nos clients disent de nous
+    {{ 'home-page.testimonials.title' | translate }}
   </h1>
-  <h1 class="text-5xl font-bold xl:hidden block leading-tight text-gray-800">Ce que nos clients disent de nous</h1>
+  <h1 class="text-5xl font-bold xl:hidden block leading-tight text-gray-800">
+    {{ 'home-page.testimonials.title' | translate }}
+  </h1>
 
   <div class="slider">
     <div class="slide-ana">
@@ -23,12 +25,18 @@
           </div>
           <div class="md:w-1/2 xl:ml-32 md:ml-20 md:mt-0 mt-4 flex flex-col justify-between">
             <div>
-              <h1 class="text-3xl">Expériences inoubliables avec nos chauffeurs !</h1>
-              <p class="text-base font-medium leading-8 mt-4 text-gray-600">Bonjour, un chauffeur super sympa et très ponctuel. Il est venu nous chercher à Tournai et il était avant l'heure. Service irréprochable! Encore merci pour la petite attention aux enfants 😁</p>
+              <h1 class="text-3xl">{{ 'home-page.testimonials.items.1.title' | translate }}</h1>
+              <p class="text-base font-medium leading-8 mt-4 text-gray-600">
+                {{ 'home-page.testimonials.items.1.description' | translate }}
+              </p>
             </div>
             <div class="md:mt-0 mt-8">
-              <p class="text-lg font-medium leading-4 text-gray-800">Mohamed T</p>
-              <p class="text-base leading-4 mt-2 mb-4 text-gray-600">Tournai direction Zaventem</p>
+              <p class="text-lg font-medium leading-4 text-gray-800">
+                {{ 'home-page.testimonials.items.1.name' | translate }}
+              </p>
+              <p class="text-base leading-4 mt-2 mb-4 text-gray-600">
+                {{ 'home-page.testimonials.items.1.details' | translate }}
+              </p>
             </div>
           </div>
         </div>
@@ -37,7 +45,7 @@
       <div class="flex relative" style="transform: translateX(0%)">
         <div class="mt-14 md:flex">
           <div class="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
-            <img src="assets/images/testimonials02.webp" alt="image of profile" class="w-full h-full flex-shrink-0 object-fit object-cover rounded" />
+            <img src="assets/images/testimonials02.webp"alt="image of profile" class="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded" />
             <div class="w-32 md:flex hidden items-center justify-center absolute top-0 -mr-16 -mt-14 right-0 h-32 bg-cyan-500 rounded-full">
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 19.7072H10.1869C10.0128 27.1315 7.90703 27.9742 5.2623 28.2148L4.24242 28.3412V36.5049L5.418 36.4419C8.87154 36.2476 12.6897 35.625 15.2371 32.4803C17.4701 29.7236 18.4545 25.2198 18.4545 18.3062V5.49512H0V19.7072Z" fill="#ffffff" />
@@ -47,14 +55,18 @@
           </div>
           <div class="md:w-1/2 xl:ml-32 md:ml-20 md:mt-0 mt-4 flex flex-col justify-between">
             <div>
-              <h1 class="text-3xl">Des retours positifs de nos passagers !</h1>
+              <h1 class="text-3xl">{{ 'home-page.testimonials.items.2.title' | translate }}</h1>
               <p class="text-base font-medium leading-8 mt-4 text-gray-600">
-                Je voyage avec des enfants et cela fait deux ans que je réserve auprès de cette société et je suis toujours autant satisfaite. Service au top je recommande.
+                {{ 'home-page.testimonials.items.2.description' | translate }}
               </p>
             </div>
             <div class="md:mt-0 mt-8">
-              <p class="text-lg font-medium leading-4 text-gray-800">Anaëlle</p>
-              <p class="text-base leading-4 mt-2 mb-4 text-gray-600">Charleroi direction Bruxelles</p>
+              <p class="text-lg font-medium leading-4 text-gray-800">
+                {{ 'home-page.testimonials.items.2.name' | translate }}
+              </p>
+              <p class="text-base leading-4 mt-2 mb-4 text-gray-600">
+                {{ 'home-page.testimonials.items.2.details' | translate }}
+              </p>
             </div>
           </div>
         </div>
@@ -63,7 +75,7 @@
       <div class="flex relative" style="transform: translateX(0%)">
         <div class="mt-14 md:flex">
           <div class="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
-            <img src="assets/images/testimonials03.webp" alt="image of profile" class="w-full h-full flex-shrink-0 object-fit object-cover rounded" />
+            <img src="assets/images/testimonials03.webp" alt="image of profile" class="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded" />
             <div class="w-32 md:flex hidden items-center justify-center absolute top-0 -mr-16 -mt-14 right-0 h-32 bg-cyan-500 rounded-full">
               <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M0 19.7072H10.1869C10.0128 27.1315 7.90703 27.9742 5.2623 28.2148L4.24242 28.3412V36.5049L5.418 36.4419C8.87154 36.2476 12.6897 35.625 15.2371 32.4803C17.4701 29.7236 18.4545 25.2198 18.4545 18.3062V5.49512H0V19.7072Z" fill="#ffffff" />
@@ -73,14 +85,18 @@
           </div>
           <div class="md:w-1/2 xl:ml-32 md:ml-20 md:mt-0 mt-4 flex flex-col justify-between">
             <div>
-              <h1 class="text-3xl">Vos retours nous motivent !</h1>
+              <h1 class="text-3xl">{{ 'home-page.testimonials.items.3.title' | translate }}</h1>
               <p class="text-base font-medium leading-8 mt-4 text-gray-600">
-                Société sérieuse et très réactif, je n'hésiterai pas à recommander à l'avenir. Prix très correct pour le service.
+                {{ 'home-page.testimonials.items.3.description' | translate }}
               </p>
             </div>
             <div class="md:mt-0 mt-8">
-              <p class="text-lg font-medium leading-4 text-gray-800">Jan</p>
-              <p class="text-base leading-4 mt-2 mb-4 text-gray-600">Bruxelles direction Aéroport Charleroi</p>
+              <p class="text-lg font-medium leading-4 text-gray-800">
+                {{ 'home-page.testimonials.items.3.name' | translate }}
+              </p>
+              <p class="text-base leading-4 mt-2 mb-4 text-gray-600">
+                {{ 'home-page.testimonials.items.3.details' | translate }}
+              </p>
             </div>
           </div>
         </div>

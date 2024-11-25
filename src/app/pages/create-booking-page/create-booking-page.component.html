@@ -1,13 +1,19 @@
 <app-layout>
-  <section class="mx-0 md:mx-10 lg:mx-24 2xl:mx-44 mt-2 mb-10">
+  <section class="mx-0 md:mx-10 lg:mx-24 2xl:mx-44 md:mt-2 mb-10">
     @if (!loading()) {
       <app-create-booking [quote]="quoteParam ? exisingQuote() : undefined"
                           [vehicleModel]="vehicleModelParam ? vehicleModel : undefined">
       </app-create-booking>
     } @else {
-<!--      <div class="skeleton h-[700px] w-full rounded-2xl"></div>-->
+      <app-stepper>
+        <app-step [label]="'steps.quote' | translate" [isStepComplete]="false">
+          <div class="flex justify-center h-[500px]">
+            <span class="text-center loading loading-spinner loading-lg"></span>
+          </div>
+        </app-step>
+        <app-step [label]="'steps.quote' | translate" [isStepComplete]="false"></app-step>
+      </app-stepper>
     }
-
   </section>
 </app-layout>
 
@@ -19,8 +25,8 @@
         <div class="w-8 h-8 bg-white rounded-full absolute top-0 left-0 animate-ping"></div>
         <div class="w-8 h-8 bg-white rounded-full absolute top-0 left-0 animate-pulse"></div>
       </div>
-      <div class="text-white text-lg mx-auto text-center" >
-        En cours de réservation...
+      <div class="text-white text-lg mx-auto text-center px-2" >
+        {{ 'steps.loading' | translate }}
       </div>
     </div>
   </div>

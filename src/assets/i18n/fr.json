@@ -13,8 +13,8 @@
     "cashButton": "Payer en espèces"
   },
   "steps": {
-    "quote": "Plannifier Votre Trajet",
-    "vehicle": "De quel véhicule avez-vous besoin ?",
+    "quote": "Réservez votre trajet",
+    "vehicle": "Sélectionnez un véhicule",
     "booking": "Revoir votre réservation",
     "final-step": {
       "total": "Total",
@@ -30,12 +30,13 @@
       "model": "Modèle",
       "book": "Réserver",
       "bookAndPay": "Réserver et payer"
-    }
+    },
+    "loading": "En cours de réservation..."
   },
   "destinations": {
     "short-title": "Nos Destinations",
-    "title": "Voyagez confortablement vers les aéroports et villes depuis Bruxelles",
-    "description": "Découvrez notre sélection de destinations desservies par nos taxis pour des trajets pratiques et confortables au départ ou à destination de Bruxelles et ses environs.",
+    "title": "Découvrez nos différentes destinations",
+    "description": "Découvrez notre sélection de destinations des servies par nos taxis pour des trajets pratiques et confortables au départ ou à destination de Bruxelles et ses environs.",
     "items": [
       {
         "name": "Aéroport Zaventem",
@@ -96,8 +97,8 @@
     "departure-time": "Heure de départ",
     "return-time": "Heure de retour",
     "book-a-ride": "Réservez une course",
-    "pickup-location": "Lieu de prise en charge",
-    "destination": "Destination",
+    "pickup-location": "Adresse de prise en charge",
+    "destination": "Adresse de destination",
     "passenger-count": "Nombre de passagers",
     "select-passenger": "Choisissez le nombre de passagers",
     "estimate": "Estimation",
@@ -175,8 +176,8 @@
   },
   "language": {
     "fr": "Français",
-    "en": "Anglais",
-    "nl": "Néerlandais"
+    "en": "English",
+    "nl": "Nederlands"
   },
   "way": {
     "oneWay": "Aller simple",
@@ -197,81 +198,221 @@
     }
   },
   "footer": {
-    "legal": "égale",
+    "legal": "Légale",
     "aboutus": "À propos de nous",
-    "services": "nos ervices"
+    "services": "Nos services"
   },
   "destination-page": {
-    "title": "Voyagez confortablement vers les aéroports et villes depuis Bruxelles",
+    "title": "Découvrez nos différentes destinations",
     "subtitle": "Découvrez notre sélection de destinations desservies par nos taxis pour des trajets pratiques et confortables au départ ou à destination de Bruxelles et ses environs.",
-    "destinations": {
-      "zaventem": {
-        "title": "Aéroport Zaventem",
-        "city": "Bruxelles",
-        "description": "Réservez votre taxi vers l’aéroport de Zaventem, un terminal moderne et pratique. Notre service garantit un confort pour vos trajets sans encombre. Déplacez-vous avec notre voyage adapté sur mesure.",
-        "cta": "Réserver depuis Aéroport Zaventem"
+    "destinations": [
+      {
+        "name": "Aéroport de Bruxelles Zaventem (BRU)",
+        "cta": "Réserver depuis Aéroport Zaventem",
+        "imageUri": "assets/images/zaventem.webp",
+        "title": "Réservez votre taxi vers et depuis l’aéroport de Zaventem, simple et rapide",
+        "description": "Simplifiez vos déplacements vers et depuis l’aéroport de Bruxelles Zaventem (BRU) grâce à notre service de taxi rapide et fiable. Profitez de confort et de ponctualité pour un trajet sans stress."
       },
-      "charleroi": {
-        "title": "Aéroport de Charleroi",
-        "city": "Bruxelles-Sud",
-        "description": "Voyagez sereinement vers l’aéroport de Charleroi en taxi. Lancez-vous vers de nouveaux horizons depuis l’aéroport de Charleroi. Notre service vous garantit confort et ponctualité pour votre trajet. Réservez votre taxi maintenant.",
-        "cta": "Réserver depuis Aéroport de Charleroi"
+      {
+        "name": "Aéroport de Charleroi, Bruxelles-Sud (CRL)",
+        "cta": "Réserver depuis Aéroport de Charleroi",
+        "imageUri": "assets/images/charleroi.webp",
+        "title": "Votre transfert en taxi  vers l’aéroport de Charleroi-sud, sans souci",
+        "description": "Rejoignez l’aéroport de Charleroi-sud (CRL) facilement avec notre service fiable et confortable. Ponctualité garantie pour un départ serein. Réservez dès maintenant et profitez d’un trajet en toute tranquillité !"
       },
-      "lille": {
-        "title": "Aéroport Lille",
-        "city": "Lesquin",
-        "description": "Des trajets optimisés pour vos déplacements vers Lille. Nos taxis vous transportent dans les environs rapidement et en toute sérénité. Réservez vos trajets vers Lille dès à présent, au départ de Bruxelles.",
-        "cta": "Réserver depuis Aéroport Lille"
+      {
+        "name": "Aéroport de Lille, Lesquin",
+        "cta": "Réserver votre transfert vers Lille",
+        "imageUri": "assets/images/lille.webp",
+        "title": "Une solution idéale pour rejoindre l’aéroport de Lille",
+        "description": "Rejoignez Lille avec notre service de taxi dédié. Idéal pour vos déplacements professionnels ou privés. profitez d’un transferts rapides et fiables."
       },
-      "orly": {
-        "title": "Aéroport d’Orly",
-        "city": "Paris",
-
-        "description": "L’aéroport d’Orly accessible en toute facilité. Orly est le choix parfait pour rejoindre Paris rapidement. Ses terminaux modernes proposent un service de qualité. Optez pour la facilité d’accès avec notre service de taxi.",
-        "cta": "Réserver depuis Aéroport d’Orly"
+      {
+        "name": "Aéroport d’Orly, Paris",
+        "title": "Transfert vers l’aéroport d’Orly",
+        "imageUri": "assets/images/orly.webp",
+        "description": "Rejoignez l’aéroport d’Orly en toute sérénité grâce à notre service de taxi rapide et fiable. Profitez de terminaux modernes et d’un accès facile pour un voyage agréable. Optez pour la facilité d’accès avec notre service de taxi.",
+        "cta": "Réservez votre transfert depuis Orly"
       },
-      "charles_de_gaulle": {
-        "title": "Aéroport de Charles de Gaulle",
-        "city": "Paris",
-        "description": "Rejoignez facilement l’aéroport de Paris Charles de Gaulle. Découvrez un aéroport moderne et bien desservi pour vos vols internationaux. Grâce à notre service taxi, arrivez en toute simplicité. Nous assurons votre confort jusqu’au terminal.",
-        "cta": "Réserver depuis Aéroport de Charles de Gaulle"
+      {
+        "title": "Aéroport de Charles de Gaulle, Paris",
+        "name": "Transferts vers l’aéroport de Charles de Gaulle",
+        "imageUri": "assets/images/cdg.webp",
+        "description": "Profitez d’un service de taxi fiable  et confortable pour rejoindre l’aéroport Charles de Gaulle Paris. Idéal pour vos vols internationaux, avec un trajet serein jusqu’au terminal.",
+        "cta": "Réservez votre trajet vers Charles de Gaulle"
       },
-      "schiphol": {
-        "title": "Aéroport de Schiphol",
-        "city": "Amsterdam",
-        "description": "Rendez-vous à l’aéroport Schiphol en toute sérénité. Schiphol est votre passerelle vers le monde, situé au cœur des Pays-Bas. Bénéficiez d’un trajet simple et confortable en taxi. Nos chauffeurs sont prêts pour un voyage sans souci.",
-        "cta": "Réserver depuis Aéroport de Schiphol"
+      {
+        "name": "Aéroport de Schiphol, Amsterdam",
+        "title": "Transfert vers l’aéroport de Schiphol",
+        "imageUri": "assets/images/amsterdam.webp",
+        "description": "Voyagez confortablement vers l’aéroport de Schiphol Amsterdam situé au cœur des Pays-Bas.  . Profitez d’un trajet serein grâce à notre service de taxi personnalisé et professionnels.",
+        "cta": "Réservez un transfert vers Schiphol"
       },
-      "eindhoven": {
+      {
+        "name": "Aéroport de Eindhoven, Pays-Bas",
         "title": "Aéroport de Eindhoven",
-        "city": "Pays-Bas",
+        "imageUri": "assets/images/eindhoven.webp",
         "description": "Transferts simplifiés vers l’aéroport d’Eindhoven. Arrivez à Eindhoven, centre technologique des Pays-Bas, en toute quiétude. Nos chauffeurs vous conduiront efficacement pour tous vos trajets. Profitez d’un service sûr et professionnel.",
         "cta": "Réserver depuis Aéroport de Eindhoven"
       }
-    }
+    ]
   },
   "faq-page": {
     "question1": "Combien de baguages puis-je emporter ?",
-    "answer1": "Nous avons des véhicules qui prennent jusqu’à 8 baguages et plus.",
+    "answer1": "Le nombre de bagages dépend du type de véhicule réservé. Pour les véhicules standards, nous pouvons transporter jusqu'à 4 bagages standard (valises) et 4 bagages à main. Si vous avez besoin de transporter jusqu’à 8 bagages ou plus, nous vous recommandons de réserver un véhicule de plus grande capacité ou de nous en informer à l’avance. Nous adapterons le véhicule en fonction de vos besoins pour garantir un trajet confortable.",
     "question2": "Mon voyage est annulé, comment procéder au remboursement ?",
-    "answer2": "Il vous suffit de nous contacter et nous procéderons à votre remboursement.",
+    "answer2": "En cas d'annulation, veuillez contacter notre service client dès que possible à l'adresse info@brussels-shuttle.be ou via notre formulaire de contact en ligne. <br> Selon nos conditions d'annulation :<br><br>Si vous annulez votre réservation au moins 24 heures avant le départ prévu, vous serez intégralement remboursé.<br><br>Si l'annulation intervient moins de 24 heures avant le départ, des frais d'annulation peuvent être appliqués.<br><br>Nous nous engageons à traiter votre demande dans les plus brefs délais afin de garantir une expérience transparente et sans stress. N'hésitez pas à nous écrire pour toute question complémentaire.",
     "question3": "Quels sont vos moyens de paiement ?",
-    "answer3": "Plusieurs moyens de paiement sont à votre disposition : Apple Pay, Google Pay, Bancontact, MasterCard, Visa, et en espèces (à remettre le jour de la réservation).",
+    "answer3": "Pour votre confort et flexibilité, nous proposons plusieurs options de paiement. <br><br> Paiement Paiement en ligne : <br> Vous pouvez payer en toute sécurité lors de votre réservation via carte bancaire (Visa, Mastercard, ou autres cartes acceptées). Notre système de paiement en ligne est crypté et garantit la confidentialité de vos données.<br><br>Paiement en espèces : <br> Si vous préférez, vous pouvez régler directement auprès de votre chauffeur au moment du transfert. Merci de prévoir le montant exact pour faciliter la transaction.<br><br>Nous vous recommandons de choisir votre mode de paiement au moment de la réservation afin de garantir une expérience fluide et sans surprise.<br> Si vous avez des questions sur les moyens de paiement, n’hésitez pas à nous contacter à info@brussels-shuttle.be.",
     "question4": "Puis-je changer la date de mon transfert ?",
-    "answer4": "Oui, contactez-nous 24h à l’avance pour changer la date.",
+    "answer4": "Oui, vous pouvez modifier la date de votre transfert en nous contactant au moins 24 heures avant l’heure prévue. Il vous suffit de nous envoyer un e-mail à info@brussels-shuttle.be ou de nous contacter via notre formulaire en ligne. Nous ferons le nécessaire pour ajuster votre réservation en fonction de vos besoins, sous réserve de disponibilité.<br><br>Si vous souhaitez effectuer une modification moins de 24 heures avant l’heure prévue du transfert, nous vous invitons à nous appeler directement au +32 471 010 113. Nos équipes feront de leur mieux pour trouver une solution rapide et adaptée à votre situation.<br><br>Nous vous recommandons de nous prévenir dès que possible afin de garantir une gestion optimale de votre demande.",
+    "question5": "Puis-je réserver un transfert de dernière minute ?",
+    "answer5": "Oui, vous pouvez réserver un transfert de dernière minute, sous réserve de disponibilité. Pour une demande urgente, contactez-nous directement par téléphone au +32 471 010 113 afin que nous puissions vérifier la disponibilité et confirmer votre réservation rapidement. Nous ferons de notre mieux pour répondre à votre demande.",
+    "question6": "Proposez-vous des sièges pour enfants ?",
+    "answer6": "Oui, nous proposons des sièges pour enfants pour leur sécurité et leur confort, sous réserve de disponibilité. Merci de le préciser lors de votre réservation afin que nous puissions vérifier et les préparer à l’avance.",
+    "question7": "Que se passe-t-il si mon vol est retardé ?",
+    "answer7": "Nous suivons les horaires des vols en temps réel. Si votre vol est retardé, votre chauffeur ajustera son arrivée sans frais supplémentaires. Assurez-vous de bien indiquer votre numéro de vol lors de la réservation pour que nous puissions suivre les changements.",
+    "description": "Vous n’avez pas trouvé votre réponse ? <br> Contactez-nous directement via le formulaire ci-dessous ou par téléphone. Nous sommes là pour vous aider",
     "app-title": {
-      "shortTitle": "Vous avez une question sur nos services ?",
-      "title": "FAQ",
-      "description": "Retrouvez une liste de questions les plus souvent posées par nos clients."
+      "shortTitle": "Vous avez une question ?",
+      "title": "Questions fréquentes",
+      "description": "Trouvez ici les réponses aux questions les plus posées."
     }
   },
   "contact-page": {
-    "shortTitle": "Vous avez une question ?",
+    "shortTitle": "Besoin d'aide ?",
     "title": "Contactez-nous",
-    "description": "Besoin d'aide pour réserver votre transfert ? N'hésitez pas à nous contacter ! Notre équipe est à votre disposition 24h/24 et 7j/7 pour répondre à toutes vos questions et vous aider à planifier votre voyage en toute sérénité.",
+    "description": "Vous avez une question ou besoin d’aide pour réserver votre transfert ? Notre équipe est disponible 24h/24 et 7j/7 pour répondre à vos demandes et vous accompagner dans l’organisation de votre trajet.",
     "contact": "Contact",
     "address": "Notre Adresse",
     "mail": "Mail",
     "addressDescription": "À proximité immédiate de votre aéroport"
+  },
+  "home-page": {
+    "landing": {
+      "title1": "Votre service <br> de taxi",
+      "title2": "Disponible 24h/7j",
+      "description": "Optez pour nos navettes où que vous soyez. <br> Réservez dès maintenant votre transfert vers et depuis Brussels Airport (BRU).",
+      "cta": "Réservez Maintenant",
+      "cta2": "En savoir plus"
+    },
+    "features": {
+      "title": "Réserver votre transfert au meilleur prix",
+      "description": "Réservez dès maintenant votre transfert depuis et vers l'aéroport de votre choix, en toute sérénité avec notre service de transfert fiable et professionnel.",
+      "cta": "En savoir plus",
+      "items": {
+        "hour" : {
+          "title": "Disponible 24h/7j",
+          "description": "Réservez votre transfert privé pour un trajet sûr et confortable, à tout moment."
+        },
+        "flex": {
+          "title": "Flexibilité",
+          "description": "Transferts disponibles vers et depuis l’Europe pour répondre à tous vos besoins."
+        },
+        "punctuality": {
+          "title": "Ponctualité",
+          "description": "Nous assurons un service à l’heure, chaque jour, à toute heure."
+        },
+        "expert": {
+          "title": "Experts du transfert",
+          "description": "Un service de navettes aéroportuaires fiable, disponible jour et nuit."
+        }
+      }
+    },
+    "steps": {
+      "title": "Réservez en toute simplicité",
+      "description": "Nos chauffeurs professionnels s’assurent de vous offrir un service fiable et sécurisé, adapté à vos besoins. Grâce à notre plateforme de réservation en ligne, planifiez votre trajet vers ou depuis l’aéroport de votre choix en quelques clics. Profitez d’un service de taxi pratique et sans stress.",
+      "cta": "Réservez votre transfert",
+      "items": {
+        "quote": {
+          "title": "Planifier",
+          "description": "Indiquez votre destination et horaire pour organiser votre transfert en toute simplicité."
+        },
+        "vehicle": {
+          "title": "Véhicule",
+          "description": "Choisissez parmi une gamme de véhicules adaptés à vos besoins : confort standard au luxe."
+        },
+        "pay": {
+          "title": "Paiement",
+          "description": "Finalisez votre réservation avec un paiement sécurisé en ligne ou en espèces."
+        }
+      }
+    },
+    "destinations": {
+      "title": "Découvrez nos différentes destinations",
+      "cta": "Plus de destinations",
+      "items": [
+        {
+          "name": "Aéroport de Bruxelles Zaventem (BRU)",
+          "cta": "Réserver depuis Aéroport Zaventem",
+          "imageUri": "assets/images/zaventem.webp",
+          "title": "Réservez votre taxi vers et depuis l’aéroport de Zaventem, simple et rapide",
+          "description": "Simplifiez vos déplacements vers et depuis l’aéroport de Bruxelles Zaventem (BRU) grâce à notre service de taxi rapide et fiable. Profitez de confort et de ponctualité pour un trajet sans stress."
+        },
+        {
+          "name": "Aéroport de Charleroi, Bruxelles-Sud (CRL)",
+          "cta": "Réserver depuis Aéroport de Charleroi",
+          "imageUri": "assets/images/charleroi.webp",
+          "title": "Votre transfert en taxi  vers l’aéroport de Charleroi-sud, sans souci",
+          "description": "Rejoignez l’aéroport de Charleroi-sud (CRL) facilement avec notre service fiable et confortable. Ponctualité garantie pour un départ serein. Réservez dès maintenant et profitez d’un trajet en toute tranquillité !"
+        },
+        {
+          "name": "Aéroport de Lille, Lesquin",
+          "cta": "Réserver depuis Aéroport Lille",
+          "imageUri": "assets/images/lille.webp",
+          "title": "Une solution idéale pour rejoindre l’aéroport de Lille",
+          "description": "Rejoignez Lille avec notre service de taxi dédié. Idéal pour vos déplacements professionnels ou privés. profitez d’un transferts rapides et fiables."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Ce que nos clients disent de nous",
+      "items": {
+        "1" : {
+          "title": "Des retours positifs de nos passagers !",
+          "name": "Mohamed T",
+          "details": "Tournai direction Zaventem",
+          "description": "Bonjour, un chauffeur super sympa et très ponctuel. Il est venu nous chercher à Tournai et il était avant l'heure. Service irréprochable! Encore merci pour la petite attention aux enfants \uD83D\uDE01"
+        },
+        "2" : {
+          "title": "Expériences inoubliables avec nos chauffeurs !",
+          "name": "Anaëlle",
+          "details": "Charleroi direction Bruxelles",
+          "description": "Je voyage avec des enfants et cela fait deux ans que je réserve auprès de cette société et je suis toujours autant satisfaite. Service au top je recommande."
+        },
+        "3" : {
+          "title": "Vos retours nous motivent !",
+          "name": "Jan",
+          "details": "Bruxelles direction Aéroport Charleroi",
+          "description": "Société sérieuse et très réactif, je n'hésiterai pas à recommander à l'avenir. Prix très correct pour le service."
+        }
+      }
+    }
+  },
+  "order-confirm-page": {
+    "title": "Votre réservation est confirmée",
+    "main-page-button": "Page Principale",
+    "print-button": "Imprimer",
+    "greeting": "Bonjour,",
+    "confirmation-message": "Votre réservation est confirmée",
+    "payment-success-message": "et votre paiement a été effectué avec succès.",
+    "payment-cash-message": "Veuillez prévoir le montant demandé en espèces à remettre à votre chauffeur.",
+    "booking-date": "Date de réservation",
+    "booking-number": "Réservation",
+    "payment-method": "Moyen de Paiement",
+    "vehicle-model": "Modèle du véhicule",
+    "passenger-count": "Nombre de passager",
+    "scheduled-on": "Prévu le",
+    "departure-location": "Lieu de départ",
+    "destination-location": "Destination",
+    "total": "Total",
+    "total-to-pay": "Total à payer",
+    "confirmation-email-message": "Vous recevrez un e-mail de confirmation avec tous les détails dans les 24 heures. Pour toute question ou modification, n'hésitez pas à nous contacter.",
+    "thank-you": "Merci de votre confiance !"
+  },
+  "error": {
+    "bookingExpired": "La réservation a expiré",
+    "bookingNotFound": "La réservation n'a pas été trouvée",
+    "quoteNotFound": "Impossible de planifier une réservation"
   }
 }

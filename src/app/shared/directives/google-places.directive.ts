@@ -22,8 +22,8 @@ export class GooglePlacesDirective implements AfterViewInit {
 
   private handlePlaceChanged(): void {
     this.ngZone.run(() => {
-      const place = this.autocomplete?.getPlace();
-      if (place) {
+      const place: google.maps.places.PlaceResult = this.autocomplete?.getPlace();
+      if (place?.place_id) {
         this.placeChanged.emit(extractPlaceAddress(place));
       }
     });

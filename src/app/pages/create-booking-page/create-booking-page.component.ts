@@ -11,6 +11,8 @@ import {toSignal} from "@angular/core/rxjs-interop";
 import {catchError, EMPTY, tap} from "rxjs";
 import {JsonPipe} from "@angular/common";
 import {VehicleModel} from "../../core/models/vehicle-model";
+import {StepperComponent} from "../../shared/components/stepper/stepper.component";
+import {StepComponent} from "../../shared/components/stepper/step/step.component";
 
 @Component({
   selector: 'app-create-booking-page',
@@ -24,6 +26,8 @@ import {VehicleModel} from "../../core/models/vehicle-model";
     TranslateModule,
     CreateBookingComponent,
     JsonPipe,
+    StepperComponent,
+    StepComponent,
   ],
   templateUrl: './create-booking-page.component.html',
   styleUrl: './create-booking-page.component.css',

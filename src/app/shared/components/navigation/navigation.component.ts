@@ -6,8 +6,10 @@ import {faLanguage, faChevronDown, faGlobe, faBars} from '@fortawesome/free-soli
 import {LanguageEnum} from "../../../core/models/enum/language.enum";
 import {NgClass, NgOptimizedImage} from "@angular/common";
 import {RouterLink, RouterLinkActive} from "@angular/router";
-import {TuiActiveZoneModule} from "@taiga-ui/cdk";
+import {TuiActiveZoneModule, TuiClickOutsideModule} from "@taiga-ui/cdk";
 import {TuiSidebarModule} from "@taiga-ui/addon-mobile";
+import {TuiDropdownModule} from "@taiga-ui/core";
+import {fadeInOnEnterAnimation, fadeOutOnLeaveAnimation} from "angular-animations";
 
 @Component({
   selector: 'app-navigation',
@@ -20,14 +22,22 @@ import {TuiSidebarModule} from "@taiga-ui/addon-mobile";
     NgClass,
     RouterLinkActive,
     TuiSidebarModule,
-    TuiActiveZoneModule
+    TuiActiveZoneModule,
+    TuiDropdownModule,
+    TuiClickOutsideModule
   ],
   templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.css'
+  styleUrl: './navigation.component.css',
+  animations: [
+    fadeInOnEnterAnimation({duration: 200}),
+    fadeOutOnLeaveAnimation({duration: 500})
+    ]
 })
 export class NavigationComponent {
   absolute= input(false)
   open = signal(false)
+  isDropdownMenuOpen = false;
+  isDropdownLangOpen = false;
 
   languages = [LanguageEnum.FRENCH, LanguageEnum.ENGLISH, LanguageEnum.DUTCH];
 

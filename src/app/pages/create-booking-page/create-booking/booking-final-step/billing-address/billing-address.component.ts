@@ -3,8 +3,8 @@ import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from "@angula
 import {AsyncPipe} from "@angular/common";
 import {TuiErrorModule} from "@taiga-ui/core";
 import {TUI_VALIDATION_ERRORS, TuiFieldErrorPipeModule, TuiInputModule} from "@taiga-ui/kit";
-import {BillingAddress} from "../../../core/models/billing-address";
-import {VALIDATION_ERRORS} from "../../utils/error.utils";
+import {BillingAddress} from "../../../../../core/models/billing-address";
+import {VALIDATION_ERRORS} from "../../../../../shared/utils/error.utils";
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
@@ -28,12 +28,12 @@ export class BillingAddressComponent {
   private _formBuilder= inject(FormBuilder);
 
   private _billingAddressFormGroup = this._formBuilder.group({
-    street: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-ZÀ-ÖØ-öø-ÿ0-9\s',.-]+$/)]),
-    postalCode: new FormControl(null, [Validators.required, Validators.minLength(2),Validators.pattern(/^\d{4,5,6}$/)]),
-    locality: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.pattern(/^[a-zA-ZÀ-ÖØ-öø-ÿ\s-]+$/)]),
-    country: new FormControl(null, [Validators.required, Validators.pattern(/^[a-zA-ZÀ-ÖØ-öø-ÿ\s-]+$/)]),
-    identifier: new FormControl(null),
-    registeredName: new FormControl(null),
+    street: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(150), Validators.pattern(/^[a-zA-ZÀ-ÖØ-öø-ÿ0-9\s',.-]+$/)]),
+    postalCode: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(7)]),
+    locality: new FormControl(null, [Validators.required, Validators.minLength(2),  Validators.maxLength(150),Validators.pattern(/^[a-zA-ZÀ-ÖØ-öø-ÿ\s-]+$/)]),
+    country: new FormControl(null, [Validators.required,Validators.maxLength(3), Validators.maxLength(100), Validators.pattern(/^[a-zA-ZÀ-ÖØ-öø-ÿ\s-]+$/)]),
+    identifier: new FormControl(null, Validators.maxLength(50)),
+    registeredName: new FormControl(null, Validators.maxLength(50)),
   });
 
   billingAddressEvent = output<BillingAddress | null>()

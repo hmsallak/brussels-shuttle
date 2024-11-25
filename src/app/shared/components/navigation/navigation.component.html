@@ -1,58 +1,71 @@
-<div class="navbar mt-2" [ngClass]="{'text-white':absolute()}">
+<div class="navbar" [ngClass]="{'text-white':absolute(), 'border-b lg:border-0':!absolute()}">
 
+    <!--  Start  Laptop   -->
   <section class="navbar-start">
-    <!--    Icon-->
-    <a class="cursor-pointer" routerLink="/">
-      <img ngSrc="assets/images/bs_logo_horizontal.svg" height="104.1876" width="521" class="min-w-10 w-72 max-h-16" alt="icon brussels shuttle">
+    <a class="cursor-pointer pl-2 md:pl-5" routerLink="/">
+      <img src="assets/images/bs_full_logo.svg" class="max-h-14" alt="icon brussels shuttle">
     </a>
   </section>
 
-  <!--    Maximum View    -->
+  <!--    Center    -->
   <section class="navbar-center hidden lg:flex">
     <ul class="menu menu-horizontal px-1 text-lg ">
-      <li><a routerLink="/services/destinations" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>
-      <li><a routerLink="/booking/request" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
-      <li><a routerLink="/faq" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.faq'| translate }}</a></li>
+      <li><a routerLink="/services/destinations" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>
+      <li><a routerLink="/booking/request" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
+      <li><a routerLink="/faq" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.faq'| translate }}</a></li>
     </ul>
   </section>
+
+  <!--    End Laptop    -->
   <section class="navbar-end hidden lg:flex ">
     <ul class="menu menu-horizontal px-1 text-lg">
       <li class="mt-1 md:mt-0">
-        <a routerLink="/contact" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.contact'| translate }}</a>
+        <a routerLink="/contact" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.contact'| translate }}</a>
       </li>
-      <div class="dropdown dropdown-bottom dropdown-end">
-        <li tabindex="0">
+
+      <div class="dropdown dropdown-bottom dropdown-end" (click)="isDropdownLangOpen = true">
+        <li tabindex="0" >
           <a>
           <fa-icon [icon]="faGlobe" class=""></fa-icon>
           <fa-icon [icon]="faChevronDown" class="text-xs"></fa-icon>
           </a>
         </li>
-        <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-black">
-          @for(lang of languages; track lang) {
-            <li><a (click)="changeLanguage(lang)">{{ 'language.'+lang | translate }}</a></li>
-          }
-        </ul>
+        @if (isDropdownLangOpen){
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-black">
+            @for(lang of languages; track lang) {
+              <li><a (click)="changeLanguage(lang); isDropdownLangOpen = false">{{ 'language.'+lang | translate }}</a></li>
+            }
+          </ul>
+        }
       </div>
     </ul>
   </section>
 
-  <section class="navbar-end lg:hidden flex justify-end dropdown dropdown-bottom ">
-    <button class="btn transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300" [ngClass]="{'btn-link':absolute()}">
-      <fa-icon [icon]="faBars" class="" [ngClass]="{'text-white text-2xl':absolute()}"></fa-icon>
-    </button>
-
-    <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 py-5 shadow-2xl bg-base-100 rounded-box w-80 text-black text-base  z-50">
-      <li><a routerLink="/booking/request" class="text-lg" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>
-      <li><a routerLink="/services/destinations" class="text-lg" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
-      <li><a routerLink="/faq" class="text-lg" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.faq'| translate }}</a></li>
-      <li><a routerLink="/contact" class="text-lg" routerLinkActive="bg-cyan-400 text-white">{{ 'navigation.contact'| translate }}</a></li>
-      <div class="divider my-0"></div>
-      <ul tabindex="0" class="flex justify-around space-x-2">
-        @for(lang of languages; track lang) {
-          <li><a (click)="changeLanguage(lang)">{{ 'language.'+lang | translate }}</a></li>
-        }
+  <!--    End Phone    -->
+  <section class="navbar-end lg:hidden flex justify-end dropdown dropdown-bottom pr-2">
+    <div role="button" tabindex="0"
+         (click)="isDropdownMenuOpen = true"
+         class="transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
+      <fa-icon [icon]="faBars" class="text-xl md:text-2xl " [ngClass]="{'text-white':absolute(), 'text-gray-800':absolute()}"></fa-icon>
+    </div>
+    @if (isDropdownMenuOpen){
+      <ul tabindex="0" [@fadeInOnEnter]
+          class="menu menu-sm dropdown-content z-[50] mt-3 py-5 shadow-2xl bg-base-100 rounded-box text-black text-base"
+          [ngClass]="{}">
+        <li><a routerLink="/booking/request" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
+        <li><a routerLink="/services/destinations" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>
+        <li><a routerLink="/faq" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.faq'| translate }}</a></li>
+        <li><a routerLink="/contact" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.contact'| translate }}</a></li>
+        <hr class="solid my-2">
+        <ul tabindex="0" class="flex justify-around space-x-2">
+          @for(lang of languages; track lang) {
+            <li><a class="text-xs" (click)="changeLanguage(lang); isDropdownMenuOpen = false">{{ 'language.'+lang | translate }}</a></li>
+          }
+        </ul>
       </ul>
-    </ul>
+    }
+
   </section>
+
 </div>
 

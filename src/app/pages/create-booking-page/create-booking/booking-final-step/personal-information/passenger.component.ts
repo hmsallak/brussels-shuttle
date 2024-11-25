@@ -1,7 +1,7 @@
 import {Component, EventEmitter, inject, output, Output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {TuiCountryIsoCode} from '@taiga-ui/i18n';
-import {Passenger} from "../../../core/models/passenger";
+import {Passenger} from "../../../../../core/models/passenger";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {TuiButtonModule, TuiDialogModule, TuiErrorModule} from "@taiga-ui/core";
 import {
@@ -11,7 +11,7 @@ import {
   TuiInputPhoneInternationalModule
 } from "@taiga-ui/kit";
 import {AsyncPipe, JsonPipe} from "@angular/common";
-import {VALIDATION_ERRORS} from "../../utils/error.utils";
+import {VALIDATION_ERRORS} from "../../../../../shared/utils/error.utils";
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
@@ -43,10 +43,10 @@ export class PassengerComponent {
   private _formBuilder= inject(FormBuilder);
 
   private _personalInformationFormGroup = this._formBuilder.group({
-    firstName: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]),
-    lastName: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]),
+    firstName: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]),
+    lastName: new FormControl(null, [Validators.required, Validators.minLength(2), Validators.maxLength(50), Validators.pattern('^[a-zA-Z]+( [a-zA-Z]+)*$')]),
     mail: new FormControl(null, [Validators.required, Validators.email]),
-    phone: new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    phone: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(15)]),
   });
 
   readonly countries: readonly TuiCountryIsoCode[] = [TuiCountryIsoCode.BE, TuiCountryIsoCode.FR, TuiCountryIsoCode.NL, TuiCountryIsoCode.LU, TuiCountryIsoCode.ES, TuiCountryIsoCode.DE];
