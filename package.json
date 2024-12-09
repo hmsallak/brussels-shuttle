@@ -1,6 +1,6 @@
 {
   "name": "brussels-shuttle-frontend",
-  "version": "0.6.0-SNAPSHOT",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
