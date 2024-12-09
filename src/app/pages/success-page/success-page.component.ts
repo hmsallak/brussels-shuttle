@@ -1,11 +1,12 @@
 import {Component, inject, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {PaymentGateway} from "../../core/ports/payment.gateway";
 import {AsyncPipe} from "@angular/common";
 import {catchError, map, of} from "rxjs";
 import {OrderConfirmComponent} from "./order-confirm/order-confirm.component";
 import {AnimationOptions, LottieComponent} from "ngx-lottie";
 import {BookingGateway} from "../../core/ports/booking.gateway";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-success-page',
@@ -13,7 +14,9 @@ import {BookingGateway} from "../../core/ports/booking.gateway";
   imports: [
     AsyncPipe,
     OrderConfirmComponent,
-    LottieComponent
+    LottieComponent,
+    RouterLink,
+    TranslateModule
   ],
   templateUrl: './success-page.component.html',
   styleUrl: './success-page.component.css'

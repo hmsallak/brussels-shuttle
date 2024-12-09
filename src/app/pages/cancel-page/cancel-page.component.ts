@@ -1,16 +1,16 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {AsyncPipe} from "@angular/common";
 import {AnimationOptions, LottieComponent} from "ngx-lottie";
-import {OrderConfirmComponent} from "../success-page/order-confirm/order-confirm.component";
+import {RouterLink} from "@angular/router";
+import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-cancel-page',
   standalone: true,
-    imports: [
-        AsyncPipe,
-        LottieComponent,
-        OrderConfirmComponent
-    ],
+  imports: [
+    LottieComponent,
+    RouterLink,
+    TranslateModule
+  ],
   templateUrl: './cancel-page.component.html',
   styleUrl: './cancel-page.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

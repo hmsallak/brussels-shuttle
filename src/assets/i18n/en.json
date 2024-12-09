@@ -1,418 +1,267 @@
 {
-  "navigation": {
-    "destinations": "Destinations",
-    "booking": "Book a ride",
-    "faq": "FAQs",
-    "contact": "Contact",
-    "conditions": "General conditions"
-  },
-  "payment-method": {
-    "STRIPE": "map ",
-    "CASH": "species",
-    "stripeButton": "Pay online",
-    "cashButton": "Pay in cash"
-  },
-  "steps": {
-    "quote": "Book your trip",
-    "vehicle": "Select a vehicle",
-    "booking": "Review your reservation",
-    "final-step": {
-      "total": "Total",
-      "accept": "I accept the general conditions",
-      "mandatory": "OBLIGATORY",
-      "passenger": "passenger(s)",
-      "planned": "planned on",
-      "estimated": "estimated the",
-      "paymentTitle": "Which payment method do you want to pay with?",
-      "passengerTitle": "Personal information",
-      "billingTitle": "Billing address",
-      "vehicle": "vehicle",
-      "model": "Model",
-      "book": "To book",
-      "bookAndPay": "Book and pay"
+  "billing-form.country.label": "Country",
+  "billing-form.country.placeholder": "Enter your country",
+  "billing-form.identifier.label": "identifier",
+  "billing-form.identifier.placeholder": "Enter your indentifier",
+  "billing-form.locality.label": "City",
+  "billing-form.locality.placeholder": "Enter your city",
+  "billing-form.postal-code.label": "Postal code",
+  "billing-form.postal-code.placeholder": "Enter your postal code",
+  "billing-form.registered-name.label": "Company name",
+  "billing-form.registered-name.placeholder": "Enter your company",
+  "billing-form.street.label": "Address",
+  "billing-form.street.placeholder": "Enter your address",
+  "booking-form.book-a-ride": "Book a ride",
+  "booking-form.choose-date": "Choose a date",
+  "booking-form.choose-return-date": "Choose a return date",
+  "booking-form.clear": "Clear",
+  "booking-form.departure-question": "When would you like to leave ? ",
+  "booking-form.departure-time": "Departure time",
+  "booking-form.destination": "Destination address ",
+  "booking-form.estimate": "Estimation",
+  "booking-form.estimate-tip": "this is an estimation",
+  "booking-form.passenger-count": "Number of passengers ",
+  "booking-form.pickup-location": "Pick-up address",
+  "booking-form.position": "Your location",
+  "booking-form.return-time": "Return time",
+  "booking-form.select-passenger": "Choose the number of passengers",
+  "contact-form.email.label": "Your e-mail",
+  "contact-form.email.placeholder": "Enter your e-mail",
+  "contact-form.message.label": "Your message",
+  "contact-form.message.placeholder": "Write a message",
+  "contact-form.name.label": "Name",
+  "contact-form.name.placeholder": "Enter your name",
+  "contact-form.submit": "Send",
+  "contact-form.success": "Message sent successfully ",
+  "contact-form.terms.text": "I agree that the data I have provided may be collected and stored.",
+  "contact-page.address": "Our address",
+  "contact-page.addressDescription": "In close proximity to your airport",
+  "contact-page.contact": "Contact",
+  "contact-page.description": "Do you have a question or require assistance in booking your transfer? Our team is available 24/7 to answer your questions and help you organize your trip.",
+  "contact-page.mail": "Mail",
+  "contact-page.shortTitle": "Need help ?",
+  "contact-page.title": "Contact us",
+  "destination-page.destinations": [
+    {
+      "cta": "Book from Zaventem Airport",
+      "description": "Simplify your journey to and from Brussels Zaventem Airport (BRU) with our fast and reliable cab service. Enjoy comfort and punctuality for a stress-free journey.",
+      "imageUri": "assets/images/zaventem.webp",
+      "name": "Brussels Zaventem Airport (BRU)",
+      "title": "Book your taxi to and from Zaventem airport, quickly and easily"
     },
-    "loading": "Currently booking..."
-  },
-  "destinations": {
-    "short-title": "Our Destinations",
-    "title": "Discover our different destinations",
-    "description": "Discover our selection of destinations served by our taxis for practical and comfortable journeys from or to Brussels and its surroundings.",
-    "items": [
-      {
-        "name": "Zaventem Airport",
-        "city": "Brussels",
-        "imageUri": "assets/images/zaventem.webp",
-        "title": "Book your taxi to Zaventem airport, quick and easy",
-        "description": "Leave with peace of mind from Zaventem, a modern and practical terminal. "
-      },
-      {
-        "name": "Charleroi Airport",
-        "city": "Brussels South",
-        "imageUri": "assets/images/charleroi.webp",
-        "title": "Travel peacefully to Charleroi airport by taxi",
-        "description": "Launch towards new horizons from Charleroi airport. "
-      },
-      {
-        "name": "Lille Airport",
-        "city": "Lesquin",
-        "imageUri": "assets/images/lille.webp",
-        "title": "Optimized routes for your trips to Lille",
-        "description": "Our taxis transport you around Lille and its surroundings quickly. "
-      },
-      {
-        "name": "Orly Airport",
-        "city": "Paris",
-        "imageUri": "assets/images/orly.webp",
-        "title": "Orly airport easily accessible",
-        "description": "Orly is the perfect choice to reach Paris quickly. "
-      },
-      {
-        "name": "Charles de Gaulle Airport",
-        "city": "Paris",
-        "imageUri": "assets/images/cdg.webp",
-        "title": "Easily reach Paris Charles de Gaulle airport",
-        "description": "Discover a modern and well-served airport for your international flights. "
-      },
-      {
-        "name": "Schiphol Airport",
-        "city": "Amsterdam",
-        "imageUri": "assets/images/amsterdam.webp",
-        "title": "Travel to Schiphol Airport with complete peace of mind",
-        "description": "Schiphol is your gateway to the world, located in the heart of the Netherlands. "
-      },
-      {
-        "name": "Eindhoven Airport",
-        "city": "The Netherlands",
-        "imageUri": "assets/images/eindhoven.webp",
-        "title": "Simplified transfers to Eindhoven Airport",
-        "description": "Arrive in Eindhoven, the technological center of the Netherlands, in complete peace of mind. "
-      }
-    ]
-  },
-  "booking-form": {
-    "clear": "To erase",
-    "departure-question": "When do you want to leave?",
-    "choose-date": "Choose a date",
-    "choose-return-date": "Choose a return date",
-    "departure-time": "Departure time",
-    "return-time": "Return time",
-    "book-a-ride": "Book a ride",
-    "pickup-location": "Pick-up address",
-    "destination": "Destination address",
-    "passenger-count": "Number of passengers",
-    "select-passenger": "Choose the number of passengers",
-    "estimate": "Estimate",
-    "estimate-tip": "this is an estimate",
-    "position": "Your position"
-  },
-  "passenger-form": {
-    "first-name": {
-      "label": "First name",
-      "placeholder": "Enter your first name"
+    {
+      "description": "Reach Charleroi-sud airport (CRL) easily with our reliable and comfortable service. Punctuality guaranteed for a worry-free departure. Book now and enjoy a worry-free journey! ",
+      "imageUri": "assets/images/charleroi.webp",
+      "name": "Charleroi Airport, Brussels South (CRL)",
+      "title": "Your worry-free taxitransfer to Charleroi-sud airport ",
+      "cta": "Book your transfer to Charleroi"
     },
-    "last-name": {
-      "label": "Name",
-      "placeholder": "Enter your name"
+    {
+      "description": "Reach Lille with our dedicated taxi service. Ideal for your business or private trips, enjoy fast and reliable transfers. ",
+      "imageUri": "assets/images/lille.webp",
+      "name": "Lille Airport, Lesquin",
+      "title": "An ideal way to get to Lille airport ",
+      "cta": "Book your transfer to Lille"
     },
-    "email": {
-      "label": "E-mail",
-      "placeholder": "Enter your email"
+    {
+      "description": "Reach Orly airport with peace of mind thanks to our fast, reliable taxi service. Take advantage of modern terminals and easy access for a pleasant journey. Opt for ease of access with our cab service. ",
+      "imageUri": "assets/images/orly.webp",
+      "name": "Orly Airport, Paris ",
+      "title": "Transfer to Orly airport ",
+      "cta": "Book your trip to Orly"
     },
-    "phone": {
-      "label": "Your phone number"
+    {
+      "description": "Enjoy a reliable and comfortable taxi service to Charles de Gaulle Paris airport. Ideal for your international flights, with a smooth journey to the terminal.",
+      "imageUri": "assets/images/cdg.webp",
+      "name": "Transfers to Charles de Gaulle airport",
+      "title": "Charles de Gaulle Airport, Paris",
+      "cta": "Book a transfer to Charles de Gaulle"
+    },
+    {
+      "description": "Travel in comfort to Schiphol Amsterdam airport in the heart of the Netherlands. Enjoy a worry-free journey with our personalized and professional taxiservice.",
+      "imageUri": "assets/images/amsterdam.webp",
+      "name": "Schiphol Airport, Amsterdam ",
+      "title": "Transfer to Schiphol airport",
+      "cta": "Transfer to Schiphol airport"
+    },
+    {
+      "description": "Simplified transfers to Eindhoven airport. Arrive in Eindhoven, the technological center of the Netherlands, with complete peace of mind. Our chauffeurs will drive you efficiently for all your journeys. Enjoy a safe and professional service.",
+      "imageUri": "assets/images/eindhoven.webp",
+      "name": "Eindhoven Airport, Netherlands",
+      "title": "Eindhoven Airport, Netherlands",
+      "cta": "Transfer to Eindhoven airport"
     }
-  },
-  "billing-form": {
-    "identifier": {
-      "label": "Identifier",
-      "placeholder": "Enter your username"
+  ],
+  "destination-page.subtitle": "Discover our selection of destinations served by our taxis for convenient and comfortable journeys to and from Brussels and the surrounding area.",
+  "destination-page.title": "Discover our different destinations",
+  "destinations.description": "Discover our selection of destinations served by our taxis for convenient and comfortable journeys to and from Brussels and the surrounding area.",
+  "destinations.short-title": "Our destinations",
+  "destinations.title": "Discover our different destinations",
+  "error.bookingExpired": "The reservation has expired",
+  "error.bookingNotFound": "Reservation not found",
+  "error.quoteNotFound": "Impossible to make a reservation",
+  "faq-page.answer1": "The number of items of luggage depends on the type of vehicle booked. For standard vehicles, we can carry up to 4 pieces of standard luggage (suitcases) and 4 pieces of hand luggage. If you need to transport 8 or more pieces of luggage, we recommend that you book a larger vehicle or inform us in advance. We will adapt the vehicle to your needs to ensure a comfortable journey.",
+  "faq-page.answer2": "The number of pieces of luggage depends on the vehicle booked. For standard vehicles, we can carry a maximum of 4 pieces of standard luggage (suitcases) and 4 pieces of hand luggage. If you need to carry 8 or more pieces of luggage, we recommend you book a larger vehicle or notify us in advance. We will adapt the vehicle to your needs to ensure a comfortable journey.",
+  "faq-page.answer3": "For your convenience and flexibility, we offer several payment options.<br><br>Online payment:<br>\nYou can pay securely at the time of booking by credit card (Visa, Mastercard, or other accepted cards). Our online payment system is encrypted and guarantees the confidentiality of your data.<br><br>Cash payment:<br>\nIf you prefer, you can pay directly to your driver at the time of transfer. Please provide the exact amount to facilitate the transaction.<br><br>We recommend that you choose your payment method at the time of booking to ensure a smooth, surprise-free experience.\nIf you have any questions about payment methods, please contact us at info@brussels-shuttle.be.",
+  "faq-page.answer4": "Yes, you can change the date of your transfer by contacting us at least 24 hours before the scheduled time. Simply send us an e-mail to info@brussels-shuttle.be or contact us via our online form. We will do our utmost to adjust your booking to suit your needs, subject to availability.<br><br>If you wish to make a change less than 24 hours before the scheduled transfer time, please call us directly on +32 471 010 113. Our teams will do their best to find a rapid solution adapted to your situation.<br><br>We recommend that you let us know as soon as possible to ensure that your request is handled in the best possible way.",
+  "faq-page.answer5": "Yes, you can book a last-minute transfer, subject to availability. For urgent requests, please contact us directly by telephone on +32 471 010 113 so that we can check availability and confirm your booking quickly. We will do our best to accommodate your request.",
+  "faq-page.answer6": "Yes, we offer child seats for their safety and comfort, subject to availability. Please let us know when you book so that we can check and prepare them in advance.",
+  "faq-page.answer7": "We monitor flight times in real time. If your flight is delayed, your driver will adjust his arrival time at no extra charge. Please be sure to quote your flight number when booking so that we can track any changes.",
+  "faq-page.app-title.description": "Find the answers to the most frequently asked questions here.",
+  "faq-page.app-title.shortTitle": "Do you have a question ?",
+  "faq-page.app-title.title": "Frequently asked questions",
+  "faq-page.description": "Can't find your answer ? <br> Contact us directly using the form below or by phone. We are here to help you",
+  "faq-page.question1": "How many pieces of baggage can I take with me?",
+  "faq-page.question2": "My trip has been cancelled. How do I get my money back?",
+  "faq-page.question3": "What are your payment methods ?",
+  "faq-page.question4": "Can I change the date of my transfer?",
+  "faq-page.question5": "Can I book a last-minute transfer?",
+  "faq-page.question6": "Do you offer child seats?",
+  "faq-page.question7": "What happens if my flight is delayed?",
+  "footer.aboutus": "About us",
+  "footer.legal": "Legal",
+  "footer.services": "Our services",
+  "home-page.destinations.cta": "More destinations",
+  "home-page.destinations.items": [
+    {
+      "cta": "Book from Zaventem Airport",
+      "description": "Simplify your journey to and from Brussels Zaventem Airport (BRU) with our fast, reliable taxi service. Enjoy comfort and punctuality for a stress-free journey.",
+      "imageUri": "assets/images/zaventem.webp",
+      "name": "Brussels Zaventem Airport (BRU)",
+      "title": "Book your taxi to and from Zaventem airport, quickly and easily"
     },
-    "registered-name": {
-      "label": "Company Name",
-      "placeholder": "Enter your company"
+    {
+      "cta": "Book from Charleroi Airport",
+      "description": "Reach Charleroi-sud airport (CRL) easily with our reliable and comfortable service. Punctuality guaranteed for a worry-free departure. Book now and enjoy a worry-free journey!",
+      "imageUri": "assets/images/charleroi.webp",
+      "name": "Charleroi Airport, Brussels South (CRL)",
+      "title": "Your worry-free taxi transfer to Charleroi-Sud airport"
     },
-    "street": {
-      "label": "Address",
-      "placeholder": "Enter your address"
-    },
-    "locality": {
-      "label": "City",
-      "placeholder": "Enter your city"
-    },
-    "postal-code": {
-      "label": "Postcode",
-      "placeholder": "Enter your zip code"
-    },
-    "country": {
-      "label": "Country",
-      "placeholder": "Enter your country"
+    {
+      "cta": "Book from Lille Airport",
+      "description": "Reach Lille with our dedicated taxi service. Ideal for your business or private travel. Enjoy fast and reliable transfers.",
+      "imageUri": "assets/images/lille.webp",
+      "name": "Lille Airport, Lesquin",
+      "title": "An ideal solution for getting to Lille airport"
     }
+  ],
+  "home-page.destinations.title": "Discover our different destinations",
+  "home-page.features.cta": "Find out more",
+  "home-page.features.description": "Book your transfer to and from the airport of your choice now, with complete peace of mind thanks to our reliable and professional transfer service.",
+  "home-page.features.items.expert.description": "A reliable airport shuttle service, available day and night.",
+  "home-page.features.items.expert.title": "Transfer experts",
+  "home-page.features.items.flex.description": "Transfers available to and from Europe to meet all your needs.",
+  "home-page.features.items.flex.title": "Flexibility",
+  "home-page.features.items.hour.description": "Book your private transfer for a safe and comfortable journey at any time.",
+  "home-page.features.items.hour.title": "Available 24/7",
+  "home-page.features.items.punctuality.description": "We provide an hourly service, every day, any time.",
+  "home-page.features.items.punctuality.title": "Punctuality",
+  "home-page.features.title": "Book your transfer at the best price",
+  "home-page.landing.cta": "Book Now",
+  "home-page.landing.cta2": "Find out more",
+  "home-page.landing.description": "Choose our shuttles wherever you are. <br> Book your transfer to and from Brussels Airport (BRU) now.",
+  "home-page.landing.title1": "Your taxi <br> service",
+  "home-page.landing.title2": "Available 24/7",
+  "home-page.steps.cta": "Book your transfer",
+  "home-page.steps.description": "Our professional drivers will make sure you get a safe, reliable service tailored to your needs. Use our online booking platform to plan your journey to or from the airport of your choice in just a few clicks. Enjoy a convenient, stress-free taxi service.",
+  "home-page.steps.items.pay.description": "Finalise your booking with a secure online or cash payment.",
+  "home-page.steps.items.pay.title": "Payment",
+  "home-page.steps.items.quote.description": "Enter your destination and time to organise your transfer with ease.",
+  "home-page.steps.items.quote.title": "Plan",
+  "home-page.steps.items.vehicle.description": "Choose from a range of vehicles to suit your needs, from standard comfort to luxury.",
+  "home-page.steps.items.vehicle.title": "Vehicle",
+  "home-page.steps.title": "Book with ease",
+  "home-page.testimonials.items.1.description": "Hello, a very nice and punctual driver. He picked us up in Tournai and was on time. Impeccable service! Thanks again for the little attention to the children 😁",
+  "home-page.testimonials.items.1.details": "Tournai direction Zaventem",
+  "home-page.testimonials.items.1.name": "Mohamed T",
+  "home-page.testimonials.items.1.title": "Positive feedback from our passengers!",
+  "home-page.testimonials.items.2.description": "I travel with children and I've been booking with this company for two years now and I'm still just as satisfied. Top service, I recommend them.",
+  "home-page.testimonials.items.2.details": "Charleroi towards Brussels",
+  "home-page.testimonials.items.2.name": "Anaëlle",
+  "home-page.testimonials.items.2.title": "Unforgettable experiences with our drivers!",
+  "home-page.testimonials.items.3.description": "Serious company and very responsive, I will not hesitate to recommend in the future. Very fair price for the service.",
+  "home-page.testimonials.items.3.details": "Brussels towards Charleroi airport",
+  "home-page.testimonials.items.3.name": "Jan",
+  "home-page.testimonials.items.3.title": "Your feedback is motivating us !",
+  "home-page.testimonials.title": "What our customers say about us",
+  "language.en": "English",
+  "language.fr": "Français",
+  "language.nl": "Nederlands",
+  "navigation.booking": "Book a trip",
+  "navigation.conditions": "General terms and conditions",
+  "navigation.contact": "Contact",
+  "navigation.destinations": "Destinations",
+  "navigation.faq": "FAQ",
+  "order-confirm-page.booking-date": "Reservation date",
+  "order-confirm-page.booking-number": "Reservation",
+  "order-confirm-page.confirmation-email-message": "You will receive a confirmation e-mail with all the details within 24 hours. If you have any questions or need to make changes, please do not hesitate to contact us.",
+  "order-confirm-page.confirmation-message": "Your reservation is confirmed",
+  "order-confirm-page.departure-location": "Place of departure",
+  "order-confirm-page.destination-location": "Destination",
+  "order-confirm-page.greeting": "Hello,",
+  "order-confirm-page.main-page-button": "Home Page",
+  "order-confirm-page.passenger-count": "Number of passengers",
+  "order-confirm-page.payment-cash-message": "Please bring the required amount in cash to give to your driver.",
+  "order-confirm-page.payment-method": "Payment method",
+  "order-confirm-page.payment-success-message": "Your payment has been made successfully",
+  "order-confirm-page.print-button": "Print",
+  "order-confirm-page.scheduled-on": "Scheduled for",
+  "order-confirm-page.thank-you": "Thank you for your confidence !",
+  "order-confirm-page.title": "Your reservation is confirmed",
+  "order-confirm-page.total": "Total",
+  "order-confirm-page.total-to-pay": "Total to pay",
+  "order-confirm-page.vehicle-model": "Type of vehicle",
+  "passenger-form.email.label": "E-mail",
+  "passenger-form.email.placeholder": "Enter your e-mail",
+  "passenger-form.first-name.label": "Name",
+  "passenger-form.first-name.placeholder": "Enter your name",
+  "passenger-form.last-name.label": "Name",
+  "passenger-form.last-name.placeholder": "Enter your name",
+  "passenger-form.phone.label": "Your phone number",
+  "payment-method.CASH": "Cash",
+  "payment-method.cashButton": "Pay in cash",
+  "payment-method.STRIPE": "Card",
+  "payment-method.stripeButton": "Pay online",
+  "stepper.back": "Return",
+  "stepper.cancel": "Cancel",
+  "stepper.confirm": "Confirm",
+  "stepper.next": "Next",
+  "stepper.step": "Step",
+  "steps.booking": "Check your booking",
+  "steps.final-step.accept": "I accept the terms and conditions",
+  "steps.final-step.billingTitle": "Facuration address",
+  "steps.final-step.book": "Book",
+  "steps.final-step.bookAndPay": "Book and pay",
+  "steps.final-step.estimated": "Estimated on",
+  "steps.final-step.mandatory": "Mandatory",
+  "steps.final-step.model": "Model",
+  "steps.final-step.passenger": "Passenger(s)",
+  "steps.final-step.passengerTitle": "Personal information",
+  "steps.final-step.paymentTitle": "Which payment method would you like to use?",
+  "steps.final-step.planned": "Scheduled for",
+  "steps.final-step.total": "Total",
+  "steps.final-step.vehicle": "Vehicle",
+  "steps.loading": "Currently booking...",
+  "steps.quote": "Book your journey",
+  "steps.vehicle": "Select a vehicle",
+  "vehicle-model.business.description": "Enjoy comfort and elegance for your business trips.",
+  "vehicle-model.eco.description": "Travel in comfort at a low price, ideal for small groups or solo journeys.",
+  "vehicle-model.mini bus.description": "Ideal for large groups, offering maximum space and comfort for your journeys.",
+  "vehicle-model.van.description": "A spacious vehicle perfect for large families or groups of travellers.",
+  "way.oneWay": "One way",
+  "way.return": "Return trip",
+  "cancel-page": {
+    "title": "Reservation Cancelled",
+    "payment-cancelled": "Payment Cancelled",
+    "message": "Your payment was cancelled. Your reservation was not confirmed.",
+    "retry-booking": "Retry Reservation",
+    "main-page": "Main Page"
   },
-  "contact-form": {
-    "email": {
-      "label": "Your email",
-      "placeholder": "Enter your email"
-    },
-    "name": {
-      "label": "Name",
-      "placeholder": "Enter your name"
-    },
-    "message": {
-      "label": "Your message",
-      "placeholder": "Write a message"
-    },
-    "terms": {
-      "text": "I agree that the data I provided will be collected and stored."
-    },
-    "submit": "Send",
-    "success": "Message sent successfully"
-  },
-  "stepper": {
-    "step": "Stage",
-    "next": "Following",
-    "back": "Back",
-    "confirm": "Confirm",
-    "cancel": "Cancel"
-  },
-  "language": {
-    "fr": "Français",
-    "en": "English",
-    "nl": "Nederland"
-  },
-  "way": {
-    "oneWay": "One way",
-    "return": "Return"
-  },
-  "vehicle-model": {
-    "eco": {
-      "description": "Travel comfortably at a low price, ideal for small groups or solo trips."
-    },
-    "business": {
-      "description": "Enjoy optimal comfort and elegance for your business trips."
-    },
-    "van": {
-      "description": "A spacious vehicle perfect for large families or groups of travelers."
-    },
-    "mini bus": {
-      "description": "Ideal for large groups, offering maximum space and comfort for your journeys."
-    }
-  },
-  "footer": {
-    "legal": "Legal",
-    "aboutus": "About Us",
-    "services": "Our services"
-  },
-  "destination-page": {
-    "title": "Discover our different destinations",
-    "subtitle": "Discover our selection of destinations served by our taxis for practical and comfortable journeys from or to Brussels and its surroundings.",
-    "destinations": [
-      {
-        "name": "Brussels Zaventem Airport (BRU)",
-        "cta": "Book from Zaventem Airport",
-        "imageUri": "assets/images/zaventem.webp",
-        "title": "Book your taxi to and from Zaventem airport, quick and easy",
-        "description": "Simplify your travel to and from Brussels Zaventem Airport (BRU) with our fast and reliable taxi service. "
-      },
-      {
-        "name": "Charleroi Airport, Brussels South (CRL)",
-        "cta": "Book from Charleroi Airport",
-        "imageUri": "assets/images/charleroi.webp",
-        "title": "Your worry-free taxi transfer to Charleroi-sud airport",
-        "description": "Reach Charleroi-sud airport (CRL) easily with our reliable and comfortable service. "
-      },
-      {
-        "name": "Lille Airport, Lesquin",
-        "cta": "Book your transfer to Lille",
-        "imageUri": "assets/images/lille.webp",
-        "title": "An ideal solution for reaching Lille airport",
-        "description": "Join Lille with our dedicated taxi service. "
-      },
-      {
-        "name": "Orly Airport, Paris",
-        "title": "Transfer to Orly airport",
-        "imageUri": "assets/images/orly.webp",
-        "description": "Reach Orly airport with complete peace of mind thanks to our fast and reliable taxi service. ",
-        "cta": "Book your transfer from Orly"
-      },
-      {
-        "title": "Charles de Gaulle Airport, Paris",
-        "name": "Transfers to Charles de Gaulle airport",
-        "imageUri": "assets/images/cdg.webp",
-        "description": "Take advantage of a reliable and comfortable taxi service to reach Charles de Gaulle Paris airport. ",
-        "cta": "Book your trip to Charles de Gaulle"
-      },
-      {
-        "name": "Schiphol Airport, Amsterdam",
-        "title": "Transfer to Schiphol Airport",
-        "imageUri": "assets/images/amsterdam.webp",
-        "description": "Travel comfortably to Schiphol Amsterdam Airport located in the heart of the Netherlands.  ",
-        "cta": "Book a transfer to Schiphol"
-      },
-      {
-        "name": "Eindhoven Airport, Netherlands",
-        "title": "Eindhoven Airport",
-        "imageUri": "assets/images/eindhoven.webp",
-        "description": "Simplified transfers to Eindhoven Airport. ",
-        "cta": "Book from Eindhoven Airport"
-      }
-    ]
-  },
-  "faq-page": {
-    "question1": "How many bags can I bring?",
-    "answer1": "The number of pieces of luggage depends on the type of vehicle booked. ",
-    "question2": "My trip is canceled, how do I get a refund?",
-    "answer2": "In the event of cancellation, please contact our customer service as soon as possible at info@brussels-shuttle.be or via our online contact form. <br> According to our cancellation conditions:<br><br>If you cancel your reservation at least 24 hours before your scheduled departure, you will receive a full refund.<br><br>If cancellation occurs less than 24 hours before departure, cancellation fees may be applied.<br><br>We are committed to processing your request as quickly as possible to ensure a transparent and stress-free experience. ",
-    "question3": "What are your payment methods?",
-    "answer3": "For your convenience and flexibility, we offer several payment options. <br><br> Payment Online payment: <br> You can pay securely when booking by credit card (Visa, Mastercard, or other accepted cards). <br><br>Cash payment: <br> If you prefer, you can pay directly to your driver at the time of transfer. <br><br>We recommend choosing your payment method at the time of booking to ensure a smooth, surprise-free experience.<br> If you have any questions about payment methods, do not hesitate to contact us at info@brussels-shuttle.be.",
-    "question4": "Can I change my transfer date?",
-    "answer4": "Yes, you can change the date of your transfer by contacting us at least 24 hours before the scheduled time. <br><br>If you wish to make a change less than 24 hours before the scheduled transfer time, we invite you to call us directly on +32 471 010 113. Our teams will do their best to find a quick solution adapted to your situation.<br><br>We recommend that you notify us as soon as possible to ensure optimal management of your request.",
-    "question5": "Can I book a last minute transfer?",
-    "answer5": "Yes, you can book a last minute transfer, subject to availability. ",
-    "question6": "Do you offer child seats?",
-    "answer6": "Yes, we offer child seats for their safety and comfort, subject to availability. ",
-    "question7": "What happens if my flight is delayed?",
-    "answer7": "We track flight schedules in real time. ",
-    "description": "Didn't find your answer? <br> Contact us directly via the form below or by phone. ",
-    "app-title": {
-      "shortTitle": "Do you have a question?",
-      "title": "Frequently asked questions",
-      "description": "Find answers to the most frequently asked questions here."
-    }
-  },
-  "contact-page": {
-    "shortTitle": "Need help?",
-    "title": "Contact us",
-    "description": "Do you have a question or need help booking your transfer? ",
-    "contact": "Contact",
-    "address": "Our Address",
-    "mail": "Email",
-    "addressDescription": "In the immediate vicinity of your airport"
-  },
-  "home-page": {
-    "landing": {
-      "title1": "Your service <br> taxi",
-      "title2": "Available 24/7",
-      "description": "Opt for our shuttles wherever you are. <br> Book your transfer to and from Brussels Airport (BRU) now.",
-      "cta": "Book Now",
-      "cta2": "Learn more"
-    },
-    "features": {
-      "title": "Book your transfer at the best price",
-      "description": "Book your transfer now from and to the airport of your choice, with complete peace of mind with our reliable and professional transfer service.",
-      "cta": "Learn more",
-      "items": {
-        "hour": {
-          "title": "Available 24/7",
-          "description": "Book your private transfer for a safe and comfortable ride, anytime."
-        },
-        "flex": {
-          "title": "Flexibility",
-          "description": "Transfers available to and from Europe to meet all your needs."
-        },
-        "punctuality": {
-          "title": "Punctuality",
-          "description": "We provide on-time service, every day, around the clock."
-        },
-        "expert": {
-          "title": "Transfer experts",
-          "description": "A reliable airport shuttle service, available day and night."
-        }
-      }
-    },
-    "steps": {
-      "title": "Book with ease",
-      "description": "Our professional drivers make sure to offer you a reliable and secure service, adapted to your needs. ",
-      "cta": "Book your transfer",
-      "items": {
-        "quote": {
-          "title": "To plan",
-          "description": "Indicate your destination and time to organize your transfer with ease."
-        },
-        "vehicle": {
-          "title": "Vehicle",
-          "description": "Choose from a range of vehicles adapted to your needs: standard comfort to luxury."
-        },
-        "pay": {
-          "title": "Payment",
-          "description": "Finalize your reservation with a secure online or cash payment."
-        }
-      }
-    },
-    "destinations": {
-      "title": "Discover our different destinations",
-      "cta": "More destinations",
-      "items": [
-        {
-          "name": "Brussels Zaventem Airport (BRU)",
-          "cta": "Book from Zaventem Airport",
-          "imageUri": "assets/images/zaventem.webp",
-          "title": "Book your taxi to and from Zaventem airport, quick and easy",
-          "description": "Simplify your travel to and from Brussels Zaventem Airport (BRU) with our fast and reliable taxi service. "
-        },
-        {
-          "name": "Charleroi Airport, Brussels South (CRL)",
-          "cta": "Book from Charleroi Airport",
-          "imageUri": "assets/images/charleroi.webp",
-          "title": "Your worry-free taxi transfer to Charleroi-sud airport",
-          "description": "Reach Charleroi-sud airport (CRL) easily with our reliable and comfortable service. "
-        },
-        {
-          "name": "Lille Airport, Lesquin",
-          "cta": "Book from Lille Airport",
-          "imageUri": "assets/images/lille.webp",
-          "title": "An ideal solution for reaching Lille airport",
-          "description": "Join Lille with our dedicated taxi service. "
-        }
-      ]
-    },
-    "testimonials": {
-      "title": "What our customers say about us",
-      "items": {
-        "1": {
-          "title": "Positive feedback from our passengers!",
-          "name": "Mohamed T",
-          "details": "Tournai direction Zaventem",
-          "description": "Hello, a super nice and very punctual driver. "
-        },
-        "2": {
-          "title": "Unforgettable experiences with our drivers!",
-          "name": "Anaëlle",
-          "details": "Charleroi direction Brussels",
-          "description": "I travel with children and I have been booking with this company for two years and I am still very satisfied. "
-        },
-        "3": {
-          "title": "Your feedback motivates us!",
-          "name": "Jan",
-          "details": "Brussels towards Charleroi Airport",
-          "description": "Serious and very responsive company, I will not hesitate to recommend it in the future. "
-        }
-      }
-    }
-  },
-  "order-confirm-page": {
-    "title": "Your reservation is confirmed",
-    "main-page-button": "Main Page",
-    "print-button": "Print",
-    "greeting": "Good morning,",
-    "confirmation-message": "Your reservation is confirmed",
-    "payment-success-message": "and your payment has been successfully completed.",
-    "payment-cash-message": "Please have the requested amount in cash to give to your driver.",
-    "booking-date": "Booking date",
-    "booking-number": "Reservation",
-    "payment-method": "Payment Method",
-    "vehicle-model": "Vehicle model",
-    "passenger-count": "Number of passengers",
-    "scheduled-on": "Scheduled for",
-    "departure-location": "Departure location",
-    "destination-location": "Destination",
-    "total": "Total",
-    "total-to-pay": "Total to pay",
-    "confirmation-email-message": "You will receive a confirmation email with all details within 24 hours. ",
-    "thank-you": "Thank you for your trust!"
-  },
-  "error": {
-    "bookingExpired": "The reservation has expired",
-    "bookingNotFound": "The reservation was not found",
-    "quoteNotFound": "Unable to schedule a reservation"
+  "booking-not-found": {
+    "title": "Reservation Not Found",
+    "error": "Error",
+    "message": "Sorry, we are unable to display the reservation.",
+    "main-page": "Main Page",
+    "contact-support": "Contact Support"
   }
 }

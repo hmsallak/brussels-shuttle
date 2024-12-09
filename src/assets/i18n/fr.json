@@ -36,58 +36,7 @@
   "destinations": {
     "short-title": "Nos Destinations",
     "title": "Découvrez nos différentes destinations",
-    "description": "Découvrez notre sélection de destinations des servies par nos taxis pour des trajets pratiques et confortables au départ ou à destination de Bruxelles et ses environs.",
-    "items": [
-      {
-        "name": "Aéroport Zaventem",
-        "city": "Bruxelles",
-        "imageUri": "assets/images/zaventem.webp",
-        "title": "Réservez votre taxi vers l’aéroport de Zaventem, simple et rapide",
-        "description": "Partez l’esprit tranquille depuis Zaventem, un terminal moderne et pratique. Profitez d’un service taxi dédié pour un trajet sans encombre. Notre objectif : rendre votre voyage aussi agréable que possible."
-      },
-      {
-        "name": "Aéroport de Charleroi",
-        "city": "Bruxelles-Sud",
-        "imageUri": "assets/images/charleroi.webp",
-        "title": "Voyagez sereinement vers l’aéroport de Charleroi en taxi",
-        "description": "Lancez-vous vers de nouveaux horizons depuis l’aéroport de Charleroi. Notre service taxi vous garantit confort et ponctualité pour votre transfert. Réservez dès aujourd’hui pour un départ en toute tranquillité."
-      },
-      {
-        "name": "Aéroport Lille",
-        "city": "Lesquin",
-        "imageUri": "assets/images/lille.webp",
-        "title": "Des trajets optimisés pour vos déplacements vers Lille",
-        "description": "Nos taxis vous transportent dans Lille et ses environs rapidement. Idéal pour vos rendez-vous ou trajets vers les gares. Profitez d’un service fiable et d’une expérience agréable."
-      },
-      {
-        "name": "Aéroport d’Orly",
-        "city": "Paris",
-        "imageUri": "assets/images/orly.webp",
-        "title": "L’aéroport d’Orly accessible en toute facilité",
-        "description": "Orly est le choix parfait pour rejoindre Paris rapidement. Ses terminaux modernes proposent une variété de services. Optez pour la facilité d’accès avec notre service de taxi."
-      },
-      {
-        "name": "Aéroport de Charles de Gaulle",
-        "city": "Paris",
-        "imageUri": "assets/images/cdg.webp",
-        "title": "Rejoignez facilement l’aéroport de Paris Charles de Gaulle",
-        "description": "Découvrez un aéroport moderne et bien desservi pour vos vols internationaux. Grâce à notre service taxi, arrivez en toute simplicité. Nous assurons votre confort jusqu’au terminal."
-      },
-      {
-        "name": "Aéroport de Schiphol",
-        "city": "Amsterdam",
-        "imageUri": "assets/images/amsterdam.webp",
-        "title": "Rendez-vous à l’aéroport Schiphol en toute sérénité",
-        "description": "Schiphol est votre passerelle vers le monde, situé au cœur des Pays-Bas. Bénéficiez d’un trajet simple et ponctuel en taxi. Nous facilitons votre départ pour un voyage sans souci."
-      },
-      {
-        "name": "Aéroport de Eindhoven",
-        "city": "Pays-Bas",
-        "imageUri": "assets/images/eindhoven.webp",
-        "title": "Transferts simplifiés vers l’aéroport d’Eindhoven",
-        "description": "Arrivez à Eindhoven, centre technologique des Pays-Bas, en toute quiétude. Nos chauffeurs vous y conduisent efficacement pour éviter tout stress. Profitez de notre service de taxi professionnel."
-      }
-    ]
+    "description": "Découvrez notre sélection de destinations des servies par nos taxis pour des trajets pratiques et confortables au départ ou à destination de Bruxelles et ses environs."
   },
   "booking-form": {
     "clear": "Effacer",
@@ -263,7 +212,7 @@
     "question2": "Mon voyage est annulé, comment procéder au remboursement ?",
     "answer2": "En cas d'annulation, veuillez contacter notre service client dès que possible à l'adresse info@brussels-shuttle.be ou via notre formulaire de contact en ligne. <br> Selon nos conditions d'annulation :<br><br>Si vous annulez votre réservation au moins 24 heures avant le départ prévu, vous serez intégralement remboursé.<br><br>Si l'annulation intervient moins de 24 heures avant le départ, des frais d'annulation peuvent être appliqués.<br><br>Nous nous engageons à traiter votre demande dans les plus brefs délais afin de garantir une expérience transparente et sans stress. N'hésitez pas à nous écrire pour toute question complémentaire.",
     "question3": "Quels sont vos moyens de paiement ?",
-    "answer3": "Pour votre confort et flexibilité, nous proposons plusieurs options de paiement. <br><br> Paiement Paiement en ligne : <br> Vous pouvez payer en toute sécurité lors de votre réservation via carte bancaire (Visa, Mastercard, ou autres cartes acceptées). Notre système de paiement en ligne est crypté et garantit la confidentialité de vos données.<br><br>Paiement en espèces : <br> Si vous préférez, vous pouvez régler directement auprès de votre chauffeur au moment du transfert. Merci de prévoir le montant exact pour faciliter la transaction.<br><br>Nous vous recommandons de choisir votre mode de paiement au moment de la réservation afin de garantir une expérience fluide et sans surprise.<br> Si vous avez des questions sur les moyens de paiement, n’hésitez pas à nous contacter à info@brussels-shuttle.be.",
+    "answer3": "Pour votre confort et flexibilité, nous proposons plusieurs options de paiement. <br><br> Paiement en ligne : <br> Vous pouvez payer en toute sécurité lors de votre réservation via carte bancaire (Visa, Mastercard, ou autres cartes acceptées). Notre système de paiement en ligne est crypté et garantit la confidentialité de vos données.<br><br>Paiement en espèces : <br> Si vous préférez, vous pouvez régler directement auprès de votre chauffeur au moment du transfert. Merci de prévoir le montant exact pour faciliter la transaction.<br><br>Nous vous recommandons de choisir votre mode de paiement au moment de la réservation afin de garantir une expérience fluide et sans surprise.<br> Si vous avez des questions sur les moyens de paiement, n’hésitez pas à nous contacter à info@brussels-shuttle.be.",
     "question4": "Puis-je changer la date de mon transfert ?",
     "answer4": "Oui, vous pouvez modifier la date de votre transfert en nous contactant au moins 24 heures avant l’heure prévue. Il vous suffit de nous envoyer un e-mail à info@brussels-shuttle.be ou de nous contacter via notre formulaire en ligne. Nous ferons le nécessaire pour ajuster votre réservation en fonction de vos besoins, sous réserve de disponibilité.<br><br>Si vous souhaitez effectuer une modification moins de 24 heures avant l’heure prévue du transfert, nous vous invitons à nous appeler directement au +32 471 010 113. Nos équipes feront de leur mieux pour trouver une solution rapide et adaptée à votre situation.<br><br>Nous vous recommandons de nous prévenir dès que possible afin de garantir une gestion optimale de votre demande.",
     "question5": "Puis-je réserver un transfert de dernière minute ?",
@@ -414,5 +363,19 @@
     "bookingExpired": "La réservation a expiré",
     "bookingNotFound": "La réservation n'a pas été trouvée",
     "quoteNotFound": "Impossible de planifier une réservation"
+  },
+  "cancel-page": {
+    "title": "Réservation annulée",
+    "payment-cancelled": "Paiement Annulé",
+    "message": "Votre paiement a été annulé. Votre réservation n'a pas été confirmée.",
+    "retry-booking": "Recommencer la Réservation",
+    "main-page": "Page principale"
+  },
+  "booking-not-found": {
+    "title": "Réservation non trouvée",
+    "error": "Erreur",
+    "message": "Désolé, mais nous ne parvenons pas à afficher la réservation.",
+    "main-page": "Page principale",
+    "contact-support": "Contacter le support"
   }
 }

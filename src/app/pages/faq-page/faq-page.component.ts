@@ -12,7 +12,6 @@ import {TranslateModule} from "@ngx-translate/core";
   imports: [
     ContactFormComponent,
     LayoutComponent,
-    RouterLink,
     TitleComponent,
     TranslateModule
   ],

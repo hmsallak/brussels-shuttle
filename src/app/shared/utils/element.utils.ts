@@ -9,6 +9,5 @@ export function scrollToSection(id: string) {
   }
 }
 export function scrollToTop() {
-  console.log('scrollToTop');
   window.scrollTo(0, 0);
 }

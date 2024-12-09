@@ -9,27 +9,19 @@ import {Booking} from "../../../core/models/booking";
 import {CurrencyEnum} from "../../../core/models/enum/currency.enum";
 import {RouterLink} from "@angular/router";
 import {Trip} from "../../../core/models/trip";
-import {BookingBuilder} from "../../../core/models/booking-builder";
-import {Quote} from "../../../core/models/quote";
-import {
-  BookingResumeComponent
-} from "../../create-booking-page/create-booking/booking-final-step/booking-resume/booking-resume.component";
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-order-confirm',
   standalone: true,
   imports: [
-    AsyncPipe,
     TitleCasePipe,
     DatePipe,
     CurrencyPipe,
     GoogleMapComponent,
-    JsonPipe,
     FaIconComponent,
     PlaceAddressLinkComponent,
     RouterLink,
-    BookingResumeComponent,
     TranslateModule
   ],
   templateUrl: './order-confirm.component.html',

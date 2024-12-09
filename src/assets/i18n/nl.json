@@ -1,418 +1,267 @@
 {
-  "navigation": {
-    "destinations": "Bestemmingen",
-    "booking": "Boek een rit",
-    "faq": "Veelgestelde vragen",
-    "contact": "Contact",
-    "conditions": "Algemene voorwaarden"
-  },
-  "payment-method": {
-    "STRIPE": "kaart ",
-    "CASH": "soort",
-    "stripeButton": "Betaal online",
-    "cashButton": "Betaal contant"
-  },
-  "steps": {
-    "quote": "Boek uw reis",
-    "vehicle": "Selecteer een voertuig",
-    "booking": "Controleer uw reservering",
-    "final-step": {
-      "total": "Totaal",
-      "accept": "Ik accepteer de algemene voorwaarden",
-      "mandatory": "VERPLICHT",
-      "passenger": "passagier(s)",
-      "planned": "gepland op",
-      "estimated": "schatte de",
-      "paymentTitle": "Met welke betaalmethode wilt u betalen?",
-      "passengerTitle": "Persoonlijke informatie",
-      "billingTitle": "Factuuradres",
-      "vehicle": "voertuig",
-      "model": "Model",
-      "book": "Om te boeken",
-      "bookAndPay": "Boek en betaal"
+  "billing-form.country.label": "Land",
+  "billing-form.country.placeholder": "Voer uw land in",
+  "billing-form.identifier.label": "Identificatiecode",
+  "billing-form.identifier.placeholder": "Voer uw gebruikersnaam in",
+  "billing-form.locality.label": "Stad",
+  "billing-form.locality.placeholder": "Voer uw stad in",
+  "billing-form.postal-code.label": "Postcode",
+  "billing-form.postal-code.placeholder": "Voer uw postcode in",
+  "billing-form.registered-name.label": "Bedrijfsnaam",
+  "billing-form.registered-name.placeholder": "Voer uw bedrijf in",
+  "billing-form.street.label": "Adres",
+  "billing-form.street.placeholder": "Voer uw adres in",
+  "booking-form.book-a-ride": "Boek een reis",
+  "booking-form.choose-date": "Kies een datum",
+  "booking-form.choose-return-date": "Kies een terugkeerdatum",
+  "booking-form.clear": "Verwijder",
+  "booking-form.departure-question": "Wanneer wilt u vertrekken ?",
+  "booking-form.departure-time": "Vertrektijd",
+  "booking-form.destination": "Bestemmingsadres",
+  "booking-form.estimate": "Schatting",
+  "booking-form.estimate-tip": "dit is een schatting",
+  "booking-form.passenger-count": "Aantal passagiers",
+  "booking-form.pickup-location": "Ophaaladres",
+  "booking-form.position": "Uw positie",
+  "booking-form.return-time": "Tijd van terugkeer",
+  "booking-form.select-passenger": "Kies het aantal passagiers",
+  "contact-form.email.label": "Uw e-mail",
+  "contact-form.email.placeholder": "Voer uw e-mailadres in",
+  "contact-form.message.label": "Uw bericht",
+  "contact-form.message.placeholder": "Schrijf een bericht",
+  "contact-form.name.label": "Naam",
+  "contact-form.name.placeholder": "Voer uw naam in",
+  "contact-form.submit": "Stuur",
+  "contact-form.success": "Bericht succesvol verzonden",
+  "contact-form.terms.text": "Ik ga ermee akkoord dat de door mij verstrekte gegevens worden verzameld en opgeslagen.",
+  "contact-page.address": "Ons adres",
+  "contact-page.addressDescription": "In de onmiddellijke omgeving van uw luchthaven",
+  "contact-page.contact": "Contact",
+  "contact-page.description": "Heb je een vraag of hulp nodig bij het boeken van je transfer? Ons team staat 24/7 klaar om je vragen te beantwoorden en je te helpen bij het organiseren van je reis.",
+  "contact-page.mail": "Mail",
+  "contact-page.shortTitle": "Heb je hulp nodig ?",
+  "contact-page.title": "Neem contact met ons op",
+  "destination-page.destinations": [
+    {
+      "cta": "Boek vanaf Zaventem Luchthaven",
+      "description": "Vereenvoudig uw reis van en naar Brussels Zaventem Airport (BRU) met onze snelle, betrouwbare taxiservice. Geniet van comfort en stiptheid voor een stressvrije reis.",
+      "imageUri": "assets/images/zaventem.webp",
+      "name": "Brussel Zaventem Luchthaven (BRU)",
+      "title": "Reserveer uw taxi van en naar Zaventem luchthaven, snel en gemakkelijk"
     },
-    "loading": "Momenteel boeken..."
-  },
-  "destinations": {
-    "short-title": "Onze bestemmingen",
-    "title": "Ontdek onze verschillende bestemmingen",
-    "description": "Ontdek onze selectie bestemmingen die door onze taxi's worden bediend voor praktische en comfortabele reizen van of naar Brussel en omgeving.",
-    "items": [
-      {
-        "name": "Luchthaven Zaventem",
-        "city": "Brussel",
-        "imageUri": "assets/images/zaventem.webp",
-        "title": "Boek snel en eenvoudig uw taxi naar de luchthaven van Zaventem",
-        "description": "Vertrek met een gerust hart vanuit Zaventem, een moderne en praktische terminal. "
-      },
-      {
-        "name": "Charleroi luchthaven",
-        "city": "Brussel Zuid",
-        "imageUri": "assets/images/charleroi.webp",
-        "title": "Reis rustig per taxi naar de luchthaven van Charleroi",
-        "description": "Lanceer naar nieuwe horizonten vanaf de luchthaven van Charleroi. "
-      },
-      {
-        "name": "Luchthaven Rijsel",
-        "city": "Lesquin",
-        "imageUri": "assets/images/lille.webp",
-        "title": "Geoptimaliseerde routes voor uw reizen naar Rijsel",
-        "description": "Onze taxi's vervoeren u snel door Lille en omgeving. "
-      },
-      {
-        "name": "Orly luchthaven",
-        "city": "Parijs",
-        "imageUri": "activa/afbeeldingen/orly.webp",
-        "title": "Luchthaven Orly gemakkelijk bereikbaar",
-        "description": "Orly is de perfecte keuze om Parijs snel te bereiken. "
-      },
-      {
-        "name": "Charles de Gaulle luchthaven",
-        "city": "Parijs",
-        "imageUri": "assets/images/cdg.webp",
-        "title": "Gemakkelijk de luchthaven Parijs Charles de Gaulle bereiken",
-        "description": "Ontdek een moderne en goed bediende luchthaven voor uw internationale vluchten. "
-      },
-      {
-        "name": "Luchthaven Schiphol",
-        "city": "Amsterdam",
-        "imageUri": "assets/images/amsterdam.webp",
-        "title": "Reis met een gerust hart naar Schiphol Airport",
-        "description": "Schiphol is uw toegangspoort tot de wereld, gelegen in het hart van Nederland. "
-      },
-      {
-        "name": "Luchthaven Eindhoven",
-        "city": "Nederland",
-        "imageUri": "assets/images/eindhoven.webp",
-        "title": "Vereenvoudigde transfers naar Eindhoven Airport",
-        "description": "Kom met een gerust hart aan in Eindhoven, het technologische centrum van Nederland. "
-      }
-    ]
-  },
-  "booking-form": {
-    "clear": "Om te wissen",
-    "departure-question": "Wanneer wil je vertrekken?",
-    "choose-date": "Kies een datum",
-    "choose-return-date": "Kies een retourdatum",
-    "departure-time": "Vertrektijd",
-    "return-time": "Tijd van terugkomst",
-    "book-a-ride": "Boek een rit",
-    "pickup-location": "Ophaaladres",
-    "destination": "Bestemmingsadres",
-    "passenger-count": "Aantal passagiers",
-    "select-passenger": "Kies het aantal passagiers",
-    "estimate": "Schatting",
-    "estimate-tip": "dit is een schatting",
-    "position": "Jouw positie"
-  },
-  "passenger-form": {
-    "first-name": {
-      "label": "Voornaam",
-      "placeholder": "Voer uw voornaam in"
+    {
+      "cta": "Boek vanuit Charleroi Luchthaven",
+      "description": "Bereik Charleroi-sud luchthaven (CRL) gemakkelijk met onze betrouwbare en comfortabele service. Stiptheid gegarandeerd voor een zorgeloos vertrek. Boek nu en geniet van een zorgeloze reis!",
+      "imageUri": "assets/images/charleroi.webp",
+      "name": "Charleroi Luchthaven, Brussel Zuid (CRL)",
+      "title": "Uw probleemloze taxitransfer naar de luchthaven van Charleroi-Sud"
     },
-    "last-name": {
-      "label": "Naam",
-      "placeholder": "Voer uw naam in"
+    {
+      "cta": "Boek je transfer naar Lille",
+      "description": "Bereik Lille met onze speciale taxiservice. Ideaal voor zakelijke of privéreizen. Geniet van snelle en betrouwbare transfers.",
+      "imageUri": "assets/images/lille.webp",
+      "name": "Lille Luchthaven, Lesquin",
+      "title": "Een ideale oplossing om naar de luchthaven van Lille te gaan"
     },
-    "email": {
-      "label": "E-mail",
-      "placeholder": "Voer uw e-mailadres in"
+    {
+      "cta": "Boek uw transfer van Orly",
+      "description": "Reis met een gerust hart naar vliegveld Orly dankzij onze snelle, betrouwbare taxiservice. Profiteer van de moderne terminals en gemakkelijke toegang voor een aangename reis. Kies voor gemakkelijke toegang met onze taxiservice.",
+      "imageUri": "assets/images/orly.webp ",
+      "name": "Luchthaven Orly, Parijs",
+      "title": "Transfer naar luchthaven Orly"
     },
-    "phone": {
-      "label": "Uw telefoonnummer"
+    {
+      "cta": "Boek uw reis naar Charles de Gaulle",
+      "description": "Profiteer van een betrouwbare en comfortabele taxiservice naar de Parijse luchthaven Charles de Gaulle. Ideaal voor uw internationale vluchten, met een vlotte reis naar de terminal.",
+      "imageUri": "assets/images/cdg.webp",
+      "name": "Transfers naar luchthaven Charles de Gaulle",
+      "title": "Luchthaven Charles de Gaulle, Parijs"
+    },
+    {
+      "cta": "Boek een transfer naar Schiphol",
+      "description": "Reis in alle comfort naar Schiphol in het hart van Nederland. Geniet van een stressvrije reis dankzij onze persoonlijke en professionele taxiservice.",
+      "imageUri": "assets/images/amsterdam.webp",
+      "name": "Luchthaven Schiphol, Amsterdam",
+      "title": "Transfer naar luchthaven Schiphol"
+    },
+    {
+      "cta": "Boek vanaf Eindhoven Airport",
+      "description": "Gemakkelijke transfers naar Eindhoven airport. Kom met een gerust hart aan in Eindhoven, het technologische centrum van Nederland. Onze chauffeurs rijden u efficiënt voor al uw ritten. Geniet van een veilige en professionele service.",
+      "imageUri": "assets/images/eindhoven.webp",
+      "name": "Eindhoven Luchthaven, Nederland",
+      "title": "Eindhoven Luchthaven"
     }
-  },
-  "billing-form": {
-    "identifier": {
-      "label": "Identificatie",
-      "placeholder": "Voer uw gebruikersnaam in"
+  ],
+  "destination-page.subtitle": "Ontdek onze selectie bestemmingen die worden bediend door onze taxi's voor gemakkelijke en comfortabele reizen van en naar Brussel en omgeving.",
+  "destination-page.title": "Ontdek onze verschillende bestemmingen",
+  "destinations.description": "Ontdek onze selectie bestemmingen die worden bediend door onze taxi's voor gemakkelijke en comfortabele reizen van en naar Brussel en omgeving.",
+  "destinations.short-title": "Onze bestemmingen",
+  "destinations.title": "Ontdek onze verschillende bestemmingen",
+  "error.bookingExpired": "De reservering is verlopen",
+  "error.bookingNotFound": "Reservering niet gevonden",
+  "error.quoteNotFound": "Onmogelijk om een reservering te maken",
+  "faq-page.answer1": "Het aantal stuks bagage hangt af van het geboekte voertuig. Voor standaardvoertuigen kunnen we maximaal 4 stuks standaardbagage (koffers) en 4 stuks handbagage vervoeren. Als je 8 of meer stuks bagage moet vervoeren, raden we u aan een groter voertuig te reserveren of ons op voorhand te verwittigen. We passen het voertuig aan uw behoeften aan om een comfortabele reis te garanderen.",
+  "faq-page.answer2": "Het aantal stuks bagage hangt af van het geboekte voertuig. Voor standaardvoertuigen kunnen we maximaal 4 stuks standaardbagage (koffers) en 4 stuks handbagage vervoeren. Als u 8 of meer stuks bagage moet vervoeren, raden we u aan een groter voertuig te reserveren of ons op voorhand te verwittigen. We passen het voertuig aan uw behoeften aan om een comfortabele reis te garanderen.",
+  "faq-page.answer3": "Voor jouw gemak en flexibiliteit bieden we verschillende betalingsopties.<br><br>Online betaling:<br>\nJe kunt op het moment van boeken veilig betalen met een creditcard (Visa, Mastercard of andere geaccepteerde kaarten). Ons online betalingssysteem is gecodeerd en garandeert de vertrouwelijkheid van je gegevens.<br><br>Contante betaling:<br>\nAls je dat liever hebt, kun je op het moment van de transfer direct aan je chauffeur betalen. Geef het exacte bedrag op om de transactie te vergemakkelijken.<br><br>We raden je aan om je betaalmethode te kiezen op het moment van boeken om een vlotte ervaring zonder verrassingen te garanderen.\nAls je vragen hebt over betaalmethoden, aarzel dan niet om contact met ons op te nemen via info@brussels-shuttle.be.",
+  "faq-page.answer4": "Ja, je kunt de datum van je transfer wijzigen door ten minste 24 uur voor de geplande tijd contact met ons op te nemen. Stuur ons gewoon een e-mail naar info@brussels-shuttle.be of neem contact met ons op via ons online formulier. We zullen ons uiterste best doen om je boeking aan te passen aan je wensen, afhankelijk van de beschikbaarheid.<br><br>Als je minder dan 24 uur voor de geplande transfertijd een wijziging wilt aanbrengen, bel ons dan rechtstreeks op +32 471 010 113. Onze teams zullen hun best doen om een snelle oplossing te vinden die aangepast is aan jouw situatie.<br><br>We raden je aan om ons zo snel mogelijk te verwittigen zodat we je aanvraag zo goed mogelijk kunnen behandelen.",
+  "faq-page.answer5": "Ja, u kunt een last-minute transfer boeken, afhankelijk van de beschikbaarheid. Neem voor dringende verzoeken direct telefonisch contact met ons op via +32 471 010 113, zodat we de beschikbaarheid kunnen controleren en uw reservering snel kunnen bevestigen. We zullen ons best doen om aan uw verzoek te voldoen.",
+  "faq-page.answer6": "Ja, we bieden kinderzitjes voor hun veiligheid en comfort, afhankelijk van beschikbaarheid. Laat het ons weten wanneer u boekt, zodat we ze van tevoren kunnen controleren en klaarzetten.",
+  "faq-page.answer7": "We volgen de vluchttijden in realtime. Als uw vlucht vertraagd is, zal u chauffeur zijn aankomsttijd zonder extra kosten aanpassen. Zorg ervoor dat u uw vluchtnummer vermeldt wanneer u boekt, zodat we eventuele wijzigingen kunnen volgen.",
+  "faq-page.app-title.description": "Vind hier de antwoorden op de meest gestelde vragen.",
+  "faq-page.app-title.shortTitle": "Hebt u een vraag?",
+  "faq-page.app-title.title": "Veelgestelde vragen ",
+  "faq-page.description": "Kun je je antwoord niet vinden ? <br> Neem direct contact met ons op via onderstaand formulier of per telefoon. Wij zijn er om u te helpen",
+  "faq-page.question1": "Hoeveel bagagestukken mag ik meenemen?",
+  "faq-page.question2": "Mijn reis is geannuleerd. Hoe krijg ik mijn geld terug?",
+  "faq-page.question3": "Wat zijn jullie betaalmethoden ?",
+  "faq-page.question4": "Kan ik de datum van mijn transfer wijzigen?",
+  "faq-page.question5": "Kan ik een last-minute transfer boeken?",
+  "faq-page.question6": "Bieden jullie kinderzitjes aan?",
+  "faq-page.question7": "Wat gebeurt er als mijn vlucht vertraagd is?",
+  "footer.aboutus": "Over ons",
+  "footer.legal": "Juridisch",
+  "footer.services": "Onze diensten",
+  "home-page.destinations.cta": "Meer bestemmingen",
+  "home-page.destinations.items": [
+    {
+      "cta": "Boek vanaf Zaventem Luchthaven",
+      "description": "Vereenvoudig uw reis van en naar Brussels Zaventem Airport (BRU) met onze snelle, betrouwbare taxiservice. Geniet van comfort en stiptheid voor een stressvrije reis.",
+      "imageUri": "assets/images/zaventem.webp",
+      "name": "Brussel Zaventem Luchthaven (BRU)",
+      "title": "Reserveer uw taxi van en naar Zaventem luchthaven, snel en gemakkelijk"
     },
-    "registered-name": {
-      "label": "Bedrijfsnaam",
-      "placeholder": "Voer uw bedrijf in"
+    {
+      "cta": "Boek vanuit Charleroi Luchthaven",
+      "description": "Bereik Charleroi-sud luchthaven (CRL) gemakkelijk met onze betrouwbare en comfortabele service. Stiptheid gegarandeerd voor een zorgeloos vertrek. Boek nu en geniet van een zorgeloze reis!",
+      "imageUri": "assets/images/charleroi.webp",
+      "name": "Charleroi Luchthaven, Brussel Zuid (CRL)",
+      "title": "Uw taxitransfer naar de luchthaven van Charleroi-Sud, zonder zorgen"
     },
-    "street": {
-      "label": "Adres",
-      "placeholder": "Voer uw adres in"
-    },
-    "locality": {
-      "label": "Stad",
-      "placeholder": "Voer uw stad in"
-    },
-    "postal-code": {
-      "label": "Postcode",
-      "placeholder": "Voer uw postcode in"
-    },
-    "country": {
-      "label": "Land",
-      "placeholder": "Voer uw land in"
+    {
+      "cta": "Boek vanuit Lille Luchthaven",
+      "description": "Bereik Lille met onze speciale taxiservice. Ideaal voor zakelijke of privéreizen. Geniet van snelle en betrouwbare transfers.",
+      "imageUri": "assets/images/lille.webp",
+      "name": "Lille Luchthaven, Lesquin",
+      "title": "Een ideale oplossing om naar de luchthaven van Lille te gaan"
     }
+  ],
+  "home-page.destinations.title": "Ontdek onze verschillende bestemmingen",
+  "home-page.features.cta": "Meer weten",
+  "home-page.features.description": "Boek nu uw transfer van en naar de luchthaven van je keuze, met een gerust hart dankzij onze betrouwbare en professionele transferdienst.",
+  "home-page.features.items.expert.description": "Een betrouwbare pendeldienst van en naar het vliegveld, dag en nacht beschikbaar.",
+  "home-page.features.items.expert.title": "Transferexperts",
+  "home-page.features.items.flex.description": "Transfers beschikbaar van en naar Europa om aan al uw wensen te voldoen.",
+  "home-page.features.items.flex.title": "Flexibiliteit",
+  "home-page.features.items.hour.description": "Boek op elk moment uw privétransfer voor een veilige en comfortabele reis.",
+  "home-page.features.items.hour.title": "24/7 beschikbaar",
+  "home-page.features.items.punctuality.description": "We bieden een uurlijkse service, elke dag, op elk moment. ",
+  "home-page.features.items.punctuality.title": "Stiptheid",
+  "home-page.features.title": "Boek uw transfer tegen de beste prijs",
+  "home-page.landing.cta": "Reserveer nu",
+  "home-page.landing.cta2": "Meer weten ",
+  "home-page.landing.description": " Kies voor onze shuttles, waar je ook bent. <br> Boek nu je transfer van en naar Brussels Airport (BRU).",
+  "home-page.landing.title1": "Uw taxi <br> service",
+  "home-page.landing.title2": "24/7 beschikbaar",
+  "home-page.steps.cta": "Reserveer uw transfer ",
+  "home-page.steps.description": "Onze professionele chauffeurs zorgen voor een veilige, betrouwbare service op maat. Gebruik ons online boekingsplatform om in een paar klikken uw reis van of naar de luchthaven van uw keuze te plannen. Geniet van een handige, stressvrije taxiservice.",
+  "home-page.steps.items.pay.description": "Rond je boeking af met een veilige online of contante betaling. ",
+  "home-page.steps.items.pay.title": "Betaling",
+  "home-page.steps.items.quote.description": "Voer uw bestemming en tijd in om uw transfer gemakkelijk te organiseren.",
+  "home-page.steps.items.quote.title": "Plan",
+  "home-page.steps.items.vehicle.description": "Kies uit een reeks voertuigen die aan uw wensen voldoen, van standaard comfort tot luxe.",
+  "home-page.steps.items.vehicle.title": "Voertuig",
+  "home-page.steps.title": "Boek met gemak",
+  "home-page.testimonials.items.1.description": "Hallo, een erg aardige en punctuele chauffeur. Hij haalde ons op in Doornik en was stipt op tijd. Onberispelijke service! Nogmaals bedankt voor de kleine attentie voor de kinderen 😁",
+  "home-page.testimonials.items.1.details": "Doornik richting Zaventem",
+  "home-page.testimonials.items.1.name": "Mohamed T",
+  "home-page.testimonials.items.1.title": "Positieve feedback van onze passagiers!",
+  "home-page.testimonials.items.2.description": "Ik reis met kinderen en ik boek nu al twee jaar bij dit bedrijf en ik ben nog steeds even tevreden. Top service, ik raad ze aan.",
+  "home-page.testimonials.items.2.details": "Charleroi richting Brussel",
+  "home-page.testimonials.items.2.name": "Anaëlle",
+  "home-page.testimonials.items.2.title": "Onvergetelijke ervaringen met onze chauffeurs!",
+  "home-page.testimonials.items.3.description": "Serieus bedrijf en zeer responsief, ik zal niet aarzelen om het in de toekomst aan te bevelen. Zeer eerlijke prijs voor de service.",
+  "home-page.testimonials.items.3.details": "Brussel richting Charleroi luchthaven ",
+  "home-page.testimonials.items.3.name": "Jan",
+  "home-page.testimonials.items.3.title": "Jullie feedback motiveert ons! ",
+  "home-page.testimonials.title": "Wat onze klanten over ons vertellen",
+  "language.en": "English",
+  "language.fr": "Français",
+  "language.nl": "Nederlands",
+  "navigation.booking": "Reserveer een reis",
+  "navigation.conditions": "Algemene voorwaarden",
+  "navigation.contact": "Contact",
+  "navigation.destinations": "Bestemmingen",
+  "navigation.faq": "FAQ",
+  "order-confirm-page.booking-date": "Reserveringsdatum",
+  "order-confirm-page.booking-number": "Reservatie",
+  "order-confirm-page.confirmation-email-message": "U ontvangt binnen 24 uur een bevestigingsmail met alle details. Als u vragen hebt of wijzigingen wilt aanbrengen, aarzel dan niet om contact met ons op te nemen.",
+  "order-confirm-page.confirmation-message": "Uw reservering is bevestigd ",
+  "order-confirm-page.departure-location": "Plaats van vertrek ",
+  "order-confirm-page.destination-location": "Bestemming",
+  "order-confirm-page.greeting": "Hallo,",
+  "order-confirm-page.main-page-button": "Startpagina ",
+  "order-confirm-page.passenger-count": "Aantal passagiers",
+  "order-confirm-page.payment-cash-message": "Neem het benodigde bedrag contant mee om aan uw chauffeur te geven. ",
+  "order-confirm-page.payment-method": "Betaalmethode",
+  "order-confirm-page.payment-success-message": "U betaling werd met succes uitgevoerd",
+  "order-confirm-page.print-button": "Afdrukken",
+  "order-confirm-page.scheduled-on": "Gepland voor",
+  "order-confirm-page.thank-you": "Bedankt voor uw vertrouwen !",
+  "order-confirm-page.title": "Uw reservering is bevestigd",
+  "order-confirm-page.total": "Totaal",
+  "order-confirm-page.total-to-pay": "Totaal te betalen",
+  "order-confirm-page.vehicle-model": "Voertuig model",
+  "passenger-form.email.label": "E-mail",
+  "passenger-form.email.placeholder": "Voer uw e-mail in",
+  "passenger-form.first-name.label": "Naam",
+  "passenger-form.first-name.placeholder": "Voer uw naam in",
+  "passenger-form.last-name.label": "Naam",
+  "passenger-form.last-name.placeholder": "Schrijf jouw naam",
+  "passenger-form.phone.label": "Uw telefoonnummer",
+  "payment-method.CASH": "Contant",
+  "payment-method.cashButton": "Contant betalen",
+  "payment-method.STRIPE": "Kaart",
+  "payment-method.stripeButton": "Online betalen",
+  "stepper.back": "Terug",
+  "stepper.cancel": "Annuleer",
+  "stepper.confirm": "Bevestig",
+  "stepper.next": "Volgende",
+  "stepper.step": "Stap",
+  "steps.booking": "Je reservering bekijken",
+  "steps.final-step.accept": "Ik accepteer de algemene voorwaarden",
+  "steps.final-step.billingTitle": "Facuratie adres",
+  "steps.final-step.book": "Reserveer",
+  "steps.final-step.bookAndPay": "Reserveer en betaal",
+  "steps.final-step.estimated": "Geschat op",
+  "steps.final-step.mandatory": "Verplicht",
+  "steps.final-step.model": "Model",
+  "steps.final-step.passenger": "Passagier(s)",
+  "steps.final-step.passengerTitle": "Persoonlijke informatie",
+  "steps.final-step.paymentTitle": "Welke betaalmethode wilt u gebruiken?",
+  "steps.final-step.planned": "Gepland voor",
+  "steps.final-step.total": "Totaal",
+  "steps.final-step.vehicle": "Voertuig",
+  "steps.loading": "Momenteel aan het boeken...",
+  "steps.quote": "Boek uw reis ",
+  "steps.vehicle": "Selecteer een voertuig ",
+  "vehicle-model.business.description": "Geniet van comfort en elegantie voor uw zakenreizen.",
+  "vehicle-model.eco.description": "Reis in comfort tegen een lage prijs, ideaal voor kleine groepen of soloreizen.",
+  "vehicle-model.mini bus.description": "Ideaal voor grote groepen, met maximale ruimte en comfort voor uw reizen. ",
+  "vehicle-model.van.description": "Een ruim voertuig, perfect voor grote gezinnen of groepen reizigers. ",
+  "way.oneWay": "Heen ",
+  "way.return": "Terugreis",
+  "cancel-page": {
+    "title": "Reservering Geannuleerd",
+    "payment-cancelled": "Betaling Geannuleerd",
+    "message": "Uw betaling is geannuleerd. Uw reservering is niet bevestigd.",
+    "retry-booking": "Probeer Reservering Opnieuw",
+    "main-page": "Hoofdpagina"
   },
-  "contact-form": {
-    "email": {
-      "label": "Uw e-mail",
-      "placeholder": "Voer uw e-mailadres in"
-    },
-    "name": {
-      "label": "Naam",
-      "placeholder": "Voer uw naam in"
-    },
-    "message": {
-      "label": "Jouw bericht",
-      "placeholder": "Schrijf een bericht"
-    },
-    "terms": {
-      "text": "Ik ga ermee akkoord dat de door mij verstrekte gegevens worden verzameld en opgeslagen."
-    },
-    "submit": "Versturen",
-    "success": "Bericht succesvol verzonden"
-  },
-  "stepper": {
-    "step": "Fase",
-    "next": "Volgende",
-    "back": "Rug",
-    "confirm": "Bevestigen",
-    "cancel": "Annuleren"
-  },
-  "language": {
-    "fr": "Français",
-    "en": "English",
-    "nl": "Nederland"
-  },
-  "way": {
-    "oneWay": "Eén manier",
-    "return": "Opbrengst"
-  },
-  "vehicle-model": {
-    "eco": {
-      "description": "Reis comfortabel tegen een lage prijs, ideaal voor kleine groepen of soloreizen."
-    },
-    "business": {
-      "description": "Geniet van optimaal comfort en elegantie tijdens uw zakenreizen."
-    },
-    "van": {
-      "description": "Een ruim voertuig, perfect voor grote gezinnen of groepen reizigers."
-    },
-    "mini bus": {
-      "description": "Ideaal voor grote groepen en biedt maximale ruimte en comfort tijdens uw reizen."
-    }
-  },
-  "footer": {
-    "legal": "Legaal",
-    "aboutus": "Over ons",
-    "services": "Onze diensten"
-  },
-  "destination-page": {
-    "title": "Ontdek onze verschillende bestemmingen",
-    "subtitle": "Ontdek onze selectie bestemmingen die door onze taxi's worden bediend voor praktische en comfortabele reizen van of naar Brussel en omgeving.",
-    "destinations": [
-      {
-        "name": "Luchthaven Brussel Zaventem (BRU)",
-        "cta": "Boek vanaf de luchthaven van Zaventem",
-        "imageUri": "assets/images/zaventem.webp",
-        "title": "Boek snel en eenvoudig uw taxi van en naar de luchthaven van Zaventem",
-        "description": "Vereenvoudig uw reis van en naar Brussels Zaventem Airport (BRU) met onze snelle en betrouwbare taxiservice. "
-      },
-      {
-        "name": "Charleroi Luchthaven, Brussel Zuid (CRL)",
-        "cta": "Boek vanaf de luchthaven van Charleroi",
-        "imageUri": "assets/images/charleroi.webp",
-        "title": "Uw zorgeloze taxitransfer naar de luchthaven van Charleroi-Sud",
-        "description": "Bereik de luchthaven Charleroi-Sud (CRL) gemakkelijk met onze betrouwbare en comfortabele service. "
-      },
-      {
-        "name": "Luchthaven van Rijsel, Lesquin",
-        "cta": "Boek uw transfer naar Rijsel",
-        "imageUri": "assets/images/lille.webp",
-        "title": "Een ideale oplossing om de luchthaven van Lille te bereiken",
-        "description": "Sluit u aan bij Lille met onze toegewijde taxiservice. "
-      },
-      {
-        "name": "Orly luchthaven, Parijs",
-        "title": "Transfer naar de luchthaven Orly",
-        "imageUri": "activa/afbeeldingen/orly.webp",
-        "description": "Bereik de luchthaven Orly met volledige gemoedsrust dankzij onze snelle en betrouwbare taxiservice. ",
-        "cta": "Boek uw transfer vanaf Orly"
-      },
-      {
-        "title": "Luchthaven Charles de Gaulle, Parijs",
-        "name": "Transfers naar de luchthaven Charles de Gaulle",
-        "imageUri": "assets/images/cdg.webp",
-        "description": "Profiteer van een betrouwbare en comfortabele taxiservice om de luchthaven Charles de Gaulle Parijs te bereiken. ",
-        "cta": "Boek uw reis naar Charles de Gaulle"
-      },
-      {
-        "name": "Luchthaven Schiphol, Amsterdam",
-        "title": "Transfer naar de luchthaven Schiphol",
-        "imageUri": "assets/images/amsterdam.webp",
-        "description": "Reis comfortabel naar Schiphol Amsterdam Airport, gelegen in het hart van Nederland.  ",
-        "cta": "Boek een transfer naar Schiphol"
-      },
-      {
-        "name": "Luchthaven Eindhoven, Nederland",
-        "title": "Luchthaven Eindhoven",
-        "imageUri": "assets/images/eindhoven.webp",
-        "description": "Vereenvoudigde transfers naar Eindhoven Airport. ",
-        "cta": "Boek vanaf Eindhoven Airport"
-      }
-    ]
-  },
-  "faq-page": {
-    "question1": "Hoeveel tassen mag ik meenemen?",
-    "answer1": "Het aantal bagagestukken is afhankelijk van het type voertuig dat u boekt. ",
-    "question2": "Mijn reis is geannuleerd, hoe krijg ik mijn geld terug?",
-    "answer2": "In geval van annulering dient u zo snel mogelijk contact op te nemen met onze klantendienst via info@brussels-shuttle.be of via ons online contactformulier. <br> Volgens onze annuleringsvoorwaarden:<br><br>Als u uw reservering minimaal 24 uur vóór uw geplande vertrek annuleert, ontvangt u een volledige terugbetaling.<br><br>Indien de annulering minder dan 24 uur voor vertrek plaatsvindt, kunnen er annuleringskosten in rekening worden gebracht.<br><br>We doen er alles aan om uw verzoek zo snel mogelijk te verwerken om een ​​transparante en stressvrije ervaring te garanderen. ",
-    "question3": "Wat zijn uw betaalmethoden?",
-    "answer3": "Voor uw gemak en flexibiliteit bieden wij verschillende betalingsmogelijkheden. <br><br> Betaling Online betaling: <br> U kunt bij het boeken veilig betalen met een creditcard (Visa, Mastercard of andere geaccepteerde kaarten). <br><br>Contante betaling: <br> Als u wilt, kunt u tijdens de overdracht rechtstreeks aan uw chauffeur betalen. <br><br>We raden u aan uw betaalmethode te kiezen tijdens het boeken om een ​​vlotte, verrassingsvrije ervaring te garanderen.<br> Als u vragen heeft over de betaalmethoden, aarzel dan niet om contact met ons op te nemen via info@brussels-shuttle.be.",
-    "question4": "Kan ik mijn overstapdatum wijzigen?",
-    "answer4": "Ja, u kunt de datum van uw overstap wijzigen door minimaal 24 uur vóór het geplande tijdstip contact met ons op te nemen. <br><br>Als u minder dan 24 uur vóór de geplande overstaptijd een wijziging wilt doorvoeren, nodigen wij u uit om ons rechtstreeks te bellen op +32 471 010 113. Onze teams zullen hun best doen om snel een oplossing te vinden die is aangepast aan uw situatie.<br><br>Wij raden u aan om ons zo snel mogelijk op de hoogte te stellen om een ​​optimaal beheer van uw verzoek te garanderen.",
-    "question5": "Kan ik een last-minute transfer boeken?",
-    "answer5": "Ja, u kunt een last-minute transfer boeken, onder voorbehoud van beschikbaarheid. ",
-    "question6": "Biedt u kinderzitjes aan?",
-    "answer6": "Ja, wij bieden kinderzitjes aan voor hun veiligheid en comfort, afhankelijk van beschikbaarheid. ",
-    "question7": "Wat gebeurt er als mijn vlucht vertraagd is?",
-    "answer7": "Wij volgen vluchtschema's in realtime. ",
-    "description": "Heeft u uw antwoord niet gevonden? <br> Neem direct contact met ons op via onderstaand formulier of telefonisch. ",
-    "app-title": {
-      "shortTitle": "Heeft u een vraag?",
-      "title": "Veelgestelde vragen",
-      "description": "Vind hier antwoorden op de meest gestelde vragen."
-    }
-  },
-  "contact-page": {
-    "shortTitle": "Hulp nodig?",
-    "title": "Neem contact met ons op",
-    "description": "Heeft u een vraag of heeft u hulp nodig bij het boeken van uw transfer? ",
-    "contact": "Contact",
-    "address": "Ons adres",
-    "mail": "E-mail",
-    "addressDescription": "In de directe omgeving van uw luchthaven"
-  },
-  "home-page": {
-    "landing": {
-      "title1": "Uw dienst <br> taxi",
-      "title2": "24/7 beschikbaar",
-      "description": "Kies voor onze shuttles, waar u ook bent. <br> Boek nu uw transfer van en naar Brussels Airport (BRU).",
-      "cta": "Boek nu",
-      "cta2": "Meer informatie"
-    },
-    "features": {
-      "title": "Boek uw transfer tegen de beste prijs",
-      "description": "Boek nu met een gerust hart uw transfer van en naar de luchthaven van uw keuze met onze betrouwbare en professionele transferservice.",
-      "cta": "Meer informatie",
-      "items": {
-        "hour": {
-          "title": "24/7 beschikbaar",
-          "description": "Boek uw privétransfer voor een veilige en comfortabele rit, wanneer u maar wilt."
-        },
-        "flex": {
-          "title": "Flexibiliteit",
-          "description": "Transfers beschikbaar van en naar Europa om aan al uw behoeften te voldoen."
-        },
-        "punctuality": {
-          "title": "Stiptheid",
-          "description": "Wij bieden stipte service, elke dag, 24 uur per dag."
-        },
-        "expert": {
-          "title": "Overdrachtsexperts",
-          "description": "Een betrouwbare luchthavenshuttleservice, dag en nacht beschikbaar."
-        }
-      }
-    },
-    "steps": {
-      "title": "Boek gemakkelijk",
-      "description": "Onze professionele chauffeurs zorgen ervoor dat u een betrouwbare en veilige service wordt aangeboden, aangepast aan uw behoeften. ",
-      "cta": "Boek uw transfer",
-      "items": {
-        "quote": {
-          "title": "Om te plannen",
-          "description": "Geef uw bestemming en tijd aan om uw transfer gemakkelijk te organiseren."
-        },
-        "vehicle": {
-          "title": "Voertuig",
-          "description": "Kies uit een reeks voertuigen die zijn aangepast aan uw behoeften: van standaardcomfort tot luxe."
-        },
-        "pay": {
-          "title": "Betaling",
-          "description": "Rond uw reservering af met een veilige online of contante betaling."
-        }
-      }
-    },
-    "destinations": {
-      "title": "Ontdek onze verschillende bestemmingen",
-      "cta": "Meer bestemmingen",
-      "items": [
-        {
-          "name": "Luchthaven Brussel Zaventem (BRU)",
-          "cta": "Boek vanaf de luchthaven van Zaventem",
-          "imageUri": "assets/images/zaventem.webp",
-          "title": "Boek snel en eenvoudig uw taxi van en naar de luchthaven van Zaventem",
-          "description": "Vereenvoudig uw reis van en naar Brussels Zaventem Airport (BRU) met onze snelle en betrouwbare taxiservice. "
-        },
-        {
-          "name": "Charleroi Luchthaven, Brussel Zuid (CRL)",
-          "cta": "Boek vanaf de luchthaven van Charleroi",
-          "imageUri": "assets/images/charleroi.webp",
-          "title": "Uw zorgeloze taxitransfer naar de luchthaven van Charleroi-Sud",
-          "description": "Bereik de luchthaven Charleroi-Sud (CRL) gemakkelijk met onze betrouwbare en comfortabele service. "
-        },
-        {
-          "name": "Luchthaven van Rijsel, Lesquin",
-          "cta": "Boek vanaf de luchthaven van Rijsel",
-          "imageUri": "assets/images/lille.webp",
-          "title": "Een ideale oplossing om de luchthaven van Lille te bereiken",
-          "description": "Sluit u aan bij Lille met onze toegewijde taxiservice. "
-        }
-      ]
-    },
-    "testimonials": {
-      "title": "Wat onze klanten over ons zeggen",
-      "items": {
-        "1": {
-          "title": "Positieve feedback van onze passagiers!",
-          "name": "Mohammed T",
-          "details": "Doornik richting Zaventem",
-          "description": "Hallo, een super aardige en zeer punctuele chauffeur. "
-        },
-        "2": {
-          "title": "Onvergetelijke ervaringen met onze chauffeurs!",
-          "name": "Anaëlle",
-          "details": "Charleroi richting Brussel",
-          "description": "Ik reis met kinderen en boek al twee jaar bij dit bedrijf en ben nog steeds zeer tevreden. "
-        },
-        "3": {
-          "title": "Jouw feedback motiveert ons!",
-          "name": "jan",
-          "details": "Brussel richting Charleroi Airport",
-          "description": "Een serieus en zeer responsief bedrijf, ik zal niet aarzelen om het in de toekomst aan te bevelen. "
-        }
-      }
-    }
-  },
-  "order-confirm-page": {
-    "title": "Uw reservering is bevestigd",
-    "main-page-button": "Hoofdpagina",
-    "print-button": "Afdrukken",
-    "greeting": "Goedemorgen,",
-    "confirmation-message": "Uw reservering is bevestigd",
-    "payment-success-message": "en uw betaling is succesvol afgerond.",
-    "payment-cash-message": "Zorg ervoor dat u het gevraagde bedrag contant aan uw chauffeur geeft.",
-    "booking-date": "Boekingsdatum",
-    "booking-number": "Reservering",
-    "payment-method": "Betaalmethode",
-    "vehicle-model": "Voertuigmodel",
-    "passenger-count": "Aantal passagiers",
-    "scheduled-on": "Gepland voor",
-    "departure-location": "Vertrek locatie",
-    "destination-location": "Bestemming",
-    "total": "Totaal",
-    "total-to-pay": "Totaal te betalen",
-    "confirmation-email-message": "U ontvangt binnen 24 uur een bevestigingsmail met alle details. ",
-    "thank-you": "Bedankt voor uw vertrouwen!"
-  },
-  "error": {
-    "bookingExpired": "De reservering is verlopen",
-    "bookingNotFound": "De reservering is niet gevonden",
-    "quoteNotFound": "Kan geen reservering plannen"
+  "booking-not-found": {
+    "title": "Reservering Niet Gevonden",
+    "error": "Fout",
+    "message": "Sorry, we kunnen de reservering niet weergeven.",
+    "main-page": "Hoofdpagina",
+    "contact-support": "Contacteer Ondersteuning"
   }
 }

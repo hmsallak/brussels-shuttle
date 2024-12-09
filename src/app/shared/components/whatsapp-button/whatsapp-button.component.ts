@@ -1,13 +1,9 @@
 import {Component, HostListener} from '@angular/core';
-import {faWhatsapp} from "@fortawesome/free-brands-svg-icons/faWhatsapp";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 
 @Component({
   selector: 'app-whatsapp-button',
   standalone: true,
-  imports: [
-    FaIconComponent
-  ],
+  imports: [],
   templateUrl: './whatsapp-button.component.html',
   styleUrl: './whatsapp-button.component.css'
 })
@@ -18,6 +14,4 @@ export class WhatsappButtonComponent {
   onWindowScroll() {
     this.showButton =  window.scrollY > 300;
   }
-
-  protected readonly faWhatsapp = faWhatsapp;
 }

@@ -2,26 +2,20 @@ import {
   AfterContentInit,
   Component, computed,
   ContentChildren,
-  effect,
-  ElementRef,
   Input,
-  QueryList,
-  ViewChild
+  QueryList
 } from '@angular/core';
 import {StepComponent} from "./step/step.component";
-import {NgTemplateOutlet} from "@angular/common";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {faChevronLeft} from "@fortawesome/free-solid-svg-icons/faChevronLeft";
-import {TuiButtonComponent, TuiButtonModule} from "@taiga-ui/core";
+import {TuiButtonModule} from "@taiga-ui/core";
 import {scrollToSection, scrollToTop} from "../../utils/element.utils";
-import {toObservable} from "@angular/core/rxjs-interop";
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
   selector: 'app-stepper',
   standalone: true,
   imports: [
-    NgTemplateOutlet,
     FaIconComponent,
     TuiButtonModule,
     TranslateModule

@@ -31,7 +31,7 @@
           </a>
         </li>
         @if (isDropdownLangOpen){
-          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 text-black">
+          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-white rounded-box w-52 text-black">
             @for(lang of languages; track lang) {
               <li><a (click)="changeLanguage(lang); isDropdownLangOpen = false">{{ 'language.'+lang | translate }}</a></li>
             }
@@ -50,7 +50,7 @@
     </div>
     @if (isDropdownMenuOpen){
       <ul tabindex="0" [@fadeInOnEnter]
-          class="menu menu-sm dropdown-content z-[50] mt-3 py-5 shadow-2xl bg-base-100 rounded-box text-black text-base"
+          class="menu menu-sm dropdown-content z-[50] mt-3 py-5 shadow-2xl bg-white rounded-box text-black text-base"
           [ngClass]="{}">
         <li><a routerLink="/booking/request" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
         <li><a routerLink="/services/destinations" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>

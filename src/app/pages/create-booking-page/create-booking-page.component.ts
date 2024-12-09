@@ -1,15 +1,12 @@
 import {ChangeDetectionStrategy, Component, inject, signal} from '@angular/core';
 import {CreateBookingComponent} from "./create-booking/create-booking.component";
-import {TitleComponent} from "../../shared/components/title/title.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {NgxSpinnerComponent} from "ngx-spinner";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {TranslateModule} from "@ngx-translate/core";
 import {QuoteGateway} from "../../core/ports/quote.gateway";
 import {toSignal} from "@angular/core/rxjs-interop";
 import {catchError, EMPTY, tap} from "rxjs";
-import {JsonPipe} from "@angular/common";
 import {VehicleModel} from "../../core/models/vehicle-model";
 import {StepperComponent} from "../../shared/components/stepper/stepper.component";
 import {StepComponent} from "../../shared/components/stepper/step/step.component";
@@ -18,14 +15,10 @@ import {StepComponent} from "../../shared/components/stepper/step/step.component
   selector: 'app-create-booking-page',
   standalone: true,
   imports: [
-    TitleComponent,
     LayoutComponent,
     NgxSpinnerComponent,
-    FaIconComponent,
-    RouterLink,
     TranslateModule,
     CreateBookingComponent,
-    JsonPipe,
     StepperComponent,
     StepComponent,
   ],

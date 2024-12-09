@@ -1,8 +1,7 @@
-import {Component, EventEmitter, inject, output, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
+import {Component, inject, output} from '@angular/core';
+import {FormBuilder, FormControl, ReactiveFormsModule, Validators} from "@angular/forms";
 import {TuiCountryIsoCode} from '@taiga-ui/i18n';
 import {Passenger} from "../../../../../core/models/passenger";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {TuiButtonModule, TuiDialogModule, TuiErrorModule} from "@taiga-ui/core";
 import {
   TUI_VALIDATION_ERRORS,
@@ -10,7 +9,7 @@ import {
   TuiInputModule,
   TuiInputPhoneInternationalModule
 } from "@taiga-ui/kit";
-import {AsyncPipe, JsonPipe} from "@angular/common";
+import {AsyncPipe} from "@angular/common";
 import {VALIDATION_ERRORS} from "../../../../../shared/utils/error.utils";
 import {TranslateModule} from "@ngx-translate/core";
 
@@ -18,7 +17,6 @@ import {TranslateModule} from "@ngx-translate/core";
   selector: 'app-passenger',
   standalone: true,
   imports: [
-    FaIconComponent,
     TuiDialogModule,
     ReactiveFormsModule,
     TuiInputModule,
@@ -27,7 +25,6 @@ import {TranslateModule} from "@ngx-translate/core";
     AsyncPipe,
     TuiErrorModule,
     TuiFieldErrorPipeModule,
-    JsonPipe,
     TranslateModule
   ],
   templateUrl: './passenger.component.html',

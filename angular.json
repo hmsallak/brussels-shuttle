@@ -17,17 +17,18 @@
               "@taiga-ui/cdk",
               "@taiga-ui/core",
               "@taiga-ui/icons",
+              "@taiga-ui/addon-mobile",
               "@taiga-ui/kit",
               "@taiga-ui/styles",
               "@taiga-ui/i18n",
-              "lottie-web"
+              "lottie-web",
+              "@fortawesome"
             ],
             "outputPath": "dist/brussels-shuttle-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js",
-              "@angular/localize/init"
+              "src/polyfills.ts"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -54,7 +55,7 @@
                 }
               ]
             },
-            "production": {
+            "prod": {
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -81,7 +82,7 @@
               "sourceMap": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "prod"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -93,7 +94,7 @@
               "buildTarget": "brussels-shuttle-frontend:build:development"
             },
             "localhost": {
-              "browserTarget": "brussels-shuttle-frontend:build:localhost"
+              "buildTarget": "brussels-shuttle-frontend:build:localhost"
             }
           },
           "defaultConfiguration": "development"
@@ -108,9 +109,8 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "polyfills": [
-              "zone.js",
-              "zone.js/testing",
-              "@angular/localize/init"
+              "src/polyfills.ts",
+              "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
@@ -130,7 +130,7 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "brussels-shuttle-frontend:serve:production"
+              "devServerTarget": "brussels-shuttle-frontend:serve:prod"
             }
           }
         },
@@ -164,7 +164,7 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "brussels-shuttle-frontend:serve:production"
+              "devServerTarget": "brussels-shuttle-frontend:serve:prod"
             }
           }
         }

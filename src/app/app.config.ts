@@ -8,7 +8,7 @@ import {provideRouter, withInMemoryScrolling} from '@angular/router';
 
 import { routes } from './app.routes';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
-import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {BookingGateway} from "./core/ports/booking.gateway";
 import {QuoteGateway} from "./core/ports/quote.gateway";
@@ -34,9 +34,10 @@ import {HttpEmailGateway} from "./core/adapters/http-email.gateway";
 
 registerLocaleData(localeFr, 'fr');
 registerLocaleData(localeEn, 'en');
+registerLocaleData(localeEn, 'nl');
 
 export const provideTranslation = () => ({
-  defaultLanguage: 'fr',
+  defaultLanguage: getBrowserLanguage(),
   loader: {
     provide: TranslateLoader,
     useFactory: HttpLoaderFactory,

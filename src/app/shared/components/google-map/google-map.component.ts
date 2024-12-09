@@ -3,21 +3,17 @@ import {
   GoogleMap,
   MapDirectionsRenderer,
   MapDirectionsResponse,
-  MapDirectionsService,
-  MapMarker
+  MapDirectionsService
 } from "@angular/google-maps";
-import {map, switchMap} from "rxjs";
-import {Location, PlaceAddress} from "../../../core/models/place-address";
-import {JsonPipe} from "@angular/common";
+import {map} from "rxjs";
+import {Location} from "../../../core/models/place-address";
 import TravelMode = google.maps.TravelMode;
 @Component({
   selector: 'app-google-map',
   standalone: true,
   imports: [
     GoogleMap,
-    MapDirectionsRenderer,
-    JsonPipe,
-    MapMarker
+    MapDirectionsRenderer
   ],
   templateUrl: './google-map.component.html',
   styleUrl: './google-map.component.css'

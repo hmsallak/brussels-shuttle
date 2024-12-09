@@ -2,9 +2,8 @@ import {Component, inject, input, signal} from '@angular/core';
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {faLanguage, faChevronDown, faGlobe, faBars} from '@fortawesome/free-solid-svg-icons';
-
 import {LanguageEnum} from "../../../core/models/enum/language.enum";
-import {NgClass, NgOptimizedImage} from "@angular/common";
+import {NgClass} from "@angular/common";
 import {RouterLink, RouterLinkActive} from "@angular/router";
 import {TuiActiveZoneModule, TuiClickOutsideModule} from "@taiga-ui/cdk";
 import {TuiSidebarModule} from "@taiga-ui/addon-mobile";
@@ -17,7 +16,6 @@ import {fadeInOnEnterAnimation, fadeOutOnLeaveAnimation} from "angular-animation
   imports: [
     TranslateModule,
     FaIconComponent,
-    NgOptimizedImage,
     RouterLink,
     NgClass,
     RouterLinkActive,

@@ -5,13 +5,12 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormControl, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {PlaceAddress} from "../../../core/models/place-address";
 import {TUI_VALIDATION_ERRORS, TuiFieldErrorPipeModule, TuiInputModule} from "@taiga-ui/kit";
 import {TuiErrorModule, TuiTextfieldControllerModule} from "@taiga-ui/core";
 import {GooglePlacesDirective} from "../../directives/google-places.directive";
 import {LocationService} from "../../services/location.service";
-import {FaIconComponent} from "@fortawesome/angular-fontawesome";
 import {AsyncPipe} from "@angular/common";
 import {TranslateModule} from "@ngx-translate/core";
 
@@ -21,16 +20,14 @@ import {TranslateModule} from "@ngx-translate/core";
   selector: 'app-place-auto-complete',
   standalone: true,
   imports: [
+    TranslateModule,
     TuiInputModule,
-    FormsModule,
     TuiTextfieldControllerModule,
     ReactiveFormsModule,
     GooglePlacesDirective,
-    FaIconComponent,
     TuiErrorModule,
     TuiFieldErrorPipeModule,
-    AsyncPipe,
-    TranslateModule,
+    AsyncPipe
   ],
   templateUrl: './place-auto-complete.component.html',
   styleUrl: './place-auto-complete.component.css',
