@@ -1,9 +1,11 @@
-@for (vehicleModelPrice of quote().vehicleModelPrices; track vehicleModelPrice.vehicleModel.id){
+@for (vehicleModelPrice of quote().vehicleModelPrices; track vehicleModelPrice.vehicleModel.id) {
   <div class="my-5" id="vehicleModelPrice.{{vehicleModelPrice.vehicleModel.id}}">
-    <app-vehicle-model-price [vehicleModelPrice]="vehicleModelPrice"
-                             [passengerCount]="passengerCount()"
-                             [(selectedVehicleModel)]="vehicleModel"
-    ></app-vehicle-model-price>
+    <app-vehicle-model-price
+      [vehicleModelPrice]="vehicleModelPrice"
+      [passengerCount]="passengerCount()"
+      [isRecommended]="$index === 1"
+      [(selectedVehicleModel)]="vehicleModel">
+    </app-vehicle-model-price>
   </div>
 }
 

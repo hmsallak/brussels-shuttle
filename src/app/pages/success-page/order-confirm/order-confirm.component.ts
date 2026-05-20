@@ -3,7 +3,7 @@ import {AsyncPipe, CurrencyPipe, DatePipe, JsonPipe, TitleCasePipe} from "@angul
 import {Payment} from "../../../core/models/payment";
 import {GoogleMapComponent} from "../../../shared/components/google-map/google-map.component";
 import {FaIconComponent} from "@fortawesome/angular-fontawesome";
-import {faCheckCircle, faPrint} from "@fortawesome/free-solid-svg-icons";
+import {faCalendarPlus, faCheckCircle, faPrint} from "@fortawesome/free-solid-svg-icons";
 import {PlaceAddressLinkComponent} from "../../../shared/components/place-address-link/place-address-link.component";
 import {Booking} from "../../../core/models/booking";
 import {CurrencyEnum} from "../../../core/models/enum/currency.enum";
@@ -54,4 +54,18 @@ export class OrderConfirmComponent {
   }
 
   protected readonly faPrint = faPrint;
+  protected readonly faCalendarPlus = faCalendarPlus;
+
+  generateCalendarLink(): string {
+    const trip = this.booking()?.trips?.[0];
+    if (!trip) return '';
+    const start = new Date(trip.startTime);
+    const end = new Date(trip.startTime);
+    end.setHours(end.getHours() + 2);
+    const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
+    const title = encodeURIComponent('Brussels Shuttle — ' + trip.startAddress.locality + ' → ' + trip.endAddress.locality);
+    const details = encodeURIComponent('Réservation #' + this.booking().reference);
+    const location = encodeURIComponent(trip.startAddress.name);
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${fmt(start)}/${fmt(end)}&details=${details}&location=${location}`;
+  }
 }

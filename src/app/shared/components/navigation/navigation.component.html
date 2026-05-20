@@ -1,6 +1,6 @@
 <div class="navbar" [ngClass]="{'text-white':absolute(), 'border-b lg:border-0':!absolute()}">
 
-    <!--  Start  Laptop   -->
+  <!--  Start  Laptop   -->
   <section class="navbar-start">
     <a class="cursor-pointer pl-2 md:pl-5" routerLink="/">
       <img src="assets/images/bs_full_logo.svg" class="max-h-14" alt="icon brussels shuttle">
@@ -9,63 +9,134 @@
 
   <!--    Center    -->
   <section class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1 text-lg ">
-      <li><a routerLink="/services/destinations" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>
-      <li><a routerLink="/booking/request" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
-      <li><a routerLink="/faq" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.faq'| translate }}</a></li>
+    <ul class="menu menu-horizontal px-1 text-lg">
+      <li><a routerLink="/services/destinations" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.destinations' | translate }}</a></li>
+      <li><a routerLink="/faq" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.faq' | translate }}</a></li>
+      <li><a routerLink="/contact" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.contact' | translate }}</a></li>
     </ul>
   </section>
 
   <!--    End Laptop    -->
-  <section class="navbar-end hidden lg:flex ">
-    <ul class="menu menu-horizontal px-1 text-lg">
-      <li class="mt-1 md:mt-0">
-        <a routerLink="/contact" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.contact'| translate }}</a>
-      </li>
+  <section class="navbar-end hidden lg:flex items-center gap-2 pr-2">
 
-      <div class="dropdown dropdown-bottom dropdown-end" (click)="isDropdownLangOpen = true">
-        <li tabindex="0" >
-          <a>
-          <fa-icon [icon]="faGlobe" class=""></fa-icon>
-          <fa-icon [icon]="faChevronDown" class="text-xs"></fa-icon>
-          </a>
-        </li>
-        @if (isDropdownLangOpen){
-          <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-white rounded-box w-52 text-black">
-            @for(lang of languages; track lang) {
-              <li><a (click)="changeLanguage(lang); isDropdownLangOpen = false">{{ 'language.'+lang | translate }}</a></li>
-            }
-          </ul>
-        }
-      </div>
-    </ul>
+    <!-- Language dropdown -->
+    <div class="relative">
+      <button
+        (click)="isDropdownLangOpen.set(!isDropdownLangOpen())"
+        class="flex items-center gap-1 px-3 py-2 rounded-lg text-sm transition-colors duration-150"
+        [ngClass]="{'hover:bg-white/10': absolute(), 'hover:bg-gray-100': !absolute()}">
+        <fa-icon [icon]="faGlobe"></fa-icon>
+        <fa-icon [icon]="faChevronDown" class="text-xs opacity-70"></fa-icon>
+      </button>
+      @if (isDropdownLangOpen()) {
+        <div class="fixed inset-0 z-[40]" (click)="isDropdownLangOpen.set(false)"></div>
+        <ul class="absolute right-0 top-full mt-1 z-[50] bg-white rounded-xl shadow-xl border border-gray-100 py-1 w-40 text-gray-800 text-sm">
+          @for (lang of languages; track lang) {
+            <li>
+              <a class="block px-4 py-2 hover:bg-sky-50 hover:text-sky-600 transition-colors cursor-pointer rounded-lg mx-1"
+                 (click)="changeLanguage(lang); isDropdownLangOpen.set(false)">
+                {{ 'language.' + lang | translate }}
+              </a>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+
+    <!-- CTA Réserver -->
+    <a routerLink="/booking/request"
+       class="flex items-center gap-2 px-4 py-2 rounded-lg bg-sky-500 text-white text-sm font-semibold hover:bg-sky-600 active:scale-95 transition-all duration-150 shadow-sm">
+      {{ 'navigation.booking' | translate }}
+    </a>
+
   </section>
 
   <!--    End Phone    -->
-  <section class="navbar-end lg:hidden flex justify-end dropdown dropdown-bottom pr-2">
-    <div role="button" tabindex="0"
-         (click)="isDropdownMenuOpen = true"
-         class="transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
-      <fa-icon [icon]="faBars" class="text-xl md:text-2xl " [ngClass]="{'text-white':absolute(), 'text-gray-800':absolute()}"></fa-icon>
-    </div>
-    @if (isDropdownMenuOpen){
-      <ul tabindex="0" [@fadeInOnEnter]
-          class="menu menu-sm dropdown-content z-[50] mt-3 py-5 shadow-2xl bg-white rounded-box text-black text-base"
-          [ngClass]="{}">
-        <li><a routerLink="/booking/request" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.booking'| translate }}</a></li>
-        <li><a routerLink="/services/destinations" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.destinations'| translate }}</a></li>
-        <li><a routerLink="/faq" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.faq'| translate }}</a></li>
-        <li><a routerLink="/contact" class="md:text-lg" routerLinkActive="bg-sky-400 text-white">{{ 'navigation.contact'| translate }}</a></li>
-        <hr class="solid my-2">
-        <ul tabindex="0" class="flex justify-around space-x-2">
-          @for(lang of languages; track lang) {
-            <li><a class="text-xs" (click)="changeLanguage(lang); isDropdownMenuOpen = false">{{ 'language.'+lang | translate }}</a></li>
-          }
-        </ul>
-      </ul>
-    }
+  <section class="navbar-end lg:hidden flex justify-end pr-2">
+    <button
+      (click)="isDropdownMenuOpen.set(true)"
+      class="p-2 rounded-lg transition-all duration-150"
+      [ngClass]="{'hover:bg-white/10': absolute(), 'hover:bg-gray-100': !absolute()}"
+      aria-label="Menu">
+      <fa-icon [icon]="faBars" class="text-xl md:text-2xl"
+               [ngClass]="{'text-white': absolute(), 'text-gray-800': !absolute()}"></fa-icon>
+    </button>
 
+    @if (isDropdownMenuOpen()) {
+      <!-- Backdrop -->
+      <div class="fixed inset-0 z-[40] bg-black/20 backdrop-blur-sm" (click)="isDropdownMenuOpen.set(false)"></div>
+
+      <!-- Drawer -->
+      <div [@fadeInOnEnter]
+           class="fixed top-0 right-0 h-full w-72 z-[50] bg-white shadow-2xl flex flex-col">
+        <!-- Header -->
+        <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+          <img src="assets/images/bs_full_logo.svg" class="h-9" alt="Brussels Shuttle">
+          <button (click)="isDropdownMenuOpen.set(false)"
+                  class="p-2 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Nav links -->
+        <nav class="flex-1 px-3 py-4 space-y-1 overflow-y-auto">
+          <a routerLink="/booking/request" routerLinkActive="bg-sky-50 text-sky-600 font-semibold"
+             class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            {{ 'navigation.booking' | translate }}
+          </a>
+          <a routerLink="/services/destinations" routerLinkActive="bg-sky-50 text-sky-600 font-semibold"
+             class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            {{ 'navigation.destinations' | translate }}
+          </a>
+          <a routerLink="/faq" routerLinkActive="bg-sky-50 text-sky-600 font-semibold"
+             class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            {{ 'navigation.faq' | translate }}
+          </a>
+          <a routerLink="/contact" routerLinkActive="bg-sky-50 text-sky-600 font-semibold"
+             class="flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 hover:bg-gray-50 transition-colors font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-sky-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            {{ 'navigation.contact' | translate }}
+          </a>
+        </nav>
+
+        <!-- Language switcher -->
+        <div class="px-5 py-4 border-t border-gray-100">
+          <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Langue</p>
+          <div class="flex gap-2">
+            @for (lang of languages; track lang) {
+              <button
+                (click)="changeLanguage(lang); isDropdownMenuOpen.set(false)"
+                class="flex-1 py-2 rounded-lg text-sm font-medium border transition-colors"
+                [ngClass]="{'bg-sky-500 text-white border-sky-500': false, 'bg-gray-50 text-gray-600 border-gray-200 hover:border-sky-300 hover:text-sky-600': true}">
+                {{ 'language.' + lang | translate }}
+              </button>
+            }
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="px-5 pb-6">
+          <a routerLink="/booking/request"
+             class="flex items-center justify-center w-full py-3 rounded-xl bg-sky-500 text-white font-bold text-base hover:bg-sky-600 transition-colors shadow-md">
+            {{ 'navigation.booking' | translate }}
+          </a>
+        </div>
+      </div>
+    }
   </section>
 
 </div>
-

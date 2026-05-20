@@ -102,6 +102,30 @@
   font-weight: 800;
 }
 
+.footer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cbd5e1;
+  transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.footer-social a:hover {
+  background: rgba(103, 232, 249, 0.15);
+  color: #67e8f9;
+  transform: translateY(-2px);
+}
+
 .footer-main nav,
 .footer-contact {
   display: flex;

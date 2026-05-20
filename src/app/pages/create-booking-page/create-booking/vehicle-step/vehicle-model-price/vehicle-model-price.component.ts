@@ -23,7 +23,8 @@ import {scrollToSection} from "../../../../../shared/utils/element.utils";
 })
 export class VehicleModelPriceComponent {
   vehicleModelPrice = input.required<VehicleModelPrice>();
-  selectedVehicleModel = model<VehicleModel | null>()
+  selectedVehicleModel = model<VehicleModel | null>();
+  isRecommended = input<boolean>(false);
 
   @Input() passengerCount: number = 1;
 

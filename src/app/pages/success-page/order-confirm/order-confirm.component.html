@@ -131,10 +131,27 @@
         </div>
       }
 
-      <div class="data ">
-        <p class="font-normal text-lg leading-8 text-gray-500 mb-11">
+      <div class="data">
+        <p class="font-normal text-lg leading-8 text-gray-500 mb-6">
           {{ 'order-confirm-page.confirmation-email-message' | translate }}
         </p>
+
+        <!-- Action buttons -->
+        <div class="flex flex-wrap gap-3 mb-10">
+          <a [href]="generateCalendarLink()" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-cyan-500 rounded-lg hover:bg-cyan-600 transition-colors duration-150">
+            <fa-icon [icon]="faCalendarPlus" class="text-sm"></fa-icon>
+            Ajouter au calendrier
+          </a>
+          <a routerLink="/booking/request"
+             class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-gray-700 bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors duration-150">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+            </svg>
+            Réserver un autre trajet
+          </a>
+        </div>
+
         <h6 class="font-manrope font-bold text-2xl leading-9 text-black mb-3">
           {{ 'order-confirm-page.thank-you' | translate }}
         </h6>

@@ -42,16 +42,36 @@
                [innerHTML]="'home-page.landing.description' | translate">
             </p>
 
-            <div class="flex items-center justify-center mt-8 space-x-5 xl:mt-12 lg:justify-start">
-              <a routerLink="booking/request" title="" role="button"
-                class="inline-flex items-center justify-center px-3 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-md sm:px-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white hover:bg-cyan-100">
+            <!-- Social proof bar -->
+            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-8">
+              <div class="flex items-center gap-1.5">
+                <span class="text-yellow-400 text-base leading-none tracking-tight">★★★★★</span>
+                <span class="text-white text-sm font-semibold">4.9 / 5</span>
+              </div>
+              <span class="text-gray-400 hidden sm:inline">·</span>
+              <span class="text-gray-300 text-sm">2 400+ trajets effectués</span>
+              <span class="flex items-center gap-1.5">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <span class="text-green-400 text-sm font-medium">Disponible 24h/7j</span>
+              </span>
+            </div>
+
+            <div class="flex items-center justify-center mt-6 space-x-4 xl:mt-8 lg:justify-start">
+              <a routerLink="/booking/request"
+                class="inline-flex items-center justify-center px-5 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-lg sm:px-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white hover:bg-cyan-100 shadow-lg hover:-translate-y-0.5">
                 {{ 'home-page.landing.cta' | translate }}
               </a>
 
-              <a title="" role="button" (click)="scrollToSection('detailsSection')"
-                 class="inline-flex items-center px-2 py-3 font-bold text-base leading-7 text-white transition-all duration-200 rounded-md sm:px-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-gray-700hover:bg-gray-700">
+              <button (click)="scrollToSection('detailsSection')"
+                 class="inline-flex items-center gap-2 px-3 py-3 font-semibold text-sm leading-7 text-white transition-all duration-200 rounded-lg sm:px-4 hover:bg-white/10 focus:outline-none">
                 {{ 'home-page.landing.cta2' | translate }}
-              </a>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </button>
             </div>
 
             <div class="marketing-trust-row" aria-label="Brussels Shuttle trust signals">
@@ -70,7 +90,7 @@
             </div>
           </div>
           <div class="w-full max-w-xl xl:px-8 xl:w-5/12 opacity-95">
-            <app-booking-from routerLink="booking/request"></app-booking-from>
+            <app-booking-from routerLink="/booking/request"></app-booking-from>
           </div>
         </div>
       </div>
@@ -144,7 +164,7 @@
              <span>04</span>
              <h3>{{ 'home-page.story.items.arrive.title' | translate }}</h3>
              <p>{{ 'home-page.story.items.arrive.description' | translate }}</p>
-             <a routerLink="booking/request">{{ 'home-page.story.cta' | translate }}</a>
+             <a routerLink="/booking/request">{{ 'home-page.story.cta' | translate }}</a>
            </article>
          </div>
        </div>
@@ -196,7 +216,7 @@
            <span>{{ 'home-page.impact.points.support' | translate }}</span>
          </div>
 
-         <a routerLink="booking/request">{{ 'home-page.impact.cta' | translate }}</a>
+         <a routerLink="/booking/request">{{ 'home-page.impact.cta' | translate }}</a>
        </div>
      </div>
    </section>
@@ -208,7 +228,7 @@
          <p>{{ 'home-page.choice.kicker' | translate }}</p>
          <h2>{{ 'home-page.choice.title' | translate }}</h2>
          <span>{{ 'home-page.choice.description' | translate }}</span>
-         <a routerLink="booking/request">{{ 'home-page.choice.cta' | translate }}</a>
+         <a routerLink="/booking/request">{{ 'home-page.choice.cta' | translate }}</a>
        </div>
 
        <div class="choice-cards">
@@ -255,7 +275,7 @@
          }
        </div>
        <div class="mt-16 flex justify-center ">
-         <a routerLink="services/destinations" title="" role="button"
+         <a routerLink="/services/destinations" title="" role="button"
             class="inline-flex items-center px-3 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-full border sm:px-6 hover:bg-gray-200">
            {{ 'home-page.destinations.cta' | translate }}
          </a>
