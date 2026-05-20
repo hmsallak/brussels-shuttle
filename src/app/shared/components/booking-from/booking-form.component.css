@@ -152,6 +152,19 @@
   transform: translateY(0);
 }
 
+/* ── Responsive mobile ─────────────────────────── */
+@media (max-width: 500px) {
+  .bf-row-2 {
+    grid-template-columns: 1fr;
+  }
+  .bf-header-sub {
+    display: none;
+  }
+  .bf-body {
+    padding: 16px;
+  }
+}
+
 /* ── Footer note ───────────────────────────────── */
 .bf-footer-note {
   display: flex;

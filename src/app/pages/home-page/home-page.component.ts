@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {AfterViewInit, ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {TitleComponent} from "../../shared/components/title/title.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
@@ -39,7 +39,7 @@ import {startWith, switchMap} from "rxjs";
     fadeInUpAnimation({duration: 500}),
   ],
 })
-export class HomePageComponent {
+export class HomePageComponent implements AfterViewInit {
   private translateService = inject(TranslateService);
 
   destinationsItems = toSignal(
@@ -49,4 +49,19 @@ export class HomePageComponent {
     )
   );
   protected readonly scrollToSection = scrollToSection;
+
+  ngAfterViewInit() {
+    const elements = document.querySelectorAll('[data-reveal]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const delay = el.dataset['delay'] ?? '0';
+          setTimeout(() => el.classList.add('revealed'), +delay);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    elements.forEach(el => observer.observe(el));
+  }
 }

@@ -1,245 +1,248 @@
  <app-layout [absoluteHeader]="true">
 
-   <!--    Landing Section    -->
-   <section class="relative ">
-    <picture>
-      <!-- image for phone-->
-      <source srcset="assets/images/brussels-shuttle-bg-phone.webp" media="(max-width: 768px)" type="image/webp" />
+  <!-- ── Hero ──────────────────────────────────── -->
+  <section class="hero-section">
 
-      <!-- image for laptop -->
-      <source srcset="assets/images/schuman.webp" media="(min-width: 769px)" type="image/webp" />
+    <!-- Fond avec parallax -->
+    <div class="hero-bg" aria-hidden="true">
+      <picture>
+        <source srcset="assets/images/brussels-shuttle-bg-phone.webp" media="(max-width: 768px)" type="image/webp"/>
+        <source srcset="assets/images/schuman.webp" media="(min-width: 769px)" type="image/webp"/>
+        <img ngSrc="assets/images/schuman.webp" fill priority alt="Brussels Shuttle" class="hero-bg-img"/>
+      </picture>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
 
-      <img
-        ngSrc="assets/images/schuman.webp"
-        fill
-        priority
-        class="absolute inset-0 object-cover w-full h-full mx-auto"
-        alt="Schuman"
-      />
-    </picture>
+    <!-- Vague blanche en bas -->
+    <svg class="hero-wave" viewBox="80 0 760 155" aria-hidden="true">
+      <path fill="white" d="M-164 13L-104 39.7C-44 66 76 120 196 141C316 162 436 152 556 119.7C676 88 796 34 916 13C1036 -8 1156 2 1216 7.7L1276 13V162.5H1216C1156 162.5 1036 162.5 916 162.5C796 162.5 676 162.5 556 162.5C436 162.5 316 162.5 196 162.5C76 162.5 -44 162.5 -104 162.5H-164V13Z"/>
+    </svg>
 
-    <div class="absolute inset-0 bg-black opacity-60"></div>
+    <div class="hero-shell">
+      <!-- Texte -->
+      <div class="hero-copy">
+        <h1>
+          <span class="hero-title1" [innerHTML]="'home-page.landing.title1' | translate"></span>
+          <span class="hero-title2" [innerHTML]="'home-page.landing.title2' | translate | lowercase"></span>
+        </h1>
+        <p class="hero-desc" [innerHTML]="'home-page.landing.description' | translate"></p>
 
-    <div class="relative bg-opacity-75">
-      <svg class="absolute inset-x-0 bottom-0 text-white" viewBox="80 0 760 155">
-        <path
-          fill="currentColor"
-          d="M-164 13L-104 39.7C-44 66 76 120 196 141C316 162 436 152 556 119.7C676 88 796 34 916 13C1036 -8 1156 2 1216 7.7L1276 13V162.5H1216C1156 162.5 1036 162.5 916 162.5C796 162.5 676 162.5 556 162.5C436 162.5 316 162.5 196 162.5C76 162.5 -44 162.5 -104 162.5H-164V13Z"
-        ></path>
+        <!-- Preuve sociale -->
+        <div class="hero-proof">
+          <div>
+            <span class="hero-stars">★★★★★</span>
+            <span class="hero-rating">4.9 / 5</span>
+          </div>
+          <span class="hero-dot">·</span>
+          <span class="hero-count">2 400+ trajets effectués</span>
+          <span class="hero-live">
+            <span class="hero-live-dot"></span>
+            Disponible 24h/7j
+          </span>
+        </div>
 
-      </svg>
+        <div class="hero-actions">
+          <a routerLink="/booking/request" class="hero-cta-primary">
+            {{ 'home-page.landing.cta' | translate }}
+          </a>
+          <button (click)="scrollToSection('detailsSection')" class="hero-cta-ghost">
+            {{ 'home-page.landing.cta2' | translate }}
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+        </div>
 
-      <div class="relative px-4 py-28 md:py-32 xl:py-40  mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-        <div class="flex flex-col justify-between items-center xl:items-stretch xl:flex-row">
-          <div class="w-full max-w-xl mb-24 lg:mt-14 xl:mb-0 xl:pr-16 xl:w-7/12">
-            <h1 class="space-y-6 md:space-y-10 xl:space-y-4">
-              <p>
-                <span class="text-5xl font-bold text-white md:text-7xl leading-[3rem]" [innerHTML]="'home-page.landing.title1' | translate"></span>
-                <span class="text-sky-400 pl-2 text-xl font-bold md:text-3xl " [innerHTML]="'home-page.landing.title2' | translate | lowercase"></span>
-              </p>
-            </h1>
-            <p class="mt-8 text-base font-normal leading-7 text-gray-200 lg:max-w-md xl:pr-0 lg:pr-16"
-               [innerHTML]="'home-page.landing.description' | translate">
-            </p>
+        <div class="marketing-trust-row" aria-label="Brussels Shuttle trust signals">
+          <div>
+            <strong>{{ 'home-page.landing.trust.price.title' | translate }}</strong>
+            <span>{{ 'home-page.landing.trust.price.description' | translate }}</span>
+          </div>
+          <div>
+            <strong>{{ 'home-page.landing.trust.time.title' | translate }}</strong>
+            <span>{{ 'home-page.landing.trust.time.description' | translate }}</span>
+          </div>
+          <div>
+            <strong>{{ 'home-page.landing.trust.pay.title' | translate }}</strong>
+            <span>{{ 'home-page.landing.trust.pay.description' | translate }}</span>
+          </div>
+        </div>
+      </div>
 
-            <!-- Social proof bar -->
-            <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-8">
-              <div class="flex items-center gap-1.5">
-                <span class="text-yellow-400 text-base leading-none tracking-tight">★★★★★</span>
-                <span class="text-white text-sm font-semibold">4.9 / 5</span>
-              </div>
-              <span class="text-gray-400 hidden sm:inline">·</span>
-              <span class="text-gray-300 text-sm">2 400+ trajets effectués</span>
-              <span class="flex items-center gap-1.5">
-                <span class="relative flex h-2 w-2">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                </span>
-                <span class="text-green-400 text-sm font-medium">Disponible 24h/7j</span>
-              </span>
+      <!-- Carte de réservation -->
+      <div class="hero-card">
+        <app-booking-from></app-booking-from>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Stats blanches ────────────────────────── -->
+  <section class="home-stats-section">
+    <div class="home-stats-shell">
+      <div class="home-stat" data-reveal data-delay="0">
+        <strong>2 400+</strong>
+        <span>trajets effectués</span>
+      </div>
+      <div class="home-stat-sep" aria-hidden="true"></div>
+      <div class="home-stat" data-reveal data-delay="100">
+        <strong>4.9 / 5</strong>
+        <span>satisfaction client</span>
+      </div>
+      <div class="home-stat-sep" aria-hidden="true"></div>
+      <div class="home-stat" data-reveal data-delay="200">
+        <strong>7+</strong>
+        <span>aéroports desservis</span>
+      </div>
+      <div class="home-stat-sep" aria-hidden="true"></div>
+      <div class="home-stat" data-reveal data-delay="300">
+        <strong>24 / 7</strong>
+        <span>disponibilité</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Comment ça marche ─────────────────────── -->
+  <section class="story-scroll overflow-hidden" id="detailsSection">
+    <div class="story-shell">
+      <div class="story-intro" data-reveal>
+        <p class="story-kicker">{{ 'home-page.story.kicker' | translate }}</p>
+        <h2>{{ 'home-page.story.title' | translate }}</h2>
+        <p>{{ 'home-page.story.description' | translate }}</p>
+      </div>
+
+      <div class="story-grid">
+        <div class="story-visual" aria-hidden="true" data-reveal data-delay="150">
+          <div class="story-map-card">
+            <img src="assets/images/zaventem.webp" alt="" />
+            <div class="story-route">
+              <span>BRU</span>
+              <div></div>
+              <span>Home</span>
             </div>
-
-            <div class="flex items-center justify-center mt-6 space-x-4 xl:mt-8 lg:justify-start">
-              <a routerLink="/booking/request"
-                class="inline-flex items-center justify-center px-5 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-lg sm:px-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white hover:bg-cyan-100 shadow-lg hover:-translate-y-0.5">
-                {{ 'home-page.landing.cta' | translate }}
-              </a>
-
-              <button (click)="scrollToSection('detailsSection')"
-                 class="inline-flex items-center gap-2 px-3 py-3 font-semibold text-sm leading-7 text-white transition-all duration-200 rounded-lg sm:px-4 hover:bg-white/10 focus:outline-none">
-                {{ 'home-page.landing.cta2' | translate }}
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 opacity-70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                </svg>
-              </button>
-            </div>
-
-            <div class="marketing-trust-row" aria-label="Brussels Shuttle trust signals">
-              <div>
-                <strong>{{ 'home-page.landing.trust.price.title' | translate }}</strong>
-                <span>{{ 'home-page.landing.trust.price.description' | translate }}</span>
-              </div>
-              <div>
-                <strong>{{ 'home-page.landing.trust.time.title' | translate }}</strong>
-                <span>{{ 'home-page.landing.trust.time.description' | translate }}</span>
-              </div>
-              <div>
-                <strong>{{ 'home-page.landing.trust.pay.title' | translate }}</strong>
-                <span>{{ 'home-page.landing.trust.pay.description' | translate }}</span>
-              </div>
+            <div class="story-live">
+              <span></span>
+              {{ 'home-page.story.live' | translate }}
             </div>
           </div>
-          <div class="w-full max-w-xl xl:px-8 xl:w-5/12 opacity-95">
-            <app-booking-from routerLink="/booking/request"></app-booking-from>
+          <div class="story-proof">
+            <strong>24/7</strong>
+            <span>{{ 'home-page.story.proof1' | translate }}</span>
           </div>
+          <div class="story-proof story-proof-alt">
+            <strong>4.9</strong>
+            <span>{{ 'home-page.story.proof2' | translate }}</span>
+          </div>
+        </div>
+
+        <div class="story-steps">
+          <article class="story-step" data-reveal data-delay="0">
+            <span>01</span>
+            <h3>{{ 'home-page.story.items.plan.title' | translate }}</h3>
+            <p>{{ 'home-page.story.items.plan.description' | translate }}</p>
+          </article>
+          <article class="story-step" data-reveal data-delay="80">
+            <span>02</span>
+            <h3>{{ 'home-page.story.items.price.title' | translate }}</h3>
+            <p>{{ 'home-page.story.items.price.description' | translate }}</p>
+          </article>
+          <article class="story-step" data-reveal data-delay="160">
+            <span>03</span>
+            <h3>{{ 'home-page.story.items.ride.title' | translate }}</h3>
+            <p>{{ 'home-page.story.items.ride.description' | translate }}</p>
+          </article>
+          <article class="story-step story-step-cta" data-reveal data-delay="240">
+            <span>04</span>
+            <h3>{{ 'home-page.story.items.arrive.title' | translate }}</h3>
+            <p>{{ 'home-page.story.items.arrive.description' | translate }}</p>
+            <a routerLink="/booking/request">{{ 'home-page.story.cta' | translate }}</a>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ── Aéroports / impact ────────────────────── -->
+  <section class="impact-section">
+    <div class="impact-shell">
+      <div class="impact-media" data-reveal="left">
+        <div class="impact-image impact-image-main">
+          <img src="assets/images/charleroi.webp" alt="Charleroi Airport" />
+          <span>{{ 'home-page.impact.media.primary' | translate }}</span>
+        </div>
+        <div class="impact-image impact-image-small">
+          <img src="assets/images/cdg.webp" alt="Charles de Gaulle Airport" />
+          <span>{{ 'home-page.impact.media.secondary' | translate }}</span>
+        </div>
+        <div class="impact-board">
+          <p>{{ 'home-page.impact.board.title' | translate }}</p>
+          <strong>{{ 'home-page.impact.board.route' | translate }}</strong>
+          <small>{{ 'home-page.impact.board.detail' | translate }}</small>
+        </div>
+      </div>
 
+      <div class="impact-copy" data-reveal="right">
+        <p class="impact-kicker">{{ 'home-page.impact.kicker' | translate }}</p>
+        <h2>{{ 'home-page.impact.title' | translate }}</h2>
 
-   <section class="story-scroll overflow-hidden" id="detailsSection">
-     <div class="story-shell">
-       <div class="story-intro">
-         <p class="story-kicker">{{ 'home-page.story.kicker' | translate }}</p>
-         <h2>{{ 'home-page.story.title' | translate }}</h2>
-         <p>{{ 'home-page.story.description' | translate }}</p>
-       </div>
+        <div class="impact-stats">
+          <div>
+            <strong>2 min</strong>
+            <span>{{ 'home-page.impact.stats.booking' | translate }}</span>
+          </div>
+          <div>
+            <strong>24/7</strong>
+            <span>{{ 'home-page.impact.stats.service' | translate }}</span>
+          </div>
+          <div>
+            <strong>7+</strong>
+            <span>{{ 'home-page.impact.stats.airports' | translate }}</span>
+          </div>
+        </div>
 
-       <div class="story-grid">
-         <div class="story-visual" aria-hidden="true">
-           <div class="story-map-card">
-             <img src="assets/images/zaventem.webp" alt="" />
-             <div class="story-route">
-               <span>BRU</span>
-               <div></div>
-               <span>Home</span>
-             </div>
-             <div class="story-live">
-               <span></span>
-               {{ 'home-page.story.live' | translate }}
-             </div>
-           </div>
-           <div class="story-proof">
-             <strong>24/7</strong>
-             <span>{{ 'home-page.story.proof1' | translate }}</span>
-           </div>
-           <div class="story-proof story-proof-alt">
-             <strong>4.9</strong>
-             <span>{{ 'home-page.story.proof2' | translate }}</span>
-           </div>
-         </div>
+        <div class="impact-points">
+          <span>{{ 'home-page.impact.points.clear' | translate }}</span>
+          <span>{{ 'home-page.impact.points.luggage' | translate }}</span>
+          <span>{{ 'home-page.impact.points.support' | translate }}</span>
+        </div>
 
-         <div class="story-steps">
-           <article class="story-step">
-             <span>01</span>
-             <h3>{{ 'home-page.story.items.plan.title' | translate }}</h3>
-             <p>{{ 'home-page.story.items.plan.description' | translate }}</p>
-           </article>
-           <article class="story-step">
-             <span>02</span>
-             <h3>{{ 'home-page.story.items.price.title' | translate }}</h3>
-             <p>{{ 'home-page.story.items.price.description' | translate }}</p>
-           </article>
-           <article class="story-step">
-             <span>03</span>
-             <h3>{{ 'home-page.story.items.ride.title' | translate }}</h3>
-             <p>{{ 'home-page.story.items.ride.description' | translate }}</p>
-           </article>
-           <article class="story-step story-step-cta">
-             <span>04</span>
-             <h3>{{ 'home-page.story.items.arrive.title' | translate }}</h3>
-             <p>{{ 'home-page.story.items.arrive.description' | translate }}</p>
-             <a routerLink="/booking/request">{{ 'home-page.story.cta' | translate }}</a>
-           </article>
-         </div>
-       </div>
-     </div>
-   </section>
+        <a routerLink="/booking/request">{{ 'home-page.impact.cta' | translate }}</a>
+      </div>
+    </div>
+  </section>
 
+  <!-- ── Destinations ──────────────────────────── -->
+  <section class="home-dest-section">
+    <div class="home-dest-header" data-reveal>
+      <p class="home-dest-kicker">Nos destinations</p>
+      <h2>{{ 'home-page.destinations.title' | translate }}</h2>
+    </div>
 
-   <section class="impact-section">
-     <div class="impact-shell">
-       <div class="impact-media">
-         <div class="impact-image impact-image-main">
-           <img src="assets/images/charleroi.webp" alt="Charleroi Airport" />
-           <span>{{ 'home-page.impact.media.primary' | translate }}</span>
-         </div>
-         <div class="impact-image impact-image-small">
-           <img src="assets/images/cdg.webp" alt="Charles de Gaulle Airport" />
-           <span>{{ 'home-page.impact.media.secondary' | translate }}</span>
-         </div>
-         <div class="impact-board">
-           <p>{{ 'home-page.impact.board.title' | translate }}</p>
-           <strong>{{ 'home-page.impact.board.route' | translate }}</strong>
-           <small>{{ 'home-page.impact.board.detail' | translate }}</small>
-         </div>
-       </div>
+    <div class="home-dest-grid">
+      @for(destination of destinationsItems(); track $index){
+        <div data-reveal [attr.data-delay]="$index * 80">
+          <app-destination
+            [name]="destination['name']"
+            [cta]="destination['cta']"
+            [imageUri]="destination['imageUri']"
+            [title]="destination['title']"
+            [description]="destination['description']">
+          </app-destination>
+        </div>
+      }
+    </div>
 
-       <div class="impact-copy">
-         <p class="impact-kicker">{{ 'home-page.impact.kicker' | translate }}</p>
-         <h2>{{ 'home-page.impact.title' | translate }}</h2>
-         <p class="impact-description">{{ 'home-page.impact.description' | translate }}</p>
+    <div class="home-dest-more" data-reveal>
+      <a routerLink="/services/destinations">
+        {{ 'home-page.destinations.cta' | translate }}
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
 
-         <div class="impact-stats">
-           <div>
-             <strong>2 min</strong>
-             <span>{{ 'home-page.impact.stats.booking' | translate }}</span>
-           </div>
-           <div>
-             <strong>24/7</strong>
-             <span>{{ 'home-page.impact.stats.service' | translate }}</span>
-           </div>
-           <div>
-             <strong>7+</strong>
-             <span>{{ 'home-page.impact.stats.airports' | translate }}</span>
-           </div>
-         </div>
-
-         <div class="impact-points">
-           <span>{{ 'home-page.impact.points.clear' | translate }}</span>
-           <span>{{ 'home-page.impact.points.luggage' | translate }}</span>
-           <span>{{ 'home-page.impact.points.support' | translate }}</span>
-         </div>
-
-         <a routerLink="/booking/request">{{ 'home-page.impact.cta' | translate }}</a>
-       </div>
-     </div>
-   </section>
-
-
-
-   <section class="mt-24">
-     <div class="pt-4 max-w-xl md:mx-auto lg:max-w-4xl px-8 md:px-0">
-       <app-title [title]="'home-page.destinations.title' | translate">
-       </app-title>
-     </div>
-
-     <div class="lg:max-w-7xl mx-auto py-20">
-       <div class="grid grid-cols-3 gap-16">
-         @for(destination of destinationsItems(); track $index){
-           <div class="col-span-3 lg:col-span-1 px-5 md:px-0">
-             <app-destination [name]="destination['name']"
-                              [cta]="destination['cta']"
-                              [imageUri]="destination['imageUri']"
-                              [title]="destination['title']"
-                              [description]="destination['description']">
-             </app-destination>
-           </div>
-         }
-       </div>
-       <div class="mt-16 flex justify-center ">
-         <a routerLink="/services/destinations" title="" role="button"
-            class="inline-flex items-center px-3 py-3 text-base font-bold leading-7 text-gray-900 transition-all duration-200 bg-white rounded-full border sm:px-6 hover:bg-gray-200">
-           {{ 'home-page.destinations.cta' | translate }}
-         </a>
-       </div>
-     </div>
-   </section>
-
-
-  <section class="relative">
+  <!-- ── Témoignages ───────────────────────────── -->
+  <section class="relative" data-reveal>
     <app-testimonial></app-testimonial>
   </section>
 
