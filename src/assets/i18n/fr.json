@@ -207,6 +207,27 @@
     ]
   },
   "faq-page": {
+    "hero": {
+      "card": {
+        "title": "Vous preparez un depart ?",
+        "description": "Obtenez un prix clair pour votre transfert aeroport en quelques minutes.",
+        "cta": "Obtenir mon prix"
+      }
+    },
+    "trust": {
+      "availability": "Service jour et nuit",
+      "booking": "Reservation rapide",
+      "destinations": "Aeroports desservis"
+    },
+    "sidebar": {
+      "kicker": "Avant de reserver",
+      "title": "Les reponses qui comptent vraiment.",
+      "description": "Bagages, paiement, retard de vol, annulation ou changement de planning : tout ce qui rassure avant de confirmer votre trajet."
+    },
+    "contact": {
+      "kicker": "Besoin d'une precision ?",
+      "title": "On vous aide a organiser le bon transfert."
+    },
     "question1": "Combien de baguages puis-je emporter ?",
     "answer1": "Le nombre de bagages dépend du type de véhicule réservé. Pour les véhicules standards, nous pouvons transporter jusqu'à 4 bagages standard (valises) et 4 bagages à main. Si vous avez besoin de transporter jusqu’à 8 bagages ou plus, nous vous recommandons de réserver un véhicule de plus grande capacité ou de nous en informer à l’avance. Nous adapterons le véhicule en fonction de vos besoins pour garantir un trajet confortable.",
     "question2": "Mon voyage est annulé, comment procéder au remboursement ?",

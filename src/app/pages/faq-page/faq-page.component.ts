@@ -2,7 +2,6 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {ContactFormComponent} from "../../shared/components/contact-form/contact-form.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
-import {TitleComponent} from "../../shared/components/title/title.component";
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
@@ -12,7 +11,7 @@ import {TranslateModule} from "@ngx-translate/core";
   imports: [
     ContactFormComponent,
     LayoutComponent,
-    TitleComponent,
+    RouterLink,
     TranslateModule
   ],
   styleUrl: './faq-page.component.css',
