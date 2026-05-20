@@ -189,48 +189,115 @@
 }
 
 @media (max-width: 640px) {
-  .footer-cta,
-  .footer-main {
+  /* CTA — compact, no description */
+  .footer-cta {
     grid-template-columns: 1fr;
+    padding: 28px 0;
+    gap: 14px;
   }
 
-  .footer-cta {
-    padding: 42px 0;
-    gap: 20px;
+  .footer-cta p {
+    font-size: 0.7rem;
   }
 
   .footer-cta h2 {
-    font-size: 2rem;
-    line-height: 1.08;
+    font-size: 1.5rem;
+    line-height: 1.1;
+    margin-top: 6px;
+  }
+
+  .footer-cta span {
+    display: none;
   }
 
   .footer-cta a {
     width: 100%;
-    white-space: normal;
     text-align: center;
+    padding: 12px 18px;
+    font-size: 0.9rem;
   }
 
+  /* Main — 2-col grid for links */
   .footer-main {
-    padding: 42px 0;
-    gap: 28px;
+    grid-template-columns: 1fr 1fr;
+    padding: 28px 0 24px;
+    gap: 20px 16px;
   }
 
-  .footer-brand p,
-  .footer-contact p {
-    max-width: 100%;
+  /* Brand spans full width, compact */
+  .footer-brand {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 14px;
+    align-items: start;
   }
 
-  .footer-main nav,
+  .footer-brand img {
+    width: 48px;
+    height: 48px;
+    grid-row: 1 / 3;
+  }
+
+  .footer-brand h3 {
+    font-size: 1.05rem;
+    margin-top: 0;
+    align-self: center;
+  }
+
+  /* Hide long description on mobile */
+  .footer-brand > p {
+    display: none;
+  }
+
+  .footer-badges {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+
+  .footer-badges span {
+    font-size: 0.7rem;
+    padding: 5px 8px;
+  }
+
+  .footer-social {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+
+  /* Nav sections stay in 2-col grid */
+  .footer-main nav {
+    gap: 7px;
+  }
+
+  .footer-main h6,
+  .footer-contact h6 {
+    font-size: 0.76rem;
+    margin-bottom: 4px;
+  }
+
+  /* Contact spans full width */
   .footer-contact {
-    gap: 8px;
+    grid-column: 1 / -1;
+    gap: 7px;
   }
 
+  .footer-contact p {
+    display: none;
+  }
+
+  /* Bottom bar */
   .footer-bottom {
     flex-direction: column;
+    gap: 10px;
+    padding: 14px 0 20px;
+    font-size: 0.8rem;
   }
 
   .footer-bottom div {
-    flex-direction: column;
-    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 12px;
   }
 }
