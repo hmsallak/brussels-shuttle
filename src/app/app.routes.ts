@@ -7,42 +7,52 @@ import {ContactPageComponent} from "./pages/contact-page/contact-page.component"
 import {TermOfUsePageComponent} from "./pages/term-of-use-page/term-of-use-page.component";
 import {FaqPageComponent} from "./pages/faq-page/faq-page.component";
 import {DestinationPageComponent} from "./pages/services/destination-page/destination-page.component";
+import {NotFoundPageComponent} from "./pages/not-found-page/not-found-page.component";
 
 export const routes: Routes = [
   {
     path: '',
     component: HomePageComponent,
+    title: 'Brussels Shuttle — Transfert aéroport privé à Bruxelles'
   },
   {
     path: 'booking/request',
     component: CreateBookingPageComponent,
+    title: 'Réserver un transfert — Brussels Shuttle'
   },
   {
     path: 'success',
-    component: SuccessPageComponent
+    component: SuccessPageComponent,
+    title: 'Réservation confirmée — Brussels Shuttle'
   },
   {
     path: 'cancel',
-    component: CancelPageComponent
+    component: CancelPageComponent,
+    title: 'Paiement annulé — Brussels Shuttle'
   },
   {
     path: 'contact',
-    component: ContactPageComponent
+    component: ContactPageComponent,
+    title: 'Contact — Brussels Shuttle'
   },
   {
     path: 'services/destinations',
-    component: DestinationPageComponent
+    component: DestinationPageComponent,
+    title: 'Nos destinations — Brussels Shuttle'
   },
   {
     path: 'term-of-use',
-    component: TermOfUsePageComponent
+    component: TermOfUsePageComponent,
+    title: 'Conditions générales — Brussels Shuttle'
   },
   {
     path: 'faq',
-    component: FaqPageComponent
+    component: FaqPageComponent,
+    title: 'FAQ — Brussels Shuttle'
   },
   {
     path: '**',
-    redirectTo: ''
+    component: NotFoundPageComponent,
+    title: 'Page introuvable — Brussels Shuttle'
   }
 ];

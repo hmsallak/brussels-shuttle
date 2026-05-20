@@ -1,0 +1,44 @@
+<app-layout>
+  <section class="nf-section">
+
+    <div class="nf-shell">
+
+      <!-- Numéro 404 décoratif -->
+      <p class="nf-number" aria-hidden="true">404</p>
+
+      <!-- Icône avion -->
+      <div class="nf-icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+        </svg>
+      </div>
+
+      <h1 class="nf-title">Cette page n'existe pas</h1>
+      <p class="nf-desc">
+        Il semble que vous vous soyez égaré. La page que vous cherchez a été déplacée ou n'existe plus.
+      </p>
+
+      <div class="nf-actions">
+        <a routerLink="/" class="nf-btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+          </svg>
+          Retour à l'accueil
+        </a>
+        <a routerLink="/booking/request" class="nf-btn-secondary">
+          Réserver un transfert
+        </a>
+      </div>
+
+      <!-- Liens rapides -->
+      <div class="nf-links">
+        <span>Pages utiles :</span>
+        <a routerLink="/services/destinations">Destinations</a>
+        <a routerLink="/faq">FAQ</a>
+        <a routerLink="/contact">Contact</a>
+      </div>
+
+    </div>
+
+  </section>
+</app-layout>

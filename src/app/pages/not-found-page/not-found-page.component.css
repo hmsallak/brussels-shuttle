@@ -1,0 +1,132 @@
+.nf-section {
+  min-height: calc(100vh - 200px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px;
+  background: #f8fafc;
+}
+
+.nf-shell {
+  text-align: center;
+  max-width: 480px;
+  position: relative;
+}
+
+.nf-number {
+  font-size: clamp(6rem, 20vw, 10rem);
+  font-weight: 900;
+  color: #e2e8f0;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  user-select: none;
+  margin-bottom: -20px;
+}
+
+.nf-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0891b2, #0e7490);
+  color: #ffffff;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.35);
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+.nf-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.nf-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.nf-desc {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.nf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.nf-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 24px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0891b2, #0e7490);
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 4px 14px rgba(8, 145, 178, 0.35);
+  text-decoration: none;
+}
+
+.nf-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(8, 145, 178, 0.45);
+}
+
+.nf-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 24px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: border-color 150ms ease, background 150ms ease;
+  text-decoration: none;
+}
+
+.nf-btn-secondary:hover {
+  border-color: #0891b2;
+  background: #f0fdff;
+}
+
+.nf-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+
+.nf-links a {
+  color: #0891b2;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 150ms ease;
+}
+
+.nf-links a:hover {
+  color: #0e7490;
+}
