@@ -268,6 +268,33 @@
         }
       }
     },
+    "story": {
+      "kicker": "Votre trajet, sans stress",
+      "title": "Du pas de votre porte jusqu'au terminal, chaque moment est anticipe.",
+      "description": "Brussels Shuttle transforme le transfert aeroport en experience fluide : devis instantane, vehicule adapte, chauffeur ponctuel et arrivee sereine.",
+      "live": "Trajet suivi et organise",
+      "proof1": "Service jour et nuit",
+      "proof2": "Avis passagers",
+      "cta": "Commencer ma reservation",
+      "items": {
+        "plan": {
+          "title": "Vous indiquez votre adresse, votre vol et votre horaire.",
+          "description": "Le formulaire calcule votre itineraire et prepare une estimation claire, que vous partiez de Bruxelles, Charleroi ou plus loin."
+        },
+        "price": {
+          "title": "Vous choisissez le confort qui correspond au voyage.",
+          "description": "Eco, Business, Van ou Mini Bus : les prix sont affiches avant la confirmation, avec une capacite adaptee aux passagers et bagages."
+        },
+        "ride": {
+          "title": "Votre chauffeur s'occupe du rythme du trajet.",
+          "description": "Prise en charge ponctuelle, conduite calme et assistance jusqu'a l'arrivee : le transfert devient la partie la plus simple du voyage."
+        },
+        "arrive": {
+          "title": "Vous arrivez pret, pas presse.",
+          "description": "Paiement en ligne ou en especes, confirmation claire et support disponible si votre planning change."
+        }
+      }
+    },
     "steps": {
       "title": "Réservez en toute simplicité",
       "description": "Nos chauffeurs professionnels s’assurent de vous offrir un service fiable et sécurisé, adapté à vos besoins. Grâce à notre plateforme de réservation en ligne, planifiez votre trajet vers ou depuis l’aéroport de votre choix en quelques clics. Profitez d’un service de taxi pratique et sans stress.",
