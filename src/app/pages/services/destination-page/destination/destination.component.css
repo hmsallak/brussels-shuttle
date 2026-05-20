@@ -1,0 +1,153 @@
+.dest-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 20px;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  background: #0f172a;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 300ms ease, transform 300ms ease;
+  opacity: 0;
+  transform: translateY(28px);
+  animation: destFadeUp 0.55s ease forwards;
+}
+
+.dest-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  transform: translateY(-4px);
+}
+
+/* Entrance animation stagger via nth-child */
+.dest-card:nth-child(1) { animation-delay: 0ms; }
+.dest-card:nth-child(2) { animation-delay: 80ms; }
+.dest-card:nth-child(3) { animation-delay: 160ms; }
+.dest-card:nth-child(4) { animation-delay: 240ms; }
+.dest-card:nth-child(5) { animation-delay: 320ms; }
+.dest-card:nth-child(6) { animation-delay: 400ms; }
+.dest-card:nth-child(7) { animation-delay: 480ms; }
+
+@keyframes destFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Image */
+.dest-card-img {
+  position: absolute;
+  inset: 0;
+  transition: transform 450ms ease;
+}
+
+.dest-card:hover .dest-card-img {
+  transform: scale(1.06);
+}
+
+.dest-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient overlay */
+.dest-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.2) 40%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+  transition: opacity 300ms ease;
+}
+
+.dest-card:hover .dest-card-overlay {
+  opacity: 1.15;
+}
+
+/* Corps texte */
+.dest-card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px 22px 20px;
+}
+
+.dest-card-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #67e8f9;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.dest-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.4;
+  margin-bottom: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* CTA — apparaît au hover */
+.dest-card-cta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.dest-card:hover .dest-card-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Badge 24/7 */
+.dest-card-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+}
+
+.dest-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ade80;
+  animation: badgePulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes badgePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.3); }
+}

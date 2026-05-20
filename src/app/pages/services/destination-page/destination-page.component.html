@@ -1,45 +1,71 @@
 <link rel="preload" href="assets/images/zaventem.webp" as="image">
 <link rel="preload" href="assets/images/charleroi.webp" as="image">
 <link rel="preload" href="assets/images/lille.webp" as="image">
-<link rel="preload" href="assets/images/orly.webp" as="image">
-<link rel="preload" href="assets/images/cdg.webp" as="image">
-<link rel="preload" href="assets/images/amsterdam.webp" as="image">
+
 <app-layout>
-  <section>
-    <div class="mb-12 pt-4 max-w-xl md:mx-auto lg:max-w-4xl px-8 md:px-0">
-      <app-title [shortTitle]="'destinations.short-title' | translate"
-                 [title]="'destinations.title' | translate"
-                 [description]="'destinations.description' | translate">
-      </app-title>
+
+  <!-- Hero -->
+  <section class="dest-hero">
+    <div class="dest-hero-bg" aria-hidden="true">
+      <img src="assets/images/schuman.webp" alt="">
     </div>
-    <div class="bg-gray-50">
-      <div class="lg:max-w-7xl mx-auto py-20">
-        <div class="grid grid-cols-3 gap-16 mx-3 md:mx-0">
-          @defer {
-            @for(destiation of destinationsItems(); track $index){
-              <div class="col-span-3 md:col-span-1">
-                <app-destination
-                  [name]="destiation['name']"
-                  [cta]="destiation['cta']"
-                  [imageUri]="destiation['imageUri']"
-                  [title]="destiation['title']"
-                  [description]="destiation['description']">
-                </app-destination>
-              </div>
-            }
-          } @loading (minimum 1s) {
-            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
-            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
-            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
-            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
-            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
-            <div class="col-span-3 md:col-span-1 skeleton h-[470px] w-full"></div>
-          }
-        </div>
-      </div>
+    <div class="dest-hero-overlay" aria-hidden="true"></div>
+    <div class="dest-hero-content">
+      <p class="dest-hero-kicker">{{ 'destinations.short-title' | translate }}</p>
+      <h1 class="dest-hero-title">{{ 'destinations.title' | translate }}</h1>
+      <p class="dest-hero-desc">{{ 'destinations.description' | translate }}</p>
+      <a routerLink="/booking/request" class="dest-hero-cta">
+        Obtenir mon prix
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
     </div>
-
-
-
   </section>
+
+  <!-- Bande codes aéroports -->
+  <div class="dest-airports-band">
+    <span>BRU</span>
+    <span class="dest-band-sep">·</span>
+    <span>CRL</span>
+    <span class="dest-band-sep">·</span>
+    <span>LIL</span>
+    <span class="dest-band-sep">·</span>
+    <span>ORY</span>
+    <span class="dest-band-sep">·</span>
+    <span>CDG</span>
+    <span class="dest-band-sep">·</span>
+    <span>AMS</span>
+    <span class="dest-band-sep">·</span>
+    <span>EIN</span>
+  </div>
+
+  <!-- Grille destinations -->
+  <section class="dest-grid-section">
+    <div class="dest-grid">
+      @defer {
+        @for (destination of destinationsItems(); track $index) {
+          <app-destination
+            [name]="destination['name']"
+            [cta]="destination['cta']"
+            [imageUri]="destination['imageUri']"
+            [title]="destination['title']"
+            [description]="destination['description']">
+          </app-destination>
+        }
+      } @loading (minimum 1s) {
+        @for (_ of [1,2,3,4,5,6]; track $index) {
+          <div class="skeleton rounded-2xl" style="aspect-ratio:4/3"></div>
+        }
+      }
+    </div>
+  </section>
+
+  <!-- CTA bas de page -->
+  <section class="dest-bottom-cta">
+    <p>Une destination non listée ? Contactez-nous, nous nous adaptons à votre trajet.</p>
+    <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>
+    <a routerLink="/booking/request">Demander un devis</a>
+  </section>
+
 </app-layout>
