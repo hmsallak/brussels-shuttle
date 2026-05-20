@@ -11,5 +11,7 @@ import {LayoutComponent} from "../../shared/components/layout/layout.component";
   styleUrl: './term-of-use-page.component.css'
 })
 export class TermOfUsePageComponent {
-
+  scrollTo(id: string): void {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
