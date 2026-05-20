@@ -1,121 +1,160 @@
-<section class="card bg-gray-50 shadow-xl pt-2 pb-10">
-  <div class="card-actions justify-end pb-1 px-2 absolute right-0">
-    <button id="clearButton" class="btn btn-sm" (click)="clear()"
-            [disabled]="bookingDetailsFormGroup.untouched">
+<div class="bf-card">
+
+  <!-- Header -->
+  <div class="bf-header">
+    <div class="bf-header-icon" aria-hidden="true">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+      </svg>
+    </div>
+    <div>
+      <p class="bf-header-title">Réservez votre transfert</p>
+      <p class="bf-header-sub">Prix fixe · Confirmation rapide · 24/7</p>
+    </div>
+    <button class="bf-clear-btn" (click)="clear()" [disabled]="bookingDetailsFormGroup.untouched" type="button">
       {{ 'booking-form.clear' | translate }}
     </button>
   </div>
-  <div class="card-body pt-3">
-    <div class="space-y-3">
-      <h2 class="text-lg font-semibold">{{ 'booking-form.departure-question' | translate }}</h2>
-      <tui-input-date
-        id="departureDate"
-        [formControl]="startTimeDateForm"
-        [tuiDropdownOpen]="true"
-        [min]="minDate"
-        [tuiTextfieldCleaner]="true">
-        {{ 'booking-form.choose-date' | translate }}
-      </tui-input-date>
-      <tui-error
-        id="departureDateError"
-        [formControl]="startTimeDateForm"
-        [error]="[] | tuiFieldError | async"/>
 
-      <tui-input-time
-        id="departureTime"
-        [strict]="true"
-        [items]="itemsPeriod"
-        [formControl]="startTimeTimeForm">
-        {{ 'booking-form.departure-time' | translate }}
-      </tui-input-time>
-      <tui-error
-        id="departureTimeError"
-        [formControl]="startTimeTimeForm"
-        [error]="[] | tuiFieldError | async"/>
+  <div class="bf-body">
 
-      <tui-error
-        id="departureDateTimeError"
-        [formGroup]="startDateTimeForm"
-        [error]="[] | tuiFieldError | async"/>
+    <!-- Section : Quand ? -->
+    <div class="bf-section">
+      <p class="bf-section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        {{ 'booking-form.departure-question' | translate }}
+      </p>
+
+      <div class="bf-row-2">
+        <div class="bf-field">
+          <tui-input-date
+            id="departureDate"
+            [formControl]="startTimeDateForm"
+            [min]="minDate"
+            [tuiTextfieldCleaner]="true">
+            {{ 'booking-form.choose-date' | translate }}
+          </tui-input-date>
+          <tui-error [formControl]="startTimeDateForm" [error]="[] | tuiFieldError | async"/>
+        </div>
+        <div class="bf-field">
+          <tui-input-time
+            id="departureTime"
+            [strict]="true"
+            [items]="itemsPeriod"
+            [formControl]="startTimeTimeForm">
+            {{ 'booking-form.departure-time' | translate }}
+          </tui-input-time>
+          <tui-error [formControl]="startTimeTimeForm" [error]="[] | tuiFieldError | async"/>
+        </div>
+      </div>
+      <tui-error [formGroup]="startDateTimeForm" [error]="[] | tuiFieldError | async"/>
 
       <tui-select
         id="tripType"
-        class="w-1/2"
-        tuiTextfieldSize="s"
+        tuiTextfieldSize="m"
         [formControl]="wayForm"
         [valueContent]="'way.'+wayForm.value | translate">
         <input tuiTextfield/>
-        <tui-data-list-wrapper
-          *tuiDataList
-          [items]="wayItems"
-          [itemContent]="wayItemContent">
-        </tui-data-list-wrapper>
+        <tui-data-list-wrapper *tuiDataList [items]="wayItems" [itemContent]="wayItemContent"/>
       </tui-select>
-      <ng-template #wayItemContent let-item>
-        {{ 'way.' + item | translate }}
-      </ng-template>
+      <ng-template #wayItemContent let-item>{{ 'way.' + item | translate }}</ng-template>
+
+      <!-- Aller-retour -->
       <div class="collapse m-0 p-0">
         <input type="radio" [hidden]="true" [checked]="wayForm.value == WayEnum.RETURN"/>
         <div class="collapse-content px-0">
-          <div class="space-y-3">
-            <tui-input-date
-              id="returnDate"
-              [formControl]="returnStartTimeDateForm"
-              [min]="startTimeDateForm.value"
-              [tuiTextfieldCleaner]="true">
-              {{ 'booking-form.choose-return-date' | translate }}
-            </tui-input-date>
-            <tui-error
-              id="returnDateError"
-              [formControl]="returnStartTimeDateForm"
-              [error]="[] | tuiFieldError | async"/>
-
-            <tui-input-time
-              id="returnTime"
-              [strict]="true"
-              [items]="itemsPeriod"
-              [formControl]="returnStartTimeTimeForm">
-              {{ 'booking-form.return-time' | translate }}
-            </tui-input-time>
-            <tui-error
-              id="returnTimeError"
-              [formControl]="returnStartTimeTimeForm"
-              [error]="[] | tuiFieldError | async"/>
-
-            <tui-error
-              id="returnDateTimeError"
-              [formGroup]="returnStartDateTimeForm"
-              [error]="[] | tuiFieldError | async"/>
+          <p class="bf-section-label mt-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"/>
+            </svg>
+            {{ 'booking-form.choose-return-date' | translate }}
+          </p>
+          <div class="bf-row-2 mt-1">
+            <div class="bf-field">
+              <tui-input-date id="returnDate" [formControl]="returnStartTimeDateForm" [min]="startTimeDateForm.value" [tuiTextfieldCleaner]="true">
+                {{ 'booking-form.choose-return-date' | translate }}
+              </tui-input-date>
+              <tui-error [formControl]="returnStartTimeDateForm" [error]="[] | tuiFieldError | async"/>
+            </div>
+            <div class="bf-field">
+              <tui-input-time id="returnTime" [strict]="true" [items]="itemsPeriod" [formControl]="returnStartTimeTimeForm">
+                {{ 'booking-form.return-time' | translate }}
+              </tui-input-time>
+              <tui-error [formControl]="returnStartTimeTimeForm" [error]="[] | tuiFieldError | async"/>
+            </div>
           </div>
+          <tui-error [formGroup]="returnStartDateTimeForm" [error]="[] | tuiFieldError | async"/>
         </div>
       </div>
-
-
-
-
     </div>
 
-    <div class="space-y-1">
-      <h2 class="text-lg font-semibold">{{ 'booking-form.book-a-ride' | translate }}</h2>
-      <app-place-auto-complete id="pickupLocation" label="{{ 'booking-form.pickup-location' | translate }}" icon="tuiIconDiscLarge" [addressForm]="startAddressForm">
+    <div class="bf-divider"></div>
+
+    <!-- Section : Trajet -->
+    <div class="bf-section">
+      <p class="bf-section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        {{ 'booking-form.book-a-ride' | translate }}
+      </p>
+      <app-place-auto-complete
+        id="pickupLocation"
+        label="{{ 'booking-form.pickup-location' | translate }}"
+        icon="tuiIconDiscLarge"
+        [addressForm]="startAddressForm">
       </app-place-auto-complete>
-      <app-place-auto-complete id="destination" label="{{ 'booking-form.destination' | translate }}" icon="tuiIconMapPinLarge" [addressForm]="endAddressForm">
+      <div class="bf-route-line" aria-hidden="true"></div>
+      <app-place-auto-complete
+        id="destination"
+        label="{{ 'booking-form.destination' | translate }}"
+        icon="tuiIconMapPinLarge"
+        [addressForm]="endAddressForm">
       </app-place-auto-complete>
     </div>
 
-    <div class="mt-2">
+    <div class="bf-divider"></div>
+
+    <!-- Section : Passagers -->
+    <div class="bf-section">
+      <p class="bf-section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+        </svg>
+        {{ 'booking-form.passenger-count' | translate }}
+      </p>
       <tui-select
         id="passengerCount"
         [formControl]="passengerCountForm"
         tuiTextfieldIconLeft="tuiIconUserLarge"
         tuiTextfieldSize="m">
-        {{ 'booking-form.passenger-count' | translate }}
+        {{ 'booking-form.select-passenger' | translate }}
         <input tuiTextfield/>
-        <tui-data-list-wrapper
-          *tuiDataList
-          [items]="passengerCountItems">
-        </tui-data-list-wrapper>
+        <tui-data-list-wrapper *tuiDataList [items]="passengerCountItems"/>
       </tui-select>
     </div>
+
+    <!-- CTA -->
+    <a routerLink="/booking/request" class="bf-cta">
+      Obtenir mon prix
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      </svg>
+    </a>
+
+    <p class="bf-footer-note">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+      </svg>
+      Paiement sécurisé · Annulation gratuite 24h avant
+    </p>
   </div>
-</section>
+</div>

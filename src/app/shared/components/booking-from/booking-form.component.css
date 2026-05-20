@@ -1,0 +1,165 @@
+/* ── Card shell ────────────────────────────────── */
+.bf-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 8px 24px rgba(0, 0, 0, 0.1),
+    0 32px 64px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* ── Header ────────────────────────────────────── */
+.bf-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px 16px;
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+}
+
+.bf-header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.bf-header-title {
+  font-size: 0.97rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.bf-header-sub {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 500;
+  margin-top: 2px;
+  letter-spacing: 0.02em;
+}
+
+.bf-clear-btn {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 150ms ease;
+  flex-shrink: 0;
+}
+
+.bf-clear-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.bf-clear-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── Body ──────────────────────────────────────── */
+.bf-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── Sections ──────────────────────────────────── */
+.bf-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.bf-section-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.bf-divider {
+  height: 1px;
+  background: #f1f5f9;
+  margin: 14px 0;
+}
+
+/* ── 2 colonnes pour date/heure ────────────────── */
+.bf-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.bf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ── Ligne de route entre départ et arrivée ─────── */
+.bf-route-line {
+  width: 2px;
+  height: 14px;
+  background: linear-gradient(to bottom, #0891b2, #e2e8f0);
+  margin-left: 14px;
+  border-radius: 1px;
+}
+
+/* ── CTA button ────────────────────────────────── */
+.bf-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 4px 16px rgba(8, 145, 178, 0.35);
+  text-decoration: none;
+}
+
+.bf-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.45);
+}
+
+.bf-cta:active {
+  transform: translateY(0);
+}
+
+/* ── Footer note ───────────────────────────────── */
+.bf-footer-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+  font-size: 0.7rem;
+  color: #94a3b8;
+  font-weight: 500;
+}

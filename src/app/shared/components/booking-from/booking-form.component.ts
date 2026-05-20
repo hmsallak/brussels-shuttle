@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, computed, effect, inject, input, model, output} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {RouterLink} from "@angular/router";
 
 import {dateMinValidator, timeMinDifferenceValidator, timeValidator} from "../../services/custom-validator";
 import {BookingDetails} from "../../../core/models/booking-details";
@@ -43,7 +44,8 @@ import {QuoteRequest} from "../../../core/models/api/request/quote-request";
     AsyncPipe,
     TuiInputTimeModule,
     TuiInputDateModule,
-    TuiDropdownModule
+    TuiDropdownModule,
+    RouterLink
   ],
   templateUrl: './booking-form.component.html',
   styleUrl: './booking-form.component.css',
