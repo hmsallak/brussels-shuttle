@@ -224,14 +224,55 @@
 
   .faq-hero-copy {
     padding: 32px 24px;
-    min-height: 360px;
+    min-height: 320px;
+  }
+
+  .faq-hero-copy h1 {
+    font-size: 2.25rem;
+    line-height: 1.02;
+  }
+
+  .faq-hero-copy span {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .faq-hero-card {
+    padding: 22px;
   }
 
   .faq-trust {
     grid-template-columns: 1fr;
   }
 
+  .faq-trust article {
+    padding: 18px;
+  }
+
+  .faq-content {
+    margin-top: 46px;
+    gap: 24px;
+  }
+
+  .faq-sidebar {
+    padding: 24px;
+  }
+
+  .faq-sidebar h2 {
+    font-size: 1.65rem;
+  }
+
+  .faq-item .collapse-title {
+    font-size: 0.98rem;
+    padding-right: 42px;
+  }
+
   .faq-contact {
     padding: 56px 16px;
+  }
+
+  .faq-contact h2 {
+    font-size: 2rem;
+    line-height: 1.08;
   }
 }

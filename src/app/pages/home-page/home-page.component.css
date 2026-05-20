@@ -689,8 +689,33 @@
     padding: 16px;
   }
 
+  .marketing-proof-band span {
+    width: 100%;
+    text-align: center;
+  }
+
   .impact-shell {
     padding: 70px 0;
+  }
+
+  .impact-copy h2,
+  .choice-copy h2 {
+    font-size: 2rem;
+    line-height: 1.08;
+  }
+
+  .impact-description,
+  .choice-copy span {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .impact-copy a,
+  .choice-copy a,
+  .story-step-cta a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
   }
 
   .impact-media {
@@ -721,6 +746,20 @@
     padding: 64px 0 70px;
   }
 
+  .story-intro h2 {
+    font-size: 2.05rem;
+    line-height: 1.08;
+  }
+
+  .story-intro p:last-child {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  .story-grid {
+    margin-top: 40px;
+  }
+
   .story-map-card img {
     height: 330px;
   }
@@ -732,20 +771,38 @@
   }
 
   .story-steps {
-    padding-left: 26px;
-    padding-bottom: 80px;
+    padding-left: 0;
+    padding-bottom: 0;
+  }
+
+  .story-steps::before,
+  .story-step::before {
+    display: none;
   }
 
   .story-step,
   .story-step:nth-child(2),
   .story-step:nth-child(3),
   .story-step:nth-child(4) {
-    top: 72px;
-    min-height: 240px;
-    padding: 24px;
+    position: relative;
+    top: auto;
+    min-height: auto;
+    margin-bottom: 14px;
+    padding: 22px;
   }
 
-  .story-step::before {
-    left: -34px;
+  .story-step h3 {
+    font-size: 1.45rem;
+    line-height: 1.12;
+  }
+
+  .story-step p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .choice-shell {
+    padding: 64px 0;
+    gap: 32px;
   }
 }

@@ -166,20 +166,47 @@
 
 @media (max-width: 640px) {
   .footer-cta,
-  .footer-main,
-  .footer-bottom {
+  .footer-main {
     grid-template-columns: 1fr;
   }
 
   .footer-cta {
     padding: 42px 0;
+    gap: 20px;
+  }
+
+  .footer-cta h2 {
+    font-size: 2rem;
+    line-height: 1.08;
+  }
+
+  .footer-cta a {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
   }
 
   .footer-main {
+    padding: 42px 0;
     gap: 28px;
+  }
+
+  .footer-brand p,
+  .footer-contact p {
+    max-width: 100%;
+  }
+
+  .footer-main nav,
+  .footer-contact {
+    gap: 8px;
   }
 
   .footer-bottom {
     flex-direction: column;
+  }
+
+  .footer-bottom div {
+    flex-direction: column;
+    gap: 8px;
   }
 }
