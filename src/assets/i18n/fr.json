@@ -239,11 +239,34 @@
   },
   "home-page": {
     "landing": {
-      "title1": "Votre service <br> de taxi",
-      "title2": "Disponible 24h/7j",
-      "description": "Optez pour nos navettes où que vous soyez. <br> Réservez dès maintenant votre transfert vers et depuis Brussels Airport (BRU).",
-      "cta": "Réservez Maintenant",
-      "cta2": "En savoir plus"
+      "title1": "Transfert aeroport <br> prive a Bruxelles",
+      "title2": "Prix clair, chauffeur ponctuel",
+      "description": "Reserve en 2 minutes ton trajet vers Zaventem, Charleroi, Paris ou Amsterdam. <br> Vehicule adapte, confirmation rapide, service disponible jour et nuit.",
+      "cta": "Obtenir mon prix",
+      "cta2": "Voir comment ca marche",
+      "trust": {
+        "price": {
+          "title": "Prix avant reservation",
+          "description": "Aucune surprise au moment de confirmer"
+        },
+        "time": {
+          "title": "Disponible 24/7",
+          "description": "Tot le matin, tard le soir, week-end inclus"
+        },
+        "pay": {
+          "title": "Paiement flexible",
+          "description": "Carte en ligne ou especes au chauffeur"
+        }
+      }
+    },
+    "marketing": {
+      "kicker": "Pourquoi reserver ici",
+      "items": {
+        "airports": "Zaventem, Charleroi, CDG, Orly, Schiphol",
+        "booking": "Reservation rapide en ligne",
+        "support": "Support disponible si le planning change",
+        "vehicles": "Eco, Business, Van et Mini Bus"
+      }
     },
     "features": {
       "title": "Réserver votre transfert au meilleur prix",
