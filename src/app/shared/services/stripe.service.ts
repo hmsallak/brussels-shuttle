@@ -14,7 +14,7 @@ export class StripeService{
   startPaymentCheckout(sessionToken: string) {
     return this.stripeGateway.createCheckoutSession(sessionToken).pipe(
       map(checkoutSession => {
-        this.stripeService.redirectToCheckout({ sessionId: checkoutSession.sessionId }).subscribe( value => {
+        this.stripeService.redirectToCheckout({ sessionId: checkoutSession.sessionId }).subscribe(() => {
         });
       }),
       catchError(error => {
