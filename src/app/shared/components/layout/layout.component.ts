@@ -3,6 +3,7 @@ import {NavigationComponent} from "../navigation/navigation.component";
 import {FooterComponent} from "../footer/footer.component";
 import {NgClass} from "@angular/common";
 import {WhatsappButtonComponent} from "../whatsapp-button/whatsapp-button.component";
+import {CookieBannerComponent} from "../cookie-banner/cookie-banner.component";
 
 @Component({
   selector: 'app-layout',
@@ -11,13 +12,12 @@ import {WhatsappButtonComponent} from "../whatsapp-button/whatsapp-button.compon
     NavigationComponent,
     FooterComponent,
     NgClass,
-    WhatsappButtonComponent
+    WhatsappButtonComponent,
+    CookieBannerComponent
   ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
-
   absoluteHeader= input(false)
-
 }

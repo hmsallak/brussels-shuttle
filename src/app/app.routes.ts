@@ -8,6 +8,7 @@ import {TermOfUsePageComponent} from "./pages/term-of-use-page/term-of-use-page.
 import {FaqPageComponent} from "./pages/faq-page/faq-page.component";
 import {DestinationPageComponent} from "./pages/services/destination-page/destination-page.component";
 import {NotFoundPageComponent} from "./pages/not-found-page/not-found-page.component";
+import {PrivacyPolicyPageComponent} from "./pages/privacy-policy-page/privacy-policy-page.component";
 
 export const routes: Routes = [
   {
@@ -49,6 +50,11 @@ export const routes: Routes = [
     path: 'faq',
     component: FaqPageComponent,
     title: 'FAQ — Brussels Shuttle'
+  },
+  {
+    path: 'privacy-policy',
+    component: PrivacyPolicyPageComponent,
+    title: 'Politique de confidentialité — Brussels Shuttle'
   },
   {
     path: '**',
