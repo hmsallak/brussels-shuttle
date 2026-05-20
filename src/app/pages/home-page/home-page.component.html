@@ -152,34 +152,85 @@
    </section>
 
 
-   <section class="bg-gray-50">
-     <div class="flex flex-col lg:flex-row lg:items-stretch lg:max-h-[7500px] lg:min-h-[750px]">
-       <div class="flex items-center justify-center w-full lg:order-1 lg:w-7/12">
-         <div class="h-full px-4 pt-24 pb-16 sm:px-6 lg:px-24 2xl:px-32 2xl:ml-56 lg:pb-14">
-           <div class="flex flex-col justify-start flex-1 h-full">
-             <div>
-               <h1 class="text-4xl font-bold text-gray-900">
-                 {{ 'home-page.steps.title' | translate }}
-               </h1>
-               <p class="mt-6 text-base font-normal leading-7 text-gray-600 ">
-                 {{ 'home-page.steps.description' | translate }}
-               </p>
-               <a routerLink="booking/request" class="flex flex-row items-center justify-start gap-2 text-base font-semibold text-cyan-500 lg:justify-start hover:text-cyan-700 mt-10">
-                 {{ 'home-page.steps.cta' | translate }}
-                 <svg width="22px" height="22px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   <path d="M9.00378 5.99561L15.004 11.9959L9.00024 17.9996" stroke="#1195a6" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" class="my-path"></path>
-                 </svg>
-               </a>
-             </div>
-             <app-reservation-approach></app-reservation-approach>
-           </div>
+   <section class="impact-section">
+     <div class="impact-shell">
+       <div class="impact-media">
+         <div class="impact-image impact-image-main">
+           <img src="assets/images/charleroi.webp" alt="Charleroi Airport" />
+           <span>{{ 'home-page.impact.media.primary' | translate }}</span>
+         </div>
+         <div class="impact-image impact-image-small">
+           <img src="assets/images/cdg.webp" alt="Charles de Gaulle Airport" />
+           <span>{{ 'home-page.impact.media.secondary' | translate }}</span>
+         </div>
+         <div class="impact-board">
+           <p>{{ 'home-page.impact.board.title' | translate }}</p>
+           <strong>{{ 'home-page.impact.board.route' | translate }}</strong>
+           <small>{{ 'home-page.impact.board.detail' | translate }}</small>
          </div>
        </div>
 
-       <div class="relative w-full overflow-hidden lg:w-4/12 lg:order-2">
-         <div class="lg:absolute lg:bottom-0 lg:right-0">
-           <img class="w-[37rem]" src="assets/images/mockup-phone.png" alt="" />
+       <div class="impact-copy">
+         <p class="impact-kicker">{{ 'home-page.impact.kicker' | translate }}</p>
+         <h2>{{ 'home-page.impact.title' | translate }}</h2>
+         <p class="impact-description">{{ 'home-page.impact.description' | translate }}</p>
+
+         <div class="impact-stats">
+           <div>
+             <strong>2 min</strong>
+             <span>{{ 'home-page.impact.stats.booking' | translate }}</span>
+           </div>
+           <div>
+             <strong>24/7</strong>
+             <span>{{ 'home-page.impact.stats.service' | translate }}</span>
+           </div>
+           <div>
+             <strong>7+</strong>
+             <span>{{ 'home-page.impact.stats.airports' | translate }}</span>
+           </div>
          </div>
+
+         <div class="impact-points">
+           <span>{{ 'home-page.impact.points.clear' | translate }}</span>
+           <span>{{ 'home-page.impact.points.luggage' | translate }}</span>
+           <span>{{ 'home-page.impact.points.support' | translate }}</span>
+         </div>
+
+         <a routerLink="booking/request">{{ 'home-page.impact.cta' | translate }}</a>
+       </div>
+     </div>
+   </section>
+
+
+   <section class="choice-section">
+     <div class="choice-shell">
+       <div class="choice-copy">
+         <p>{{ 'home-page.choice.kicker' | translate }}</p>
+         <h2>{{ 'home-page.choice.title' | translate }}</h2>
+         <span>{{ 'home-page.choice.description' | translate }}</span>
+         <a routerLink="booking/request">{{ 'home-page.choice.cta' | translate }}</a>
+       </div>
+
+       <div class="choice-cards">
+         <article>
+           <strong>01</strong>
+           <h3>{{ 'home-page.choice.items.clarity.title' | translate }}</h3>
+           <p>{{ 'home-page.choice.items.clarity.description' | translate }}</p>
+         </article>
+         <article>
+           <strong>02</strong>
+           <h3>{{ 'home-page.choice.items.coverage.title' | translate }}</h3>
+           <p>{{ 'home-page.choice.items.coverage.description' | translate }}</p>
+         </article>
+         <article>
+           <strong>03</strong>
+           <h3>{{ 'home-page.choice.items.comfort.title' | translate }}</h3>
+           <p>{{ 'home-page.choice.items.comfort.description' | translate }}</p>
+         </article>
+       </div>
+
+       <div class="choice-phone" aria-hidden="true">
+         <img src="assets/images/mockup-phone.png" alt="" />
        </div>
      </div>
    </section>

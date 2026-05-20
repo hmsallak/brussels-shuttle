@@ -318,6 +318,51 @@
         }
       }
     },
+    "impact": {
+      "kicker": "L'experience Brussels Shuttle",
+      "title": "Une arrivee maitrisee, meme quand le voyage commence tot ou finit tard.",
+      "description": "La home doit vendre une sensation simple : vous reserve, on organise, vous arrivez tranquille. Cette section montre tout de suite la couverture, la disponibilite et le cote premium du service.",
+      "cta": "Obtenir mon prix",
+      "media": {
+        "primary": "Charleroi, Zaventem et plus",
+        "secondary": "Paris CDG / Orly"
+      },
+      "board": {
+        "title": "Trajet populaire",
+        "route": "Bruxelles -> Airport",
+        "detail": "Chauffeur prive, vehicule adapte, depart confirme"
+      },
+      "stats": {
+        "booking": "pour reserver",
+        "service": "service disponible",
+        "airports": "aeroports couverts"
+      },
+      "points": {
+        "clear": "Prix clair",
+        "luggage": "Bagages pris en compte",
+        "support": "Support si changement"
+      }
+    },
+    "choice": {
+      "kicker": "Ce qui fait la difference",
+      "title": "Un transfert prive pense pour les voyageurs qui veulent arriver l'esprit tranquille.",
+      "description": "La reservation n'est qu'une etape. Ce qui compte vraiment, c'est le calme avant le depart, la clarte du prix et un chauffeur fiable au bon moment.",
+      "cta": "Verifier mon trajet",
+      "items": {
+        "clarity": {
+          "title": "Un prix lisible avant de confirmer",
+          "description": "Vous voyez le montant avant de reserver, avec le vehicule adapte a votre groupe et vos bagages."
+        },
+        "coverage": {
+          "title": "Des aeroports belges et europeens",
+          "description": "Zaventem, Charleroi, Lille, Orly, CDG, Schiphol ou Eindhoven : vous gardez un seul contact."
+        },
+        "comfort": {
+          "title": "Un service qui s'adapte au voyage",
+          "description": "Vol matinal, retour tardif, famille, business ou groupe : le trajet reste simple et organise."
+        }
+      }
+    },
     "steps": {
       "title": "Réservez en toute simplicité",
       "description": "Nos chauffeurs professionnels s’assurent de vous offrir un service fiable et sécurisé, adapté à vos besoins. Grâce à notre plateforme de réservation en ligne, planifiez votre trajet vers ou depuis l’aéroport de votre choix en quelques clics. Profitez d’un service de taxi pratique et sans stress.",

@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {ReservationApproachComponent} from "./reservation-approach/reservation-approach.component";
 import {TitleComponent} from "../../shared/components/title/title.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
@@ -20,7 +19,6 @@ import {startWith, switchMap} from "rxjs";
   selector: 'app-home-page',
   standalone: true,
   imports: [
-    ReservationApproachComponent,
     TitleComponent,
     BookingFormComponent,
     LayoutComponent,
