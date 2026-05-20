@@ -149,7 +149,28 @@
   "footer": {
     "legal": "Légale",
     "aboutus": "À propos de nous",
-    "services": "Nos services"
+    "services": "Nos services",
+    "destinations": "Destinations",
+    "description": "Transferts aeroport prives depuis Bruxelles vers les principaux aeroports belges et europeens.",
+    "copyright": "© Brussels Shuttle. Tous droits reserves.",
+    "cta": {
+      "kicker": "Pret a partir ?",
+      "title": "Reserve ton transfert aeroport avec un prix clair et un chauffeur ponctuel.",
+      "description": "Zaventem, Charleroi, Paris, Schiphol ou Eindhoven : indique ton trajet et obtiens ton estimation.",
+      "button": "Obtenir mon prix"
+    },
+    "badges": {
+      "availability": "Disponible 24/7",
+      "price": "Prix avant reservation",
+      "payment": "Carte ou especes"
+    },
+    "links": {
+      "quote": "Demander un prix"
+    },
+    "contact": {
+      "title": "Contact direct",
+      "description": "Une question urgente ou un changement de planning ? Contactez-nous avant votre depart."
+    }
   },
   "destination-page": {
     "title": "Découvrez nos différentes destinations",

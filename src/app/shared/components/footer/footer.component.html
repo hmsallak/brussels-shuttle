@@ -1,20 +1,61 @@
-<footer class="footer p-10 bg-gray-900 text-white">
-  <aside>
-    <img src="assets/images/bs_logo_only.png" class="w-24">
-    <p>Brussels Shuttle</p>
-  </aside>
-  <nav>
-    <h6 class="footer-title">{{ 'footer.services'| translate }}</h6>
-    <a class="link link-hover" routerLink="/booking/request">{{ 'navigation.booking'| translate }}</a>
-    <a class="link link-hover" routerLink="/services/destinations">{{ 'navigation.destinations'| translate }}</a>
-  </nav>
-  <nav>
-    <h6 class="footer-title">{{ 'footer.aboutus'| translate }}</h6>
-    <a class="link link-hover" routerLink="/faq">{{ 'navigation.faq'| translate }}</a>
-    <a class="link link-hover" routerLink="/contact">{{ 'navigation.contact'| translate }}</a>
-  </nav>
-  <nav>
-    <h6 class="footer-title">{{ 'footer.legal'| translate }}</h6>
-    <a class="link link-hover" routerLink="/term-of-use">{{ 'navigation.conditions'| translate }}</a>
-  </nav>
+<footer class="site-footer">
+  <section class="footer-cta">
+    <div>
+      <p>{{ 'footer.cta.kicker' | translate }}</p>
+      <h2>{{ 'footer.cta.title' | translate }}</h2>
+      <span>{{ 'footer.cta.description' | translate }}</span>
+    </div>
+    <a routerLink="/booking/request">{{ 'footer.cta.button' | translate }}</a>
+  </section>
+
+  <section class="footer-main">
+    <div class="footer-brand">
+      <img src="assets/images/bs_logo_only.png" alt="Brussels Shuttle logo">
+      <h3>Brussels Shuttle</h3>
+      <p>{{ 'footer.description' | translate }}</p>
+
+      <div class="footer-badges">
+        <span>{{ 'footer.badges.availability' | translate }}</span>
+        <span>{{ 'footer.badges.price' | translate }}</span>
+        <span>{{ 'footer.badges.payment' | translate }}</span>
+      </div>
+    </div>
+
+    <nav>
+      <h6>{{ 'footer.services'| translate }}</h6>
+      <a routerLink="/booking/request">{{ 'navigation.booking'| translate }}</a>
+      <a routerLink="/services/destinations">{{ 'navigation.destinations'| translate }}</a>
+      <a routerLink="/booking/request">{{ 'footer.links.quote' | translate }}</a>
+    </nav>
+
+    <nav>
+      <h6>{{ 'footer.destinations'| translate }}</h6>
+      <a routerLink="/services/destinations">Zaventem</a>
+      <a routerLink="/services/destinations">Charleroi</a>
+      <a routerLink="/services/destinations">Paris CDG / Orly</a>
+      <a routerLink="/services/destinations">Schiphol</a>
+    </nav>
+
+    <nav>
+      <h6>{{ 'footer.aboutus'| translate }}</h6>
+      <a routerLink="/faq">{{ 'navigation.faq'| translate }}</a>
+      <a routerLink="/contact">{{ 'navigation.contact'| translate }}</a>
+      <a routerLink="/term-of-use">{{ 'navigation.conditions'| translate }}</a>
+    </nav>
+
+    <div class="footer-contact">
+      <h6>{{ 'footer.contact.title' | translate }}</h6>
+      <a href="tel:+32471010113">+32 471 010 113</a>
+      <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>
+      <p>{{ 'footer.contact.description' | translate }}</p>
+    </div>
+  </section>
+
+  <section class="footer-bottom">
+    <span>{{ 'footer.copyright' | translate }}</span>
+    <div>
+      <a routerLink="/term-of-use">{{ 'navigation.conditions'| translate }}</a>
+      <a routerLink="/contact">{{ 'navigation.contact'| translate }}</a>
+    </div>
+  </section>
 </footer>
