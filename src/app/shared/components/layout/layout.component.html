@@ -1,4 +1,4 @@
-<header class="relative z-[80]" [ngClass]="{'absolute z-[80] w-full':absoluteHeader()}">
+<header [ngClass]="absoluteHeader() ? 'absolute top-0 left-0 z-[80] w-full' : 'relative z-[80] bg-white'">
   <app-navigation [absolute]="absoluteHeader()"></app-navigation>
 </header>
 <main class="min-h-screen bg-white">
