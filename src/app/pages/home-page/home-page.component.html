@@ -233,7 +233,7 @@
       </div>
       <div class="home-fleet-grid">
         @for(vehicle of vehicleModels(); track vehicle.id) {
-          <article data-reveal [attr.data-delay]="$index * 80">
+          <article>
             <div class="home-fleet-media">
               <img [src]="vehicle.imageUrl" [alt]="vehicle.name">
             </div>
@@ -242,22 +242,54 @@
             <p>{{ 'vehicle-model.' + (vehicle.name | lowercase) + '.description' | translate }}</p>
           </article>
         } @empty {
-          <article data-reveal data-delay="0">
+          <article>
+            <div class="home-fleet-media home-fleet-media-fallback" aria-hidden="true">
+              <svg viewBox="0 0 240 110" role="img">
+                <path d="M42 64L64 35h83c14 0 25 7 33 18l8 11h12c8 0 15 7 15 15v6H25v-6c0-8 7-15 15-15h2Z"/>
+                <path d="M76 42h34v22H59l17-22Zm43 0h27c9 0 18 5 24 13l6 9h-57V42Z"/>
+                <circle cx="69" cy="86" r="15"/>
+                <circle cx="177" cy="86" r="15"/>
+              </svg>
+            </div>
             <span>Eco</span>
             <h3>1-3 passagers</h3>
             <p>Pour un trajet simple, confortable et efficace.</p>
           </article>
-          <article data-reveal data-delay="80">
+          <article>
+            <div class="home-fleet-media home-fleet-media-fallback" aria-hidden="true">
+              <svg viewBox="0 0 240 110" role="img">
+                <path d="M38 66L66 32h90c15 0 28 9 38 25l6 9h5c8 0 15 7 15 15v6H20v-6c0-8 7-15 15-15h3Z"/>
+                <path d="M78 40h36v25H59l19-25Zm47 0h30c10 0 20 6 27 17l5 8h-62V40Z"/>
+                <circle cx="70" cy="88" r="14"/>
+                <circle cx="180" cy="88" r="14"/>
+              </svg>
+            </div>
             <span>Business</span>
             <h3>1-3 passagers</h3>
             <p>Pour les rendez-vous, vols professionnels et arrivées discrètes.</p>
           </article>
-          <article data-reveal data-delay="160">
+          <article>
+            <div class="home-fleet-media home-fleet-media-fallback" aria-hidden="true">
+              <svg viewBox="0 0 240 110" role="img">
+                <path d="M30 34h129c17 0 30 10 38 27l4 8h9c7 0 13 6 13 13v7H17V49c0-8 6-15 13-15Z"/>
+                <path d="M46 44h39v25H46V44Zm51 0h39v25H97V44Zm51 1h14c9 0 18 7 24 19l2 5h-40V45Z"/>
+                <circle cx="66" cy="90" r="14"/>
+                <circle cx="181" cy="90" r="14"/>
+              </svg>
+            </div>
             <span>Van</span>
             <h3>1-6 passagers</h3>
             <p>Plus d'espace pour familles, groupes et bagages.</p>
           </article>
-          <article data-reveal data-delay="240">
+          <article>
+            <div class="home-fleet-media home-fleet-media-fallback" aria-hidden="true">
+              <svg viewBox="0 0 240 110" role="img">
+                <path d="M24 31h151c18 0 31 12 37 31l3 9h4c6 0 11 5 11 11v8H14V43c0-7 4-12 10-12Z"/>
+                <path d="M39 42h30v27H39V42Zm41 0h30v27H80V42Zm41 0h30v27h-30V42Zm41 1h12c9 0 17 8 21 21l2 5h-35V43Z"/>
+                <circle cx="63" cy="91" r="14"/>
+                <circle cx="184" cy="91" r="14"/>
+              </svg>
+            </div>
             <span>Mini Bus</span>
             <h3>1-8 passagers</h3>
             <p>Pour les groupes qui veulent rester ensemble jusqu'au terminal.</p>
