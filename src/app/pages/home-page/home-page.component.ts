@@ -11,7 +11,8 @@ import {LowerCasePipe, NgOptimizedImage} from "@angular/common";
 import {scrollToSection} from "../../shared/utils/element.utils";
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {toSignal} from "@angular/core/rxjs-interop";
-import {startWith, switchMap} from "rxjs";
+import {catchError, of, startWith, switchMap} from "rxjs";
+import {VehicleModelGateway} from "../../core/ports/vehicle-model.gateway";
 
 @Component({
   selector: 'app-home-page',
@@ -37,6 +38,7 @@ import {startWith, switchMap} from "rxjs";
 })
 export class HomePageComponent implements AfterViewInit {
   private translateService = inject(TranslateService);
+  private vehicleModelGateway = inject(VehicleModelGateway);
 
   destinationsItems = toSignal(
     this.translateService.onLangChange.pipe(
@@ -44,6 +46,14 @@ export class HomePageComponent implements AfterViewInit {
       switchMap(() =>this.translateService.get('home-page.destinations.items'))
     )
   );
+
+  vehicleModels = toSignal(
+    this.vehicleModelGateway.getAllVehicleModels().pipe(
+      catchError(() => of([]))
+    ),
+    { initialValue: [] }
+  );
+
   protected readonly scrollToSection = scrollToSection;
 
   ngAfterViewInit() {
