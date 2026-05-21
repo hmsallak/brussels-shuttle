@@ -1,9 +1,6 @@
- <app-layout [absoluteHeader]="true">
+<app-layout [absoluteHeader]="true">
 
-  <!-- ── Hero ──────────────────────────────────── -->
   <section class="hero-section">
-
-    <!-- Fond avec parallax -->
     <div class="hero-bg" aria-hidden="true">
       <picture>
         <source srcset="assets/images/brussels-shuttle-bg-phone.webp" media="(max-width: 768px)" type="image/webp"/>
@@ -13,13 +10,11 @@
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
 
-    <!-- Vague blanche en bas -->
     <svg class="hero-wave" viewBox="80 0 760 155" aria-hidden="true">
       <path fill="white" d="M-164 13L-104 39.7C-44 66 76 120 196 141C316 162 436 152 556 119.7C676 88 796 34 916 13C1036 -8 1156 2 1216 7.7L1276 13V162.5H1216C1156 162.5 1036 162.5 916 162.5C796 162.5 676 162.5 556 162.5C436 162.5 316 162.5 196 162.5C76 162.5 -44 162.5 -104 162.5H-164V13Z"/>
     </svg>
 
     <div class="hero-shell">
-      <!-- Texte -->
       <div class="hero-copy">
         <h1>
           <span class="hero-title1" [innerHTML]="'home-page.landing.title1' | translate"></span>
@@ -27,7 +22,6 @@
         </h1>
         <p class="hero-desc" [innerHTML]="'home-page.landing.description' | translate"></p>
 
-        <!-- Preuve sociale -->
         <div class="hero-proof">
           <div>
             <span class="hero-stars">★★★★★</span>
@@ -69,14 +63,12 @@
         </div>
       </div>
 
-      <!-- Carte de réservation -->
       <div class="hero-card">
         <app-booking-from></app-booking-from>
       </div>
     </div>
   </section>
 
-  <!-- ── Stats blanches ────────────────────────── -->
   <section class="home-stats-section">
     <div class="home-stats-shell">
       <div class="home-stat" data-reveal data-delay="0">
@@ -101,7 +93,79 @@
     </div>
   </section>
 
-  <!-- ── Comment ça marche ─────────────────────── -->
+  <section class="home-motion-strip" aria-label="Brussels Shuttle highlights">
+    <div class="home-motion-track">
+      @for(letter of ['P','R','I','X',' ','F','I','X','E',' ','·',' ','C','H','A','U','F','F','E','U','R',' ','P','R','I','V','É',' ','·',' ','2','4','/','7',' ','·',' ','A','É','R','O','P','O','R','T','S']; track $index) {
+        <span [style.--i]="$index">{{ letter }}</span>
+      }
+    </div>
+  </section>
+
+  <section class="home-dest-section">
+    <div class="home-dest-header" data-reveal>
+      <p class="home-dest-kicker">Destinations fréquentes</p>
+      <h2>{{ 'home-page.destinations.title' | translate }}</h2>
+    </div>
+
+    <div class="home-dest-grid">
+      @for(destination of destinationsItems(); track $index){
+        <div data-reveal [attr.data-delay]="$index * 80">
+          <app-destination
+            [name]="destination['name']"
+            [cta]="destination['cta']"
+            [imageUri]="destination['imageUri']"
+            [title]="destination['title']"
+            [description]="destination['description']"
+            [priority]="$index < 3">
+          </app-destination>
+        </div>
+      }
+    </div>
+
+    <div class="home-dest-more" data-reveal>
+      <a routerLink="/services/destinations">
+        {{ 'home-page.destinations.cta' | translate }}
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <section class="home-benefits-section">
+    <div class="home-benefits-shell">
+      <div class="home-benefits-copy" data-reveal>
+        <p>Pourquoi choisir Brussels Shuttle</p>
+        <h2>Un transfert privé pensé pour arriver l'esprit tranquille.</h2>
+        <span>Avant de raconter le trajet, la page doit rassurer vite : prix lisible, prise en charge fiable, véhicule adapté et support disponible si le planning change.</span>
+        <a routerLink="/booking/request">Vérifier mon trajet</a>
+      </div>
+
+      <div class="home-benefits-grid">
+        <article data-reveal data-delay="0">
+          <strong>01</strong>
+          <h3>Prix connu avant de confirmer</h3>
+          <p>Le montant est clair avant la réservation, avec le véhicule adapté à votre groupe.</p>
+        </article>
+        <article data-reveal data-delay="90">
+          <strong>02</strong>
+          <h3>Chauffeur ponctuel</h3>
+          <p>Prise en charge organisée, conduite calme et arrivée sans course de dernière minute.</p>
+        </article>
+        <article data-reveal data-delay="180">
+          <strong>03</strong>
+          <h3>Bagages pris en compte</h3>
+          <p>Berline, business, van ou minibus selon le nombre de passagers et de valises.</p>
+        </article>
+        <article data-reveal data-delay="270">
+          <strong>04</strong>
+          <h3>Support si le planning change</h3>
+          <p>Un vol retardé, une heure modifiée ou une question urgente : vous gardez un contact direct.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="story-scroll overflow-hidden" id="detailsSection">
     <div class="story-shell">
       <div class="story-intro" data-reveal>
@@ -161,7 +225,37 @@
     </div>
   </section>
 
-  <!-- ── Aéroports / impact ────────────────────── -->
+  <section class="home-fleet-section">
+    <div class="home-fleet-shell">
+      <div class="home-fleet-header" data-reveal>
+        <p>Véhicules</p>
+        <h2>Une solution pour chaque trajet.</h2>
+      </div>
+      <div class="home-fleet-grid">
+        <article data-reveal data-delay="0">
+          <span>Eco</span>
+          <h3>1-3 passagers</h3>
+          <p>Pour un trajet simple, confortable et efficace.</p>
+        </article>
+        <article data-reveal data-delay="80">
+          <span>Business</span>
+          <h3>1-3 passagers</h3>
+          <p>Pour les rendez-vous, vols professionnels et arrivées discrètes.</p>
+        </article>
+        <article data-reveal data-delay="160">
+          <span>Van</span>
+          <h3>1-6 passagers</h3>
+          <p>Plus d'espace pour familles, groupes et bagages.</p>
+        </article>
+        <article data-reveal data-delay="240">
+          <span>Mini Bus</span>
+          <h3>1-8 passagers</h3>
+          <p>Pour les groupes qui veulent rester ensemble jusqu'au terminal.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <section class="impact-section">
     <div class="impact-shell">
       <div class="impact-media" data-reveal="left">
@@ -210,40 +304,44 @@
     </div>
   </section>
 
-  <!-- ── Destinations ──────────────────────────── -->
-  <section class="home-dest-section">
-    <div class="home-dest-header" data-reveal>
-      <p class="home-dest-kicker">Nos destinations</p>
-      <h2>{{ 'home-page.destinations.title' | translate }}</h2>
-    </div>
-
-    <div class="home-dest-grid">
-      @for(destination of destinationsItems(); track $index){
-        <div data-reveal [attr.data-delay]="$index * 80">
-          <app-destination
-            [name]="destination['name']"
-            [cta]="destination['cta']"
-            [imageUri]="destination['imageUri']"
-            [title]="destination['title']"
-            [description]="destination['description']">
-          </app-destination>
-        </div>
-      }
-    </div>
-
-    <div class="home-dest-more" data-reveal>
-      <a routerLink="/services/destinations">
-        {{ 'home-page.destinations.cta' | translate }}
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-        </svg>
-      </a>
-    </div>
-  </section>
-
-  <!-- ── Témoignages ───────────────────────────── -->
   <section class="relative" data-reveal>
     <app-testimonial></app-testimonial>
   </section>
 
- </app-layout>
+  <section class="home-faq-section">
+    <div class="home-faq-shell">
+      <div class="home-faq-header" data-reveal>
+        <p>Questions rapides</p>
+        <h2>Les réponses qui rassurent avant de réserver.</h2>
+      </div>
+      <div class="home-faq-grid">
+        <article data-reveal data-delay="0">
+          <h3>Que se passe-t-il si mon vol est retardé ?</h3>
+          <p>Nous suivons les horaires de vol et adaptons la prise en charge lorsque l'information est disponible.</p>
+        </article>
+        <article data-reveal data-delay="80">
+          <h3>Puis-je payer en ligne ou au chauffeur ?</h3>
+          <p>Oui, vous pouvez choisir le paiement par carte ou en espèces selon les options disponibles.</p>
+        </article>
+        <article data-reveal data-delay="160">
+          <h3>Quel véhicule choisir avec des bagages ?</h3>
+          <p>Le formulaire vous aide à choisir selon les passagers et les bagages. Pour un groupe, privilégiez van ou minibus.</p>
+        </article>
+        <article data-reveal data-delay="240">
+          <h3>Les départs très tôt sont-ils possibles ?</h3>
+          <p>Oui, le service est prévu pour les vols matinaux, les retours tardifs et les trajets de nuit.</p>
+        </article>
+      </div>
+      <a routerLink="/faq" class="home-faq-link">Voir toutes les questions</a>
+    </div>
+  </section>
+
+  <section class="home-final-cta">
+    <div data-reveal>
+      <p>Prêt à organiser votre transfert ?</p>
+      <h2>Réservez en quelques clics, arrivez sans stress.</h2>
+      <a routerLink="/booking/request">Obtenir mon prix</a>
+    </div>
+  </section>
+
+</app-layout>

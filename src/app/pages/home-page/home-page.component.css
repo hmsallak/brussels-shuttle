@@ -715,3 +715,247 @@
   .home-dest-section { padding: 64px 16px 60px; }
   .home-dest-header { margin-bottom: 36px; }
 }
+
+.home-motion-strip {
+  overflow: hidden;
+  background: #07111f;
+  border-block: 1px solid rgba(103, 232, 249, 0.18);
+}
+
+.home-motion-track {
+  display: flex;
+  justify-content: center;
+  gap: clamp(6px, 1.2vw, 16px);
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 22px 0;
+  color: #dffbff;
+  font-size: clamp(1.05rem, 2.4vw, 2.6rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.home-motion-track span {
+  display: inline-block;
+  animation: letterFloat 2.6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 45ms);
+  will-change: transform, color;
+}
+
+.home-motion-track span:nth-child(3n) {
+  color: #67e8f9;
+}
+
+@keyframes letterFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  35% { transform: translateY(-8px) rotate(-2deg); }
+  70% { transform: translateY(5px) rotate(2deg); }
+}
+
+.home-benefits-section,
+.home-faq-section {
+  background: #ffffff;
+  padding: 92px 24px;
+}
+
+.home-benefits-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.home-benefits-copy p,
+.home-fleet-header p,
+.home-faq-header p,
+.home-final-cta p {
+  color: #0891b2;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-benefits-copy h2,
+.home-fleet-header h2,
+.home-faq-header h2,
+.home-final-cta h2 {
+  margin-top: 12px;
+  color: #0f172a;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.home-benefits-copy span {
+  display: block;
+  margin-top: 20px;
+  color: #475569;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.home-benefits-copy a,
+.home-final-cta a,
+.home-faq-link {
+  display: inline-flex;
+  justify-content: center;
+  margin-top: 28px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 900;
+  text-decoration: none;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.home-benefits-copy a:hover,
+.home-final-cta a:hover,
+.home-faq-link:hover {
+  transform: translateY(-2px);
+  background: #155e75;
+}
+
+.home-benefits-grid,
+.home-fleet-grid,
+.home-faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.home-benefits-grid article,
+.home-fleet-grid article,
+.home-faq-grid article {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #f8fafc;
+  padding: 24px;
+}
+
+.home-benefits-grid strong,
+.home-fleet-grid span {
+  color: #0891b2;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.home-benefits-grid h3,
+.home-fleet-grid h3,
+.home-faq-grid h3 {
+  margin-top: 10px;
+  color: #0f172a;
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.25;
+}
+
+.home-benefits-grid p,
+.home-fleet-grid p,
+.home-faq-grid p {
+  margin-top: 10px;
+  color: #64748b;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.home-fleet-section {
+  background: #f8fafc;
+  padding: 88px 24px;
+}
+
+.home-fleet-shell,
+.home-faq-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.home-fleet-header,
+.home-faq-header {
+  max-width: 720px;
+  margin-bottom: 42px;
+}
+
+.home-fleet-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.home-fleet-grid article {
+  background: #ffffff;
+}
+
+.home-final-cta {
+  background:
+    linear-gradient(135deg, rgba(7, 17, 31, 0.92), rgba(6, 89, 108, 0.86)),
+    url('/assets/images/zaventem.webp') center/cover;
+  color: #ffffff;
+  padding: 84px 24px;
+  text-align: center;
+}
+
+.home-final-cta div {
+  width: min(760px, 100%);
+  margin: 0 auto;
+}
+
+.home-final-cta p {
+  color: #67e8f9;
+}
+
+.home-final-cta h2 {
+  color: #ffffff;
+}
+
+.home-final-cta a {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+@media (max-width: 1024px) {
+  .home-benefits-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .home-fleet-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .home-motion-track {
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+
+  .home-benefits-section,
+  .home-fleet-section,
+  .home-faq-section {
+    padding: 64px 16px;
+  }
+
+  .home-benefits-grid,
+  .home-fleet-grid,
+  .home-faq-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-benefits-copy h2,
+  .home-fleet-header h2,
+  .home-faq-header h2,
+  .home-final-cta h2 {
+    font-size: 2rem;
+    line-height: 1.08;
+  }
+
+  .home-benefits-copy a,
+  .home-final-cta a,
+  .home-faq-link {
+    width: 100%;
+  }
+}
