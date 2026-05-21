@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {LayoutComponent} from "../../../shared/components/layout/layout.component";
-import {TitleComponent} from "../../../shared/components/title/title.component";
 import {DestinationComponent} from "./destination/destination.component";
 import {TranslateModule, TranslateService} from "@ngx-translate/core";
 import {toSignal} from "@angular/core/rxjs-interop";
@@ -12,7 +11,6 @@ import {startWith, switchMap} from "rxjs";
   standalone: true,
   imports: [
     LayoutComponent,
-    TitleComponent,
     DestinationComponent,
     TranslateModule
   ],

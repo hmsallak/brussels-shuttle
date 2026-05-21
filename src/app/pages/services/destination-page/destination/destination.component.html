@@ -2,7 +2,12 @@
 
   <!-- Image avec zoom au hover -->
   <div class="dest-card-img">
-    <img [src]="imageUri()" [alt]="name()" loading="lazy">
+    <img
+      [ngSrc]="imageSrc()"
+      [alt]="name()"
+      [priority]="priority()"
+      fill
+      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw">
   </div>
 
   <!-- Gradient overlay permanent -->

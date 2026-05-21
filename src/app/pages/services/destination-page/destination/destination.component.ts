@@ -1,10 +1,12 @@
-import {ChangeDetectionStrategy, Component, input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, input} from '@angular/core';
+import {NgOptimizedImage} from "@angular/common";
 import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-destination',
   standalone: true,
   imports: [
+    NgOptimizedImage,
     RouterLink
   ],
   templateUrl: './destination.component.html',
@@ -13,10 +15,12 @@ import {RouterLink} from "@angular/router";
 })
 export class DestinationComponent {
 
-  name = input()
-  cta = input()
-  title = input()
-  imageUri = input()
-  description = input()
+  name = input<string>('')
+  cta = input<string>('')
+  title = input<string>('')
+  imageUri = input<string>('')
+  description = input<string>('')
+  priority = input(false)
+  imageSrc = computed(() => this.imageUri().trim())
 
 }

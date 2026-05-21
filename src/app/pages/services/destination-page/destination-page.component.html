@@ -1,7 +1,3 @@
-<link rel="preload" href="assets/images/zaventem.webp" as="image">
-<link rel="preload" href="assets/images/charleroi.webp" as="image">
-<link rel="preload" href="assets/images/lille.webp" as="image">
-
 <app-layout>
 
   <!-- Hero -->
@@ -50,7 +46,8 @@
             [cta]="destination['cta']"
             [imageUri]="destination['imageUri']"
             [title]="destination['title']"
-            [description]="destination['description']">
+            [description]="destination['description']"
+            [priority]="$index < 3">
           </app-destination>
         }
       } @else {

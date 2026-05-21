@@ -1,11 +1,10 @@
 import { Component, signal, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-cookie-banner',
   standalone: true,
-  imports: [RouterLink, NgClass],
+  imports: [RouterLink],
   templateUrl: './cookie-banner.component.html',
   styleUrl: './cookie-banner.component.css'
 })

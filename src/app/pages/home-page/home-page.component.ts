@@ -1,8 +1,6 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {TitleComponent} from "../../shared/components/title/title.component";
 import {LayoutComponent} from "../../shared/components/layout/layout.component";
 import {RouterLink} from "@angular/router";
-import {FeaturesComponent} from "./features/features.component";
 import {fadeInUpAnimation} from "angular-animations";
 import {TestimonialComponent} from "./testimonial/testimonial.component";
 import {DestinationComponent} from "../services/destination-page/destination/destination.component";
@@ -19,11 +17,9 @@ import {startWith, switchMap} from "rxjs";
   selector: 'app-home-page',
   standalone: true,
   imports: [
-    TitleComponent,
     BookingFormComponent,
     LayoutComponent,
     RouterLink,
-    FeaturesComponent,
     TestimonialComponent,
     DestinationComponent,
     TuiInputDateModule,
