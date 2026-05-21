@@ -40,11 +40,6 @@ export class HomePageComponent implements AfterViewInit {
   private translateService = inject(TranslateService);
   private vehicleModelGateway = inject(VehicleModelGateway);
   private document = inject(DOCUMENT);
-  private readonly priorityDestinationImages = [
-    'assets/images/zaventem.webp',
-    'assets/images/charleroi.webp',
-    'assets/images/lille.webp'
-  ];
 
   destinationsItems = toSignal(
     this.translateService.onLangChange.pipe(
@@ -63,8 +58,7 @@ export class HomePageComponent implements AfterViewInit {
   protected readonly scrollToSection = scrollToSection;
 
   ngAfterViewInit() {
-    this.priorityDestinationImages.forEach(src => this.preloadImage(src));
-    const elements = document.querySelectorAll('[data-reveal]');
+    const elements = this.document.querySelectorAll('[data-reveal]');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -76,18 +70,5 @@ export class HomePageComponent implements AfterViewInit {
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     elements.forEach(el => observer.observe(el));
-  }
-
-  private preloadImage(src: string) {
-    if (this.document.head.querySelector(`link[rel="preload"][href="/${src}"]`)) {
-      return;
-    }
-
-    const link = this.document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = `/${src}`;
-    link.setAttribute('fetchpriority', 'high');
-    this.document.head.appendChild(link);
   }
 }

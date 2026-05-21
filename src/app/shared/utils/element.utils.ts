@@ -1,5 +1,4 @@
 export function scrollToSection(id: string) {
-  console.log('scrollToSection', id);
   const element = document.getElementById(id);
   if (element) {
     element.scrollIntoView({

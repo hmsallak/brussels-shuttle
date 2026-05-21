@@ -62,6 +62,10 @@ export class NavigationComponent {
     this.translateService.setDefaultLang(lang);
   }
 
+  isCurrentLanguage(lang: LanguageEnum) {
+    return this.translateService.currentLang === lang;
+  }
+
   protected readonly faGlobe = faGlobe;
   protected readonly faBars = faBars;
 }

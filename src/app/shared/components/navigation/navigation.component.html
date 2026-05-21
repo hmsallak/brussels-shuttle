@@ -58,7 +58,9 @@
       (click)="isDropdownMenuOpen.set(true)"
       class="p-2 rounded-lg transition-all duration-150"
       [ngClass]="{'hover:bg-white/10': absolute(), 'hover:bg-gray-100': !absolute()}"
-      aria-label="Menu">
+      aria-label="Menu"
+      aria-controls="mobile-menu"
+      [attr.aria-expanded]="isDropdownMenuOpen()">
       <fa-icon [icon]="faBars" class="text-xl md:text-2xl"
                [ngClass]="{'text-white': absolute(), 'text-gray-800': !absolute()}"></fa-icon>
     </button>
@@ -69,11 +71,16 @@
 
       <!-- Drawer -->
       <div [@fadeInOnEnter]
+           id="mobile-menu"
+           role="dialog"
+           aria-modal="true"
+           aria-label="Menu principal"
            class="fixed top-0 right-0 h-full w-72 z-[100] bg-white shadow-2xl flex flex-col">
         <!-- Header -->
         <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100">
           <img src="assets/images/bs_full_logo.svg" class="h-9" alt="Brussels Shuttle">
           <button (click)="isDropdownMenuOpen.set(false)"
+                  aria-label="Fermer le menu"
                   class="p-2 rounded-lg hover:bg-gray-100 text-gray-500 transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
@@ -129,7 +136,10 @@
               <button
                 (click)="changeLanguage(lang); isDropdownMenuOpen.set(false)"
                 class="flex-1 py-2 rounded-lg text-sm font-medium border transition-colors"
-                [ngClass]="{'bg-sky-500 text-white border-sky-500': false, 'bg-gray-50 text-gray-600 border-gray-200 hover:border-sky-300 hover:text-sky-600': true}">
+                [ngClass]="{
+                  'bg-sky-500 text-white border-sky-500': isCurrentLanguage(lang),
+                  'bg-gray-50 text-gray-600 border-gray-200 hover:border-sky-300 hover:text-sky-600': !isCurrentLanguage(lang)
+                }">
                 {{ 'language.' + lang | translate }}
               </button>
             }

@@ -3,7 +3,12 @@
   <!-- Hero -->
   <section class="dest-hero">
     <div class="dest-hero-bg" aria-hidden="true">
-      <img src="assets/images/schuman.webp" alt="">
+      <img
+        ngSrc="assets/images/schuman.webp"
+        alt=""
+        fill
+        priority
+        sizes="100vw">
     </div>
     <div class="dest-hero-overlay" aria-hidden="true"></div>
     <div class="dest-hero-content">
@@ -46,8 +51,7 @@
             [cta]="destination['cta']"
             [imageUri]="destination['imageUri']"
             [title]="destination['title']"
-            [description]="destination['description']"
-            [priority]="$index < 3">
+            [description]="destination['description']">
           </app-destination>
         }
       } @else {

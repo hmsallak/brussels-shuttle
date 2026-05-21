@@ -1,20 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomePageComponent } from "./pages/home-page/home-page.component";
-import { CreateBookingPageComponent } from "./pages/create-booking-page/create-booking-page.component";
-import { SuccessPageComponent } from "./pages/success-page/success-page.component";
-import { CancelPageComponent } from "./pages/cancel-page/cancel-page.component";
-import { ContactPageComponent } from "./pages/contact-page/contact-page.component";
-import { TermOfUsePageComponent } from "./pages/term-of-use-page/term-of-use-page.component";
-import { FaqPageComponent } from "./pages/faq-page/faq-page.component";
-import { DestinationPageComponent } from "./pages/services/destination-page/destination-page.component";
-import { NotFoundPageComponent } from "./pages/not-found-page/not-found-page.component";
-import { PrivacyPolicyPageComponent } from "./pages/privacy-policy-page/privacy-policy-page.component";
-import { AboutPageComponent } from "./pages/about-page/about-page.component";
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent,
+    loadComponent: () => import('./pages/home-page/home-page.component').then(m => m.HomePageComponent),
     title: 'Transfert aéroport privé à Bruxelles | Brussels Shuttle',
     data: {
       description: 'Réservez votre navette aéroport privée à Bruxelles vers Zaventem, Charleroi, Paris CDG, Orly, Schiphol et Lille. Prix fixe, chauffeur professionnel, service 24h/7j.',
@@ -23,7 +12,7 @@ export const routes: Routes = [
   },
   {
     path: 'booking/request',
-    component: CreateBookingPageComponent,
+    loadComponent: () => import('./pages/create-booking-page/create-booking-page.component').then(m => m.CreateBookingPageComponent),
     title: 'Réserver un transfert aéroport | Brussels Shuttle',
     data: {
       description: 'Obtenez votre prix instantanément et réservez votre transfert aéroport privé depuis ou vers Bruxelles. Paiement sécurisé et confirmation rapide.',
@@ -33,7 +22,7 @@ export const routes: Routes = [
   },
   {
     path: 'success',
-    component: SuccessPageComponent,
+    loadComponent: () => import('./pages/success-page/success-page.component').then(m => m.SuccessPageComponent),
     title: 'Réservation confirmée | Brussels Shuttle',
     data: {
       description: 'Votre réservation Brussels Shuttle est confirmée.',
@@ -43,7 +32,7 @@ export const routes: Routes = [
   },
   {
     path: 'cancel',
-    component: CancelPageComponent,
+    loadComponent: () => import('./pages/cancel-page/cancel-page.component').then(m => m.CancelPageComponent),
     title: 'Paiement annulé | Brussels Shuttle',
     data: {
       description: 'Votre paiement Brussels Shuttle a été annulé.',
@@ -53,7 +42,7 @@ export const routes: Routes = [
   },
   {
     path: 'contact',
-    component: ContactPageComponent,
+    loadComponent: () => import('./pages/contact-page/contact-page.component').then(m => m.ContactPageComponent),
     title: 'Contact navette aéroport Bruxelles | Brussels Shuttle',
     data: {
       description: 'Contactez Brussels Shuttle pour une réservation, une demande de devis ou une question sur nos transferts aéroport privés à Bruxelles.',
@@ -62,7 +51,7 @@ export const routes: Routes = [
   },
   {
     path: 'services/destinations',
-    component: DestinationPageComponent,
+    loadComponent: () => import('./pages/services/destination-page/destination-page.component').then(m => m.DestinationPageComponent),
     title: 'Destinations aéroport depuis Bruxelles | Brussels Shuttle',
     data: {
       description: 'Découvrez nos destinations de transfert privé depuis Bruxelles: Zaventem, Charleroi, Lille, Paris CDG, Orly, Schiphol, Eindhoven et plus.',
@@ -71,7 +60,7 @@ export const routes: Routes = [
   },
   {
     path: 'term-of-use',
-    component: TermOfUsePageComponent,
+    loadComponent: () => import('./pages/term-of-use-page/term-of-use-page.component').then(m => m.TermOfUsePageComponent),
     title: 'Conditions générales | Brussels Shuttle',
     data: {
       description: 'Consultez les conditions générales de réservation et de service de Brussels Shuttle.',
@@ -81,7 +70,7 @@ export const routes: Routes = [
   },
   {
     path: 'faq',
-    component: FaqPageComponent,
+    loadComponent: () => import('./pages/faq-page/faq-page.component').then(m => m.FaqPageComponent),
     title: 'FAQ transfert aéroport Bruxelles | Brussels Shuttle',
     data: {
       description: 'Réponses aux questions fréquentes sur les transferts aéroport Brussels Shuttle: prix, bagages, paiement, retards de vol et disponibilité 24h/7j.',
@@ -90,7 +79,7 @@ export const routes: Routes = [
   },
   {
     path: 'privacy-policy',
-    component: PrivacyPolicyPageComponent,
+    loadComponent: () => import('./pages/privacy-policy-page/privacy-policy-page.component').then(m => m.PrivacyPolicyPageComponent),
     title: 'Politique de confidentialité | Brussels Shuttle',
     data: {
       description: 'Découvrez comment Brussels Shuttle traite vos données personnelles et protège votre confidentialité.',
@@ -100,7 +89,7 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutPageComponent,
+    loadComponent: () => import('./pages/about-page/about-page.component').then(m => m.AboutPageComponent),
     title: 'À propos de Brussels Shuttle | Navette aéroport privée',
     data: {
       description: 'Découvrez Brussels Shuttle, service de transfert aéroport privé basé à Bruxelles, avec prix fixe, suivi des vols et chauffeurs professionnels.',
@@ -109,7 +98,7 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    component: NotFoundPageComponent,
+    loadComponent: () => import('./pages/not-found-page/not-found-page.component').then(m => m.NotFoundPageComponent),
     title: 'Page introuvable | Brussels Shuttle',
     data: {
       description: 'La page demandée est introuvable.',
