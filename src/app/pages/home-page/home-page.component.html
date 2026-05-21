@@ -93,10 +93,10 @@
     </div>
   </section>
 
-  <section class="home-motion-strip" aria-label="Brussels Shuttle highlights">
+  <section class="home-motion-strip" data-reveal aria-label="Brussels Shuttle scroll message">
     <div class="home-motion-track">
-      @for(letter of ['P','R','I','X',' ','F','I','X','E',' ','·',' ','C','H','A','U','F','F','E','U','R',' ','P','R','I','V','É',' ','·',' ','2','4','/','7',' ','·',' ','A','É','R','O','P','O','R','T','S']; track $index) {
-        <span [style.--i]="$index">{{ letter }}</span>
+      @for(word of ['Prix', 'clair.', 'Chauffeur', 'ponctuel.', 'Arrivée', 'sereine.']; track $index) {
+        <span [style.--i]="$index">{{ word }}</span>
       }
     </div>
   </section>
