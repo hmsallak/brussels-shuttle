@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {TranslateModule} from "@ngx-translate/core";
 
 @Component({
@@ -11,35 +11,4 @@ import {TranslateModule} from "@ngx-translate/core";
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TestimonialComponent implements OnInit {
-  slides: any;
-  slideSayisi: any;
-  loop: any;
-
-  goNext() {
-    this.loop++;
-    for (let index = 0; index < this.slides.length; index++) {
-      const element: any = this.slides[index];
-      element.style.transform = "translateX(" + 100 * (index - (this.loop % this.slideSayisi)) + "%)";
-    }
-  }
-
-  goPrev() {
-    this.loop--;
-    for (let index = 0; index < this.slides.length; index++) {
-      const element: any = this.slides[index];
-      element.style.transform = "translateX(" + 100 * (index - (this.loop % this.slideSayisi)) + "%)";
-    }
-  }
-
-  ngOnInit(): void {
-    this.slides = document.querySelectorAll(".slide-ana>div");
-    this.slideSayisi = this.slides.length;
-
-    for (let index = 0; index < this.slides.length; index++) {
-      const element: any = this.slides[index];
-      element.style.transform = "translateX(" + 100 * index + "%)";
-    }
-    this.loop = 0 + 1000 * this.slideSayisi;
-  }
-}
+export class TestimonialComponent {}
