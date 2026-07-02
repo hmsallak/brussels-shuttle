@@ -1,6 +1,4 @@
 <app-layout>
-
-  <!-- Hero -->
   <section class="dest-hero">
     <div class="dest-hero-bg" aria-hidden="true">
       <img
@@ -13,8 +11,10 @@
     <div class="dest-hero-overlay" aria-hidden="true"></div>
     <div class="dest-hero-content">
       <p class="dest-hero-kicker">{{ 'destinations.short-title' | translate }}</p>
-      <h1 class="dest-hero-title">{{ 'destinations.title' | translate }}</h1>
-      <p class="dest-hero-desc">{{ 'destinations.description' | translate }}</p>
+      <h1 class="dest-hero-title">Transferts prives vers villes, festivals et aeroports europeens</h1>
+      <p class="dest-hero-desc">
+        Brussels Shuttle organise vos trajets depuis Bruxelles vers les aeroports, les villes belges, Tomorrowland, Les Ardentes, les festivals bruxellois et les grands aeroports europeens.
+      </p>
       <a routerLink="/booking/request" class="dest-hero-cta">
         Obtenir mon prix
         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -24,25 +24,71 @@
     </div>
   </section>
 
-  <!-- Bande codes aéroports -->
   <div class="dest-airports-band">
-    <span>BRU</span>
-    <span class="dest-band-sep">·</span>
-    <span>CRL</span>
-    <span class="dest-band-sep">·</span>
-    <span>LIL</span>
-    <span class="dest-band-sep">·</span>
-    <span>ORY</span>
-    <span class="dest-band-sep">·</span>
-    <span>CDG</span>
-    <span class="dest-band-sep">·</span>
-    <span>AMS</span>
-    <span class="dest-band-sep">·</span>
-    <span>EIN</span>
+    <span>BRU</span><span class="dest-band-sep">-</span>
+    <span>CRL</span><span class="dest-band-sep">-</span>
+    <span>CDG</span><span class="dest-band-sep">-</span>
+    <span>ORY</span><span class="dest-band-sep">-</span>
+    <span>AMS</span><span class="dest-band-sep">-</span>
+    <span>EIN</span><span class="dest-band-sep">-</span>
+    <span>LUX</span><span class="dest-band-sep">-</span>
+    <span>DUS</span>
   </div>
 
-  <!-- Grille destinations -->
+  <section class="dest-service-block dest-service-block--white">
+    <div class="dest-service-header">
+      <p>Services evenementiels</p>
+      <h2>Transferts vers festivals, concerts et grands evenements en Belgique</h2>
+      <span>Chauffeur prive, prise en charge flexible, retour tardif, vehicule adapte aux groupes et aux bagages.</span>
+    </div>
+
+    <div class="dest-event-grid">
+      @for (event of eventServices; track event.title) {
+        <article class="dest-event-card">
+          <p>{{ event.location }}</p>
+          <h3>{{ event.title }}</h3>
+          <span>{{ event.description }}</span>
+          <a routerLink="/booking/request">Demander un transfert</a>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="dest-service-block">
+    <div class="dest-service-header">
+      <p>Villes belges</p>
+      <h2>Transferts prives dans toute la Belgique</h2>
+      <span>Depuis Bruxelles ou vers Bruxelles, nous couvrons les villes principales, les gares, hotels, festivals, centres d'affaires et sites touristiques.</span>
+    </div>
+
+    <div class="dest-city-cloud">
+      @for (city of belgianCities; track city) {
+        <a routerLink="/booking/request">{{ city }}</a>
+      }
+    </div>
+  </section>
+
+  <section class="dest-service-block dest-service-block--white">
+    <div class="dest-service-header">
+      <p>Aeroports europeens</p>
+      <h2>Un seul chauffeur pour vos aeroports belges et europeens</h2>
+      <span>Pour les departs tot le matin, arrivees tardives, familles, groupes et voyageurs business.</span>
+    </div>
+
+    <div class="dest-airport-list">
+      @for (airport of europeanAirports; track airport) {
+        <a routerLink="/booking/request">{{ airport }}</a>
+      }
+    </div>
+  </section>
+
   <section class="dest-grid-section">
+    <div class="dest-service-header dest-service-header--grid">
+      <p>Destinations populaires</p>
+      <h2>Nos trajets aeroport les plus demandes</h2>
+      <span>Quelques routes frequentes pour reserver rapidement votre prochain transfert.</span>
+    </div>
+
     <div class="dest-grid">
       @if (destinationsItems()) {
         @for (destination of destinationsItems()!; track $index) {
@@ -62,11 +108,9 @@
     </div>
   </section>
 
-  <!-- CTA bas de page -->
   <section class="dest-bottom-cta">
-    <p>Une destination non listée ? Contactez-nous, nous nous adaptons à votre trajet.</p>
+    <p>Une ville, un festival ou un aeroport non liste ? Contactez-nous, nous nous adaptons a votre trajet.</p>
     <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>
     <a routerLink="/booking/request">Demander un devis</a>
   </section>
-
 </app-layout>

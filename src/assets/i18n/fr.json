@@ -6,7 +6,8 @@
     "faq": "FAQ",
     "contact": "Contact",
     "conditions": "Conditions générales",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "blog": "Blog"
   },
   "payment-method": {
     "STRIPE": "carte",

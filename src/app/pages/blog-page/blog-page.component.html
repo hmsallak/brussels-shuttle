@@ -1,0 +1,48 @@
+<app-layout>
+  <section class="blog-hero">
+    <div class="blog-hero-bg" aria-hidden="true">
+      <img [src]="featured.image" alt="">
+    </div>
+    <div class="blog-hero-overlay" aria-hidden="true"></div>
+    <div class="blog-hero-content">
+      <p>Blog voyage</p>
+      <h1>Guides pour vos transferts, festivals et voyages en Belgique</h1>
+      <span>{{ featured.excerpt }}</span>
+      <a routerLink="/booking/request">Obtenir mon prix</a>
+    </div>
+  </section>
+
+  <section class="blog-intro">
+    <div>
+      <p>Inspiration Brussels Shuttle</p>
+      <h2>Des articles utiles pour reserver le bon trajet</h2>
+    </div>
+    <span>Nos guides couvrent les aeroports, villes belges, festivals comme Tomorrowland ou Les Ardentes, et les trajets longue distance vers les grands aeroports europeens.</span>
+  </section>
+
+  <section class="blog-grid-section">
+    <div class="blog-grid">
+      @for (post of posts; track post.title) {
+        <article class="blog-card">
+          <div class="blog-card-image">
+            <img [src]="post.image" [alt]="post.title" loading="lazy">
+          </div>
+          <div class="blog-card-body">
+            <div class="blog-card-meta">
+              <span>{{ post.category }}</span>
+              <span>{{ post.readTime }}</span>
+            </div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.excerpt }}</p>
+            <a routerLink="/booking/request">Planifier ce trajet</a>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="blog-bottom">
+    <p>Vous voulez un article dedie a une ville, un aeroport ou un evenement ?</p>
+    <a routerLink="/contact">Nous contacter</a>
+  </section>
+</app-layout>

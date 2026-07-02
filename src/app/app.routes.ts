@@ -59,6 +59,15 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'blog',
+    loadComponent: () => import('./pages/blog-page/blog-page.component').then(m => m.BlogPageComponent),
+    title: 'Blog voyage et transferts aeroport | Brussels Shuttle',
+    data: {
+      description: 'Guides voyage Brussels Shuttle: aeroports, festivals, villes belges, Tomorrowland, Brugge, Gand, Liege, Namur et transferts prives depuis Bruxelles.',
+      canonical: '/blog'
+    }
+  },
+  {
     path: 'term-of-use',
     loadComponent: () => import('./pages/term-of-use-page/term-of-use-page.component').then(m => m.TermOfUsePageComponent),
     title: 'Conditions générales | Brussels Shuttle',
