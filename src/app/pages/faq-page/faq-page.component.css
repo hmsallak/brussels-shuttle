@@ -204,6 +204,12 @@
   line-height: 1.75;
 }
 
+.faq-contact-form {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 @media (max-width: 1024px) {
   .faq-hero,
   .faq-content,
