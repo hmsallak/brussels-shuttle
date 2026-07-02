@@ -24,6 +24,18 @@
             <button type="button" (click)="scrollToSection('servicesSection')" class="bs-button-secondary">Voir les services</button>
           </div>
 
+          <div class="hero-proof">
+            <span class="hero-stars">★★★★★</span>
+            <span class="hero-rating">4.9 / 5</span>
+            <span class="hero-dot">·</span>
+            <span class="hero-count">Google Reviews</span>
+            <span class="hero-dot">·</span>
+            <div class="hero-live">
+              <span class="hero-live-dot"></span>
+              Suivi de vol en temps réel
+            </div>
+          </div>
+
           <div class="mt-8 flex flex-wrap gap-2">
             @for (route of quickRoutes; track route) {
               <a routerLink="/booking/request" class="home-hero-chip">{{ route }}</a>
@@ -33,15 +45,15 @@
           <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
             <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur">
               <p class="text-2xl font-extrabold">24/7</p>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Jour et nuit</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Disponible</p>
             </div>
             <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur">
-              <p class="text-2xl font-extrabold">8</p>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Passagers</p>
+              <p class="text-2xl font-extrabold">Prix fixe</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Avant confirmation</p>
             </div>
             <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur">
-              <p class="text-2xl font-extrabold">EU</p>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Aeroports</p>
+              <p class="text-2xl font-extrabold">0€</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Frais cachés</p>
             </div>
           </div>
         </div>
@@ -51,6 +63,49 @@
             <app-booking-from routerLink="booking/request"></app-booking-from>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-vs-section">
+    <div class="home-vs-shell">
+      <div class="home-vs-col home-vs-col--taxi">
+        <p class="home-vs-label">Taxi / Uber</p>
+        <ul>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#ef4444" stroke-width="1.5"/><path d="M6 6l8 8M14 6l-8 8" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Prix compteur — montant inconnu avant le départ
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#ef4444" stroke-width="1.5"/><path d="M6 6l8 8M14 6l-8 8" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Aucun suivi de vol — attente si votre vol est retardé
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#ef4444" stroke-width="1.5"/><path d="M6 6l8 8M14 6l-8 8" stroke="#ef4444" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Disponibilité incertaine tôt le matin ou tard le soir
+          </li>
+        </ul>
+      </div>
+
+      <div class="home-vs-badge">VS</div>
+
+      <div class="home-vs-col home-vs-col--bs">
+        <p class="home-vs-label">Brussels Shuttle</p>
+        <ul>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#22c55e" stroke-width="1.5"/><path d="M5.5 10l3 3 6-6" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Prix fixe affiché avant de confirmer — aucune surprise
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#22c55e" stroke-width="1.5"/><path d="M5.5 10l3 3 6-6" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Suivi de vol en temps réel — votre chauffeur s'adapte
+          </li>
+          <li>
+            <svg viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="9" stroke="#22c55e" stroke-width="1.5"/><path d="M5.5 10l3 3 6-6" stroke="#22c55e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Disponible 24h/7j — confirmé à la réservation
+          </li>
+        </ul>
+        <a routerLink="/booking/request" class="home-vs-cta">Calculer mon prix maintenant</a>
       </div>
     </div>
   </section>
