@@ -17,6 +17,9 @@
   <meta property="og:description" content="Navette aéroport privée à Bruxelles avec prix fixe, réservation en ligne, chauffeurs professionnels et disponibilité 24h/7j.">
   <meta property="og:url" content="https://brussels-shuttle.be">
   <meta property="og:image" content="https://brussels-shuttle.be/assets/images/schuman.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Brussels Shuttle - Transfert aéroport privé à Bruxelles">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Transfert aéroport privé à Bruxelles | Brussels Shuttle">
   <meta name="twitter:description" content="Réservez votre transfert privé vers Zaventem, Charleroi, Paris CDG, Orly, Schiphol et Lille.">
@@ -32,7 +35,26 @@
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "TaxiService",
+      "@type": "WebSite",
+      "@id": "https://brussels-shuttle.be/#website",
+      "url": "https://brussels-shuttle.be",
+      "name": "Brussels Shuttle",
+      "description": "Service de transfert aéroport privé à Bruxelles avec prix fixe et chauffeurs professionnels.",
+      "inLanguage": ["fr", "en", "nl"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://brussels-shuttle.be/booking/request?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["TaxiService", "LocalBusiness"],
       "@id": "https://brussels-shuttle.be/#business",
       "name": "Brussels Shuttle",
       "url": "https://brussels-shuttle.be",
@@ -40,6 +62,12 @@
       "image": "https://brussels-shuttle.be/assets/images/schuman.webp",
       "telephone": "+32471010113",
       "email": "info@brussels-shuttle.be",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bruxelles",
+        "addressRegion": "Bruxelles-Capitale",
+        "addressCountry": "BE"
+      },
       "areaServed": [
         "Bruxelles",
         "Brussels Airport Zaventem",
@@ -49,8 +77,16 @@
         "Amsterdam Schiphol Airport",
         "Lille"
       ],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
       "availableLanguage": ["fr", "en", "nl"],
       "priceRange": "€€",
+      "paymentAccepted": "Credit Card, Cash",
+      "currenciesAccepted": "EUR",
       "description": "Service de transfert aéroport privé à Bruxelles avec réservation en ligne, prix fixe, chauffeur professionnel et disponibilité 24h/7j.",
       "sameAs": [
         "https://www.facebook.com/brusselsshuttle",
