@@ -68,6 +68,12 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'blog/:slug',
+    loadComponent: () => import('./pages/blog-page/blog-article-page/blog-article-page.component').then(m => m.BlogArticlePageComponent),
+    title: 'Article | Brussels Shuttle',
+    data: { robots: 'index,follow' }
+  },
+  {
     path: 'term-of-use',
     loadComponent: () => import('./pages/term-of-use-page/term-of-use-page.component').then(m => m.TermOfUsePageComponent),
     title: 'Conditions générales | Brussels Shuttle',

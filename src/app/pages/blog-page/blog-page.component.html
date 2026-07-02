@@ -15,14 +15,14 @@
   <section class="blog-intro">
     <div>
       <p>Inspiration Brussels Shuttle</p>
-      <h2>Des articles utiles pour reserver le bon trajet</h2>
+      <h2>Des articles utiles pour réserver le bon trajet</h2>
     </div>
-    <span>Nos guides couvrent les aeroports, villes belges, festivals comme Tomorrowland ou Les Ardentes, et les trajets longue distance vers les grands aeroports europeens.</span>
+    <span>Nos guides couvrent les aéroports, villes belges, festivals comme Tomorrowland ou Les Ardentes, et les trajets longue distance vers les grands aéroports européens.</span>
   </section>
 
   <section class="blog-grid-section">
     <div class="blog-grid">
-      @for (post of posts; track post.title) {
+      @for (post of posts; track post.slug) {
         <article class="blog-card">
           <div class="blog-card-image">
             <img [src]="post.image" [alt]="post.title" loading="lazy">
@@ -34,7 +34,7 @@
             </div>
             <h2>{{ post.title }}</h2>
             <p>{{ post.excerpt }}</p>
-            <a routerLink="/booking/request">Planifier ce trajet</a>
+            <a [routerLink]="['/blog', post.slug]">Lire l'article →</a>
           </div>
         </article>
       }
@@ -42,7 +42,7 @@
   </section>
 
   <section class="blog-bottom">
-    <p>Vous voulez un article dedie a une ville, un aeroport ou un evenement ?</p>
+    <p>Vous voulez un article dédié à une ville, un aéroport ou un événement ?</p>
     <a routerLink="/contact">Nous contacter</a>
   </section>
 </app-layout>
