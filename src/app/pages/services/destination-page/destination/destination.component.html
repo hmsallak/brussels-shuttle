@@ -1,36 +1,16 @@
-<article class="dest-card" routerLink="/booking/request">
-
-  <!-- Image avec zoom au hover -->
-  <div class="dest-card-img">
-    <img
-      [ngSrc]="imageSrc()"
-      [alt]="name()"
-      [priority]="priority()"
-      [attr.fetchpriority]="priority() ? 'high' : 'low'"
-      decoding="async"
-      fill
-      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw">
+<div class="group mx-auto h-full w-full cursor-pointer overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+     routerLink="/booking/request">
+  <div class="relative flex h-52 items-center overflow-hidden bg-slate-100">
+    <img [src]="imageUri()" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" alt="">
   </div>
+  <div class="flex min-h-[330px] flex-col p-5 transition-all duration-300">
+    <span class="mb-3 block text-xs font-bold uppercase tracking-[0.16em] text-cyan-700">{{ name() }}</span>
+    <h4 class="mb-4 text-xl font-extrabold leading-7 text-slate-950">{{ title() }}</h4>
+    <p class="line-clamp-5 leading-6 text-slate-600">{{ description() }}</p>
 
-  <!-- Gradient overlay permanent -->
-  <div class="dest-card-overlay"></div>
-
-  <!-- Contenu sur l'image -->
-  <div class="dest-card-body">
-    <p class="dest-card-name">{{ name() }}</p>
-    <h3 class="dest-card-title">{{ title() }}</h3>
-    <div class="dest-card-cta">
-      <span>{{ cta() }}</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-      </svg>
+    <div class="mt-auto flex flex-row items-center justify-start gap-2 pt-6 text-sm font-extrabold text-cyan-700 transition group-hover:text-cyan-900">
+      <span class="truncate">{{cta()}}</span>
+      <span aria-hidden="true">&rarr;</span>
     </div>
   </div>
-
-  <!-- Badge disponibilité -->
-  <div class="dest-card-badge">
-    <span class="dest-badge-dot"></span>
-    24/7
-  </div>
-
-</article>
+</div>

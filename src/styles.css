@@ -12,11 +12,76 @@
   font-family: 'Emded code', sans-serif;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: "Manrope", sans-serif; }
-:root {
-  --tui-primary: #03AAF0;
+html {
+  height: 100%;
+  scroll-behavior: smooth;
 }
+
+body {
+  min-height: 100%;
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background: #f6f8fb;
+  color: #111827;
+}
+
+:root {
+  --tui-primary: #0891b2;
+  --bs-ink: #111827;
+  --bs-muted: #64748b;
+  --bs-line: #dbe4ef;
+  --bs-surface: #ffffff;
+  --bs-soft: #f6f8fb;
+  --bs-primary: #0891b2;
+  --bs-accent: #0f766e;
+}
+
 hr.solid {
   border-top: 1px solid #bbb;
+}
+
+@layer components {
+  .bs-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .bs-section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+
+  .bs-panel {
+    @apply rounded-lg border border-slate-200 bg-white shadow-[0_18px_60px_rgba(15,23,42,0.08)];
+  }
+
+  .bs-panel-muted {
+    @apply rounded-lg border border-slate-200 bg-slate-50;
+  }
+
+  .bs-eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.18em] text-cyan-700;
+  }
+
+  .bs-title {
+    @apply text-3xl font-extrabold tracking-normal text-slate-950 sm:text-4xl lg:text-5xl;
+  }
+
+  .bs-copy {
+    @apply text-base leading-7 text-slate-600;
+  }
+
+  .bs-button-primary {
+    @apply inline-flex items-center justify-center rounded-lg bg-cyan-700 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-900/20 transition hover:bg-cyan-800 focus:outline-none focus:ring-2 focus:ring-cyan-700 focus:ring-offset-2;
+  }
+
+  .bs-button-secondary {
+    @apply inline-flex items-center justify-center rounded-lg border border-white/40 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-slate-950;
+  }
+
+  .bs-button-light {
+    @apply inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-5 py-3 text-sm font-bold text-slate-900 transition hover:border-cyan-200 hover:bg-cyan-50;
+  }
+
+  .bs-input-card {
+    @apply rounded-lg border border-slate-200 bg-white p-4 shadow-sm;
+  }
 }

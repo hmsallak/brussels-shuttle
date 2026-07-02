@@ -88,7 +88,7 @@ export class CreateBookingComponent implements OnInit {
   }
 
   book() {
-    if(!this.isQuoteRequestCompleted() && !this.isVehicleModelCompleted() && !this.isFinalStepCompleted()){
+    if(!this.isQuoteRequestCompleted() || !this.isVehicleModelCompleted() || !this.isFinalStepCompleted()){
       return;
     }
 

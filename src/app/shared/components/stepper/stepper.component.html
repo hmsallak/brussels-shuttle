@@ -2,16 +2,16 @@
 
   <!--  max-->
   <div class="hidden md:block w-full">
-    <div class="flex justify-between min-h-16">
-      <div class="my-auto">
+    <div class="flex min-h-16 items-center justify-between gap-4 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3">
+      <div class="flex items-center gap-3">
         @if (activeStepIdx > 0){
-          <button id="previousStepButton" (click)="prevStep()">
-            <fa-icon [icon]="faChevronLeft" class="text-lg mr-3"></fa-icon>
+          <button id="previousStepButton" class="stepper-icon-button" (click)="prevStep()">
+            <fa-icon [icon]="faChevronLeft" class="text-sm"></fa-icon>
           </button>
         }
-        <span class="text-xl md:text-2xl">
+        <span class="text-xl font-extrabold text-slate-950 md:text-2xl">
           {{currentStepLabel}}
-      </span>
+        </span>
       </div>
       <div>
         @if (!isLastStep){
@@ -26,22 +26,20 @@
       </div>
     </div>
 
-    <hr class="md:my-3 mb-3 h-0.5 border-t-0 bg-gray-100"/>
-
   </div>
 
   <!--  minimal-->
-  <div class="md:hidden block w-full p-4 my-0 sticky top-0 bg-white z-10 shadow-bottom">
-    <div class="flex justify-between ">
-      <div class="my-auto">
+  <div class="sticky top-0 z-10 my-0 block w-full border-b border-slate-200 bg-white/95 p-4 shadow-sm backdrop-blur md:hidden">
+    <div class="flex justify-between gap-3">
+      <div class="my-auto flex items-center gap-3">
         @if (activeStepIdx > 0){
-          <button id="previousStepButton2" (click)="prevStep()">
-            <fa-icon [icon]="faChevronLeft" class="text-lg mr-3"></fa-icon>
+          <button id="previousStepButton2" class="stepper-icon-button" (click)="prevStep()">
+            <fa-icon [icon]="faChevronLeft" class="text-sm"></fa-icon>
           </button>
         }
-        <span class="text-lg">
+        <span class="text-lg font-extrabold text-slate-950">
           {{currentStepLabel}}
-      </span>
+        </span>
       </div>
       <div class="my-auto">
         @if (!isLastStep){
@@ -59,7 +57,7 @@
 
 
 
-  <div class="-z-10">
+  <div class="mt-5">
     <ng-content></ng-content>
   </div>
 </section>

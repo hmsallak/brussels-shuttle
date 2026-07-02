@@ -1,5 +1,29 @@
 <app-layout>
-  <section class="mx-0 md:mx-10 lg:mx-24 2xl:mx-44 md:mt-2 mb-10">
+  <section class="bg-[#f6f8fb]">
+    <div class="bs-shell py-10 lg:py-14">
+      <div class="mb-8 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+        <div>
+          <p class="bs-eyebrow">Brussels Shuttle</p>
+          <h1 class="mt-3 text-3xl font-extrabold text-slate-950 sm:text-4xl">{{ 'navigation.booking' | translate }}</h1>
+          <p class="mt-3 max-w-2xl text-sm leading-6 text-slate-600">{{ 'home-page.steps.description' | translate }}</p>
+        </div>
+        <div class="grid grid-cols-3 gap-2 rounded-lg border border-slate-200 bg-white p-2 text-center shadow-sm">
+          <div class="rounded-md bg-slate-50 px-3 py-2">
+            <p class="text-xs font-bold text-slate-500">1</p>
+            <p class="text-xs font-extrabold text-slate-950">{{ 'steps.quote' | translate }}</p>
+          </div>
+          <div class="rounded-md bg-slate-50 px-3 py-2">
+            <p class="text-xs font-bold text-slate-500">2</p>
+            <p class="text-xs font-extrabold text-slate-950">{{ 'steps.vehicle' | translate }}</p>
+          </div>
+          <div class="rounded-md bg-slate-50 px-3 py-2">
+            <p class="text-xs font-bold text-slate-500">3</p>
+            <p class="text-xs font-extrabold text-slate-950">{{ 'steps.booking' | translate }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="rounded-lg border border-slate-200 bg-white p-3 shadow-[0_22px_70px_rgba(15,23,42,0.08)] sm:p-5">
     @if (!loading()) {
       <app-create-booking [quote]="quoteParam ? exisingQuote() : undefined"
                           [vehicleModel]="vehicleModelParam ? vehicleModel : undefined">
@@ -14,6 +38,8 @@
         <app-step [label]="'steps.quote' | translate" [isStepComplete]="false"></app-step>
       </app-stepper>
     }
+      </div>
+    </div>
   </section>
 </app-layout>
 
