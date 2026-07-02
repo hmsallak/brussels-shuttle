@@ -1,182 +1,127 @@
 <app-layout>
   <section class="w-full relative overflow-hidden lg:py-16 py-10 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-
-      <!-- Header -->
       <div class="mb-10 pb-8 border-b border-gray-200">
-        <p class="text-xs font-bold tracking-widest text-cyan-600 uppercase mb-3">Informations légales</p>
-        <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">Politique de confidentialité</h1>
+        <p class="text-xs font-bold tracking-widest text-cyan-600 uppercase mb-3">Informations legales</p>
+        <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">Politique de confidentialite</h1>
         <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-          <span>Dernière mise à jour : 1er janvier 2025</span>
-          <span class="text-gray-300">·</span>
-          <span>Brussels Shuttle SRL · info&#64;brussels-shuttle.be</span>
+          <span>Derniere mise a jour : 2 juillet 2026</span>
+          <span class="text-gray-300">-</span>
+          <span>Brussels Shuttle SRL - info&#64;brussels-shuttle.be</span>
         </div>
       </div>
 
       <div class="flex flex-col lg:flex-row gap-12">
-
-        <!-- Sommaire -->
         <aside class="lg:w-64 flex-shrink-0">
           <div class="sticky top-24 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
             <p class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-4">Sommaire</p>
             <nav class="flex flex-col gap-1">
-              <button (click)="scrollTo('controller')" class="toc-link">Responsable du traitement</button>
-              <button (click)="scrollTo('collected')" class="toc-link">Données collectées</button>
-              <button (click)="scrollTo('purposes')" class="toc-link">Finalités du traitement</button>
-              <button (click)="scrollTo('third-parties')" class="toc-link">Sous-traitants tiers</button>
+              <button (click)="scrollTo('controller')" class="toc-link">Responsable</button>
+              <button (click)="scrollTo('collected')" class="toc-link">Donnees collectees</button>
+              <button (click)="scrollTo('purposes')" class="toc-link">Bases legales</button>
+              <button (click)="scrollTo('third-parties')" class="toc-link">Sous-traitants</button>
               <button (click)="scrollTo('cookies')" class="toc-link">Cookies</button>
-              <button (click)="scrollTo('retention')" class="toc-link">Durée de conservation</button>
-              <button (click)="scrollTo('rights')" class="toc-link">Vos droits (RGPD)</button>
-              <button (click)="scrollTo('security')" class="toc-link">Sécurité</button>
-              <button (click)="scrollTo('minors')" class="toc-link">Mineurs</button>
-              <button (click)="scrollTo('changes')" class="toc-link">Modifications</button>
+              <button (click)="scrollTo('retention')" class="toc-link">Conservation</button>
+              <button (click)="scrollTo('rights')" class="toc-link">Vos droits</button>
+              <button (click)="scrollTo('security')" class="toc-link">Securite</button>
               <button (click)="scrollTo('contact')" class="toc-link">Contact</button>
             </nav>
           </div>
         </aside>
 
-        <!-- Contenu -->
         <div class="flex-1 min-w-0">
-
-          <!-- Encart intro -->
           <div class="bg-cyan-50 border border-cyan-100 rounded-2xl p-6 mb-10">
             <p class="text-sm text-cyan-800 leading-relaxed">
-              Brussels Shuttle s'engage à protéger vos données personnelles. Cette politique explique quelles données nous collectons, pourquoi, avec qui elles sont partagées et comment exercer vos droits conformément au Règlement Général sur la Protection des Données (RGPD — UE 2016/679).
+              Brussels Shuttle traite vos donnees personnelles conformement au RGPD (Reglement UE 2016/679) et a la legislation belge applicable. Cette page explique les donnees collectees, les raisons du traitement, les destinataires, les durees de conservation et vos droits.
             </p>
           </div>
 
           <div id="controller" class="legal-section">
             <h2>Responsable du traitement</h2>
             <p><strong>Brussels Shuttle SRL</strong><br>
-            Email : <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a><br>
-            Téléphone : <a href="tel:+32471010113">+32 471 010 113</a><br>
-            Belgique</p>
-            <p>Pour toute question relative à vos données personnelles, contactez-nous à l'adresse ci-dessus.</p>
+              Adresse du siege : a completer<br>
+              Numero BCE / TVA : a completer<br>
+              Email : <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a><br>
+              Telephone : <a href="tel:+32471010113">+32 471 010 113</a>
+            </p>
+            <p>Aucun delegue a la protection des donnees n'est designe a ce stade. Les demandes liees a la vie privee peuvent etre envoyees a l'adresse e-mail ci-dessus.</p>
           </div>
 
           <div id="collected" class="legal-section">
-            <h2>Données collectées</h2>
-            <p>Nous collectons uniquement les données strictement nécessaires à la réservation et à l'exécution du service :</p>
+            <h2>Donnees collectees</h2>
             <ul>
-              <li><strong>Identité :</strong> prénom, nom de famille</li>
-              <li><strong>Contact :</strong> adresse e-mail, numéro de téléphone</li>
-              <li><strong>Trajet :</strong> adresse de départ, adresse de destination, date et heure, nombre de passagers</li>
-              <li><strong>Paiement :</strong> données de paiement traitées via Stripe (nous ne stockons aucun numéro de carte)</li>
-              <li><strong>Facturation (optionnel) :</strong> nom de société, adresse de facturation, numéro de TVA</li>
-              <li><strong>Navigation :</strong> adresse IP, type de navigateur, pages visitées (via cookies analytiques si acceptés)</li>
+              <li><strong>Identite et contact :</strong> nom, prenom, e-mail, telephone.</li>
+              <li><strong>Reservation :</strong> adresses de depart et d'arrivee, date, heure, nombre de passagers, bagages, commentaires utiles au trajet.</li>
+              <li><strong>Paiement :</strong> statut de paiement et informations necessaires a la transaction. Les donnees de carte sont traitees par Stripe et ne sont pas stockees par Brussels Shuttle.</li>
+              <li><strong>Facturation :</strong> nom de societe, adresse de facturation, numero de TVA si communiques.</li>
+              <li><strong>Contact :</strong> contenu des messages envoyes via le formulaire.</li>
+              <li><strong>Navigation :</strong> adresse IP, appareil, pages consultees et statistiques anonymisees si les cookies analytiques sont acceptes.</li>
             </ul>
           </div>
 
           <div id="purposes" class="legal-section">
-            <h2>Finalités du traitement</h2>
-            <p>Vos données sont utilisées pour les finalités suivantes :</p>
+            <h2>Finalites et bases legales</h2>
             <ul>
-              <li><strong>Exécution du contrat :</strong> traitement et confirmation de votre réservation, coordination avec le chauffeur, envoi de bon de réservation par e-mail.</li>
-              <li><strong>Paiement :</strong> traitement sécurisé via notre prestataire Stripe.</li>
-              <li><strong>Communication :</strong> réponse à vos questions, gestion des modifications et annulations.</li>
-              <li><strong>Obligations légales :</strong> conservation des données comptables et fiscales conformément à la loi belge.</li>
-              <li><strong>Amélioration du service :</strong> analyse anonymisée des usages du site (si vous avez accepté les cookies analytiques).</li>
+              <li><strong>Reservation et execution du trajet :</strong> execution du contrat.</li>
+              <li><strong>Paiement et facturation :</strong> execution du contrat et obligations legales comptables/fiscales.</li>
+              <li><strong>Support client, modifications et annulations :</strong> execution du contrat et interet legitime a repondre aux demandes.</li>
+              <li><strong>Securite du site et prevention de la fraude :</strong> interet legitime.</li>
+              <li><strong>Cookies analytiques :</strong> consentement, que vous pouvez retirer a tout moment.</li>
+              <li><strong>Marketing direct :</strong> uniquement avec votre consentement explicite, si cette fonctionnalite est activee.</li>
             </ul>
-            <p>Nous ne traitons jamais vos données à des fins de marketing sans votre consentement explicite.</p>
           </div>
 
           <div id="third-parties" class="legal-section">
-            <h2>Sous-traitants et tiers</h2>
-            <p>Pour fournir notre service, nous faisons appel aux prestataires suivants :</p>
+            <h2>Sous-traitants et destinataires</h2>
+            <p>Les donnees peuvent etre communiquees uniquement aux prestataires necessaires au service :</p>
             <ul>
-              <li>
-                <strong>Stripe</strong> — traitement des paiements par carte bancaire.
-                Stripe est certifié PCI DSS niveau 1. Vos données de carte ne transitent pas par nos serveurs.
-                <a href="https://stripe.com/fr/privacy" target="_blank" rel="noopener">Politique Stripe</a>
-              </li>
-              <li>
-                <strong>Google Maps Platform</strong> — autocomplétion des adresses lors de la réservation.
-                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Politique Google</a>
-              </li>
-              <li>
-                <strong>Hébergeur</strong> — nos serveurs sont hébergés en Union Européenne.
-              </li>
+              <li><strong>Stripe :</strong> traitement des paiements securises.</li>
+              <li><strong>Google Maps Platform :</strong> autocompletion d'adresses et calcul d'itineraire.</li>
+              <li><strong>Hebergeur et outils techniques :</strong> hebergement, maintenance, securite et envoi d'e-mails.</li>
+              <li><strong>Chauffeurs ou partenaires operationnels :</strong> uniquement les informations necessaires a l'execution du trajet.</li>
+              <li><strong>Autorites publiques :</strong> uniquement si une obligation legale l'impose.</li>
             </ul>
-            <p>Nous ne vendons, louons ni cédons jamais vos données personnelles à des tiers à des fins commerciales.</p>
+            <p>Certains prestataires comme Google ou Stripe peuvent impliquer des transferts hors Espace economique europeen. Dans ce cas, ils doivent reposer sur des garanties reconnues par le RGPD, notamment les clauses contractuelles types ou mecanismes equivalents.</p>
           </div>
 
           <div id="cookies" class="legal-section">
             <h2>Cookies</h2>
-            <p>Nous utilisons deux catégories de cookies :</p>
             <ul>
-              <li>
-                <strong>Cookies essentiels (toujours actifs) :</strong> indispensables au fonctionnement du site — session, préférence de langue, consentement cookies. Ces cookies ne nécessitent pas votre accord.
-              </li>
-              <li>
-                <strong>Cookies analytiques (optionnels) :</strong> permettent de mesurer l'audience du site de façon anonyme (pages visitées, durée, origine). Activés uniquement si vous avez cliqué « Accepter » sur la bannière cookie.
-              </li>
+              <li><strong>Cookies essentiels :</strong> necessaires au fonctionnement du site, a la reservation, a la securite, a la langue et a la memorisation de votre choix cookie. Ils ne demandent pas de consentement.</li>
+              <li><strong>Cookies analytiques optionnels :</strong> utilises pour mesurer l'audience et ameliorer le site. Ils ne sont actives qu'apres votre consentement.</li>
+              <li><strong>Cookies tiers :</strong> certains services integres, comme Google Maps ou Stripe, peuvent deposer leurs propres cookies selon leur fonctionnement.</li>
             </ul>
-            <p>Vous pouvez modifier votre choix à tout moment en effaçant les cookies de votre navigateur. La durée de conservation des cookies est de 13 mois maximum.</p>
+            <p>Vous pouvez accepter ou refuser les cookies depuis la banniere, puis modifier votre choix a tout moment avec le lien "Parametres cookies" disponible dans le footer. La duree maximale de conservation du choix et des cookies analytiques est de 13 mois.</p>
           </div>
 
           <div id="retention" class="legal-section">
-            <h2>Durée de conservation</h2>
+            <h2>Durees de conservation</h2>
             <ul>
-              <li><strong>Données de réservation :</strong> 3 ans après la dernière réservation (délai de prescription contractuelle belge).</li>
-              <li><strong>Données comptables et factures :</strong> 7 ans conformément au Code des sociétés belge.</li>
-              <li><strong>Données de navigation :</strong> 13 mois maximum (cookies analytiques).</li>
-              <li><strong>Demandes de contact :</strong> 1 an après clôture de la demande.</li>
+              <li><strong>Donnees de reservation :</strong> jusqu'a 3 ans apres le dernier trajet, sauf litige ou obligation plus longue.</li>
+              <li><strong>Documents comptables et fiscaux :</strong> 7 ans selon les obligations belges applicables.</li>
+              <li><strong>Demandes de contact :</strong> jusqu'a 1 an apres cloture de la demande.</li>
+              <li><strong>Cookies analytiques et consentement :</strong> maximum 13 mois.</li>
             </ul>
-            <p>À l'expiration de ces délais, vos données sont supprimées ou anonymisées de manière sécurisée.</p>
           </div>
 
           <div id="rights" class="legal-section">
-            <h2>Vos droits (RGPD)</h2>
-            <p>Conformément au RGPD, vous disposez des droits suivants :</p>
-            <ul>
-              <li><strong>Droit d'accès :</strong> obtenir une copie de vos données personnelles que nous détenons.</li>
-              <li><strong>Droit de rectification :</strong> corriger des données inexactes ou incomplètes.</li>
-              <li><strong>Droit à l'effacement (« droit à l'oubli ») :</strong> demander la suppression de vos données, sauf obligation légale de conservation.</li>
-              <li><strong>Droit à la limitation :</strong> suspendre temporairement le traitement de vos données.</li>
-              <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données, notamment à des fins de marketing.</li>
-              <li><strong>Droit à la portabilité :</strong> recevoir vos données dans un format structuré et lisible par machine.</li>
-            </ul>
-            <p>
-              Pour exercer ces droits, envoyez votre demande à
-              <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>.
-              Nous répondons dans un délai maximum de 30 jours.
-            </p>
-            <p>
-              En cas de litige non résolu, vous pouvez introduire une réclamation auprès de l'
-              <a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener">Autorité de Protection des Données (APD) belge</a>.
-            </p>
+            <h2>Vos droits RGPD</h2>
+            <p>Vous disposez des droits d'acces, rectification, effacement, limitation, opposition, portabilite et retrait du consentement lorsque le traitement repose sur celui-ci.</p>
+            <p>Pour exercer vos droits, contactez <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>. Une reponse sera apportee dans un delai maximum d'un mois, sauf demande complexe.</p>
+            <p>Vous pouvez aussi introduire une reclamation aupres de l'<a href="https://www.autoriteprotectiondonnees.be" target="_blank" rel="noopener">Autorite de Protection des Donnees</a>.</p>
           </div>
 
           <div id="security" class="legal-section">
-            <h2>Sécurité des données</h2>
-            <p>Nous mettons en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, perte, altération ou divulgation :</p>
-            <ul>
-              <li>Connexion chiffrée HTTPS (SSL/TLS) sur l'ensemble du site</li>
-              <li>Paiements traités par Stripe (certification PCI DSS niveau 1)</li>
-              <li>Accès aux données restreint au personnel habilité</li>
-              <li>Serveurs hébergés en Union Européenne</li>
-            </ul>
-          </div>
-
-          <div id="minors" class="legal-section">
-            <h2>Mineurs</h2>
-            <p>Notre service est destiné aux personnes âgées de 18 ans ou plus. Nous ne collectons pas sciemment de données personnelles concernant des mineurs. Si vous pensez qu'un mineur nous a transmis des données, contactez-nous afin que nous puissions les supprimer.</p>
-          </div>
-
-          <div id="changes" class="legal-section">
-            <h2>Modifications de la politique</h2>
-            <p>Nous nous réservons le droit de mettre à jour cette politique à tout moment, notamment en cas de changement légal ou d'évolution de nos services. La date de dernière mise à jour est indiquée en haut de cette page. En cas de modification substantielle, nous vous en informerons par e-mail.</p>
+            <h2>Securite</h2>
+            <p>Brussels Shuttle applique des mesures techniques et organisationnelles raisonnables : HTTPS, acces limite aux donnees, prestataires securises, paiement via Stripe et conservation limitee aux besoins du service.</p>
           </div>
 
           <div id="contact" class="legal-section">
-            <h2>Contact</h2>
-            <p>Pour toute question relative à cette politique ou à vos données personnelles :</p>
-            <ul>
-              <li>Email : <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a></li>
-              <li>Téléphone : <a href="tel:+32471010113">+32 471 010 113</a></li>
-            </ul>
+            <h2>Contact vie privee</h2>
+            <p>Email : <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a><br>
+              Telephone : <a href="tel:+32471010113">+32 471 010 113</a>
+            </p>
           </div>
-
         </div>
       </div>
     </div>

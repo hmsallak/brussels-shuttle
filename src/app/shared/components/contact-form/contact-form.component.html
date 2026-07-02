@@ -45,7 +45,12 @@
           [formControl]="acceptedTermsFormControl"
           tuiCheckbox
           type="checkbox"/>
-        {{ 'contact-form.terms.text' | translate }}
+        <span>
+          {{ 'contact-form.terms.text' | translate }}
+          <a routerLink="/privacy-policy" class="text-cyan-700 underline underline-offset-2">
+            {{ 'navigation.privacy' | translate }}
+          </a>
+        </span>
       </label>
 
       <div class="tui-form__buttons">

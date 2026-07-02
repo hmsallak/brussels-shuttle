@@ -1,195 +1,106 @@
 <app-layout>
   <section class="w-full relative overflow-hidden lg:py-16 py-10 bg-gray-50">
     <div class="max-w-6xl mx-auto px-4 md:px-8">
-
-      <!-- Header -->
       <div class="mb-10 pb-8 border-b border-gray-200">
-        <p class="text-xs font-bold tracking-widest text-cyan-600 uppercase mb-3">Informations légales</p>
-        <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">Conditions générales d'utilisation</h1>
+        <p class="text-xs font-bold tracking-widest text-cyan-600 uppercase mb-3">Informations legales</p>
+        <h1 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">Conditions generales de service</h1>
         <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500">
-          <span>Dernière mise à jour : 1er janvier 2025</span>
-          <span class="text-gray-300">·</span>
-          <span>Brussels Shuttle SRL · TVA : BE 0XXX.XXX.XXX</span>
+          <span>Derniere mise a jour : 2 juillet 2026</span>
+          <span class="text-gray-300">-</span>
+          <span>Brussels Shuttle SRL - BCE/TVA : a completer</span>
         </div>
       </div>
 
       <div class="flex flex-col lg:flex-row gap-12">
-
-        <!-- Table des matières (sidebar) -->
         <aside class="lg:w-64 flex-shrink-0">
           <div class="sticky top-24 bg-white rounded-2xl border border-gray-100 p-6 shadow-sm">
             <p class="text-xs font-bold tracking-widest text-gray-400 uppercase mb-4">Sommaire</p>
             <nav class="flex flex-col gap-1">
-              <button (click)="scrollTo('intro')" class="toc-link">Présentation du service</button>
-              <button (click)="scrollTo('booking')" class="toc-link">Réservation en ligne</button>
-              <button (click)="scrollTo('payment')" class="toc-link">Paiement</button>
-              <button (click)="scrollTo('modifications')" class="toc-link">Modifications</button>
-              <button (click)="scrollTo('cancellations')" class="toc-link">Annulations</button>
-              <button (click)="scrollTo('company-cancel')" class="toc-link">Annulation par l'entreprise</button>
-              <button (click)="scrollTo('child-seat')" class="toc-link">Siège enfant</button>
-              <button (click)="scrollTo('disability')" class="toc-link">Passagers handicapés</button>
-              <button (click)="scrollTo('delayed-flight')" class="toc-link">Vol retardé</button>
-              <button (click)="scrollTo('obligations')" class="toc-link">Vos obligations</button>
-              <button (click)="scrollTo('transport')" class="toc-link">Service de transport</button>
-              <button (click)="scrollTo('luggage')" class="toc-link">Bagages</button>
-              <button (click)="scrollTo('liability')" class="toc-link">Responsabilité</button>
-              <button (click)="scrollTo('prohibited')" class="toc-link">Interdictions</button>
-              <button (click)="scrollTo('complaints')" class="toc-link">Plaintes</button>
-              <button (click)="scrollTo('gdpr')" class="toc-link">Protection des données (RGPD)</button>
-              <button (click)="scrollTo('ip')" class="toc-link">Propriété intellectuelle</button>
+              <button (click)="scrollTo('legal')" class="toc-link">Mentions legales</button>
+              <button (click)="scrollTo('service')" class="toc-link">Service</button>
+              <button (click)="scrollTo('booking')" class="toc-link">Reservation</button>
+              <button (click)="scrollTo('price')" class="toc-link">Prix et paiement</button>
+              <button (click)="scrollTo('cancel')" class="toc-link">Annulation</button>
+              <button (click)="scrollTo('passenger')" class="toc-link">Obligations client</button>
+              <button (click)="scrollTo('liability')" class="toc-link">Responsabilite</button>
+              <button (click)="scrollTo('complaints')" class="toc-link">Reclamations</button>
+              <button (click)="scrollTo('privacy')" class="toc-link">Donnees</button>
             </nav>
           </div>
         </aside>
 
-        <!-- Contenu -->
         <div class="flex-1 min-w-0">
-
-          <!-- Encart entreprise -->
           <div class="bg-cyan-50 border border-cyan-100 rounded-2xl p-6 mb-10">
             <p class="text-sm font-semibold text-cyan-800 mb-1">Brussels Shuttle SRL</p>
             <p class="text-sm text-cyan-700">
-              Service de transfert aéroportuaire privé · Belgique<br>
-              Email : <a href="mailto:info@brussels-shuttle.be" class="underline">info&#64;brussels-shuttle.be</a> ·
-              Tél : <a href="tel:+32471010113" class="underline">+32 471 010 113</a>
+              Adresse du siege : a completer<br>
+              BCE / TVA : a completer<br>
+              Email : <a href="mailto:info@brussels-shuttle.be" class="underline">info&#64;brussels-shuttle.be</a> -
+              Tel : <a href="tel:+32471010113" class="underline">+32 471 010 113</a>
             </p>
           </div>
 
-          <div id="intro" class="legal-section">
-            <h2>Présentation du service</h2>
-            <p>
-              Brussels Shuttle est spécialisée dans le transport privé de passagers vers et depuis les aéroports belges et européens. Nos chauffeurs sont expérimentés et nos véhicules régulièrement entretenus, afin de garantir une expérience de voyage confortable et sans stress, que vous soyez en déplacement professionnel ou personnel.
-            </p>
-            <p>
-              Nos services sont accessibles via le site <strong>brussels-shuttle.be</strong> et l'adresse e-mail <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>. Nos transferts sont conformes aux lois et réglementations belges en vigueur et nous disposons de tous les permis et licences nécessaires à l'exercice de cette activité.
-            </p>
-            <p>
-              Ces conditions générales s'appliquent à tout contrat conclu via notre site web. Toute réservation implique l'acceptation pleine et entière des présentes conditions. Si vous avez des questions, notre service client est disponible à tout moment.
-            </p>
+          <div id="legal" class="legal-section">
+            <h2>Mentions legales</h2>
+            <p>Le site brussels-shuttle.be est exploite par Brussels Shuttle SRL, societe belge dont les informations completes d'identification doivent etre completees avant publication definitive : adresse du siege, numero BCE, numero TVA et, si applicable, autorite de controle ou licence/permis de transport.</p>
+            <p>Les prix, conditions, coordonnees de contact et informations essentielles sont presentes avant la confirmation d'une reservation afin de respecter les obligations d'information applicables aux services en ligne.</p>
+          </div>
+
+          <div id="service" class="legal-section">
+            <h2>Service de transport</h2>
+            <p>Brussels Shuttle propose des transferts prives de passagers vers et depuis les aeroports belges et europeens. Les trajets sont organises selon les informations communiquees par le client lors de la reservation.</p>
+            <p>Les temps de trajet et itineraires affiches peuvent varier selon la circulation, les controles, les travaux, la meteo ou tout autre evenement independant de Brussels Shuttle.</p>
           </div>
 
           <div id="booking" class="legal-section">
-            <h2>Réservation en ligne</h2>
-            <p>La personne effectuant la réservation doit être âgée de 18 ans ou plus. Elle est responsable de l'exactitude des données saisies et du paiement intégral.</p>
-            <p>La réservation n'est considérée comme valide qu'après réception d'un e-mail de confirmation de notre part. Si le service réservé ne peut être fourni, le client en sera informé et intégralement remboursé. Après remboursement, notre responsabilité prend fin.</p>
-            <p>Il incombe au client de s'assurer de la bonne réception de toutes les communications. En l'absence d'accusé de réception, les données issues de notre serveur d'envoi feront foi.</p>
-            <p>Les mineurs de moins de 18 ans ne sont pas autorisés à voyager sans la présence d'un adulte. Nous nous réservons le droit d'annuler toute réservation effectuée par ou pour un mineur sans accompagnement adulte.</p>
+            <h2>Reservation</h2>
+            <p>La personne qui reserve doit etre majeure et fournir des informations exactes : adresse, date, heure, telephone, e-mail, nombre de passagers, bagages et eventuel numero de vol.</p>
+            <p>La reservation devient definitive apres confirmation par Brussels Shuttle et, selon le mode choisi, apres validation du paiement ou de l'accord de paiement. En cas d'impossibilite d'executer le service, le client est informe et rembourse si un paiement a deja ete effectue.</p>
           </div>
 
-          <div id="payment" class="legal-section">
-            <h2>Paiement du service</h2>
-            <p>Nous acceptons plusieurs modes de paiement : carte bancaire (Bancontact, Mastercard, Visa), paiement en espèces auprès du chauffeur, Apple Pay et virement bancaire.</p>
-            <p>Tous nos tarifs sont exprimés en euros. Toute conversion de devises éventuelle est à la charge du client et ne relève pas de notre responsabilité.</p>
+          <div id="price" class="legal-section">
+            <h2>Prix et paiement</h2>
+            <p>Les prix sont indiques en euros, taxes comprises lorsque celles-ci sont applicables. Les frais supplementaires eventuels doivent etre communiques avant confirmation lorsqu'ils sont previsibles.</p>
+            <p>Les paiements peuvent etre effectues par carte via Stripe, en especes au chauffeur ou par tout autre moyen affiche au moment de la reservation. Brussels Shuttle ne stocke pas les donnees completes de carte bancaire.</p>
           </div>
 
-          <div id="modifications" class="legal-section">
-            <h2>Modifications</h2>
-            <p>
-              Si votre bon de réservation contient des données incorrectes, vous pouvez les faire corriger au moins <strong>24 heures avant</strong> le départ prévu, en nous contactant par e-mail à
-              <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a> ou via WhatsApp au
-              <a href="https://api.whatsapp.com/send?phone=32471010113" target="_blank" rel="noreferrer noopener">0471 01 01 13</a>.
-            </p>
-            <p>Des frais supplémentaires peuvent s'appliquer si la modification entraîne un surcoût (changement de destination, de véhicule, etc.). Ces frais sont à la charge du client.</p>
-          </div>
-
-          <div id="cancellations" class="legal-section">
-            <h2>Annulations par le client</h2>
-            <p>
-              Toute annulation doit être communiquée par écrit à
-              <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a> ou au
-              <a href="https://api.whatsapp.com/send?phone=32471010113" target="_blank" rel="noreferrer noopener">0471 01 01 13</a>.
-            </p>
+          <div id="cancel" class="legal-section">
+            <h2>Modification et annulation</h2>
+            <p>Toute demande de modification ou d'annulation doit etre envoyee par e-mail a <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a> ou via le canal de contact indique dans la confirmation.</p>
             <ul>
-              <li><strong>Plus de 24 heures avant</strong> le départ : remboursement intégral.</li>
-              <li><strong>Moins de 24 heures avant</strong> le départ : aucun remboursement ne peut être garanti.</li>
+              <li><strong>Plus de 24 heures avant le depart :</strong> remboursement integral en cas d'annulation par le client.</li>
+              <li><strong>Moins de 24 heures avant le depart :</strong> remboursement non garanti, sauf accord commercial ou cas particulier accepte par Brussels Shuttle.</li>
+              <li><strong>Annulation par Brussels Shuttle :</strong> remboursement integral du montant paye ou proposition d'une solution alternative.</li>
             </ul>
-            <p>Une confirmation officielle d'annulation vous sera envoyée par e-mail.</p>
+            <p>Les services de transport de passagers ne beneficient pas toujours du droit de retractation classique applicable a d'autres achats en ligne. Les conditions d'annulation ci-dessus doivent donc etre lues avant reservation.</p>
           </div>
 
-          <div id="company-cancel" class="legal-section">
-            <h2>Modifications et annulations par Brussels Shuttle</h2>
-            <p>Dans des circonstances exceptionnelles (force majeure, indisponibilité de véhicule, conditions météorologiques extrêmes), Brussels Shuttle peut être amenée à modifier ou annuler une réservation. Le client en sera informé dans les meilleurs délais.</p>
-            <p>En cas d'annulation de notre part, le montant intégral sera remboursé. Après ce remboursement, notre responsabilité prend fin. Nous ferons néanmoins notre possible pour vous proposer une solution alternative.</p>
-          </div>
-
-          <div id="child-seat" class="legal-section">
-            <h2>Siège pour enfant</h2>
-            <p>Des sièges enfants et rehausseurs sont disponibles sur demande pour les enfants de moins de 12 ans ou de moins de 135 cm. Cette demande doit être formulée lors de la réservation, dans la section commentaires.</p>
-            <p>Dans des cas exceptionnels, la mise à disposition d'un siège enfant peut ne pas être possible. Le cas échéant, le client sera remboursé du supplément correspondant.</p>
-            <p>Si vous souhaitez utiliser votre propre siège enfant, vous devez nous en informer à l'avance afin que nous puissions vérifier la compatibilité avec le véhicule.</p>
-          </div>
-
-          <div id="disability" class="legal-section">
-            <h2>Transport de passagers en situation de handicap</h2>
-            <p>Les passagers nécessitant une assistance spécifique (fauteuil roulant, aide à la mobilité) doivent en informer Brussels Shuttle au moment de la réservation. Nous ne disposons pas de véhicules spécialement adaptés au transport de personnes à mobilité réduite ; nous vous recommandons de contacter un service spécialisé si nécessaire.</p>
-          </div>
-
-          <div id="delayed-flight" class="legal-section">
-            <h2>Vol retardé ou annulé</h2>
-            <p>Brussels Shuttle suit les horaires de vols en temps réel. En cas de retard, votre chauffeur adaptera son heure d'arrivée sans frais supplémentaires, dans la mesure du possible.</p>
-            <p>Si le service ne peut pas être assuré en raison d'un retard ou d'une déviation de vol, un remboursement intégral sera effectué.</p>
-          </div>
-
-          <div id="obligations" class="legal-section">
-            <h2>Vos obligations</h2>
-            <p>En acceptant ces conditions, le client s'engage à être présent à l'heure et au lieu de prise en charge indiqués sur le bon de réservation.</p>
-            <p>En cas d'absence ou de retard non signalé, notre chauffeur tentera de vous joindre au numéro de téléphone fourni lors de la réservation. Si aucun contact ne peut être établi dans un délai raisonnable, la réservation sera considérée comme honorée et aucun remboursement ne sera possible.</p>
-            <p>Il est de la responsabilité du passager de disposer de tous les documents nécessaires (passeport, visa, etc.) pour traverser les frontières.</p>
-          </div>
-
-          <div id="transport" class="legal-section">
-            <h2>Service de transport</h2>
-            <p>L'itinéraire affiché sur notre site (via Google Maps) est fourni à titre indicatif. Le trajet réel peut différer en fonction des conditions de circulation. Brussels Shuttle s'engage à faire son possible pour respecter les horaires, sans pouvoir les garantir à 100 % en raison de facteurs extérieurs.</p>
-            <p>Si le client ne parvient pas à localiser son chauffeur à l'arrivée, il doit contacter notre service client au numéro indiqué sur le bon. En l'absence de contact de la part du client, Brussels Shuttle sera déchargée de ses obligations et aucun remboursement ne sera accordé.</p>
-          </div>
-
-          <div id="luggage" class="legal-section">
-            <h2>Bagages</h2>
-            <p>Les bagages et effets personnels des passagers restent sous l'entière responsabilité de leur propriétaire. Brussels Shuttle décline toute responsabilité en cas de perte, vol ou dommage survenu pendant le trajet. Nous vous recommandons de souscrire une assurance voyage adaptée.</p>
+          <div id="passenger" class="legal-section">
+            <h2>Obligations du client et des passagers</h2>
+            <ul>
+              <li>Etre present a l'heure et au lieu convenus.</li>
+              <li>Disposer des documents necessaires pour voyager ou franchir une frontiere.</li>
+              <li>Signaler a l'avance les bagages volumineux, animaux, sieges enfants, assistance specifique ou contraintes de mobilite.</li>
+              <li>Respecter le vehicule, le chauffeur, les regles de securite et l'interdiction de fumer ou de consommer des substances illicites a bord.</li>
+            </ul>
           </div>
 
           <div id="liability" class="legal-section">
-            <h2>Responsabilité du client</h2>
-            <p>En effectuant une réservation, le client déclare avoir atteint l'âge de la majorité, avoir lu et compris les présentes conditions générales, et les accepter en leur intégralité.</p>
-            <p>Le client est responsable de l'exactitude des informations saisies (adresse de départ, destination, heure de prise en charge). Toute erreur dans ces données ne pourra être imputée à Brussels Shuttle.</p>
-            <p>Le bon de réservation reçu par e-mail doit être présenté au chauffeur au moment du transfert.</p>
-          </div>
-
-          <div id="prohibited" class="legal-section">
-            <h2>Interdictions</h2>
-            <p>Il est strictement interdit dans nos véhicules :</p>
-            <ul>
-              <li>De consommer des boissons alcoolisées</li>
-              <li>De consommer des drogues ou substances illicites</li>
-              <li>De fumer (y compris les cigarettes électroniques)</li>
-              <li>De manger</li>
-            </ul>
-            <p>Le non-respect de ces règles peut entraîner l'interruption immédiate du trajet sans remboursement.</p>
+            <h2>Responsabilite</h2>
+            <p>Brussels Shuttle s'engage a fournir le service avec diligence professionnelle. Sa responsabilite ne peut toutefois pas etre engagee pour les retards ou impossibilites dus a des causes externes : trafic exceptionnel, accident, meteo, greve, controle administratif, force majeure ou informations incorrectes fournies par le client.</p>
+            <p>Les effets personnels et bagages restent sous la responsabilite des passagers, sauf faute prouvee de Brussels Shuttle.</p>
           </div>
 
           <div id="complaints" class="legal-section">
-            <h2>Plaintes et réclamations</h2>
-            <p>Toute réclamation doit être soumise dans les 7 jours suivant le trajet concerné, par e-mail à <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>. Nous traiterons votre demande dans les meilleurs délais et vous fournirons une réponse circonstanciée.</p>
+            <h2>Reclamations et droit applicable</h2>
+            <p>Toute reclamation doit etre envoyee dans les 7 jours suivant le trajet concerne a <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>. Brussels Shuttle s'efforcera de repondre dans un delai raisonnable.</p>
+            <p>Les presentes conditions sont soumises au droit belge. En cas de litige non resolu amiablement, les juridictions belges competentes peuvent etre saisies, sans prejudice des droits imperatifs du consommateur.</p>
           </div>
 
-          <div id="gdpr" class="legal-section">
-            <h2>Protection des données personnelles (RGPD)</h2>
-            <p>Brussels Shuttle collecte et traite vos données personnelles (nom, prénom, e-mail, numéro de téléphone) uniquement dans le but d'assurer la bonne exécution de votre réservation et de vous contacter si nécessaire.</p>
-            <p>Conformément au Règlement Général sur la Protection des Données (RGPD – Règlement UE 2016/679), vous disposez des droits suivants :</p>
-            <ul>
-              <li><strong>Droit d'accès :</strong> consulter les données que nous détenons sur vous.</li>
-              <li><strong>Droit de rectification :</strong> corriger des données inexactes ou incomplètes.</li>
-              <li><strong>Droit à l'effacement :</strong> demander la suppression de vos données.</li>
-              <li><strong>Droit d'opposition :</strong> vous opposer au traitement de vos données à des fins de marketing.</li>
-            </ul>
-            <p>Pour exercer ces droits, contactez-nous à <a href="mailto:info@brussels-shuttle.be">info&#64;brussels-shuttle.be</a>. Vos données ne sont jamais revendues à des tiers et sont conservées pendant une durée maximale de 3 ans après votre dernier trajet.</p>
+          <div id="privacy" class="legal-section">
+            <h2>Protection des donnees</h2>
+            <p>Les donnees personnelles sont traitees pour gerer les reservations, paiements, factures, communications et obligations legales. Les details figurent dans la <a routerLink="/privacy-policy">politique de confidentialite</a>.</p>
           </div>
-
-          <div id="ip" class="legal-section">
-            <h2>Propriété intellectuelle</h2>
-            <p>L'ensemble des contenus du site brussels-shuttle.be (textes, images, logos, structure) est la propriété exclusive de Brussels Shuttle et est protégé par les lois belges et internationales relatives à la propriété intellectuelle.</p>
-            <p>Toute reproduction, copie, diffusion ou utilisation commerciale, totale ou partielle, sans autorisation écrite préalable de Brussels Shuttle, est strictement interdite et pourra faire l'objet de poursuites judiciaires.</p>
-          </div>
-
         </div>
       </div>
     </div>

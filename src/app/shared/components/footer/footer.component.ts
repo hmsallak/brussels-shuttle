@@ -13,5 +13,7 @@ import {TranslateModule} from "@ngx-translate/core";
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-
+  openCookieSettings() {
+    window.dispatchEvent(new Event('open-cookie-settings'));
+  }
 }

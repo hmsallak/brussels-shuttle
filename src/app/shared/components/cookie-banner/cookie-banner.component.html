@@ -1,14 +1,14 @@
 @if (visible()) {
   <div class="cookie-banner" [class.cookie-dismissing]="accepted() !== null" role="dialog" aria-live="polite" aria-label="Consentement aux cookies">
 
-    <div class="cookie-icon" aria-hidden="true">🍪</div>
+    <div class="cookie-icon" aria-hidden="true">Cookies</div>
 
     <div class="cookie-body">
       <p class="cookie-title">Ce site utilise des cookies</p>
       <p class="cookie-desc">
-        Nous utilisons des cookies essentiels pour le bon fonctionnement du site (réservation, paiement sécurisé via Stripe, autocomplétion d'adresses via Google Maps).
-        En acceptant, vous consentez également aux cookies analytiques qui nous aident à améliorer le service.
-        <a routerLink="/privacy-policy">Politique de confidentialité</a>
+        Nous utilisons des cookies essentiels au fonctionnement du site. Les cookies analytiques optionnels ne sont actives qu'avec votre accord.
+        Vous pouvez accepter, refuser ou modifier votre choix a tout moment depuis le footer.
+        <a routerLink="/privacy-policy">Politique de confidentialite</a>
       </p>
     </div>
 

@@ -1,4 +1,4 @@
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, HostListener, signal, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -19,6 +19,12 @@ export class CookieBannerComponent implements OnInit {
     if (!stored) {
       setTimeout(() => this.visible.set(true), 1200);
     }
+  }
+
+  @HostListener('window:open-cookie-settings')
+  openSettings() {
+    this.accepted.set(null);
+    this.visible.set(true);
   }
 
   accept() {

@@ -30,7 +30,14 @@
 }
 
 .cookie-icon {
-  font-size: 1.6rem;
+  padding: 6px 9px;
+  border-radius: 999px;
+  background: rgba(103, 232, 249, 0.12);
+  color: #67e8f9;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   flex-shrink: 0;
   margin-top: 2px;
 }

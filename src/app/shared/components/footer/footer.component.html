@@ -23,6 +23,13 @@
     <nav class="space-y-3">
       <h6 class="text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">{{ 'footer.legal'| translate }}</h6>
       <a class="block text-sm text-slate-300 transition hover:text-white" routerLink="/term-of-use">{{ 'navigation.conditions'| translate }}</a>
+      <a class="block text-sm text-slate-300 transition hover:text-white" routerLink="/privacy-policy">{{ 'navigation.privacy'| translate }}</a>
+      <button
+        type="button"
+        class="block text-left text-sm text-slate-300 transition hover:text-white"
+        (click)="openCookieSettings()">
+        {{ 'footer.links.cookies'| translate }}
+      </button>
       <a class="block text-sm font-bold text-white transition hover:text-cyan-200" href="https://wa.me/32472090084">WhatsApp</a>
     </nav>
   </div>

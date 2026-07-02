@@ -22,6 +22,7 @@ import {VALIDATION_ERRORS} from "../../utils/error.utils";
 import {AsyncPipe} from "@angular/common";
 import {TranslateModule} from "@ngx-translate/core";
 import {NotificationService} from "../../services/notification.service";
+import {RouterLink} from "@angular/router";
 
 
 
@@ -39,7 +40,8 @@ import {NotificationService} from "../../services/notification.service";
     AsyncPipe,
     TuiErrorModule,
     TuiFieldErrorPipeModule,
-    TranslateModule
+    TranslateModule,
+    RouterLink
 
   ],
   templateUrl: './contact-form.component.html',
