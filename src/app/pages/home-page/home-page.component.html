@@ -3,45 +3,45 @@
     <picture>
       <source srcset="assets/images/brussels-shuttle-bg-phone.webp" media="(max-width: 768px)" type="image/webp" />
       <source srcset="assets/images/schuman.webp" media="(min-width: 769px)" type="image/webp" />
-      <img
-        src="assets/images/schuman.webp"
-        class="absolute inset-0 h-full w-full object-cover"
-        alt="Brussels city transfer"
-      />
+      <img src="assets/images/schuman.webp" class="absolute inset-0 h-full w-full object-cover" alt="Brussels city transfer" />
     </picture>
     <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/82 to-slate-950/35"></div>
 
     <div class="relative">
-      <div class="bs-shell grid min-h-[760px] items-center gap-10 pb-14 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:pt-32">
+      <div class="bs-shell grid min-h-[780px] items-center gap-10 pb-14 pt-28 lg:grid-cols-[1.05fr_0.95fr] lg:pt-32">
         <div class="max-w-3xl text-white">
           <p class="bs-eyebrow text-cyan-200">Brussels Shuttle</p>
           <h1 class="mt-5 text-5xl font-extrabold leading-[1.02] tracking-normal sm:text-6xl lg:text-7xl">
-            <span [innerHTML]="'home-page.landing.title1' | translate"></span>
-            <span class="block text-cyan-300" [innerHTML]="'home-page.landing.title2' | translate | lowercase"></span>
+            Transfert prive pour aeroport, voyage et evenement
+            <span class="block text-cyan-300">depuis Bruxelles</span>
           </h1>
-          <p class="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg" [innerHTML]="'home-page.landing.description' | translate"></p>
+          <p class="mt-6 max-w-2xl text-base leading-8 text-slate-200 sm:text-lg">
+            Chauffeur prive 24/7 vers Zaventem, Charleroi, les aeroports europeens, Tomorrowland, Les Ardentes, Brugge, Gand, Liege, Namur et toutes les villes belges.
+          </p>
 
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a routerLink="booking/request" class="bs-button-primary">
-              {{ 'home-page.landing.cta' | translate }}
-            </a>
-            <button type="button" (click)="scrollToSection('detailsSection')" class="bs-button-secondary">
-              {{ 'home-page.landing.cta2' | translate }}
-            </button>
+            <a routerLink="booking/request" class="bs-button-primary">Calculer mon prix</a>
+            <button type="button" (click)="scrollToSection('servicesSection')" class="bs-button-secondary">Voir les services</button>
+          </div>
+
+          <div class="mt-8 flex flex-wrap gap-2">
+            @for (route of quickRoutes; track route) {
+              <a routerLink="/booking/request" class="home-hero-chip">{{ route }}</a>
+            }
           </div>
 
           <div class="mt-10 grid max-w-2xl grid-cols-3 gap-3">
             <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur">
               <p class="text-2xl font-extrabold">24/7</p>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">{{ 'home-page.features.items.hour.title' | translate }}</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Jour et nuit</p>
             </div>
             <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur">
               <p class="text-2xl font-extrabold">8</p>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">{{ 'steps.final-step.passenger' | translate }}</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Passagers</p>
             </div>
             <div class="rounded-lg border border-white/15 bg-white/10 p-4 backdrop-blur">
-              <p class="text-2xl font-extrabold">BE</p>
-              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">{{ 'navigation.destinations' | translate }}</p>
+              <p class="text-2xl font-extrabold">EU</p>
+              <p class="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-slate-300">Aeroports</p>
             </div>
           </div>
         </div>
@@ -55,21 +55,49 @@
     </div>
   </section>
 
-  <section class="bs-section bg-white">
-    <div class="bs-shell">
-      <app-features></app-features>
+  <section class="home-service-section" id="servicesSection">
+    <div class="home-section-head">
+      <p>Nos services</p>
+      <h2>Un chauffeur pour vos departs, arrivees, festivals et voyages en Belgique</h2>
+      <span>Le visiteur doit comprendre en 10 secondes ce que tu fais: aeroport, evenement, ville, groupe, business, tourisme.</span>
+    </div>
+
+    <div class="home-service-grid">
+      @for (service of serviceCards; track service.title) {
+        <article class="home-service-card">
+          <img [src]="service.image" [alt]="service.title" loading="lazy">
+          <div>
+            <p>{{ service.kicker }}</p>
+            <h3>{{ service.title }}</h3>
+            <span>{{ service.description }}</span>
+            <a routerLink="/booking/request">Reserver ce service</a>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="home-events-section">
+    <div class="home-events-copy">
+      <p>Evenements et festivals</p>
+      <h2>Tomorrowland, Les Ardentes, festivals a Bruxelles: arrivez et repartez sans stress</h2>
+      <span>Retour tardif, lieu de prise en charge clair, vehicule pour groupes, paiement en ligne ou au chauffeur. Le trajet devient la partie simple de votre evenement.</span>
+      <a routerLink="/booking/request">Organiser mon transfert evenement</a>
+    </div>
+    <div class="home-events-list">
+      @for (event of eventRoutes; track event) {
+        <a routerLink="/booking/request">{{ event }}</a>
+      }
     </div>
   </section>
 
   <section class="bs-section bg-[#f6f8fb]" id="detailsSection">
     <div class="bs-shell grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
       <div>
-        <p class="bs-eyebrow">{{ 'home-page.steps.cta' | translate }}</p>
-        <h2 class="bs-title mt-4">{{ 'home-page.steps.title' | translate }}</h2>
-        <p class="bs-copy mt-5 max-w-2xl">{{ 'home-page.steps.description' | translate }}</p>
-        <a routerLink="booking/request" class="bs-button-primary mt-8">
-          {{ 'home-page.steps.cta' | translate }}
-        </a>
+        <p class="bs-eyebrow">Reservation simple</p>
+        <h2 class="bs-title mt-4">Prix clair, chauffeur ponctuel, confirmation rapide</h2>
+        <p class="bs-copy mt-5 max-w-2xl">Indiquez votre depart, votre destination et votre horaire. Le formulaire prepare une estimation, puis vous choisissez le vehicule adapte au trajet.</p>
+        <a routerLink="booking/request" class="bs-button-primary mt-8">Reserver maintenant</a>
         <div class="mt-10">
           <app-reservation-approach></app-reservation-approach>
         </div>
@@ -82,35 +110,66 @@
     </div>
   </section>
 
+  <section class="home-about-strip">
+    <div>
+      <p>A propos</p>
+      <h2>Une societe bruxelloise, pensee pour les voyageurs qui veulent arriver a l'heure.</h2>
+      <span>Brussels Shuttle est le nom commercial de Limslk & Co SRL. Basee a Bruxelles, l'equipe organise des transferts prives pour particuliers, familles, groupes, voyageurs business et evenements.</span>
+      <a routerLink="/about">Decouvrir Brussels Shuttle</a>
+    </div>
+  </section>
+
   <section class="bs-section bg-white">
     <div class="bs-shell">
       <div class="mx-auto max-w-3xl text-center">
         <p class="bs-eyebrow">{{ 'navigation.destinations' | translate }}</p>
-        <app-title [title]="'home-page.destinations.title' | translate"></app-title>
+        <h2 class="bs-title mt-4">Aeroports et destinations populaires</h2>
       </div>
 
       <div class="mt-12 grid gap-6 lg:grid-cols-3">
         @for(destination of destinationsItems(); track $index){
-          <div>
-            <app-destination [name]="destination['name']"
-                             [cta]="destination['cta']"
-                             [imageUri]="destination['imageUri']"
-                             [title]="destination['title']"
-                             [description]="destination['description']">
-            </app-destination>
-          </div>
+          <app-destination [name]="destination['name']"
+                           [cta]="destination['cta']"
+                           [imageUri]="destination['imageUri']"
+                           [title]="destination['title']"
+                           [description]="destination['description']">
+          </app-destination>
         }
       </div>
 
       <div class="mt-10 flex justify-center">
-        <a routerLink="services/destinations" class="bs-button-light">
-          {{ 'home-page.destinations.cta' | translate }}
-        </a>
+        <a routerLink="services/destinations" class="bs-button-light">Voir toutes les villes et aeroports</a>
       </div>
+    </div>
+  </section>
+
+  <section class="home-blog-section">
+    <div class="home-section-head">
+      <p>Blog voyage</p>
+      <h2>Guides pour organiser vos trajets, festivals et city trips</h2>
+      <span>Du contenu utile pour rassurer le client et capter les recherches Google autour des aeroports, villes belges et evenements.</span>
+    </div>
+
+    <div class="home-blog-grid">
+      @for (post of blogTeasers; track post.title) {
+        <article>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.description }}</p>
+          <a routerLink="/blog">Lire le guide</a>
+        </article>
+      }
     </div>
   </section>
 
   <section class="bg-[#f6f8fb]">
     <app-testimonial></app-testimonial>
+  </section>
+
+  <section class="home-final-action">
+    <div>
+      <p>Votre trajet commence ici</p>
+      <h2>Aeroport, festival, ville belge ou aeroport europeen: recevez votre prix maintenant.</h2>
+      <a routerLink="/booking/request">Calculer mon prix</a>
+    </div>
   </section>
 </app-layout>
